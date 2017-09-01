@@ -1,0 +1,9 @@
+<?xml version ="1.0" encoding="utf-8"?>
+<Letters>
+  <LetterDef>
+    <defName>SALInformation</defName>
+    <color>(0, 255, 64)</color>
+    <flashColor>(140, 255, 169)</flashColor>
+    <flashInterval>90</flashInterval>
+  </LetterDef>
+</Letters>
