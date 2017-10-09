@@ -139,7 +139,7 @@ namespace ProjectSAL
             {
                 thingPlacementQueue.Add(obj);
             }
-            FindBillAndChangeRepeatCount(BillStack, currentRecipe);
+            FindBillAndChangeRepeatCount(WorkTableBillStack, currentRecipe);
             ResetRecipe();
         }
 
@@ -199,6 +199,7 @@ namespace ProjectSAL
                 var unfinished = (UnfinishedThing)ThingMaker.MakeThing(currentRecipe.unfinishedThingDef, stuff);
                 unfinished.workLeft = workLeft;
                 unfinished.ingredients = thingRecord;
+                unfinished.Creator = buildingPawn;
                 GenPlace.TryPlaceThing(unfinished, Position, Map, ThingPlaceMode.Near);
             }
             thingRecord.Clear();
@@ -226,9 +227,9 @@ namespace ProjectSAL
                     Log.Error("Tried to reserve workTable but workTable was null.");
                     return;
                 }
-                if (WorkTable == this) return;
                 thing = WorkTable;
             }
+            if (thing == this) return;
             Map.physicalInteractionReservationManager.Reserve(buildingPawn, new LocalTargetInfo(thing));
             //Automatically checks if already reserved in core game code
             if (Map.reservationManager.CanReserve(buildingPawn, new LocalTargetInfo(thing))) Map.reservationManager.Reserve(buildingPawn, new LocalTargetInfo(thing));
@@ -241,19 +242,5 @@ namespace ProjectSAL
         }
         #endregion
 
-        public void DoSelfPawnAnalysis()
-        {
-            StringBuilder b = new StringBuilder();
-            b.AppendLine("Beginning S.A.L. pawn analysis.");
-            b.AppendFormat("Pawn '{0}':\nSkills:\n", buildingPawn.Name);
-            for (int i = 0; i < buildingPawn.skills.skills.Count; i++)
-            {
-                SkillRecord skill = buildingPawn.skills.skills[i];
-                b.AppendFormat("Skill {0}: Level: {1}, Incapable: {2}\n",skill.def.label,skill.Level,skill.TotallyDisabled);
-            }
-            b.AppendFormat("Backstories: CHILD: {0} ADULT: {1}\n", buildingPawn.story.childhood, buildingPawn.story.adulthood);
-            b.AppendLine("End S.A.L. pawn analysis.");
-            Log.Message(b.ToString());
-        }
     }
 }

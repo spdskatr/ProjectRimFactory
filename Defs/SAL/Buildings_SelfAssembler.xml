@@ -3,7 +3,7 @@
     <ThingDef ParentName="BenchBase">
     <defName>SelfElectricStove</defName>
     <label>self electric stove</label>
-    <ThingClass>ProjectSAL.Building_Assembler</ThingClass>
+    <ThingClass>SAL3.Building_DynamicBillReceiver</ThingClass>
     <Description>An electrically-powered stove with an attached countertop for preparing meals. Wait, why aren't there any pawns coming to make the food? Because it's automatic!</Description>
     <graphicData>
       <texPath>Things/Building/Production/TableStoveElectric</texPath>
@@ -34,6 +34,7 @@
     <Passability>PassThroughOnly</Passability>
     <pathCost>70</pathCost>
     <surfaceType>Item</surfaceType>
+    <tickerType>Normal</tickerType>
     <recipes>
       <li>CookMealSimple</li>
       <li>CookMealFine</li>
@@ -56,6 +57,8 @@
     <building>
       <spawnedConceptLearnOpportunity>BillsTab</spawnedConceptLearnOpportunity>
       <heatPerTickWhileWorking>0.10</heatPerTickWhileWorking>
+      <workSpeedPenaltyOutdoors>false</workSpeedPenaltyOutdoors>
+      <workSpeedPenaltyTemperature>false</workSpeedPenaltyTemperature>
     </building>
     <designationHotKey>Misc8</designationHotKey>
     <researchPrerequisites>

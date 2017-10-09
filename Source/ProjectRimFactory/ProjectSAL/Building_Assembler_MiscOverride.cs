@@ -112,25 +112,18 @@ namespace ProjectSAL
             };
             if (Prefs.DevMode)
             {
-                yield return new Command_Action
+                List<FloatMenuOption> list = new List<FloatMenuOption>
                 {
-                    defaultLabel = "DEBUG: Set workLeft to 1",
-                    action = () => workLeft = 1,
+                    new FloatMenuOption("Set workLeft to 1", () => workLeft = 1),
+                    new FloatMenuOption("Drop everything", DropAllThings),
+                    new FloatMenuOption("Do pawn skills analysis", DoSelfPawnAnalysis),
+                    new FloatMenuOption("Reset pawn backstories/traits", () => SetBackstoryAndSkills(buildingPawn)),
+                    new FloatMenuOption("Log work table debug info", ShowBillStack)
                 };
                 yield return new Command_Action
                 {
-                    defaultLabel = "DEBUG: Drop everything",
-                    action = DropAllThings,
-                };
-                yield return new Command_Action
-                {
-                    defaultLabel = "DEBUG: Do pawn skills analysis",
-                    action = DoSelfPawnAnalysis
-                };
-                yield return new Command_Action
-                {
-                    defaultLabel = "DEBUG: Reset pawn backstories and traits",
-                    action = () => SetBackstoryAndSkills(buildingPawn)
+                    defaultLabel = "Debug actions (click to show)",
+                    action = () => Find.WindowStack.Add(new FloatMenu(list))
                 };
             }
         }
@@ -147,8 +140,7 @@ namespace ProjectSAL
         public override string GetInspectString()
         {
             var stringBuilder = new StringBuilder();
-            stringBuilder.Append(base.GetInspectString());
-            stringBuilder.AppendLine("SALInspect_CurrentConfig".Translate(rotOutput));
+            stringBuilder.AppendLine(base.GetInspectString().TrimEndNewlines());
             stringBuilder.AppendLine("SALInspect_WorkLeft".Translate(workLeft.ToStringWorkAmount()));
             stringBuilder.AppendLine("SALInspect_PlacementQueue".Translate(thingPlacementQueue.Count));
             if (!GetComp<CompPowerTrader>().PowerOn)

@@ -22,7 +22,10 @@ namespace ProjectSAL
                 || allowForbidden)
                 && Map.reservationManager.IsReserved(new LocalTargetInfo(t), Faction.OfPlayer))
                 return;
-            ingredients.ForEach(ingredient => AcceptEachIngredient(ingredient, t));
+            for (int i = 0; i < ingredients.Count; i++)
+            {
+                AcceptEachIngredient(ingredients[i], t);
+            }
         }
 
         protected virtual void AcceptEachIngredient(_IngredientCount ingredient, Thing t)
@@ -34,7 +37,7 @@ namespace ProjectSAL
 
         protected virtual void AcceptItemWithFilter(Thing t, _IngredientCount ingredient)
         {
-            var bill = (WorkTable != null && BillStack != null) ? BillStack.FirstShouldDoNow : null;
+            var bill = (WorkTable != null && WorkTableBillStack != null) ? WorkTableBillStack.FirstShouldDoNow : null;
             if (bill?.recipe != currentRecipe)
             {
                 ResetRecipe();
@@ -77,8 +80,7 @@ namespace ProjectSAL
         protected virtual void TakeItemWhenBaseCountDoesNotSatisfy(Thing t, _IngredientCount ingredient, float basecount)
         {
             Thing dup;
-            var corpse = t as Corpse;
-            if (corpse != null)
+            if (t is Corpse corpse)
             {
                 corpse.Strip();
                 /*

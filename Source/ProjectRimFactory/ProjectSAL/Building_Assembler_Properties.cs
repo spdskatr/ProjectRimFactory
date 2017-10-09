@@ -34,13 +34,13 @@ namespace ProjectSAL
 
         public virtual Building_WorkTable WorkTable => this;
 
-        public new BillStack BillStack => WorkTable?.BillStack;
+        public BillStack WorkTableBillStack => WorkTable?.BillStack;
 
         protected bool OutputSlotOccupied => OutputSlot.GetFirstItem(Map) != null || OutputSlot.Impassable(Map);
 
-        protected bool ShouldDoWork => currentRecipe != null && !ingredients.Any(ingredient => ingredient.count > 0) && ShouldDoWorkInCurrentTimeAssignment;
+        protected bool ShouldDoWork => currentRecipe != null && !ingredients.Any(ingredient => ingredient.count > 0f) && ShouldDoWorkInCurrentTimeAssignment;
 
-        protected bool ShouldStartBill => currentRecipe == null && BillStack != null && BillStack.AnyShouldDoNow;
+        protected bool ShouldStartBill => currentRecipe == null && WorkTableBillStack != null && WorkTableBillStack.AnyShouldDoNow;
 
         protected bool ShouldDoWorkInCurrentTimeAssignment => buildingPawn.timetable.times[GenLocalDate.HourOfDay(this)] != TimeAssignmentDefOf.Sleep;
 
@@ -52,8 +52,7 @@ namespace ProjectSAL
         {
             get
             {
-                if (WorkTable == this) return false;
-                if (WorkTable == null) return false;
+                if (WorkTable == this || WorkTable == null) return false;
                 var target = new LocalTargetInfo(WorkTable);
                 return Map.reservationManager.IsReserved(target, Faction) && !Map.physicalInteractionReservationManager.IsReservedBy(buildingPawn, target) && !Map.reservationManager.ReservedBy(target, buildingPawn);
             }
@@ -72,6 +71,6 @@ namespace ProjectSAL
         /// <summary>
         /// If worktable has no bills that we should do now, return true
         /// </summary>
-        protected bool WorkTableIsDormant => !(BillStack?.AnyShouldDoNow ?? false);
+        protected bool WorkTableIsDormant => !(WorkTableBillStack?.AnyShouldDoNow ?? false);
     }
 }

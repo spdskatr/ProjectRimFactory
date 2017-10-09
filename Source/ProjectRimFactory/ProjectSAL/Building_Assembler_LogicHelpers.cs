@@ -12,14 +12,9 @@ namespace ProjectSAL
         public static Thing CalculateDominantIngredient(RecipeDef currentRecipe, List<Thing> thingRecord)
         {
             var stuffs = thingRecord.Where(t => t.def.IsStuff);
-            if (thingRecord == null)
-            {
-                Log.Warning("ThingRecord was null.");
-                return null;
-            }
             if (thingRecord.Count == 0)
             {
-                if (currentRecipe.ingredients.Count > 0) Log.Warning("S.A.L.: Had no thingRecord of items being accepted, but crafting recipe has ingredients.");
+                if (currentRecipe.ingredients.Count > 0) Log.Warning("S.A.L.: Had no thingRecord of items being accepted, but crafting recipe has ingredients. Did you reload a save?");
                 return ThingMaker.MakeThing(ThingDefOf.Steel);
             }
             if (currentRecipe.productHasIngredientStuff)

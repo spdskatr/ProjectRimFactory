@@ -3,6 +3,8 @@
 **S.A.L.**
 + Add prototype self-auto-assembler
  + Fix the issue "Why won't the damn thing start"
+  + Broke-fixed - ShouldDoWork permanently on
++ Fix UnfinishedThing bug
 
 **Cultivator Tools**
 

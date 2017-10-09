@@ -12,9 +12,9 @@ namespace ProjectSAL
     {
         public bool CheckIfShouldActivate()
         {
-            if ((!ShouldDoWorkInCurrentTimeAssignment) || WorkTableIsDisabled || WorkTableIsDormant)
+            if (thingPlacementQueue.Count == 0 && ((!ShouldDoWorkInCurrentTimeAssignment) || WorkTableIsDisabled || WorkTableIsDormant))
             {
-                if (Map.reservationManager.IsReserved(new LocalTargetInfo(WorkTable), Faction)) ReleaseAll();
+                if (WorkTableisReservedByOther) ReleaseAll();
                 var powerComp = GetComp<CompPowerTrader>();
                 //Change to low power
                 if (powerComp != null)
@@ -26,7 +26,7 @@ namespace ProjectSAL
             }
             else if (!GetComp<CompPowerTrader>().PowerOn)
             {
-                if (Map.reservationManager.IsReserved(new LocalTargetInfo(WorkTable), Faction)) ReleaseAll();
+                if (WorkTableisReservedByOther) ReleaseAll();
                 cachedShouldActivate = false;
                 return false;
             }
@@ -58,10 +58,10 @@ namespace ProjectSAL
 
             if (ShouldDoWork && SoundOfCurrentRecipe != null && !WorkTableIsDisabled)
                 PlaySustainer();
-            if (WorkTable != null && !Map.reservationManager.IsReserved(new LocalTargetInfo(WorkTable), Faction)) TryReserve();
-            if (Find.TickManager.TicksGame % 35 == 0)
+            if (WorkTable != null && WorkTableisReservedByOther) TryReserve();
+            if (this.IsHashIntervalTick(35))
                 AcceptItems();//once every 35 ticks
-            if (Find.TickManager.TicksGame % 60 == 0)
+            if (this.IsHashIntervalTick(60))
                 TickSecond();//once every 60 ticks
         }
 
@@ -72,11 +72,12 @@ namespace ProjectSAL
             if (ResetIfWorkTableIsNull())
                 return;
             if (ShouldStartBill)
-                SetRecipe(BillStack.FirstShouldDoNow);
+                SetRecipe(WorkTableBillStack.FirstShouldDoNow);
             if (ShouldDoWork)
             {
                 if (workLeft <= 0)
                 {
+                    Log.Message("I'm passing by.");
                     ThingDef mainIngDef = CalculateDominantIngredient(currentRecipe, thingRecord).def;
                     workLeft = currentRecipe.WorkAmountTotal(mainIngDef);
                 }
@@ -117,7 +118,7 @@ namespace ProjectSAL
 
                 //Factor from stuff, as well as extra work speed. The lighter the mass of the stuff it's made out of, the faster it crafts.
                 //Steel is the base, so the factor of steel must equal 1
-                float factorFromStuff = (Stuff.statBases.Find(s => s.stat == StatDefOf.MeleeWeapon_Cooldown)?.value ?? 0.5f) * 2;
+                float factorFromStuff = (Stuff?.statBases?.Find(s => s.stat == StatDefOf.MeleeWeapon_Cooldown)?.value ?? 0.5f) * 2;
                 float extraFactor = Extension.globalFactor;
                 workLeft -= (interval * skillFactor * extraFactor / factorFromStuff);
                 if (workLeft <= 0f)

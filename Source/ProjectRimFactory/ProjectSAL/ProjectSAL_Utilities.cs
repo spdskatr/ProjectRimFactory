@@ -113,8 +113,8 @@ namespace ProjectSAL
         /// </summary>
         public static void CheckForCoreDrillerSetting(this Building_Assembler crafter)
         {
-            var tableExists = crafter.Map.thingGrid.ThingsListAt(crafter.WorkTableCell).OfType<Building>().TryRandomElement(out Building table);
-            if (tableExists && !LoadedModManager.GetMod<SALMod>().settings.FixCoreDriller && table.def.defName == "CoreDrill")
+            var table = crafter.Map.thingGrid.ThingsListAt(crafter.WorkTableCell).OfType<Building>().FirstOrDefault(b => b.def.defName == "CoreDrill");
+            if (table != null && !LoadedModManager.GetMod<SALMod>().settings.FixCoreDriller)
             {
                 ReceiveLetterOnce("SALInformation_CoreDriller".Translate(), "SALInformation_CoreDriller_Desc".Translate(), DefDatabase<LetterDef>.GetNamed("SALInformation"), crafter.InteractionCell.GetFirstBuilding(crafter.Map), "SALInformation_CoreDriller");
             }

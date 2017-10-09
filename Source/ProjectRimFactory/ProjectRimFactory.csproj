@@ -1,0 +1,77 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{49284A95-A0E6-45F6-B7C8-20A4372C90E5}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ProjectRimFactory</RootNamespace>
+    <AssemblyName>ProjectRimFactory</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>embedded</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>..\..\Assemblies\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <DebugSymbols>true</DebugSymbols>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Assembly-CSharp">
+      <HintPath>C:\Program Files (x86)\Steam\steamapps\common\RimWorld\RimWorldWin_Data\Managed\Assembly-CSharp.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="UnityEngine">
+      <HintPath>C:\Program Files (x86)\Steam\steamapps\common\RimWorld\RimWorldWin_Data\Managed\UnityEngine.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AnimalStation\Building_Classes.cs" />
+    <Compile Include="AnimalStation\PlaceWorker_ShowAdjacent.cs" />
+    <Compile Include="CultivatorTools\Buildings.cs" />
+    <Compile Include="CultivatorTools\Building_RadialCellIterator.cs" />
+    <Compile Include="CultivatorTools\Building_SquareCellIterator.cs" />
+    <Compile Include="CultivatorTools\ModSettings.cs" />
+    <Compile Include="CultivatorTools\Utilities.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ProjectSAL\Building_Assembler.cs" />
+    <Compile Include="ProjectSAL\Building_Assembler_AcceptingItems.cs" />
+    <Compile Include="ProjectSAL\Building_Assembler_DebugActions.cs" />
+    <Compile Include="ProjectSAL\Building_Assembler_LogicHelpers.cs" />
+    <Compile Include="ProjectSAL\Building_Assembler_MiscOverride.cs" />
+    <Compile Include="ProjectSAL\Building_Assembler_Pawn.cs" />
+    <Compile Include="ProjectSAL\Building_Assembler_Properties.cs" />
+    <Compile Include="ProjectSAL\Building_Assembler_Ticking.cs" />
+    <Compile Include="ProjectSAL\Building_Crafter.cs" />
+    <Compile Include="ProjectSAL\Building_SmartHopper.cs" />
+    <Compile Include="ProjectSAL\Defs.cs" />
+    <Compile Include="ProjectSAL\Dialogs.cs" />
+    <Compile Include="ProjectSAL\ModSettings.cs" />
+    <Compile Include="ProjectSAL\ProjectSAL_Utilities.cs" />
+    <Compile Include="ProjectSAL\ResourceBank.cs" />
+    <Compile Include="SAL3\Building_DynamicBillReceiver.cs" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
