@@ -2,7 +2,7 @@
 <SAL>
   <ThingDef ParentName="CTBuildingBase">
     <defName>SelfElectricStove</defName>
-    <label>self electric stove</label>
+    <label>--S.A.L. TEST ITEM-- self electric stove</label>
     <thingClass>ProjectRimFactory.SAL3.Things.Assemblers.Building_SimpleAssembler</thingClass>
     <Description>An electrically-powered stove with an attached countertop for preparing meals. Wait, why aren't there any pawns coming to make the food? Because it's automatic!</Description>
     <graphicData>
