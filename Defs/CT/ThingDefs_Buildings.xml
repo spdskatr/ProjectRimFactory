@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Defs>
-  <ThingDef Name="BuildingBase" Abstract="True">
+  <ThingDef Name="CTBuildingBase" Abstract="True">
     <category>Building</category>
     <thingClass>Building</thingClass>
     <soundImpactDefault>BulletImpactMetal</soundImpactDefault>
@@ -12,10 +12,10 @@
     <filthLeaving>BuildingRubble</filthLeaving>
   </ThingDef>
   <!--================================================================== Cultivator -->
-  <ThingDef ParentName="BuildingBase">
+  <ThingDef ParentName="CTBuildingBase">
     <defName>CultivatorTools_Cultivator</defName>
     <label>cultivator</label>
-    <thingClass>CultivatorTools.Building_Cultivator</thingClass>
+    <thingClass>ProjectRimFactory.CultivatorTools.Building_Cultivator</thingClass>
     <graphicData>
       <texPath>Cultivator</texPath>
       <graphicClass>Graphic_Single</graphicClass>
@@ -54,7 +54,7 @@
     <staticSunShadowHeight>0.3</staticSunShadowHeight>
     <constructEffect>ConstructMetal</constructEffect>
     <modExtensions>
-      <li Class="CultivatorTools.CultivatorDefModExtension">
+      <li Class="ProjectRimFactory.CultivatorTools.CultivatorDefModExtension">
         <TickFrequencyDivisor>200</TickFrequencyDivisor>
 		<squareAreaRadius>5</squareAreaRadius>
       </li>
@@ -62,14 +62,14 @@
     <researchPrerequisites>
       <li>AutomaticFarming</li>
     </researchPrerequisites>
-	<placeWorkers>
-	  <li>CultivatorTools.PlaceWorker_HighlightPlaceableCells</li>
-	</placeWorkers>
+  	<placeWorkers>
+	    <li>ProjectRimFactory.CultivatorTools.PlaceWorker_HighlightPlaceableCells</li>
+  	</placeWorkers>
   </ThingDef>
-  <ThingDef ParentName="BuildingBase">
+  <ThingDef ParentName="CTBuildingBase">
     <defName>CultivatorTools_CultivatorWithLamp</defName>
     <label>cultivator (with sun lamp)</label>
-    <thingClass>CultivatorTools.Building_Cultivator</thingClass>
+    <thingClass>ProjectRimFactory.CultivatorTools.Building_Cultivator</thingClass>
     <graphicData>
       <texPath>CultivatorWithSunLamp</texPath>
       <graphicClass>Graphic_Multi</graphicClass>
@@ -114,23 +114,23 @@
     <staticSunShadowHeight>0.3</staticSunShadowHeight>
     <constructEffect>ConstructMetal</constructEffect>
     <modExtensions>
-      <li Class="CultivatorTools.CultivatorDefModExtension">
+      <li Class="ProjectRimFactory.CultivatorTools.CultivatorDefModExtension">
         <TickFrequencyDivisor>200</TickFrequencyDivisor>
-		<squareAreaRadius>5</squareAreaRadius>
+        <squareAreaRadius>5</squareAreaRadius>
       </li>
     </modExtensions>
 	<placeWorkers>
-	  <li>CultivatorTools.PlaceWorker_HighlightPlaceableCells</li>
+	  <li>ProjectRimFactory.CultivatorTools.PlaceWorker_HighlightPlaceableCells</li>
 	</placeWorkers>
     <researchPrerequisites>
       <li>AutomaticFarming</li>
     </researchPrerequisites>
   </ThingDef>
 <!--============================================================= Sprinkler -->
-  <ThingDef ParentName="BuildingBase">
+  <ThingDef ParentName="CTBuildingBase">
     <defName>CultivatorTools_Sprinkler</defName>
     <label>sprinkler</label>
-    <thingClass>CultivatorTools.Building_Sprinkler</thingClass>
+    <thingClass>ProjectRimFactory.CultivatorTools.Building_Sprinkler</thingClass>
     <graphicData>
       <texPath>CultivatorTools_Sprinkler</texPath>
       <graphicClass>Graphic_Single</graphicClass>

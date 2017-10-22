@@ -1,7 +1,7 @@
 ﻿using System.Linq;
 using Verse;
 
-namespace AnimalStation
+namespace ProjectRimFactory.AnimalStation
 {
     class PlaceWorker_ShowAdjacent : PlaceWorker
     {

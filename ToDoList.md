@@ -16,3 +16,7 @@
 + Rework S.A.L. completely
  + Add universal "assemblers", eliminating work tables
  + Reprogram these "assemblers" for various recipes
+  + Recipe importer - makes recipe schematics
+  + Include some kind of warning for special bills
+  + Make ThingDefs: SALBlankSchematic, SALSchematicBuilder
+  + Add Keyed

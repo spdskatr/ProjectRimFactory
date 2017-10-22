@@ -2,7 +2,7 @@
 <Buildings>
   <ThingDef>
     <category>Building</category>
-    <thingClass>AnimalStation.Building_Shearer</thingClass>
+    <thingClass>ProjectRimFactory.AnimalStation.Building_Shearer</thingClass>
     <soundImpactDefault>BulletImpactMetal</soundImpactDefault>
     <selectable>true</selectable>
     <drawerType>MapMeshAndRealTime</drawerType>
@@ -76,7 +76,7 @@
       </defaultStorageSettings>
     </building>
     <placeWorkers>
-      <li>AnimalStation.PlaceWorker_ShowAdjacent</li>
+      <li>ProjectRimFactory.AnimalStation.PlaceWorker_ShowAdjacent</li>
     </placeWorkers>
     <inspectorTabs>
       <li>ITab_Storage</li>
@@ -88,7 +88,7 @@
   </ThingDef>
   <ThingDef>
     <category>Building</category>
-    <thingClass>AnimalStation.Building_Milker</thingClass>
+    <thingClass>ProjectRimFactory.AnimalStation.Building_Milker</thingClass>
     <soundImpactDefault>BulletImpactMetal</soundImpactDefault>
     <selectable>true</selectable>
     <drawerType>MapMeshAndRealTime</drawerType>
@@ -162,7 +162,7 @@
       </defaultStorageSettings>
     </building>
     <placeWorkers>
-      <li>AnimalStation.PlaceWorker_ShowAdjacent</li>
+      <li>ProjectRimFactory.AnimalStation.PlaceWorker_ShowAdjacent</li>
     </placeWorkers>
     <inspectorTabs>
       <li>ITab_Storage</li>
@@ -172,7 +172,7 @@
   </ThingDef>
   <ThingDef>
     <category>Building</category>
-    <thingClass>AnimalStation.Building_GenericBodyResourceGatherer</thingClass>
+    <thingClass>ProjectRimFactory.AnimalStation.Building_GenericBodyResourceGatherer</thingClass>
     <soundImpactDefault>BulletImpactMetal</soundImpactDefault>
     <selectable>true</selectable>
     <drawerType>MapMeshAndRealTime</drawerType>
@@ -246,7 +246,7 @@
       </defaultStorageSettings>
     </building>
     <placeWorkers>
-      <li>AnimalStation.PlaceWorker_ShowAdjacent</li>
+      <li>ProjectRimFactory.AnimalStation.PlaceWorker_ShowAdjacent</li>
     </placeWorkers>
     <inspectorTabs>
       <li>ITab_Storage</li>

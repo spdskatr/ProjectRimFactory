@@ -7,7 +7,7 @@ using Verse;
 using UnityEngine;
 using RimWorld;
 
-namespace CultivatorTools
+namespace ProjectRimFactory.CultivatorTools
 {
     public class Building_Cultivator : Building_SquareCellIterator
     {

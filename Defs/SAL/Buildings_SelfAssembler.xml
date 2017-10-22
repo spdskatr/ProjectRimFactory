@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <SAL>
-    <ThingDef ParentName="BenchBase">
+  <ThingDef ParentName="CTBuildingBase">
     <defName>SelfElectricStove</defName>
     <label>self electric stove</label>
-    <ThingClass>SAL3.Building_DynamicBillReceiver</ThingClass>
+    <thingClass>ProjectRimFactory.SAL3.Things.Assemblers.Building_SimpleAssembler</thingClass>
     <Description>An electrically-powered stove with an attached countertop for preparing meals. Wait, why aren't there any pawns coming to make the food? Because it's automatic!</Description>
     <graphicData>
       <texPath>Things/Building/Production/TableStoveElectric</texPath>
@@ -17,11 +17,11 @@
       </damageData>
     </graphicData>
     <constructEffect>ConstructMetal</constructEffect>
-    <CostList>
+    <costList>
       <Steel>100</Steel>
       <Component>8</Component>
-    </CostList>
-    <AltitudeLayer>Building</AltitudeLayer>
+    </costList>
+    <altitudeLayer>Building</altitudeLayer>
     <fillPercent>0.5</fillPercent>
     <useHitPoints>True</useHitPoints>
     <statBases>
@@ -29,21 +29,14 @@
       <MaxHitPoints>180</MaxHitPoints>
       <Flammability>1.0</Flammability>
     </statBases>
-    <Size>(3,1)</Size>
-    <DesignationCategory>Production</DesignationCategory>
-    <Passability>PassThroughOnly</Passability>
+    <size>(3,1)</size>
+    <designationCategory>Production</designationCategory>
+    <passability>PassThroughOnly</passability>
     <pathCost>70</pathCost>
     <surfaceType>Item</surfaceType>
     <tickerType>Normal</tickerType>
-    <recipes>
-      <li>CookMealSimple</li>
-      <li>CookMealFine</li>
-      <li>CookMealLavish</li>
-      <li>CookMealSurvival</li>
-      <li>MakePemmican</li>
-    </recipes>
     <inspectorTabs>
-      <li>ITab_Bills</li>
+      <li>ProjectRimFactory.SAL3.ITab_SAL3Bills</li>
     </inspectorTabs>
     <comps>
       <li Class="CompProperties_Power">
@@ -54,6 +47,13 @@
       <li Class="CompProperties_Flickable"/>
       <li Class="CompProperties_Breakdownable"/>
     </comps>
+    <recipes>
+      <li>CookMealSimple</li>
+      <li>CookMealFine</li>
+      <li>CookMealLavish</li>
+      <li>CookMealSurvival</li>
+      <li>MakePemmican</li>
+    </recipes>
     <building>
       <spawnedConceptLearnOpportunity>BillsTab</spawnedConceptLearnOpportunity>
       <heatPerTickWhileWorking>0.10</heatPerTickWhileWorking>
@@ -64,12 +64,8 @@
     <researchPrerequisites>
       <li>Electricity</li>
     </researchPrerequisites>
-    <modExtensions>
-      <li Class="ProjectSAL.ModExtension_Assembler">
-        <defaultSkillLevel>10</defaultSkillLevel>
-        <powerUsageLowPower>250</powerUsageLowPower>
-        <globalFactor>1</globalFactor>
-      </li>
-    </modExtensions>
+    <castEdgeShadows>true</castEdgeShadows>
+    <staticSunShadowHeight>0.20</staticSunShadowHeight>
+    <canOverlapZones>false</canOverlapZones>
   </ThingDef>
 </SAL>

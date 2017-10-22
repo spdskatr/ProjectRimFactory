@@ -3,7 +3,7 @@ using Verse;
 using System.IO;
 using System.Reflection;
 
-namespace CultivatorTools
+namespace ProjectRimFactory.CultivatorTools
 {
     public class CTModSettings : ModSettings
     {

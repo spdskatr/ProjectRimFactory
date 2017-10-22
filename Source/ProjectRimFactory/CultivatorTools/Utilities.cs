@@ -3,7 +3,7 @@ using RimWorld;
 using System.Linq;
 using System;
 using UnityEngine;
-namespace CultivatorTools
+namespace ProjectRimFactory.CultivatorTools
 {
     public class CultivatorDefModExtension : DefModExtension
     {

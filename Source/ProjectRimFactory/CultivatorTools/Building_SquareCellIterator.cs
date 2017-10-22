@@ -6,7 +6,7 @@ using System.Text;
 using UnityEngine;
 using Verse;
 
-namespace CultivatorTools
+namespace ProjectRimFactory.CultivatorTools
 {
     public abstract class Building_SquareCellIterator : Building
     {

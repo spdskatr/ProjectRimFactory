@@ -55,6 +55,7 @@
     <Compile Include="CultivatorTools\Building_SquareCellIterator.cs" />
     <Compile Include="CultivatorTools\ModSettings.cs" />
     <Compile Include="CultivatorTools\Utilities.cs" />
+    <Compile Include="ProjectSAL\ProjectSAL_Utilities.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ProjectSAL\Building_Assembler.cs" />
     <Compile Include="ProjectSAL\Building_Assembler_AcceptingItems.cs" />
@@ -69,9 +70,19 @@
     <Compile Include="ProjectSAL\Defs.cs" />
     <Compile Include="ProjectSAL\Dialogs.cs" />
     <Compile Include="ProjectSAL\ModSettings.cs" />
-    <Compile Include="ProjectSAL\ProjectSAL_Utilities.cs" />
+    <Compile Include="SAL3\Defs\RecipeReaderResolverDef.cs" />
+    <Compile Include="SAL3\PatchOperations\PatchOperationMakeRecipeReaderRecipeDef.cs" />
+    <Compile Include="SAL3\Things\Assemblers\Building_DynamicBillGiver.cs" />
+    <Compile Include="SAL3\Things\Assemblers\Building_SmartAssembler.cs" />
+    <Compile Include="SAL3\Things\Building_SchematicBuilder.cs" />
+    <Compile Include="SAL3\BaseCountUtility.cs" />
+    <Compile Include="SAL3\Things\Assemblers\Building_SimpleAssembler.cs" />
+    <Compile Include="SAL3\ProjectSAL_Utilities.cs" />
     <Compile Include="ProjectSAL\ResourceBank.cs" />
-    <Compile Include="SAL3\Building_DynamicBillReceiver.cs" />
+    <Compile Include="SAL3\Things\Assemblers\Building_ProgrammableAssembler.cs" />
+    <Compile Include="SAL3\Things\Thing_Schematic.cs" />
+    <Compile Include="SAL3\UI\ITab_SAL3Bills.cs" />
+    <Compile Include="SAL3\ReflectionUtility.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

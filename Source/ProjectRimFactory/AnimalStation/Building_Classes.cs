@@ -4,7 +4,7 @@ using RimWorld;
 using UnityEngine;
 using System.Reflection;
 
-namespace AnimalStation
+namespace ProjectRimFactory.AnimalStation
 {
     public abstract class Building_CompHarvester : Building_Storage
     {

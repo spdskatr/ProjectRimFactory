@@ -4,7 +4,7 @@ using Verse;
 using UnityEngine;
 using RimWorld;
 
-namespace CultivatorTools
+namespace ProjectRimFactory.CultivatorTools
 {
     public abstract class Building_RadialCellIterator : Building
     {
