@@ -36,7 +36,7 @@
     <surfaceType>Item</surfaceType>
     <tickerType>Normal</tickerType>
     <inspectorTabs>
-      <li>ProjectRimFactory.SAL3.ITab_SAL3Bills</li>
+      <li>ProjectRimFactory.SAL3.UI.ITab_SAL3Bills</li>
     </inspectorTabs>
     <comps>
       <li Class="CompProperties_Power">

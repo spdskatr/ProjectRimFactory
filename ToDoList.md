@@ -3,20 +3,22 @@
 **S.A.L.**
 + Add prototype self-auto-assembler
  + Fix the issue "Why won't the damn thing start"
-  + Broke-fixed - ShouldDoWork permanently on
+  + Broke-fixed - ShouldDoWork permanently on - FIxED
 + Fix UnfinishedThing bug
 
 **Cultivator Tools**
 
 **Animal Stations**
 
-
-# Other goals moving forward
----
-+ Rework S.A.L. completely
- + Add universal "assemblers", eliminating work tables
+**S.A.L. 3**
++ Add universal "assemblers", eliminating work tables
  + Reprogram these "assemblers" for various recipes
   + Recipe importer - makes recipe schematics
   + Include some kind of warning for special bills
-  + Make ThingDefs: SALBlankSchematic, SALSchematicBuilder
-  + Add Keyed
++ ~~Make ThingDefs: SALBlankSchematic, SALSchematicBuilder~~ CANCELED
++ Make ThingDefs: DataDisk
++ Add Keyed
++ Populate ResourceStrings for Keyed
+
+# Other goals moving forward
+---

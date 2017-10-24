@@ -5,6 +5,7 @@ using System.Linq;
 using System.Reflection;
 using System.Text;
 using Verse;
+using ProjectRimFactory.SAL3.Tools;
 
 namespace ProjectRimFactory.SAL3.Things.Assemblers
 {

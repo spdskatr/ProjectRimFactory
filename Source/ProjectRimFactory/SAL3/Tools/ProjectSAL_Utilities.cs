@@ -8,7 +8,7 @@ using UnityEngine;
 using RimWorld.Planet;
 using System.Reflection;
 
-namespace ProjectRimFactory.SAL3
+namespace ProjectRimFactory.SAL3.Tools
 {
     static class ProjectSAL_Utilities
     {

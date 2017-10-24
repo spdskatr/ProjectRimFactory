@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<SAL>
+  <ThingDef>
+    <defName>RimFactory_Data_Disk</defName>
+    <label>recipe data disk</label>
+    <thingClass>ProjectRimFactory.SAL3.Things.Thing_Schematic</thingClass>
+    <description>A data disk used for the storage of recipe instructions.</description>
+    <graphicData>
+      <texPath>SAL3/datadisk</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+	  <shaderType>CutoutComplex</shaderType>
+	  <onGroundRandomRotateAngle>120</onGroundRandomRotateAngle>
+    </graphicData>
+    <resourceReadoutPriority>Middle</resourceReadoutPriority>
+    <soundInteract>Metal_Drop</soundInteract>
+    <soundDrop>Metal_Drop</soundDrop>
+    <stackLimit>1</stackLimit>
+    <useHitPoints>true</useHitPoints>
+    <statBases>
+      <MarketValue>4000</MarketValue>
+      <MaxHitPoints>100</MaxHitPoints>
+      <Mass>2</Mass>
+    </statBases>
+    <thingCategories>
+      <li>Misc</li>
+    </thingCategories>
+    <drawGUIOverlay>false</drawGUIOverlay>
+	<colorGenerator Class="ProjectRimFactory.SAL3.Tools.ColorGenerator_RangeHSV">
+	  <rangeH>0~1</rangeH>
+	  <rangeS>1</rangeS>
+	  <rangeV>1</rangeV>
+	</colorGenerator>
+	<!-- Inherited from ResourceBase -->
+    <category>Item</category>
+    <altitudeLayer>Item</altitudeLayer>
+	<comps>
+		<li Class="CompProperties_Forbiddable"/>
+	</comps>
+	<alwaysHaulable>true</alwaysHaulable>
+	<rotatable>false</rotatable>
+	<pathCost>15</pathCost>
+  </ThingDef>
+</SAL>

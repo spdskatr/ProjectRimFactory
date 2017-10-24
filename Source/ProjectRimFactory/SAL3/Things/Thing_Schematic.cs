@@ -14,6 +14,6 @@ namespace ProjectRimFactory.SAL3.Things
             base.ExposeData();
             Scribe_Defs.Look(ref recipe, "recipe");
         }
-        public override string Label => string.Concat(base.Label, " (", recipe.label, ")");
+        public override string Label => string.Concat(base.Label, " (", recipe != null ? recipe.label : "no recipe", ")");
     }
 }

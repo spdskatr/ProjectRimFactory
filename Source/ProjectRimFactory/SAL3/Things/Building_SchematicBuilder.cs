@@ -54,8 +54,9 @@ namespace ProjectRimFactory.SAL3.Things
                             Thing blankSchematic = slotGroup.HeldThings.First(t => t is Thing_Schematic);
                             if (blankSchematic != null)
                             {
-                                schematicItem = (Thing_Schematic)blankSchematic.SplitOff(1);
+                                schematicItem = (Thing_Schematic)blankSchematic;
                                 schematicRecipe = recipe;
+                                workAmount = GetProduceSchematicWorkAmount(recipe);
                             }
                             else
                             {
@@ -72,14 +73,31 @@ namespace ProjectRimFactory.SAL3.Things
                     defaultLabel = "SALSchematicCancelBills".Translate(),
                     defaultDesc = "SALSchematicCancelBillsDesc".Translate(),
                     icon = ContentFinder<Texture2D>.Get("UI/Designators/Cancel", true),
-                    action = () =>
-                    {
-                        workAmount = 0f;
-                        schematicRecipe = null;
-                        schematicItem = null;
-                    }
+                    action = ResetProgress
                 };
             }
+        }
+
+        private void ResetProgress()
+        {
+            workAmount = 0f;
+            schematicRecipe = null;
+            schematicItem = null;
+        }
+
+        public override void Tick()
+        {
+            if (this.IsHashIntervalTick(60) && schematicRecipe != null)
+            {
+                workAmount -= 60f;
+                if (workAmount < 0)
+                {
+                    // Encode recipe
+                    schematicItem.recipe = schematicRecipe;
+                    ResetProgress();
+                }
+            }
+            base.Tick();
         }
     }
 }
