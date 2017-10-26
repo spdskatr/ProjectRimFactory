@@ -60,7 +60,7 @@ namespace ProjectRimFactory.SAL3.Things
                             }
                             else
                             {
-                                Messages.Message("SALMessage_NoSchematicFound".Translate(), MessageSound.RejectInput);
+                                Messages.Message("SALMessage_NoSchematicFound".Translate(), MessageTypeDefOf.RejectInput);
                             }
                         }
                     };

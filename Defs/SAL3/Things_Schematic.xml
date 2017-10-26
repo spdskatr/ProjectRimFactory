@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<SAL>
+<Defs>
   <ThingDef>
     <defName>RimFactory_Data_Disk</defName>
     <label>recipe data disk</label>
@@ -40,4 +40,4 @@
 	<rotatable>false</rotatable>
 	<pathCost>15</pathCost>
   </ThingDef>
-</SAL>
+</Defs>

@@ -14,7 +14,7 @@ namespace ProjectRimFactory.SAL3.Things.Assemblers
 
         public IEnumerable<IntVec3> IngredientStackCells => GenAdj.CellsOccupiedBy(this);
 
-        public bool CurrentlyUsable() => false;
+        public bool CurrentlyUsableForBills() => false;
 
         public abstract IEnumerable<RecipeDef> GetAllRecipes();
     }

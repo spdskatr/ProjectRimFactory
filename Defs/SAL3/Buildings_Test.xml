@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<SAL>
+<Defs>
   <ThingDef ParentName="CTBuildingBase">
     <defName>SelfElectricStove</defName>
     <label>--S.A.L. TEST ITEM-- self electric stove</label>
@@ -68,4 +68,4 @@
     <staticSunShadowHeight>0.20</staticSunShadowHeight>
     <canOverlapZones>false</canOverlapZones>
   </ThingDef>
-</SAL>
+</Defs>

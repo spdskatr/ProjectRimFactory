@@ -19,6 +19,8 @@
 + Make ThingDefs: DataDisk
 + Add Keyed
 + Populate ResourceStrings for Keyed
++ Update to A18
+ + Implement Job in reservation managers
 
 # Other goals moving forward
 ---
