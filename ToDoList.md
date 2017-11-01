@@ -1,26 +1,13 @@
 # PROJECT RIMFACTORY TO-DO LIST
 ---
-**S.A.L.**
-+ Add prototype self-auto-assembler
- + Fix the issue "Why won't the damn thing start"
-  + Broke-fixed - ShouldDoWork permanently on - FIxED
-+ Fix UnfinishedThing bug
-
 **Cultivator Tools**
 
 **Animal Stations**
 
 **S.A.L. 3**
-+ Add universal "assemblers", eliminating work tables
- + Reprogram these "assemblers" for various recipes
-  + Recipe importer - makes recipe schematics
-  + Include some kind of warning for special bills
-+ ~~Make ThingDefs: SALBlankSchematic, SALSchematicBuilder~~ CANCELED
-+ Make ThingDefs: DataDisk
++ Include some kind of warning for special bills
 + Add Keyed
-+ Populate ResourceStrings for Keyed
-+ Update to A18
- + Implement Job in reservation managers
++ Populate ResourceStrings for Keyed - Might need to make ResourceStrings first
 
 # Other goals moving forward
 ---

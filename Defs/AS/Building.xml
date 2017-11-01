@@ -33,11 +33,11 @@
     <description>A 2x2 feeding box for your farm animals, but underneath the box is a set of robotic arms and shears to shear wool with minimal invasiveness. Drops wool where the animal is standing. Works on any tamed animal.</description>
     <size>(2,2)</size>
     <costStuffCount>50</costStuffCount>
-    <CostList>
+    <costList>
       <Steel>50</Steel>
       <Hay>50</Hay>
       <Component>10</Component>
-    </CostList>
+    </costList>
     <stuffCategories>
       <li>Woody</li>
       <li>Metallic</li>
@@ -58,7 +58,6 @@
     <designationCategory>Production</designationCategory>
     <building>
       <ai_chillDestination>false</ai_chillDestination>
-      <ignoreNeedsPower>false</ignoreNeedsPower>
       <fixedStorageSettings>
         <filter>
           <categories>
@@ -119,11 +118,11 @@
     <description>A 2x2 feeding box for your farm animals, but underneath the box is a complicated set of robotic arms and collecting machinery that harvest animals' milk with minimal invasiveness. Works on any tamed animal.</description>
     <size>(2,2)</size>
     <costStuffCount>50</costStuffCount>
-    <CostList>
+    <costList>
 	    <Steel>50</Steel>
       <Hay>50</Hay>
       <Component>10</Component>
-    </CostList>
+    </costList>
     <stuffCategories>
       <li>Woody</li>
       <li>Metallic</li>
@@ -144,7 +143,6 @@
     <designationCategory>Production</designationCategory>
     <building>
 	  <ai_chillDestination>false</ai_chillDestination>
-    <ignoreNeedsPower>false</ignoreNeedsPower>
       <fixedStorageSettings>
         <filter>
           <categories>
@@ -203,11 +201,11 @@
     <description>A more advanced version of the milker/shearer that can harvest any product from an animal.</description>
     <size>(2,2)</size>
     <costStuffCount>50</costStuffCount>
-    <CostList>
+    <costList>
 	    <Steel>100</Steel>
       <Hay>50</Hay>
       <Component>15</Component>
-    </CostList>
+    </costList>
     <stuffCategories>
       <li>Woody</li>
       <li>Metallic</li>
@@ -228,7 +226,6 @@
     <designationCategory>Production</designationCategory>
     <building>
 	  <ai_chillDestination>false</ai_chillDestination>
-    <ignoreNeedsPower>false</ignoreNeedsPower>
       <fixedStorageSettings>
         <filter>
           <categories>

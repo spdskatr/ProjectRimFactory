@@ -3,13 +3,13 @@
   <ThingDef>
     <defName>RimFactory_Data_Disk</defName>
     <label>recipe data disk</label>
-    <thingClass>ProjectRimFactory.SAL3.Things.Thing_Schematic</thingClass>
-    <description>A data disk used for the storage of recipe instructions.</description>
+    <thingClass>ThingWithComps</thingClass>
+    <description>A coil of magnetic tape. Used for </description>
     <graphicData>
       <texPath>SAL3/datadisk</texPath>
       <graphicClass>Graphic_Single</graphicClass>
-	  <shaderType>CutoutComplex</shaderType>
 	  <onGroundRandomRotateAngle>120</onGroundRandomRotateAngle>
+	  <shaderType>CutoutComplex</shaderType>
     </graphicData>
     <resourceReadoutPriority>Middle</resourceReadoutPriority>
     <soundInteract>Metal_Drop</soundInteract>
@@ -17,12 +17,12 @@
     <stackLimit>1</stackLimit>
     <useHitPoints>true</useHitPoints>
     <statBases>
-      <MarketValue>4000</MarketValue>
+      <MarketValue>500</MarketValue>
       <MaxHitPoints>100</MaxHitPoints>
       <Mass>2</Mass>
     </statBases>
     <thingCategories>
-      <li>Misc</li>
+      <li>Items</li>
     </thingCategories>
     <drawGUIOverlay>false</drawGUIOverlay>
 	<colorGenerator Class="ProjectRimFactory.SAL3.Tools.ColorGenerator_RangeHSV">
@@ -30,11 +30,13 @@
 	  <rangeS>1</rangeS>
 	  <rangeV>1</rangeV>
 	</colorGenerator>
+	<selectable>true</selectable>
 	<!-- Inherited from ResourceBase -->
     <category>Item</category>
     <altitudeLayer>Item</altitudeLayer>
 	<comps>
 		<li Class="CompProperties_Forbiddable"/>
+	  <li><compClass>CompColorable</compClass></li>
 	</comps>
 	<alwaysHaulable>true</alwaysHaulable>
 	<rotatable>false</rotatable>

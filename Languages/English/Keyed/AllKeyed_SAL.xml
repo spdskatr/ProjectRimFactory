@@ -6,7 +6,6 @@
   <SALCancelBills>Cancel bills</SALCancelBills>
   <SALCancelBills_Desc>Click to make S.A.L. building drop its items and cancel bills.</SALCancelBills_Desc>
   <SALInspect_CurrentConfig>Current configuration: Output: {0}</SALInspect_CurrentConfig>
-  <SALInspect_WorkLeft>Work left: {0}</SALInspect_WorkLeft>
   <SALInspect_PowerOff>Power is off.</SALInspect_PowerOff>
   <SALInspect_ResourcesNeeded>Resources: </SALInspect_ResourcesNeeded>
   <SAL_North>North</SAL_North>
@@ -14,7 +13,6 @@
   <SAL_East>East</SAL_East>
   <SAL_West>West</SAL_West>
   <SAL_InvalidDirection>Invalid</SAL_InvalidDirection>
-  <SAL_Name>a S.A.L. crafter</SAL_Name><!-- (Some building) is reserved by "SAL_Name".Translate() -->
   <SmartHopper_SetTargetAmount>Set target amount</SmartHopper_SetTargetAmount>
   <SmartHopper_Limit>Current item limit: {0}</SmartHopper_Limit>
   <SALInspect_PlacementQueue>Recipe products waiting to be placed: {0}</SALInspect_PlacementQueue>
@@ -30,5 +28,4 @@
   <SALSettings_CoreDrillerFix_Desc>(Compatibility patch) Fix the interaction cell for S.A.L. so that they can work in front of core drillers.</SALSettings_CoreDrillerFix_Desc>
 
   <!--Used in S.A.L. 3.0-->
-  <AdjustDirection_Output>Adjust output direction</AdjustDirection_Output>
 </LanguageData>

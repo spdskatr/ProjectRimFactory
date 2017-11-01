@@ -15,7 +15,7 @@ namespace ProjectRimFactory.SAL3.Tools
         public FloatRange rangeV;
         public override Color NewRandomizedColor()
         {
-            return UnityRandom.ColorHSV(rangeH.TrueMin, rangeH.TrueMax, rangeS.TrueMin, rangeS.TrueMax, rangeV.TrueMin, rangeV.TrueMax, 1f, 1f);
+            return Color.HSVToRGB(rangeH.RandomInRange, rangeS.RandomInRange, rangeV.RandomInRange);
         }
     }
 }

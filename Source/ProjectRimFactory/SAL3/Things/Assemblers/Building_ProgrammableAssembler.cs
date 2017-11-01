@@ -48,9 +48,8 @@ namespace ProjectRimFactory.SAL3.Things.Assemblers
                 int level = 10; // Skill level
                 s.levelInt = level;
             }
-            var fieldInfo = typeof(Thing).GetField("mapIndexOrState", BindingFlags.NonPublic | BindingFlags.Instance);
             //Assign Pawn's mapIndexOrState to building's mapIndexOrState
-            fieldInfo.SetValue(p, fieldInfo.GetValue(this));
+            ReflectionUtility.mapIndexOrState.SetValue(p, ReflectionUtility.mapIndexOrState.GetValue(this));
             //Assign Pawn's position without nasty errors
             p.SetPositionDirect(Position);
             //Clear pawn relations
@@ -165,6 +164,7 @@ namespace ProjectRimFactory.SAL3.Things.Assemblers
                     if (currentBillReport.workLeft <= 0)
                     {
                         ProduceItems();
+                        currentBillReport.bill.Notify_IterationCompleted(buildingPawn, currentBillReport.selected);
                         currentBillReport = null;
                     }
                 }
@@ -198,55 +198,6 @@ namespace ProjectRimFactory.SAL3.Things.Assemblers
                 thingQueue.Add(product);
             }
         }
-
-        protected virtual IEnumerable<Thing> MakeRecipeProducts()
-        {
-            List<ThingCountClass> things = currentBillReport.bill.recipe.products;
-            Thing thing = ProjectSAL_Utilities.CalculateDominantIngredient(currentBillReport.bill.recipe, currentBillReport.selected);
-            if (things != null)
-            {
-                for (int i = 0; i < things.Count; i++)
-                {
-                    Thing t = ThingMaker.MakeThing(things[i].thingDef, (things[i].thingDef.MadeFromStuff) ? thing.def : null);
-                    t.stackCount = things[i].count;
-                    PostProcessProduct(t, currentBillReport.selected);
-                    yield return t;
-                }
-            }
-            // Special products
-            List<SpecialProductType> specialProducts = currentBillReport.bill.recipe.specialProducts;
-            if (specialProducts != null)
-            {
-                for (int i = 0; i < specialProducts.Count; i++)
-                {
-                    for (int j = 0; j < currentBillReport.selected.Count; j++)
-                    {
-                        Thing ing = currentBillReport.selected[j];
-                        if (specialProducts[i] == SpecialProductType.Butchery)
-                        {
-                            foreach (Thing product in ing.ButcherProductsNoPawn(Map, Faction))
-                            {
-                                PostProcessProduct(product, currentBillReport.selected);
-                                yield return product;
-                            }
-                        }
-                        else if (specialProducts[i] == SpecialProductType.Smelted)
-                        {
-                            foreach (Thing product in ing.SmeltProducts(1f))
-                            {
-                                PostProcessProduct(product, currentBillReport.selected);
-                                yield return product;
-                            }
-                        }
-                    }
-                }
-            }
-            //Consume ingredients
-            for (int i = 0; i < currentBillReport.selected.Count; i++)
-            {
-                currentBillReport.bill.recipe.Worker.ConsumeIngredient(currentBillReport.selected[i], currentBillReport.bill.recipe, Map);
-            }
-        }
         
         // Allows us to add qualities and ingredients. Comps: Art, Quality, Ingredients, FoodPoison, Colour
         protected virtual void PostProcessProduct(Thing thing, List<Thing> ingredients)
@@ -268,13 +219,13 @@ namespace ProjectRimFactory.SAL3.Things.Assemblers
             stringBuilder.AppendLine(base.GetInspectString());
             if (currentBillReport == null)
             {
-                stringBuilder.AppendLine("Searching for ingredients...");
+                stringBuilder.AppendLine("SearchingForIngredients".Translate());
             }
             else
             {
-                stringBuilder.AppendFormat("Found bill: {0} ({1} work left)\n", currentBillReport.bill.Label.ToString(), currentBillReport.workLeft.ToStringWorkAmount());
+                stringBuilder.AppendLine("SAL3_BillReport".Translate(currentBillReport.bill.Label.ToString(), currentBillReport.workLeft.ToStringWorkAmount()));
             }
-            stringBuilder.AppendFormat("Products waiting to be placed: {0}\n", thingQueue.Count);
+            stringBuilder.AppendLine("SAL3_Products".Translate(thingQueue.Count));
             return stringBuilder.ToString().TrimEndNewlines();
         }
 

@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Defs>
-  <ThingDef ParentName="CTBuildingBase">
+  <ThingDef ParentName="PRFBuildingBase">
     <defName>SelfElectricStove</defName>
     <label>--S.A.L. TEST ITEM-- self electric stove</label>
     <thingClass>ProjectRimFactory.SAL3.Things.Assemblers.Building_SimpleAssembler</thingClass>
-    <Description>An electrically-powered stove with an attached countertop for preparing meals. Wait, why aren't there any pawns coming to make the food? Because it's automatic!</Description>
+    <description>An electrically-powered stove with an attached countertop for preparing meals. Wait, why aren't there any pawns coming to make the food? Because it's automatic!</description>
     <graphicData>
       <texPath>Things/Building/Production/TableStoveElectric</texPath>
       <graphicClass>Graphic_Multi</graphicClass>
@@ -67,5 +67,46 @@
     <castEdgeShadows>true</castEdgeShadows>
     <staticSunShadowHeight>0.20</staticSunShadowHeight>
     <canOverlapZones>false</canOverlapZones>
+  </ThingDef>
+  
+  <ThingDef ParentName="PRFBuildingBase">
+    <defName>RecipeDatabase</defName>
+    <label>recipe database</label>
+    <thingClass>ProjectRimFactory.SAL3.Things.Building_RecipeHolder</thingClass>
+    <graphicData>
+      <texPath>SAL3/DISK_HARDWARE4</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <damageData>
+        <rect>(0.05,0.1,0.9,0.9)</rect>
+        <cornerTL>Damage/Corner</cornerTL>
+        <cornerTR>Damage/Corner</cornerTR>
+      </damageData>
+    </graphicData>
+    <altitudeLayer>Building</altitudeLayer>
+    <passability>PassThroughOnly</passability>
+    <fillPercent>0.5</fillPercent>
+    <pathCost>70</pathCost>
+    <canOverlapZones>false</canOverlapZones>
+    <castEdgeShadows>true</castEdgeShadows>
+    <statBases>
+      <WorkToBuild>800</WorkToBuild>
+      <MaxHitPoints>100</MaxHitPoints>
+      <Flammability>1.0</Flammability>
+    </statBases>
+	<minifiedDef>MinifiedFurniture</minifiedDef>
+    <description>Stores recipes for use by smart assemblers, and imports recipes from adjacent work tables. I wonder what all the buttons do...</description>
+    <costList>
+	  <Plasteel>25</Plasteel>
+      <Steel>100</Steel>
+	  <Component>5</Component>
+	  <RimFactory_Data_Disk>1</RimFactory_Data_Disk>
+    </costList>
+    <tickerType>Normal</tickerType>
+    <rotatable>true</rotatable>
+    <neverMultiSelect>true</neverMultiSelect>
+    <designationCategory>Production</designationCategory>
+    <staticSunShadowHeight>0.3</staticSunShadowHeight>
+    <surfaceType>Item</surfaceType>
+    <constructEffect>ConstructMetal</constructEffect>
   </ThingDef>
 </Defs>

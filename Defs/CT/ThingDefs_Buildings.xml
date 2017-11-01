@@ -1,18 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Defs>
-  <ThingDef Name="CTBuildingBase" Abstract="True">
-    <category>Building</category>
-    <thingClass>Building</thingClass>
-    <soundImpactDefault>BulletImpactMetal</soundImpactDefault>
-    <selectable>true</selectable>
-    <drawerType>MapMeshAndRealTime</drawerType>
-    <terrainAffordanceNeeded>Light</terrainAffordanceNeeded>
-    <repairEffect>Repair</repairEffect>
-    <leaveResourcesWhenKilled>true</leaveResourcesWhenKilled>
-    <filthLeaving>BuildingRubble</filthLeaving>
-  </ThingDef>
   <!--================================================================== Cultivator -->
-  <ThingDef ParentName="CTBuildingBase">
+  <ThingDef ParentName="PRFBuildingBase">
     <defName>CultivatorTools_Cultivator</defName>
     <label>cultivator</label>
     <thingClass>ProjectRimFactory.CultivatorTools.Building_Cultivator</thingClass>
@@ -66,7 +55,7 @@
 	    <li>ProjectRimFactory.CultivatorTools.PlaceWorker_HighlightPlaceableCells</li>
   	</placeWorkers>
   </ThingDef>
-  <ThingDef ParentName="CTBuildingBase">
+  <ThingDef ParentName="PRFBuildingBase">
     <defName>CultivatorTools_CultivatorWithLamp</defName>
     <label>cultivator (with sun lamp)</label>
     <thingClass>ProjectRimFactory.CultivatorTools.Building_Cultivator</thingClass>
@@ -127,7 +116,7 @@
     </researchPrerequisites>
   </ThingDef>
 <!--============================================================= Sprinkler -->
-  <ThingDef ParentName="CTBuildingBase">
+  <ThingDef ParentName="PRFBuildingBase">
     <defName>CultivatorTools_Sprinkler</defName>
     <label>sprinkler</label>
     <thingClass>ProjectRimFactory.CultivatorTools.Building_Sprinkler</thingClass>
