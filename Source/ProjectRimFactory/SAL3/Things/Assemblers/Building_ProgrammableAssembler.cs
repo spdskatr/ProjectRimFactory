@@ -6,6 +6,7 @@ using System.Reflection;
 using System.Text;
 using Verse;
 using ProjectRimFactory.SAL3.Tools;
+using UnityEngine;
 
 namespace ProjectRimFactory.SAL3.Things.Assemblers
 {
@@ -120,8 +121,36 @@ namespace ProjectRimFactory.SAL3.Things.Assemblers
             yield return new Command_Action()
             {
                 defaultLabel = "AdjustDirection_Output".Translate(),
-                
+                action = () => outputSlotIndex++,
+                icon = TexUI.RotRightTex,
+                defaultIconColor = Color.green
             };
+            if (Prefs.DevMode)
+            {
+                yield return new Command_Action()
+                {
+                    defaultLabel = "DEBUG: Debug actions",
+                    action = () => Find.WindowStack.Add(new FloatMenu(GetDebugOptions().ToList()))
+                };
+            }
+        }
+        IEnumerable<FloatMenuOption> GetDebugOptions()
+        {
+            string StringConverter(Thing t)
+            {
+                return t.GetUniqueLoadID();
+            }
+            yield return new FloatMenuOption("View selected things", () => {
+                if (currentBillReport != null)
+                {
+                    Log.Message("Selected things: " + string.Join(", ", currentBillReport.selected.Select(StringConverter).ToArray()));
+                }
+            });
+            yield return new FloatMenuOption("View all items available for input", () =>
+            {
+                Log.Message(string.Join(", ", AllAccessibleThings.Select(StringConverter).ToArray()));
+            });
+            yield break;
         }
         public override void SpawnSetup(Map map, bool respawningAfterLoad)
         {
@@ -178,12 +207,18 @@ namespace ProjectRimFactory.SAL3.Things.Assemblers
             foreach (Bill b in AllBillsShouldDoNow)
             {
                 List<ThingAmount> chosen = new List<ThingAmount>();
-                if ((bool)ReflectionUtility.TryFindBestBillIngredientsInSet.Invoke(null, new object[] { AllAccessibleThings.ToList(), b, chosen }))
+                if (TryFindBestBillIngredientsInSet(AllAccessibleThings.ToList(), b, chosen))
                 {
                     return new BillReport(b, (from ta in chosen select ta.thing.SplitOff(ta.count)).ToList());
                 }
             }
             return null;
+        }
+
+        bool TryFindBestBillIngredientsInSet(List<Thing> accessibleThings, Bill b, List<ThingAmount> chosen)
+        {
+            ReflectionUtility.MakeIngredientsListInProcessingOrder.Invoke(null, new object[] { ReflectionUtility.ingredientsOrdered.GetValue(null), b });
+            return (bool)ReflectionUtility.TryFindBestBillIngredientsInSet.Invoke(null, new object[] { accessibleThings, b, chosen });
         }
 
         protected virtual void ProduceItems()
@@ -242,5 +277,21 @@ namespace ProjectRimFactory.SAL3.Things.Assemblers
         }
         protected virtual IEnumerable<IntVec3> InputCells => GenAdj.CellsAdjacent8Way(this);
         protected abstract float ProductionSpeedFactor { get; }
+
+        public override void DrawExtraSelectionOverlays()
+        {
+            base.DrawExtraSelectionOverlays();
+            GenDraw.DrawFieldEdges(InputCells.ToList());
+            GenDraw.DrawFieldEdges(new List<IntVec3>() { OutputSlot }, Color.yellow);
+        }
+
+        public override void Draw()
+        {
+            base.Draw();
+            if (Find.CameraDriver.CurrentZoom < CameraZoomRange.Middle)
+            {
+                GenMapUI.DrawThingLabel(this.TrueCenter(), currentBillReport == null ? "AssemblerIdle".Translate() : currentBillReport.bill.LabelCap, Color.white);
+            }
+        }
     }
 }

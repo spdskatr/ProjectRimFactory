@@ -56,19 +56,18 @@
     <Compile Include="CultivatorTools\ModSettings.cs" />
     <Compile Include="CultivatorTools\Utilities.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="SAL3\Defs\RecipeReaderResolverDef.cs" />
     <Compile Include="SAL3\Things\Assemblers\Building_DynamicBillGiver.cs" />
     <Compile Include="SAL3\Things\Assemblers\Building_SmartAssembler.cs" />
     <Compile Include="SAL3\Things\Building_RecipeHolder.cs" />
     <Compile Include="SAL3\Tools\BaseCountUtility.cs" />
     <Compile Include="SAL3\Things\Assemblers\Building_SimpleAssembler.cs" />
     <Compile Include="SAL3\Tools\ColorGenerator_RangeHSV.cs" />
+    <Compile Include="SAL3\Tools\ModExtension_Assembler.cs" />
     <Compile Include="SAL3\Tools\ProjectSAL_Utilities.cs" />
     <Compile Include="SAL3\Things\Assemblers\Building_ProgrammableAssembler.cs" />
     <Compile Include="SAL3\Tools\Textures.cs" />
     <Compile Include="SAL3\UI\ITab_SAL3Bills.cs" />
     <Compile Include="SAL3\Tools\ReflectionUtility.cs" />
   </ItemGroup>
-  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

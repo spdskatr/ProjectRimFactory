@@ -2,7 +2,7 @@
 <LanguageData>
   <SALMessage_NoDataDiskFound>Please insert a data disk first.</SALMessage_NoDataDiskFound>
   <SearchingForIngredients>Searching for ingredients...</SearchingForIngredients>
-  <SAL3_BillReport>Found bill: {0} ({1} work left)</SAL3_BillReport>
+  <SAL3_BillReport>Current bill: {0} ({1} work left)</SAL3_BillReport>
   <SAL3_Products>Products waiting to be placed: {0}</SAL3_Products>
   <SALMessage_NoRecipes>No recipes found.</SALMessage_NoRecipes>
   <SALDataStartEncoding>Import recipe...</SALDataStartEncoding>
@@ -13,4 +13,6 @@
   <SALInspect_RecipeReport>Current recipe: {0}\nWork left: {1}</SALInspect_RecipeReport>
   <SAL3_StoredRecipes>Stored recipes: {0}</SAL3_StoredRecipes>
   <SAL3Alert_SomeBillsRemoved>Some bills have been deleted as the smart assembler cannot make them anymore.</SAL3Alert_SomeBillsRemoved>
+  <SAL3_BillsTabLabel>Bills</SAL3_BillsTabLabel>
+  <AssemblerIdle>Idle</AssemblerIdle>
 </LanguageData>

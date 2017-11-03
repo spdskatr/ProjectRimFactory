@@ -12,26 +12,6 @@ namespace ProjectRimFactory.SAL3.Tools
 {
     static class ProjectSAL_Utilities
     {
-        /// <summary>
-        /// Returns current Rot4 as a compass direction.
-        /// </summary>
-        public static string AsCompassDirection(this Rot4 rot)
-        {
-            switch (rot.AsByte)
-            {
-                case 0:
-                    return "SAL_North".Translate();
-                case 1:
-                    return "SAL_East".Translate();
-                case 2:
-                    return "SAL_South".Translate();
-                case 3:
-                    return "SAL_West".Translate();
-                default:
-                    return "SAL_InvalidDirection".Translate();
-            }
-        }
-
         public static Thing CalculateDominantIngredient(RecipeDef currentRecipe, IEnumerable<Thing> thingRecord)
         {
             var stuffs = thingRecord.Where(t => t.def.IsStuff);

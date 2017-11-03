@@ -25,14 +25,18 @@ namespace ProjectRimFactory.SAL3.Things
                                                          select building;
         public virtual IEnumerable<RecipeDef> GetAllProvidedRecipeDefs()
         {
-            foreach (Building_WorkTable table in Tables)
+            IEnumerable<RecipeDef> GetInternal()
             {
-                foreach (RecipeDef recipe in table.def.AllRecipes)
+                foreach (Building_WorkTable table in Tables)
                 {
-                    if (recipe.AvailableNow)
-                        yield return recipe;
+                    foreach (RecipeDef recipe in table.def.AllRecipes)
+                    {
+                        if (recipe.AvailableNow)
+                            yield return recipe;
+                    }
                 }
             }
+            return GetInternal().Distinct();
         }
         protected virtual float GetProduceSchematicWorkAmount(RecipeDef recipe)
         {
@@ -99,7 +103,6 @@ namespace ProjectRimFactory.SAL3.Things
                 };
                 yield return new Command_Action()
                 {
-                    defaultIconColor = new Color(186, 186, 186),
                     icon = Textures.button_rewind_black,
                     action = DoNothing
                 };
@@ -108,7 +111,7 @@ namespace ProjectRimFactory.SAL3.Things
 
         protected virtual IEnumerable<FloatMenuOption> GetPossibleOptions()
         {
-            foreach (RecipeDef recipe in GetAllProvidedRecipeDefs().Distinct())
+            foreach (RecipeDef recipe in GetAllProvidedRecipeDefs())
             {
                 yield return new FloatMenuOption()
                 {
@@ -145,7 +148,7 @@ namespace ProjectRimFactory.SAL3.Things
 
         public override void Tick()
         {
-            if (this.IsHashIntervalTick(60) && workingRecipe != null)
+            if (this.IsHashIntervalTick(60) && GetComp<CompPowerTrader>()?.PowerOn != false && workingRecipe != null)
             {
                 workAmount -= 60f;
                 if (workAmount < 0)

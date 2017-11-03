@@ -35,12 +35,13 @@ namespace ProjectRimFactory.SAL3.Things.Assemblers
             HashSet<RecipeDef> set = new HashSet<RecipeDef>(GetAllRecipes());
             BillStack.Bills.RemoveAll(b => !set.Contains(b.recipe));
             removed = BillStack.Bills.Count < count;
-            if (!set.Contains(currentBillReport.bill.recipe))
+            if (currentBillReport != null && !set.Contains(currentBillReport.bill.recipe))
             {
                 for (int i = 0; i < currentBillReport.selected.Count; i++)
                 {
                     GenPlace.TryPlaceThing(currentBillReport.selected[i], Position, Map, ThingPlaceMode.Near);
                 }
+                currentBillReport = null;
                 removed = true;
             }
             if (removed)

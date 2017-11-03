@@ -1,72 +1,95 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Defs>
   <ThingDef ParentName="PRFBuildingBase">
-    <defName>SelfElectricStove</defName>
-    <label>--S.A.L. TEST ITEM-- self electric stove</label>
-    <thingClass>ProjectRimFactory.SAL3.Things.Assemblers.Building_SimpleAssembler</thingClass>
-    <description>An electrically-powered stove with an attached countertop for preparing meals. Wait, why aren't there any pawns coming to make the food? Because it's automatic!</description>
+    <defName>SmartAssembler</defName>
+    <label>smart assembler</label>
+    <thingClass>ProjectRimFactory.SAL3.Things.Assemblers.Building_SmartAssembler</thingClass>
     <graphicData>
-      <texPath>Things/Building/Production/TableStoveElectric</texPath>
-      <graphicClass>Graphic_Multi</graphicClass>
-      <drawSize>(3.5,1.5)</drawSize>
-      <damageData>
-        <cornerTL>Damage/Corner</cornerTL>
-        <cornerTR>Damage/Corner</cornerTR>
-        <cornerBL>Damage/Corner</cornerBL>
-        <cornerBR>Damage/Corner</cornerBR>
-      </damageData>
+      <texPath>SAL3/smart_assembler</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+	  <drawSize>(3,3)</drawSize>
     </graphicData>
-    <constructEffect>ConstructMetal</constructEffect>
-    <costList>
-      <Steel>100</Steel>
-      <Component>8</Component>
-    </costList>
     <altitudeLayer>Building</altitudeLayer>
+    <passability>PassThroughOnly</passability>
     <fillPercent>0.5</fillPercent>
-    <useHitPoints>True</useHitPoints>
+    <pathCost>70</pathCost>
+    <canOverlapZones>false</canOverlapZones>
+    <castEdgeShadows>true</castEdgeShadows>
+	<size>(3,3)</size>
     <statBases>
-      <WorkToBuild>2000</WorkToBuild>
-      <MaxHitPoints>180</MaxHitPoints>
+      <WorkToBuild>2500</WorkToBuild>
+      <MaxHitPoints>100</MaxHitPoints>
       <Flammability>1.0</Flammability>
     </statBases>
-    <size>(3,1)</size>
-    <designationCategory>Production</designationCategory>
-    <passability>PassThroughOnly</passability>
-    <pathCost>70</pathCost>
-    <surfaceType>Item</surfaceType>
+	<minifiedDef>MinifiedFurniture</minifiedDef>
+    <description>An auto-crafter controlled by a computer. Reads recipe instructions from a recipe database.</description>
+    <costList>
+	  <Plasteel>75</Plasteel>
+      <Steel>200</Steel>
+	  <Component>8</Component>
+    </costList>
     <tickerType>Normal</tickerType>
-    <inspectorTabs>
-      <li>ProjectRimFactory.SAL3.UI.ITab_SAL3Bills</li>
-    </inspectorTabs>
-    <comps>
-      <li Class="CompProperties_Power">
-        <compClass>CompPowerTrader</compClass>
-        <startElectricalFires>true</startElectricalFires>
-        <basePowerConsumption>800</basePowerConsumption>
-      </li>
-      <li Class="CompProperties_Flickable"/>
-      <li Class="CompProperties_Breakdownable"/>
-    </comps>
-    <recipes>
-      <li>CookMealSimple</li>
-      <li>CookMealFine</li>
-      <li>CookMealLavish</li>
-      <li>CookMealSurvival</li>
-      <li>MakePemmican</li>
-    </recipes>
-    <building>
-      <spawnedConceptLearnOpportunity>BillsTab</spawnedConceptLearnOpportunity>
-      <heatPerTickWhileWorking>0.10</heatPerTickWhileWorking>
-      <workSpeedPenaltyOutdoors>false</workSpeedPenaltyOutdoors>
-      <workSpeedPenaltyTemperature>false</workSpeedPenaltyTemperature>
-    </building>
-    <designationHotKey>Misc8</designationHotKey>
-    <researchPrerequisites>
-      <li>Electricity</li>
-    </researchPrerequisites>
-    <castEdgeShadows>true</castEdgeShadows>
-    <staticSunShadowHeight>0.20</staticSunShadowHeight>
+    <rotatable>true</rotatable>
+    <neverMultiSelect>true</neverMultiSelect>
+    <designationCategory>Production</designationCategory>
+    <staticSunShadowHeight>0.3</staticSunShadowHeight>
+    <constructEffect>ConstructMetal</constructEffect>
+	<comps>
+	  <li Class="CompProperties_Power">
+	    <compClass>CompPowerTrader</compClass>
+		<basePowerConsumption>625</basePowerConsumption>
+	  </li>
+	</comps>
+	<inspectorTabs>
+	  <li>ProjectRimFactory.SAL3.UI.ITab_SAL3Bills</li>
+	</inspectorTabs>
+  </ThingDef>
+  <ThingDef ParentName="PRFBuildingBase">
+    <defName>SimpleAssembler</defName>
+    <label>simple assembler</label>
+    <thingClass>ProjectRimFactory.SAL3.Things.Assemblers.Building_SmartAssembler</thingClass>
+    <graphicData>
+      <texPath>SAL3/smart_assembler</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+	  <drawSize>(3,3)</drawSize>
+    </graphicData>
+    <altitudeLayer>Building</altitudeLayer>
+    <passability>PassThroughOnly</passability>
+    <fillPercent>0.5</fillPercent>
+    <pathCost>70</pathCost>
     <canOverlapZones>false</canOverlapZones>
+    <castEdgeShadows>true</castEdgeShadows>
+	<size>(3,3)</size>
+    <statBases>
+      <WorkToBuild>2500</WorkToBuild>
+      <MaxHitPoints>100</MaxHitPoints>
+      <Flammability>1.0</Flammability>
+    </statBases>
+	<minifiedDef>MinifiedFurniture</minifiedDef>
+    <description>An auto-crafter controlled by a computer.</description>
+    <costList>
+	  <Plasteel>75</Plasteel>
+      <Steel>200</Steel>
+	  <Component>8</Component>
+    </costList>
+	<recipes>
+	  <li>CookMealSimple</li>
+	</recipes>
+    <tickerType>Normal</tickerType>
+    <rotatable>true</rotatable>
+    <neverMultiSelect>true</neverMultiSelect>
+    <designationCategory>Production</designationCategory>
+    <staticSunShadowHeight>0.3</staticSunShadowHeight>
+    <constructEffect>ConstructMetal</constructEffect>
+	<comps>
+	  <li Class="CompProperties_Power">
+	    <compClass>CompPowerTrader</compClass>
+		<basePowerConsumption>625</basePowerConsumption>
+	  </li>
+	</comps>
+	<inspectorTabs>
+	  <li>ProjectRimFactory.SAL3.UI.ITab_SAL3Bills</li>
+	</inspectorTabs>
   </ThingDef>
   
   <ThingDef ParentName="PRFBuildingBase">
@@ -76,11 +99,6 @@
     <graphicData>
       <texPath>SAL3/DISK_HARDWARE4</texPath>
       <graphicClass>Graphic_Single</graphicClass>
-      <damageData>
-        <rect>(0.05,0.1,0.9,0.9)</rect>
-        <cornerTL>Damage/Corner</cornerTL>
-        <cornerTR>Damage/Corner</cornerTR>
-      </damageData>
     </graphicData>
     <altitudeLayer>Building</altitudeLayer>
     <passability>PassThroughOnly</passability>
@@ -105,8 +123,13 @@
     <rotatable>true</rotatable>
     <neverMultiSelect>true</neverMultiSelect>
     <designationCategory>Production</designationCategory>
-    <staticSunShadowHeight>0.3</staticSunShadowHeight>
-    <surfaceType>Item</surfaceType>
+    <staticSunShadowHeight>0.1</staticSunShadowHeight>
     <constructEffect>ConstructMetal</constructEffect>
+	<comps>
+	  <li Class="CompProperties_Power">
+	    <compClass>CompPowerTrader</compClass>
+		<basePowerConsumption>250</basePowerConsumption>
+	  </li>
+	</comps>
   </ThingDef>
 </Defs>
