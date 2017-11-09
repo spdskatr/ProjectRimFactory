@@ -12,7 +12,7 @@ namespace ProjectRimFactory.SAL3.Things.Assemblers
     {
         public abstract BillStack BillStack { get; }
 
-        public IEnumerable<IntVec3> IngredientStackCells => GenAdj.CellsOccupiedBy(this);
+        public virtual IEnumerable<IntVec3> IngredientStackCells => GenAdj.CellsAdjacent8Way(this);
 
         public bool CurrentlyUsableForBills() => false;
 

@@ -9,9 +9,6 @@ namespace ProjectRimFactory.SAL3.Things.Assemblers
 {
     public class Building_SmartAssembler : Building_ProgrammableAssembler
     {
-        public bool allowForbidden;
-        public override bool AllowForbidden => allowForbidden;
-
         protected override float ProductionSpeedFactor => 1f;
 
         public override IEnumerable<RecipeDef> GetAllRecipes()

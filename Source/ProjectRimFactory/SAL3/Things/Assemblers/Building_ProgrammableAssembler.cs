@@ -125,6 +125,12 @@ namespace ProjectRimFactory.SAL3.Things.Assemblers
                 icon = TexUI.RotRightTex,
                 defaultIconColor = Color.green
             };
+            yield return new Command_Action()
+            {
+                defaultLabel = "AllowForbidden".Translate(),
+                action = () => outputSlotIndex++,
+                icon = TexCommand.Forbidden,
+            };
             if (Prefs.DevMode)
             {
                 yield return new Command_Action()
@@ -170,7 +176,7 @@ namespace ProjectRimFactory.SAL3.Things.Assemblers
 
         protected virtual bool Active => GetComp<CompPowerTrader>()?.PowerOn ?? true;
 
-        protected IEnumerable<Thing> AllAccessibleThings => from c in InputCells
+        protected IEnumerable<Thing> AllAccessibleThings => from c in IngredientStackCells
                                                             from t in Map.thingGrid.ThingsListAt(c)
                                                             where AllowForbidden || !t.IsForbidden(Faction)
                                                             select t;
@@ -233,20 +239,6 @@ namespace ProjectRimFactory.SAL3.Things.Assemblers
                 thingQueue.Add(product);
             }
         }
-        
-        // Allows us to add qualities and ingredients. Comps: Art, Quality, Ingredients, FoodPoison, Colour
-        protected virtual void PostProcessProduct(Thing thing, List<Thing> ingredients)
-        {
-            // CompIngredients
-            CompIngredients compIngredients = thing.TryGetComp<CompIngredients>();
-            if (compIngredients != null)
-            {
-                for (int i = 0; i < ingredients.Count; i++)
-                {
-                    compIngredients.RegisterIngredient(ingredients[i].def);
-                }
-            }
-        }
 
         public override string GetInspectString()
         {
@@ -266,7 +258,8 @@ namespace ProjectRimFactory.SAL3.Things.Assemblers
 
         // Settings
         public int outputSlotIndex;
-        public abstract bool AllowForbidden { get; }
+        public bool allowForbidden;
+        public virtual bool AllowForbidden => allowForbidden;
         protected virtual IntVec3 OutputSlot
         {
             get
@@ -275,22 +268,20 @@ namespace ProjectRimFactory.SAL3.Things.Assemblers
                 return cells[outputSlotIndex %= cells.Count];
             }
         }
-        protected virtual IEnumerable<IntVec3> InputCells => GenAdj.CellsAdjacent8Way(this);
         protected abstract float ProductionSpeedFactor { get; }
 
         public override void DrawExtraSelectionOverlays()
         {
             base.DrawExtraSelectionOverlays();
-            GenDraw.DrawFieldEdges(InputCells.ToList());
+            GenDraw.DrawFieldEdges(IngredientStackCells.ToList());
             GenDraw.DrawFieldEdges(new List<IntVec3>() { OutputSlot }, Color.yellow);
         }
-
-        public override void Draw()
+        public override void DrawGUIOverlay()
         {
-            base.Draw();
+            base.DrawGUIOverlay();
             if (Find.CameraDriver.CurrentZoom < CameraZoomRange.Middle)
             {
-                GenMapUI.DrawThingLabel(this.TrueCenter(), currentBillReport == null ? "AssemblerIdle".Translate() : currentBillReport.bill.LabelCap, Color.white);
+                GenMapUI.DrawThingLabel(GenMapUI.LabelDrawPosFor(this, 0f), currentBillReport == null ? "AssemblerIdle".Translate() : currentBillReport.bill.LabelCap, Color.white);
             }
         }
     }

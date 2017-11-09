@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+  <ResearchProjectDef>
+    <defName>AutomationBasics</defName>
+    <label>automation basics</label>
+    <techLevel>Industrial</techLevel>
+    <baseCost>1000</baseCost>
+    <description>Learn the very basics of automation and mechanisms, the gateway to an industrial colony.</description>
+    <prerequisites>
+      <li>Machining</li>
+      <li>MicroelectronicsBasics</li>
+    </prerequisites>
+    <requiredResearchBuilding>HiTechResearchBench</requiredResearchBuilding>
+    <tab>Automation</tab>
+    <researchViewX>0</researchViewX>
+    <researchViewY>3</researchViewY>
+  </ResearchProjectDef>
+</Defs>
