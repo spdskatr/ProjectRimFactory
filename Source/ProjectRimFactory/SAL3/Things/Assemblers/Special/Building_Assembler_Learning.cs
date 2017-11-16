@@ -10,12 +10,19 @@ namespace ProjectRimFactory.SAL3.Things.Assemblers.Special
 {
     public class Building_Assembler_Learning : Building_SmartAssembler
     {
+        public float FactorOffset
+        {
+            get
+            {
+                return 0.75f;
+            }
+        }
         WorkSpeedFactorManager manager = new WorkSpeedFactorManager();
         protected override float ProductionSpeedFactor
         {
             get
             {
-                return currentBillReport == null ? 0.75f : manager.GetFactorFor(currentBillReport.bill.recipe) + 0.75f;
+                return currentBillReport == null ? FactorOffset : manager.GetFactorFor(currentBillReport.bill.recipe) + FactorOffset;
             }
         }
         public override void Tick()
@@ -53,8 +60,8 @@ namespace ProjectRimFactory.SAL3.Things.Assemblers.Special
         }
         public override void ExposeData()
         {
-            base.ExposeData();
             Scribe_Deep.Look(ref manager, "manager");
+            base.ExposeData();
         }
     }
 }

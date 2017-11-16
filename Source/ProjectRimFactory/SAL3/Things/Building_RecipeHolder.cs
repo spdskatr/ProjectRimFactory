@@ -19,7 +19,8 @@ namespace ProjectRimFactory.SAL3.Things
         public List<RecipeDef> recipes = new List<RecipeDef>();
         //================================ Misc
         public IEnumerable<Building_WorkTable> Tables => from IntVec3 cell in GenAdj.CellsAdjacent8Way(this)
-                                                         let building = cell.GetFirstBuilding(Map) as Building_WorkTable
+                                                         from Thing t in cell.GetThingList(Map)
+                                                         let building = t as Building_WorkTable
                                                          where building != null
                                                          select building;
         public virtual IEnumerable<RecipeDef> GetAllProvidedRecipeDefs()

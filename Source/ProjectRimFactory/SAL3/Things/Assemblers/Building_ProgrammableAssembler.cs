@@ -14,6 +14,9 @@ namespace ProjectRimFactory.SAL3.Things.Assemblers
     {
         protected class BillReport : IExposable
         {
+            public BillReport()
+            {
+            }
             public BillReport(Bill b, List<Thing> list)
             {
                 bill = b;

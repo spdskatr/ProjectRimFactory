@@ -58,7 +58,6 @@ namespace ProjectRimFactory.SAL3.Things.Assemblers.Special
     }
     public class WorkSpeedFactorManager : IExposable
     {
-        public float factorOffset = 0.75f;
         public Dictionary<RecipeDef, WorkSpeedFactorEntry> factors = new Dictionary<RecipeDef, WorkSpeedFactorEntry>();
         float learningRateCached = WorkSpeedFactorEntry.LearningRateCachedDefault;
         public float LearningRate
@@ -91,9 +90,9 @@ namespace ProjectRimFactory.SAL3.Things.Assemblers.Special
         {
             if (factors.TryGetValue(recipe, out WorkSpeedFactorEntry val))
             {
-                return val.FactorFinal + factorOffset;
+                return val.FactorFinal;
             }
-            return factorOffset;
+            return 0f;
         }
 
         public void ExposeData()

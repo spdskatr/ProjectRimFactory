@@ -17,7 +17,7 @@
   <AssemblerIdle>Idle</AssemblerIdle>
   <SALToggleForbidden>Toggle allow forbidden</SALToggleForbidden>
   <SALToggleForbidden_Desc>Allow/Disallow the auto-assembler to take forbidden items. Tick means allow.</SALToggleForbidden_Desc>
-  <SALCurrentProductionSpeed>Prodution speed for current recipe ({0}): {1} work/60 ticks</SALCurrentProductionSpeed>
+  <SALCurrentProductionSpeed>Prodution speed for current recipe ({0}): {1}</SALCurrentProductionSpeed>
   
   <!--Warnings for bad recipes (yet to be implemented)-->
   
