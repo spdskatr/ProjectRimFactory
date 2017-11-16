@@ -9,10 +9,18 @@
   <SALDataStartEncoding_Desc>Import a new recipe from nearby work tables.</SALDataStartEncoding_Desc>
   <SALDataCancelBills>Cancel bills</SALDataCancelBills>
   <AdjustDirection_Output>Adjust output direction</AdjustDirection_Output>
-  <SAL_Name>a S.A.L. crafter</SAL_Name>
+  <SAL_Name>a machine</SAL_Name>
   <SALInspect_RecipeReport>Current recipe: {0}\nWork left: {1}</SALInspect_RecipeReport>
   <SAL3_StoredRecipes>Stored recipes: {0}</SAL3_StoredRecipes>
   <SAL3Alert_SomeBillsRemoved>Some bills have been deleted as the smart assembler cannot make them anymore.</SAL3Alert_SomeBillsRemoved>
   <SAL3_BillsTabLabel>Bills</SAL3_BillsTabLabel>
   <AssemblerIdle>Idle</AssemblerIdle>
+  <SALToggleForbidden>Toggle allow forbidden</SALToggleForbidden>
+  <SALToggleForbidden_Desc>Allow/Disallow the auto-assembler to take forbidden items. Tick means allow.</SALToggleForbidden_Desc>
+  <SALCurrentProductionSpeed>Prodution speed for current recipe ({0}): {1} work/60 ticks</SALCurrentProductionSpeed>
+  
+  <!--Warnings for bad recipes (yet to be implemented)-->
+  
+  <!--Mod settings-->
+  <ProjectRimFactoryModName>Project RimFactory</ProjectRimFactoryModName>
 </LanguageData>

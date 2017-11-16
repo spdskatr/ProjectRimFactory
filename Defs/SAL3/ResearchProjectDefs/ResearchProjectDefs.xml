@@ -26,7 +26,7 @@
 	<label>Magnetic tape</label>
     <researchViewX>2</researchViewX>
     <researchViewY>2</researchViewY>
-	<description>Learn how to make and use old-school magnetic tape to store instructions. While you're at it, why not figure out how to make them multicolored as well?</description>
+	<description>Learn how to make and use old-school magnetic tape to store instructions. While you're at it, why not figure out how to make them multicolored as well? Make data disks at the machining table.</description>
   </ResearchProjectDef>
   <ResearchProjectDef>
     <defName>UniversalAutocrafting</defName>
@@ -34,7 +34,7 @@
 	<description>Make buildings that can craft recipes given to them via a recipe database. Like your dedicated crafter, but won't have mental breaks for silly reasons.</description>
 	<tab>Automation</tab>
     <techLevel>Industrial</techLevel>
-    <baseCost>1000</baseCost>
+    <baseCost>3000</baseCost>
     <requiredResearchBuilding>HiTechResearchBench</requiredResearchBuilding>
 	<requiredResearchFacilities><li>MultiAnalyzer</li></requiredResearchFacilities>
 	<prerequisites>

@@ -17,7 +17,6 @@ namespace ProjectRimFactory.SAL3.Things
         protected RecipeDef workingRecipe;
         protected float workAmount;
         public List<RecipeDef> recipes = new List<RecipeDef>();
-
         //================================ Misc
         public IEnumerable<Building_WorkTable> Tables => from IntVec3 cell in GenAdj.CellsAdjacent8Way(this)
                                                          let building = cell.GetFirstBuilding(Map) as Building_WorkTable
@@ -31,14 +30,14 @@ namespace ProjectRimFactory.SAL3.Things
                 {
                     foreach (RecipeDef recipe in table.def.AllRecipes)
                     {
-                        if (recipe.AvailableNow)
+                        if (recipe.AvailableNow && !recipes.Contains(recipe))
                             yield return recipe;
                     }
                 }
             }
             return GetInternal().Distinct();
         }
-        protected virtual float GetProduceSchematicWorkAmount(RecipeDef recipe)
+        protected virtual float GetLearnRecipeWorkAmount(RecipeDef recipe)
         {
             return recipe.WorkAmountTotal(ThingDefOf.Steel) * 10;
         }
@@ -119,7 +118,7 @@ namespace ProjectRimFactory.SAL3.Things
                     action = () =>
                     {
                         workingRecipe = recipe;
-                        workAmount = GetProduceSchematicWorkAmount(recipe);
+                        workAmount = GetLearnRecipeWorkAmount(recipe);
                     }
                 };
             }
@@ -135,10 +134,12 @@ namespace ProjectRimFactory.SAL3.Things
         {
             ResetProgress();
             Map mapBefore = Map;
+            // Do not remove ToList - It evaluates the enumerable
             List<IntVec3> list = GenAdj.CellsAdjacent8Way(this).ToList();
             base.DeSpawn();
-            foreach (IntVec3 cell in list)
+            for (int i = 0; i < list.Count; i++)
             {
+                IntVec3 cell = list[i];
                 if (cell.GetFirstBuilding(mapBefore) is Building_SmartAssembler building)
                 {
                     building.Notify_RecipeHolderRemoved();

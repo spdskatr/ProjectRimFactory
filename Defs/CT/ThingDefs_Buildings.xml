@@ -91,7 +91,7 @@
         <basePowerConsumption>3200</basePowerConsumption>
       </li>
       <li Class="CompProperties_Glower">
-        <overlightRadius>8.0</overlightRadius>
+        <overlightRadius>7.1</overlightRadius>
         <glowRadius>14</glowRadius>
         <glowColor>(370,370,370,0)</glowColor>
       </li>

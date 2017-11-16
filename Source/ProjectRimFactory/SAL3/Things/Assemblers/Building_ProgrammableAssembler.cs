@@ -35,10 +35,7 @@ namespace ProjectRimFactory.SAL3.Things.Assemblers
         // Pawn
 
         public Pawn buildingPawn;
-
-        /// <summary>
-        /// Makes a pawn.
-        /// </summary>
+        
         public virtual void DoPawn()
         {
             Pawn p = PawnGenerator.GeneratePawn(PawnKindDefOf.Slave, Faction);
@@ -108,6 +105,8 @@ namespace ProjectRimFactory.SAL3.Things.Assemblers
             Scribe_Deep.Look(ref billStack, "bills", this);
             Scribe_Deep.Look(ref currentBillReport, "currentBillReport");
             Scribe_Collections.Look(ref thingQueue, "thingQueue", LookMode.Deep);
+            Scribe_Values.Look(ref allowForbidden, "allowForbidden");
+            Scribe_Values.Look(ref outputSlotIndex, "outputSlotIndex");
             Scribe_Deep.Look(ref buildingPawn, "buildingPawn");
             if (buildingPawn == null)
                 DoPawn();
@@ -125,10 +124,12 @@ namespace ProjectRimFactory.SAL3.Things.Assemblers
                 icon = TexUI.RotRightTex,
                 defaultIconColor = Color.green
             };
-            yield return new Command_Action()
+            yield return new Command_Toggle()
             {
-                defaultLabel = "AllowForbidden".Translate(),
-                action = () => outputSlotIndex++,
+                defaultLabel = "SALToggleForbidden".Translate(),
+                defaultDesc = "SALToggleForbidden_Desc".Translate(),
+                isActive = () => allowForbidden,
+                toggleAction = () => allowForbidden ^= true,
                 icon = TexCommand.Forbidden,
             };
             if (Prefs.DevMode)
@@ -172,6 +173,8 @@ namespace ProjectRimFactory.SAL3.Things.Assemblers
 
         // Logic
         protected BillReport currentBillReport;
+
+        // thingQueue is List to save properly
         protected List<Thing> thingQueue = new List<Thing>();
 
         protected virtual bool Active => GetComp<CompPowerTrader>()?.PowerOn ?? true;
@@ -195,11 +198,12 @@ namespace ProjectRimFactory.SAL3.Things.Assemblers
                 }
                 if (currentBillReport != null)
                 {
-                    currentBillReport.workLeft -= 10f;
+                    currentBillReport.workLeft -= 10f * ProductionSpeedFactor;
                     if (currentBillReport.workLeft <= 0)
                     {
                         ProduceItems();
                         currentBillReport.bill.Notify_IterationCompleted(buildingPawn, currentBillReport.selected);
+                        Notify_RecipeCompleted(currentBillReport.bill.recipe);
                         currentBillReport = null;
                     }
                 }
@@ -234,10 +238,17 @@ namespace ProjectRimFactory.SAL3.Things.Assemblers
                 Log.Error("S.A.L. 3.0 :: Tried to make products when assembler isn't engaged in a bill.");
                 return;
             }
-            foreach (Thing product in GenRecipe.MakeRecipeProducts(currentBillReport.bill.recipe, buildingPawn, currentBillReport.selected, ProjectSAL_Utilities.CalculateDominantIngredient(currentBillReport.bill.recipe, currentBillReport.selected)))
+            IEnumerable<Thing> products = GenRecipe.MakeRecipeProducts(currentBillReport.bill.recipe, buildingPawn, currentBillReport.selected, ProjectSAL_Utilities.CalculateDominantIngredient(currentBillReport.bill.recipe, currentBillReport.selected));
+            foreach (Thing thing in products)
             {
-                thingQueue.Add(product);
+                PostProcessRecipeProduct(thing);
+                thingQueue.Add(thing);
             }
+            for (int i = 0; i < currentBillReport.selected.Count; i++)
+            {
+                currentBillReport.bill.recipe.Worker.ConsumeIngredient(currentBillReport.selected[i], currentBillReport.bill.recipe, Map);
+            }
+            thingQueue.AddRange(from Thing t in currentBillReport.selected where t.Spawned select t);
         }
 
         public override string GetInspectString()
@@ -283,6 +294,15 @@ namespace ProjectRimFactory.SAL3.Things.Assemblers
             {
                 GenMapUI.DrawThingLabel(GenMapUI.LabelDrawPosFor(this, 0f), currentBillReport == null ? "AssemblerIdle".Translate() : currentBillReport.bill.LabelCap, Color.white);
             }
+        }
+
+        // Other virtual methods
+        protected virtual void Notify_RecipeCompleted(RecipeDef recipe)
+        {
+        }
+
+        protected virtual void PostProcessRecipeProduct(Thing thing)
+        {
         }
     }
 }

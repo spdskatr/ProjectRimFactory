@@ -50,14 +50,17 @@
   <ItemGroup>
     <Compile Include="AnimalStation\Building_Classes.cs" />
     <Compile Include="AnimalStation\PlaceWorker_ShowAdjacent.cs" />
+    <Compile Include="Common\ProjectRimFactory_ModComponent.cs" />
+    <Compile Include="Common\ProjectRimFactory_ModSettings.cs" />
     <Compile Include="CultivatorTools\Buildings.cs" />
     <Compile Include="CultivatorTools\Building_RadialCellIterator.cs" />
     <Compile Include="CultivatorTools\Building_SquareCellIterator.cs" />
-    <Compile Include="CultivatorTools\ModSettings.cs" />
     <Compile Include="CultivatorTools\Utilities.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SAL3\Things\Assemblers\Building_DynamicBillGiver.cs" />
     <Compile Include="SAL3\Things\Assemblers\Building_SmartAssembler.cs" />
+    <Compile Include="SAL3\Things\Assemblers\Special\Building_Assembler_Learning.cs" />
+    <Compile Include="SAL3\Things\Assemblers\Special\WorkSpeedFactorManager.cs" />
     <Compile Include="SAL3\Things\Building_RecipeHolder.cs" />
     <Compile Include="SAL3\Things\Building_SmartHopper.cs" />
     <Compile Include="SAL3\Tools\BaseCountUtility.cs" />

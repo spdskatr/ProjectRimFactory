@@ -3,7 +3,7 @@
   <RecipeDef>
     <defName>MakeDataDisk</defName>
 	<label>make data disk</label>
-	<description>Make a roll of magnetic data tape. Takes a while.</description>
+	<description>Make a roll of magnetic data tape.</description>
     <jobString>Making data disk.</jobString>
     <workSpeedStat>SmithingSpeed</workSpeedStat>
     <effectWorking>Cook</effectWorking>

@@ -11,12 +11,14 @@ namespace ProjectRimFactory.SAL3.UI
 {
     public class ITab_SAL3Bills : ITab
     {
-        public ITab_SAL3Bills()
-        {
-            size = WinSize;
-            labelKey = "SAL3_BillsTabLabel";
-        }
-        
+        private float viewHeight = 1000f;
+
+        private Vector2 scrollPosition = default(Vector2);
+
+        private Bill mouseoverBill;
+
+        private static readonly Vector2 WinSize = new Vector2(420f, 480f);
+
         protected Building_DynamicBillGiver SelAssembler
         {
             get
@@ -24,40 +26,46 @@ namespace ProjectRimFactory.SAL3.UI
                 return (Building_DynamicBillGiver)SelThing;
             }
         }
-        
-        protected override void FillTab()
+
+        public ITab_SAL3Bills()
         {
-            PlayerKnowledgeDatabase.KnowledgeDemonstrated(ConceptDefOf.BillsTab, KnowledgeAmount.FrameDisplayed);
+            size = WinSize;
+            labelKey = "SAL3_BillsTabLabel";
+        }
+
+        protected override void FillTab()
+        { 
             Rect rect = new Rect(0f, 0f, WinSize.x, WinSize.y).ContractedBy(10f);
-            Func<List<FloatMenuOption>> recipeOptionsMaker = () =>
+            Func<List<FloatMenuOption>> recipeOptionsMaker = delegate
             {
                 List<FloatMenuOption> list = new List<FloatMenuOption>();
-                foreach(RecipeDef r in SelAssembler.GetAllRecipes())
+                foreach (RecipeDef recipe in SelAssembler.GetAllRecipes())
                 {
-                    if (r.AvailableNow)
+                    if (recipe.AvailableNow)
                     {
-                        list.Add(new FloatMenuOption(r.LabelCap, () =>
+                        list.Add(new FloatMenuOption(recipe.LabelCap, delegate
                         {
-                            Bill bill = r.MakeNewBill();
+                            Bill bill = recipe.MakeNewBill();
                             SelAssembler.BillStack.AddBill(bill);
-                        }));
+                        }, MenuOptionPriority.Default, null, null, 29f, (Rect r) => Widgets.InfoCardButton(r.x + 5f, r.y + (r.height - 24f) / 2f, recipe), null));
                     }
                 }
-                if (!list.Any())
+                if (list.Count == 0)
                 {
-                    list.Add(new FloatMenuOption("NoneBrackets".Translate(), null));
+                    list.Add(new FloatMenuOption("NoneBrackets".Translate(), null, MenuOptionPriority.Default, null, null, 0f, null, null));
                 }
                 return list;
             };
-            mouseoverBill = SelAssembler.BillStack.DoListing(rect, recipeOptionsMaker, ref scrollPosition, ref viewHeight);
+            mouseoverBill = SelAssembler.BillStack.DoListing(rect, recipeOptionsMaker, ref this.scrollPosition, ref this.viewHeight);
         }
-        
-        private float viewHeight = 1000f;
-        
-        private Vector2 scrollPosition = default(Vector2);
-        
-        private Bill mouseoverBill;
-        
-        private static readonly Vector2 WinSize = new Vector2(420f, 480f);
+
+        public override void TabUpdate()
+        {
+            if (mouseoverBill != null)
+            {
+                mouseoverBill.TryDrawIngredientSearchRadiusOnMap(SelAssembler.Position);
+                mouseoverBill = null;
+            }
+        }
     }
 }

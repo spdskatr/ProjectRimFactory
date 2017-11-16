@@ -3,5 +3,9 @@
   <DesignationCategoryDef>
     <defName>Automation</defName>
 	<label>automation</label>
+    <specialDesignatorClasses>
+      <li>Designator_Cancel</li>
+      <li>Designator_Deconstruct</li>
+    </specialDesignatorClasses>
   </DesignationCategoryDef>
 </Defs>

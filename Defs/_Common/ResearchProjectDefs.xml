@@ -15,4 +15,19 @@
     <researchViewX>0</researchViewX>
     <researchViewY>3</researchViewY>
   </ResearchProjectDef>
+  <ResearchProjectDef>
+    <defName>PRMachineLearning</defName>
+    <label>machine learning</label>
+    <techLevel>Industrial</techLevel>
+    <baseCost>2000</baseCost>
+    <description>Teach machines how to improve their abilities by themselves.</description>
+    <prerequisites>
+      <li>AutomationBasics</li>
+    </prerequisites>
+    <requiredResearchBuilding>HiTechResearchBench</requiredResearchBuilding>
+	<requiredResearchFacilities><li>MultiAnalyzer</li></requiredResearchFacilities>
+    <tab>Automation</tab>
+    <researchViewX>3</researchViewX>
+    <researchViewY>3</researchViewY>
+  </ResearchProjectDef>
 </Defs>

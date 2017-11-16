@@ -1,15 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Defs>
-  <ThingDef ParentName="PRFBuildingBase">
-    <defName>UniversalAssembler</defName>
-    <label>universal assembler</label>
-    <thingClass>ProjectRimFactory.SAL3.Things.Assemblers.Building_SmartAssembler</thingClass>
-    <graphicData>
-      <texPath>SAL3/smart_assembler</texPath>
+  <ThingDef Name="AssemblerBase" ParentName="PRFBuildingBase" Abstract="True">
+    <statBases>
+      <MaxHitPoints>100</MaxHitPoints>
+      <Flammability>1.0</Flammability>
+	</statBases>
+	<graphicData>
       <graphicClass>Graphic_Single</graphicClass>
-	  <shaderType>CutoutComplex</shaderType>
 	  <drawSize>(3,3)</drawSize>
-    </graphicData>
+	</graphicData>
     <altitudeLayer>Building</altitudeLayer>
     <passability>PassThroughOnly</passability>
     <fillPercent>0.5</fillPercent>
@@ -17,39 +16,116 @@
     <canOverlapZones>false</canOverlapZones>
     <castEdgeShadows>true</castEdgeShadows>
 	<size>(3,3)</size>
-    <statBases>
-      <WorkToBuild>2500</WorkToBuild>
-      <MaxHitPoints>100</MaxHitPoints>
-      <Flammability>1.0</Flammability>
-    </statBases>
 	<minifiedDef>MinifiedFurniture</minifiedDef>
-    <description>An auto-crafter controlled by a computer. Reads recipe instructions from a recipe database.</description>
+	<stuffCategories>
+	  <li>Metallic</li>
+	</stuffCategories>
+    <tickerType>Normal</tickerType>
+    <rotatable>true</rotatable>
+    <neverMultiSelect>true</neverMultiSelect>
+    <designationCategory>Automation</designationCategory>
+    <staticSunShadowHeight>0.3</staticSunShadowHeight>
+	<drawGUIOverlay>true</drawGUIOverlay>
+	<inspectorTabs>
+	  <li>ProjectRimFactory.SAL3.UI.ITab_SAL3Bills</li>
+	</inspectorTabs>
+  </ThingDef>
+  
+  <ThingDef ParentName="AssemblerBase">
+    <defName>MachineLearningAssembler</defName>
+    <label>machine learning assembler</label>
+    <thingClass>ProjectRimFactory.SAL3.Things.Assemblers.Special.Building_Assembler_Learning</thingClass>
+    <graphicData>
+      <texPath>SAL3/smart_assembler</texPath>
+	  <shaderType>CutoutComplex</shaderType>
+    </graphicData>
+    <costStuffCount>100</costStuffCount>
+	<costList>
+	  <Plasteel>100</Plasteel>
+      <Steel>150</Steel>
+	  <Component>8</Component>
+    </costList>
+    <description>An auto-crafter controlled by a computer. Slowly gets better at recipes the more it completes them. However, its skill slowly degrades over time.</description>
+    <statBases>
+      <WorkToBuild>3000</WorkToBuild>
+    </statBases>
+	<comps>
+	  <li Class="CompProperties_Power">
+	    <compClass>CompPowerTrader</compClass>
+		<basePowerConsumption>700</basePowerConsumption>
+	  </li>
+	</comps>
+	<researchPrerequisites>
+	  <li>UniversalAutocrafting</li>
+	</researchPrerequisites>
+  </ThingDef>
+  
+  <ThingDef ParentName="AssemblerBase">
+    <defName>UniversalAssembler</defName>
+    <label>universal assembler</label>
+    <thingClass>ProjectRimFactory.SAL3.Things.Assemblers.Building_SmartAssembler</thingClass>
+    <graphicData>
+      <texPath>SAL3/smart_assembler</texPath>
+	  <shaderType>CutoutComplex</shaderType>
+    </graphicData>
     <costStuffCount>100</costStuffCount>
 	<costList>
 	  <Plasteel>75</Plasteel>
       <Steel>100</Steel>
 	  <Component>8</Component>
     </costList>
-    <tickerType>Normal</tickerType>
-    <rotatable>true</rotatable>
-    <neverMultiSelect>true</neverMultiSelect>
-    <designationCategory>Automation</designationCategory>
-    <staticSunShadowHeight>0.3</staticSunShadowHeight>
-    <constructEffect>ConstructMetal</constructEffect>
-	<drawGUIOverlay>true</drawGUIOverlay>
+    <description>An auto-crafter controlled by a computer. Reads recipe instructions from a recipe database.</description>
+    <statBases>
+      <WorkToBuild>2500</WorkToBuild>
+    </statBases>
 	<comps>
 	  <li Class="CompProperties_Power">
 	    <compClass>CompPowerTrader</compClass>
 		<basePowerConsumption>625</basePowerConsumption>
 	  </li>
 	</comps>
-	<inspectorTabs>
-	  <li>ProjectRimFactory.SAL3.UI.ITab_SAL3Bills</li>
-	</inspectorTabs>
 	<researchPrerequisites>
 	  <li>UniversalAutocrafting</li>
 	</researchPrerequisites>
   </ThingDef>
+  
+  <ThingDef ParentName="AssemblerBase">
+    <defName>SelfCooker</defName>
+    <label>self cooker</label>
+    <thingClass>ProjectRimFactory.SAL3.Things.Assemblers.Building_SimpleAssembler</thingClass>
+    <graphicData>
+      <texPath>SAL3/AutoCooker</texPath>
+	  <shaderType>CutoutComplex</shaderType>
+    </graphicData>
+    <statBases>
+      <WorkToBuild>2000</WorkToBuild>
+    </statBases>
+    <description>A machine that can cook meals all by itself. Just look at it go!</description>
+    <costStuffCount>100</costStuffCount>
+	<costList>
+	  <Plasteel>10</Plasteel>
+      <Steel>60</Steel>
+	  <Component>6</Component>
+    </costList>
+	<comps>
+	  <li Class="CompProperties_Power">
+	    <compClass>CompPowerTrader</compClass>
+		<basePowerConsumption>400</basePowerConsumption>
+	  </li>
+	</comps>
+	<recipes>
+      <li>CookMealSimple</li>
+      <li>CookMealFine</li>
+      <li>CookMealLavish</li>
+      <li>CookMealSurvival</li>
+      <li>MakePemmican</li>
+	</recipes>
+	<researchPrerequisites>
+	  <li>SelfCooking</li>
+	</researchPrerequisites>
+  </ThingDef>
+  
+   <!--Recipe database-->
   
   <ThingDef ParentName="PRFBuildingBase">
     <defName>RecipeDatabase</defName>
@@ -78,9 +154,6 @@
 	  <Component>5</Component>
 	  <RimFactory_Data_Disk>1</RimFactory_Data_Disk>
     </costList>
-	<stuffCategories>
-	  <li>Metallic</li>
-	</stuffCategories>
     <tickerType>Normal</tickerType>
     <rotatable>true</rotatable>
     <neverMultiSelect>true</neverMultiSelect>
@@ -95,67 +168,6 @@
 	</comps>
 	<researchPrerequisites>
 	  <li>MagneticTape</li>
-	</researchPrerequisites>
-  </ThingDef>
-  
-  <ThingDef ParentName="PRFBuildingBase">
-    <defName>SelfCooker</defName>
-    <label>self cooker</label>
-    <thingClass>ProjectRimFactory.SAL3.Things.Assemblers.Building_SimpleAssembler</thingClass>
-    <graphicData>
-      <texPath>SAL3/AutoCooker</texPath>
-      <graphicClass>Graphic_Single</graphicClass>
-	  <shaderType>CutoutComplex</shaderType>
-	  <drawSize>(3,3)</drawSize>
-    </graphicData>
-    <altitudeLayer>Building</altitudeLayer>
-    <passability>PassThroughOnly</passability>
-    <fillPercent>0.5</fillPercent>
-    <pathCost>70</pathCost>
-    <canOverlapZones>false</canOverlapZones>
-    <castEdgeShadows>true</castEdgeShadows>
-	<size>(3,3)</size>
-    <statBases>
-      <WorkToBuild>2500</WorkToBuild>
-      <MaxHitPoints>100</MaxHitPoints>
-      <Flammability>1.0</Flammability>
-    </statBases>
-	<minifiedDef>MinifiedFurniture</minifiedDef>
-    <description>A machine that can cook meals all by itself. Just look at it go!</description>
-    <costStuffCount>100</costStuffCount>
-	<costList>
-	  <Plasteel>10</Plasteel>
-      <Steel>60</Steel>
-	  <Component>6</Component>
-    </costList>
-	<stuffCategories>
-	  <li>Metallic</li>
-	</stuffCategories>
-    <tickerType>Normal</tickerType>
-    <rotatable>true</rotatable>
-    <neverMultiSelect>true</neverMultiSelect>
-    <designationCategory>Automation</designationCategory>
-    <staticSunShadowHeight>0.3</staticSunShadowHeight>
-    <constructEffect>ConstructMetal</constructEffect>
-	<drawGUIOverlay>true</drawGUIOverlay>
-	<comps>
-	  <li Class="CompProperties_Power">
-	    <compClass>CompPowerTrader</compClass>
-		<basePowerConsumption>400</basePowerConsumption>
-	  </li>
-	</comps>
-	<recipes>
-      <li>CookMealSimple</li>
-      <li>CookMealFine</li>
-      <li>CookMealLavish</li>
-      <li>CookMealSurvival</li>
-      <li>MakePemmican</li>
-	</recipes>
-	<inspectorTabs>
-	  <li>ProjectRimFactory.SAL3.UI.ITab_SAL3Bills</li>
-	</inspectorTabs>
-	<researchPrerequisites>
-	  <li>SelfCooking</li>
 	</researchPrerequisites>
   </ThingDef>
 </Defs>

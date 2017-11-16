@@ -1,8 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <LanguageData>
   <AdjustDirection_Desc>Click to rotate clockwise. Current direction is: {0}</AdjustDirection_Desc>
-  <SALToggleForbidden>Toggle allow forbidden</SALToggleForbidden>
-  <SALToggleForbidden_Desc>Allow/Disallow the auto-assembler to take forbidden items.</SALToggleForbidden_Desc>
   <SALCancelBills>Cancel bills</SALCancelBills>
   <SALCancelBills_Desc>Click to make S.A.L. building drop its items and cancel bills.</SALCancelBills_Desc>
   <SALInspect_CurrentConfig>Current configuration: Output: {0}</SALInspect_CurrentConfig>
