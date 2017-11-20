@@ -144,7 +144,7 @@ namespace ProjectRimFactory.SAL3.Things.Assemblers
                 };
             }
         }
-        IEnumerable<FloatMenuOption> GetDebugOptions()
+        protected virtual IEnumerable<FloatMenuOption> GetDebugOptions()
         {
             string StringConverter(Thing t)
             {

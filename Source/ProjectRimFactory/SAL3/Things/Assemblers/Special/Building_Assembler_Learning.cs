@@ -58,6 +58,26 @@ namespace ProjectRimFactory.SAL3.Things.Assemblers.Special
                 compQuality.SetQuality(GetRandomProductionQuality(), ArtGenerationContext.Colony);
             }
         }
+        protected override IEnumerable<FloatMenuOption> GetDebugOptions()
+        {
+            foreach (FloatMenuOption option in base.GetDebugOptions())
+            {
+                yield return option;
+            }
+            yield return new FloatMenuOption("View active skills", () => {
+                manager.TrimUnnecessaryFactors();
+                StringBuilder stringBuilder = new StringBuilder();
+                stringBuilder.AppendLine("Active skills ranked descending:");
+                RecipeDef[] keys = manager.factors.Keys.ToArray();
+                WorkSpeedFactorEntry[] values = manager.factors.Values.ToArray();
+                Array.Sort(values, keys);
+                for (int i = 0; i < keys.Length; i++)
+                {
+                    stringBuilder.AppendLine($"{keys[i].LabelCap}: {values[i].FactorFinal + FactorOffset}");
+                }
+                Log.Message(stringBuilder.ToString());
+            });
+        }
         public override void ExposeData()
         {
             Scribe_Deep.Look(ref manager, "manager");

@@ -5,41 +5,6 @@ using Verse;
 using RimWorld;
 using ProjectRimFactory.SAL3.UI;
 
-//S.A.L. | Station Automation and Logistics
-/* To-do: 
- *                                                    Done?
- * Reserve workbench----------------------------------DONE
- * Resolve pawn error on map load---------------------DONE
- * Check if workbench has power-----------------------DONE
- * Take bill off bill stack once done-----------------DONE
- * change colour of ouput direction in Draw()---------DONE
- * Make them be bad at art----------------------------DONE
- * Allow/disallow taking forbidden items--------------DONE
- * Make sound while crafting--------------------------DONE
- * Make sound when sucking item in--------------------DONE
- * Check if work table is deconstructed---------------DONE
- * Clear reservation if power off---------------------DONE
- * Customisable pawns via defs; skills----------------DONE
- * Sort out problem with nutrition/cooking------------DONE
- * Eject items in thingRecord if deconstructed--------DONE
- * Edit defs: Not forbiddable, flickable--------------DONE
- * Make smart hopper----------------------------------DONE
- * Check for small volume-----------------------------DONE
- * Redo corpse calculations---------------------------DONE
- * Add ingredients to unfinished items----------------DONE
- * Patch for Mending
- * Maintenance intervals------------------------------DONE
- * Move AssemblerDef to a ModExtension----------------DONE
- * Tiered crafters------------------------------------DONE
- *From xlilcasper (Ludeon Forums)
- * Let items get accepted from adjacent cells---------DONE
- * Check if colony has enough resources for billC:\Program Files (x86)\Steam\steamapps\common\RimWorld\Mods\[SS] ProjectSAL\Source\Building_Crafter.cs
- *From Kadan Joelavich (Steam)
- * "This may not be possible, but would there 
- * be any way to have their global work speed 
- * factor in the material they are make from?---------DONE
- * Rework smart hopper
- * */
 namespace ProjectRimFactory.SAL3.Things
 {
     public class Building_SmartHopper : Building, IStoreSettingsParent
@@ -103,7 +68,7 @@ namespace ProjectRimFactory.SAL3.Things
             Scribe_Deep.Look(ref settings, "settings", this);
         }
 
-        public override string GetInspectString() => base.GetInspectString() + "SmartHopper_Limit".Translate(limit);
+        public override string GetInspectString() => base.GetInspectString() + "\n" + "SmartHopper_Limit".Translate(limit);
 
         public override void Tick()
         {

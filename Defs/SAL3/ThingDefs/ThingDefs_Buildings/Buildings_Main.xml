@@ -45,7 +45,7 @@
       <Steel>150</Steel>
 	  <Component>8</Component>
     </costList>
-    <description>An auto-crafter controlled by a computer. Slowly gets better at recipes the more it completes them. However, its skill slowly degrades over time.</description>
+    <description>An auto-crafter controlled by a computer. Slowly gets better at recipes the more it completes them. However, it also gets a bit worse over time.</description>
     <statBases>
       <WorkToBuild>3000</WorkToBuild>
     </statBases>
@@ -57,6 +57,7 @@
 	</comps>
 	<researchPrerequisites>
 	  <li>UniversalAutocrafting</li>
+	  <li>PRMachineLearning</li>
 	</researchPrerequisites>
   </ThingDef>
   

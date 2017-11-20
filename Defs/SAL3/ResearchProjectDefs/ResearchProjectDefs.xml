@@ -26,7 +26,7 @@
 	<label>Magnetic tape</label>
     <researchViewX>2</researchViewX>
     <researchViewY>2</researchViewY>
-	<description>Learn how to make and use old-school magnetic tape to store instructions. While you're at it, why not figure out how to make them multicolored as well? Make data disks at the machining table.</description>
+	<description>Learn how to make and use old-school magnetic tape to store instructions. Make data disks at the machining table.</description>
   </ResearchProjectDef>
   <ResearchProjectDef>
     <defName>UniversalAutocrafting</defName>

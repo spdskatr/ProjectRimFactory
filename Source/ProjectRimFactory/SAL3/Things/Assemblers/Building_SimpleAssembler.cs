@@ -18,12 +18,5 @@ namespace ProjectRimFactory.SAL3.Things.Assemblers
                    where r.AvailableNow
                    select r;
         }
-
-        public override void DrawExtraSelectionOverlays()
-        {
-            base.DrawExtraSelectionOverlays();
-            GenDraw.DrawFieldEdges(IngredientStackCells.ToList());
-            GenDraw.DrawFieldEdges(new List<IntVec3> { OutputSlot }, Color.yellow);
-        }
     }
 }
