@@ -14,7 +14,7 @@ namespace ProjectRimFactory.SAL3.Things.Assemblers.Special
         {
             get
             {
-                return 0.75f;
+                return 0.5f;
             }
         }
         WorkSpeedFactorManager manager = new WorkSpeedFactorManager();
@@ -28,7 +28,7 @@ namespace ProjectRimFactory.SAL3.Things.Assemblers.Special
         public override void Tick()
         {
             base.Tick();
-            if (currentBillReport != null && this.IsHashIntervalTick(60))
+            if (currentBillReport != null && this.IsHashIntervalTick(60) && GetComp<CompPowerTrader>()?.PowerOn != false)
             {
                 manager.IncreaseWeight(currentBillReport.bill.recipe, 0.001f * currentBillReport.bill.recipe.workSkillLearnFactor);
             }
