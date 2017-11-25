@@ -33,7 +33,7 @@
     <comps>
       <li Class="CompProperties_Power">
         <compClass>CompPowerTrader</compClass>
-        <startElectricalFires>false</startElectricalFires>
+		<shortCircuitInRain>false</shortCircuitInRain>
         <basePowerConsumption>500</basePowerConsumption>
       </li>
     </comps>
@@ -148,8 +148,8 @@
     <comps>
       <li Class="CompProperties_Power">
         <compClass>CompPowerTrader</compClass>
-        <startElectricalFires>true</startElectricalFires>
         <basePowerConsumption>250</basePowerConsumption>
+		<shortCircuitInRain>false</shortCircuitInRain>
       </li>
     </comps>
     <specialDisplayRadius>12</specialDisplayRadius>

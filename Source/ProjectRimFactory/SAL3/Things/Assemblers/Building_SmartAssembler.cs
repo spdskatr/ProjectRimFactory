@@ -13,16 +13,12 @@ namespace ProjectRimFactory.SAL3.Things.Assemblers
 
         public override IEnumerable<RecipeDef> GetAllRecipes()
         {
-            foreach (IntVec3 cell in GenAdj.CellsAdjacent8Way(this))
-            {
-                if (cell.GetFirstBuilding(Map) is Building_RecipeHolder holder)
-                {
-                    foreach (RecipeDef recipe in holder.recipes)
-                    {
-                        yield return recipe;
-                    }
-                }
-            }
+            return from IntVec3 c in GenAdj.CellsAdjacent8Way(this)
+                   from Thing t in c.GetThingList(Map)
+                   let h = t as Building_RecipeHolder
+                   where h != null
+                   from RecipeDef recipe in h.recipes
+                   select recipe;
         }
 
         public virtual void Notify_RecipeHolderRemoved()
