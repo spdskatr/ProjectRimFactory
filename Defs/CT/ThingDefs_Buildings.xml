@@ -78,7 +78,7 @@
       <MaxHitPoints>100</MaxHitPoints>
       <Flammability>1.0</Flammability>
     </statBases>
-    <description>A building that can autonomously plant and harvest crops in a 6 cell radius. Has a sun lamp. Will not be affected by any stat modifiers.</description>
+    <description>A building that can autonomously plant and harvest crops in a 11 cell square around it. Has a sun lamp. Will not be affected by any stat modifiers.</description>
     <costList>
       <Steel>200</Steel>
       <Plasteel>50</Plasteel>
