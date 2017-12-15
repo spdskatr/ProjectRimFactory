@@ -114,6 +114,9 @@
 		<basePowerConsumption>400</basePowerConsumption>
 	  </li>
 	</comps>
+	<building>
+	  <isMealSource>true</isMealSource>
+	</building>
 	<recipes>
       <li>CookMealSimple</li>
       <li>CookMealFine</li>

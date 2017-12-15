@@ -85,7 +85,7 @@ namespace ProjectRimFactory.CultivatorTools
             {
                 currentPosition++;
                 var num = iter.cellPattern.Length;
-                if (currentPosition + 1 >= num)
+                if (currentPosition >= num)
                     currentPosition = 0;
                 var cell = Current;
                 var zone = cell.GetZone(Map);

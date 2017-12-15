@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+  <ThingDef ParentName="PRFBuildingBase" Abstract="True"> <!-- Shhhhh -->
+    <defName>PRF_DeepQuarry</defName>
+    <label>deep quarry</label>
+    <thingClass>ProjectRimFactory.Industry.Building_DeepQuarry</thingClass>
+    <graphicData>
+      <texPath>Industry/DeepQuarry</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+	  <drawSize>3, 3</drawSize>
+    </graphicData>
+	<size>(3, 3)</size>
+    <altitudeLayer>Building</altitudeLayer>
+    <passability>Impassable</passability>
+    <fillPercent>0.5</fillPercent>
+    <castEdgeShadows>true</castEdgeShadows>
+    <statBases>
+      <WorkToBuild>1000</WorkToBuild>
+      <MaxHitPoints>100</MaxHitPoints>
+      <Flammability>1.0</Flammability>
+    </statBases>
+    <description>An automated quarry that continuously extracts rock chunks from the ground. Produces a random chunk roughly once every 6 hours.</description>
+    <costList>
+      <Steel>100</Steel>
+      <Component>3</Component>
+    </costList>
+    <comps>
+      <li Class="CompProperties_Power">
+        <compClass>CompPowerTrader</compClass>
+        <startElectricalFires>true</startElectricalFires>
+        <basePowerConsumption>300</basePowerConsumption>
+      </li>
+    </comps>
+    <tickerType>Long</tickerType>
+    <rotatable>true</rotatable>
+    <designationCategory>Automation</designationCategory>
+    <staticSunShadowHeight>1</staticSunShadowHeight>
+    <constructEffect>ConstructMetal</constructEffect>
+    <researchPrerequisites>
+      <li>AutomationBasics</li>
+    </researchPrerequisites>
+  </ThingDef>
+</Defs>

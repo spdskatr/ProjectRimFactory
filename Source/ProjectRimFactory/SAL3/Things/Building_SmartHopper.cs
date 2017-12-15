@@ -99,7 +99,6 @@ namespace ProjectRimFactory.SAL3.Things
             {
                 if (StoredThing.CanStackWith(element))
                 {
-                    //Verse.ThingUtility.TryAsborbStackNumToTake <- That's not a typo, that's an actual method. Seriously. Good thing it's fixed in A17, eh? (LudeonLeaks, 2017)
                     var num = Mathf.Min(element.stackCount, Mathf.Min(limit, StoredThing.def.stackLimit) - StoredThing.stackCount);
                     if (num > 0)
                     {

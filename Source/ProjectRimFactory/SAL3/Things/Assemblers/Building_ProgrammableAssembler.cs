@@ -29,7 +29,7 @@ namespace ProjectRimFactory.SAL3.Things.Assemblers
 
             public void ExposeData()
             {
-                Scribe_Deep.Look(ref bill, "bill");
+                Scribe_References.Look(ref bill, "bill");
                 Scribe_Collections.Look(ref selected, "selected", LookMode.Deep);
                 Scribe_Values.Look(ref workLeft, "workLeft");
             }
@@ -249,6 +249,15 @@ namespace ProjectRimFactory.SAL3.Things.Assemblers
             }
             for (int i = 0; i < currentBillReport.selected.Count; i++)
             {
+                if (currentBillReport.selected[i] is Corpse c)
+                {
+                    List<Apparel> apparel = new List<Apparel>(c.InnerPawn.apparel.WornApparel);
+                    for (int j = 0; j < apparel.Count; j++)
+                    {
+                        thingQueue.Add(apparel[j]);
+                        c.InnerPawn.apparel.Remove(apparel[j]);
+                    }
+                }
                 currentBillReport.bill.recipe.Worker.ConsumeIngredient(currentBillReport.selected[i], currentBillReport.bill.recipe, Map);
             }
             thingQueue.AddRange(from Thing t in currentBillReport.selected where t.Spawned select t);

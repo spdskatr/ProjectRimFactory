@@ -18,12 +18,12 @@ namespace ProjectRimFactory.CultivatorTools
         #region Abstract stuff
         public override int TickRate => def.GetModExtension<CultivatorDefModExtension>()?.TickFrequencyDivisor ?? 200;
 
-        public override bool CellValidator(IntVec3 c) => base.CellValidator(c) && (Utilities.GetIPlantToGrowSettable(c, Map)?.CanPlantRightNow() ?? false);
+        public override bool CellValidator(IntVec3 c) => base.CellValidator(c) && Utilities.GetIPlantToGrowSettable(c, Map) != null;
 
         public override bool DoIterationWork(IntVec3 c)
         {
-            var zone = Utilities.GetIPlantToGrowSettable(c, Map);
-            var plantDef = zone.GetPlantDefToGrow();
+            IPlantToGrowSettable plantToGrowSettable = Utilities.GetIPlantToGrowSettable(c, Map);
+            var plantDef = plantToGrowSettable.GetPlantDefToGrow();
             foreach (var t in c.GetThingList(Map))
             {
                 if (t is Plant p)
@@ -48,7 +48,10 @@ namespace ProjectRimFactory.CultivatorTools
                 }
             }
             //If no plant of specified type, plants one
-            TryPlantNew(c, plantDef);
+            if (plantDef != null && plantToGrowSettable.CanPlantRightNow())
+            {
+                TryPlantNew(c, plantDef);
+            }
             return true;
         }
         #endregion

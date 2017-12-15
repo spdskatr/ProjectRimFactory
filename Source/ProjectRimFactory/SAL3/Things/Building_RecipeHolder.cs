@@ -25,18 +25,16 @@ namespace ProjectRimFactory.SAL3.Things
                                                          select building;
         public virtual IEnumerable<RecipeDef> GetAllProvidedRecipeDefs()
         {
-            IEnumerable<RecipeDef> GetInternal()
+            HashSet<RecipeDef> result = new HashSet<RecipeDef>();
+            foreach (Building_WorkTable table in Tables)
             {
-                foreach (Building_WorkTable table in Tables)
+                foreach (RecipeDef recipe in table.def.AllRecipes)
                 {
-                    foreach (RecipeDef recipe in table.def.AllRecipes)
-                    {
-                        if (recipe.AvailableNow && !recipes.Contains(recipe))
-                            yield return recipe;
-                    }
+                    if (recipe.AvailableNow && !recipes.Contains(recipe) && !result.Contains(recipe))
+                        result.Add(recipe);
                 }
             }
-            return GetInternal().Distinct();
+            return result;
         }
         protected virtual float GetLearnRecipeWorkAmount(RecipeDef recipe)
         {
@@ -167,6 +165,7 @@ namespace ProjectRimFactory.SAL3.Things
         {
             base.ExposeData();
             Scribe_Collections.Look(ref recipes, "recipes", LookMode.Def);
+            Scribe_Values.Look(ref workAmount, "workAmount");
         }
         public override string GetInspectString()
         {
