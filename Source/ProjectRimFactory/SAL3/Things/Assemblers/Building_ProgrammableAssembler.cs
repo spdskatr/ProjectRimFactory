@@ -204,10 +204,20 @@ namespace ProjectRimFactory.SAL3.Things.Assemblers
                     currentBillReport.workLeft -= 10f * ProductionSpeedFactor;
                     if (currentBillReport.workLeft <= 0)
                     {
-                        ProduceItems();
-                        currentBillReport.bill.Notify_IterationCompleted(buildingPawn, currentBillReport.selected);
-                        Notify_RecipeCompleted(currentBillReport.bill.recipe);
-                        currentBillReport = null;
+                        try
+                        {
+                            ProduceItems();
+                            currentBillReport.bill.Notify_IterationCompleted(buildingPawn, currentBillReport.selected);
+                            Notify_RecipeCompleted(currentBillReport.bill.recipe);
+                        }
+                        catch (Exception ex)
+                        {
+                            Log.Error($"Error producing items for {GetUniqueLoadID()}: " + ex);
+                        }
+                        finally
+                        {
+                            currentBillReport = null;
+                        }
                     }
                 }
                 else if (this.IsHashIntervalTick(60))
@@ -249,7 +259,7 @@ namespace ProjectRimFactory.SAL3.Things.Assemblers
             }
             for (int i = 0; i < currentBillReport.selected.Count; i++)
             {
-                if (currentBillReport.selected[i] is Corpse c)
+                if (currentBillReport.selected[i] is Corpse c && c.InnerPawn?.apparel != null)
                 {
                     List<Apparel> apparel = new List<Apparel>(c.InnerPawn.apparel.WornApparel);
                     for (int j = 0; j < apparel.Count; j++)

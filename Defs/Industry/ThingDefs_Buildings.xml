@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Defs>
-  <ThingDef ParentName="PRFBuildingBase" Abstract="True"> <!-- Shhhhh -->
+  <ThingDef ParentName="PRFBuildingBase"> <!-- Shhhhh -->
     <defName>PRF_DeepQuarry</defName>
     <label>deep quarry</label>
     <thingClass>ProjectRimFactory.Industry.Building_DeepQuarry</thingClass>
     <graphicData>
       <texPath>Industry/DeepQuarry</texPath>
       <graphicClass>Graphic_Single</graphicClass>
-	  <drawSize>3, 3</drawSize>
+	  <drawSize>(3, 3)</drawSize>
     </graphicData>
-	<size>(3, 3)</size>
+	<size>(2, 2)</size>
     <altitudeLayer>Building</altitudeLayer>
     <passability>Impassable</passability>
     <fillPercent>0.5</fillPercent>

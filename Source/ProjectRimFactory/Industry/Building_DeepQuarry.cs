@@ -20,11 +20,13 @@ namespace ProjectRimFactory.Industry
                 {
                     return cachedPossibleRockDefCandidates;
                 }
-                return cachedPossibleRockDefCandidates = from def in DefDatabase<ThingDef>.AllDefs
-                                                         where def.building != null && def.building.isNaturalRock && !def.building.isResourceRock
+                return cachedPossibleRockDefCandidates = from def in ThingCategoryDef.Named("StoneChunks").DescendantThingDefs
                                                          select def;
             }
         }
+
+        public int ProducedChunksTotal = 0;
+
         public virtual IntVec3 OutputCell => Position + Rotation.FacingCell * 2;
         public override void TickLong()
         {
@@ -32,6 +34,11 @@ namespace ProjectRimFactory.Industry
             {
                 GenerateChunk();
             }
+        }
+        public override void ExposeData()
+        {
+            Scribe_Values.Look(ref ProducedChunksTotal, "producedTotal");
+            base.ExposeData();
         }
 
         public override void DrawExtraSelectionOverlays()
@@ -43,18 +50,11 @@ namespace ProjectRimFactory.Industry
         public virtual void GenerateChunk()
         {
             GenPlace.TryPlaceThing(GetChunkThingToPlace(), OutputCell, Map, ThingPlaceMode.Near);
+            ProducedChunksTotal++;
         }
 
         protected virtual Thing GetChunkThingToPlace()
         {
-            TerrainDef terrainDef = Position.GetTerrain(Map);
-            foreach (ThingDef def in PossibleRockDefCandidates)
-            {
-                if (def.leaveTerrain == terrainDef)
-                {
-                    return ThingMaker.MakeThing(def.building.mineableThing);
-                }
-            }
             return ThingMaker.MakeThing(PossibleRockDefCandidates.RandomElement());
         }
     }
