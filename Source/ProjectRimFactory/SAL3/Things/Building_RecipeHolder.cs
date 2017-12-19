@@ -164,6 +164,7 @@ namespace ProjectRimFactory.SAL3.Things
         public override void ExposeData()
         {
             base.ExposeData();
+            Scribe_Defs.Look(ref workingRecipe, "workingRecipe");
             Scribe_Collections.Look(ref recipes, "recipes", LookMode.Def);
             Scribe_Values.Look(ref workAmount, "workAmount");
         }

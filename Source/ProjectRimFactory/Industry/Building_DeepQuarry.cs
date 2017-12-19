@@ -10,7 +10,7 @@ namespace ProjectRimFactory.Industry
 {
     public class Building_DeepQuarry : Building
     {
-        public const float ProduceMtbHours = 4f;
+        public const float ProduceMtbHours = 6f;
         static IEnumerable<ThingDef> cachedPossibleRockDefCandidates;
         protected static IEnumerable<ThingDef> PossibleRockDefCandidates
         {
@@ -20,7 +20,8 @@ namespace ProjectRimFactory.Industry
                 {
                     return cachedPossibleRockDefCandidates;
                 }
-                return cachedPossibleRockDefCandidates = from def in ThingCategoryDef.Named("StoneChunks").DescendantThingDefs
+                return cachedPossibleRockDefCandidates = from def in DefDatabase<ThingDef>.AllDefs
+                                                         where def.building != null && def.building.isNaturalRock && def.building.mineableThing != null
                                                          select def;
             }
         }
@@ -55,7 +56,22 @@ namespace ProjectRimFactory.Industry
 
         protected virtual Thing GetChunkThingToPlace()
         {
-            return ThingMaker.MakeThing(PossibleRockDefCandidates.RandomElement());
+            ThingDef rock = PossibleRockDefCandidates.RandomElement();
+            Thing t = ThingMaker.MakeThing(rock.building.mineableThing);
+            t.stackCount = rock.building.mineableYield;
+            return t;
+        }
+
+        public override string GetInspectString()
+        {
+            StringBuilder stringBuilder = new StringBuilder();
+            string s = base.GetInspectString();
+            if (!string.IsNullOrEmpty(s))
+            {
+                stringBuilder.AppendLine(s);
+            }
+            stringBuilder.Append("DeepQuarry_TotalSoFar".Translate(ProducedChunksTotal));
+            return stringBuilder.ToString().TrimEndNewlines();
         }
     }
 }

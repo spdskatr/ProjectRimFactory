@@ -59,6 +59,7 @@
 	  <li>UniversalAutocrafting</li>
 	  <li>PRMachineLearning</li>
 	</researchPrerequisites>
+    <rotatable>false</rotatable>
   </ThingDef>
   
   <ThingDef ParentName="AssemblerBase">
@@ -88,6 +89,7 @@
 	<researchPrerequisites>
 	  <li>UniversalAutocrafting</li>
 	</researchPrerequisites>
+    <rotatable>false</rotatable>
   </ThingDef>
   
   <ThingDef ParentName="AssemblerBase">
@@ -127,6 +129,7 @@
 	<researchPrerequisites>
 	  <li>SelfCooking</li>
 	</researchPrerequisites>
+    <rotatable>false</rotatable>
   </ThingDef>
   
    <!--Recipe database-->
@@ -159,7 +162,6 @@
 	  <RimFactory_Data_Disk>1</RimFactory_Data_Disk>
     </costList>
     <tickerType>Normal</tickerType>
-    <rotatable>true</rotatable>
     <neverMultiSelect>true</neverMultiSelect>
     <designationCategory>Automation</designationCategory>
     <staticSunShadowHeight>0.1</staticSunShadowHeight>
@@ -173,5 +175,6 @@
 	<researchPrerequisites>
 	  <li>MagneticTape</li>
 	</researchPrerequisites>
+    <rotatable>false</rotatable>
   </ThingDef>
 </Defs>

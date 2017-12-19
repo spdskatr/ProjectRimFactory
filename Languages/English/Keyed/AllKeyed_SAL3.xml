@@ -17,7 +17,8 @@
   <AssemblerIdle>Idle</AssemblerIdle>
   <SALToggleForbidden>Toggle allow forbidden</SALToggleForbidden>
   <SALToggleForbidden_Desc>Allow/Disallow the auto-assembler to take forbidden items. Tick means allow.</SALToggleForbidden_Desc>
-  <SALCurrentProductionSpeed>Prodution speed for current recipe ({0}): {1}</SALCurrentProductionSpeed>
+  <SALCurrentProductionSpeed>Production speed for current recipe ({0}): {1}</SALCurrentProductionSpeed>
+  <DeepQuarry_TotalSoFar>Total number of rocks mined so far: {0}</DeepQuarry_TotalSoFar>
   
   <!--Mod settings-->
   <ProjectRimFactoryModName>Project RimFactory</ProjectRimFactoryModName>
