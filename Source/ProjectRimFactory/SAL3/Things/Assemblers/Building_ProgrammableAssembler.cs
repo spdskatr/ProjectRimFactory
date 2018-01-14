@@ -7,6 +7,7 @@ using System.Text;
 using Verse;
 using ProjectRimFactory.SAL3.Tools;
 using UnityEngine;
+using ProjectRimFactory.Common;
 
 namespace ProjectRimFactory.SAL3.Things.Assemblers
 {
@@ -52,7 +53,7 @@ namespace ProjectRimFactory.SAL3.Things.Assemblers
             //Assign Pawn's mapIndexOrState to building's mapIndexOrState
             ReflectionUtility.mapIndexOrState.SetValue(p, ReflectionUtility.mapIndexOrState.GetValue(this));
             //Assign Pawn's position without nasty errors
-            p.SetPositionDirect(Position);
+            p.SetPositionDirect(PositionHeld);
             //Clear pawn relations
             p.relations.ClearAllRelations();
             //Set backstories
@@ -109,7 +110,6 @@ namespace ProjectRimFactory.SAL3.Things.Assemblers
             Scribe_Deep.Look(ref currentBillReport, "currentBillReport");
             Scribe_Collections.Look(ref thingQueue, "thingQueue", LookMode.Deep);
             Scribe_Values.Look(ref allowForbidden, "allowForbidden");
-            Scribe_Values.Look(ref outputSlotIndex, "outputSlotIndex");
             Scribe_Deep.Look(ref buildingPawn, "buildingPawn");
             if (buildingPawn == null)
                 DoPawn();
@@ -120,13 +120,6 @@ namespace ProjectRimFactory.SAL3.Things.Assemblers
             {
                 yield return g;
             }
-            yield return new Command_Action()
-            {
-                defaultLabel = "AdjustDirection_Output".Translate(),
-                action = () => outputSlotIndex++,
-                icon = TexUI.RotRightTex,
-                defaultIconColor = Color.green
-            };
             yield return new Command_Toggle()
             {
                 defaultLabel = "SALToggleForbidden".Translate(),
@@ -142,6 +135,13 @@ namespace ProjectRimFactory.SAL3.Things.Assemblers
                     defaultLabel = "DEBUG: Debug actions",
                     action = () => Find.WindowStack.Add(new FloatMenu(GetDebugOptions().ToList()))
                 };
+            }
+        }
+        public CompOutputAdjustable OutputComp
+        {
+            get
+            {
+                return GetComp<CompOutputAdjustable>();
             }
         }
         protected virtual IEnumerable<FloatMenuOption> GetDebugOptions()
@@ -194,8 +194,8 @@ namespace ProjectRimFactory.SAL3.Things.Assemblers
             base.Tick();
             if (this.IsHashIntervalTick(10) && Active)
             {
-                if (thingQueue.Count > 0 && OutputSlot.Walkable(Map) && 
-                    (OutputSlot.GetFirstItem(Map)?.TryAbsorbStack(thingQueue[0], true) ?? GenPlace.TryPlaceThing(thingQueue[0], OutputSlot, Map, ThingPlaceMode.Direct)))
+                if (thingQueue.Count > 0 && OutputComp.CurrentCell.Walkable(Map) && 
+                    (OutputComp.CurrentCell.GetFirstItem(Map)?.TryAbsorbStack(thingQueue[0], true) ?? GenPlace.TryPlaceThing(thingQueue[0], OutputComp.CurrentCell, Map, ThingPlaceMode.Direct)))
                 {
                     thingQueue.RemoveAt(0);
                 }
@@ -290,24 +290,14 @@ namespace ProjectRimFactory.SAL3.Things.Assemblers
         }
 
         // Settings
-        public int outputSlotIndex;
         public bool allowForbidden;
         public virtual bool AllowForbidden => allowForbidden;
-        protected virtual IntVec3 OutputSlot
-        {
-            get
-            {
-                List<IntVec3> cells = GenAdj.CellsAdjacentCardinal(this).ToList();
-                return cells[outputSlotIndex %= cells.Count];
-            }
-        }
         protected abstract float ProductionSpeedFactor { get; }
 
         public override void DrawExtraSelectionOverlays()
         {
             base.DrawExtraSelectionOverlays();
             GenDraw.DrawFieldEdges(IngredientStackCells.ToList());
-            GenDraw.DrawFieldEdges(new List<IntVec3>() { OutputSlot }, Color.yellow);
         }
         public override void DrawGUIOverlay()
         {

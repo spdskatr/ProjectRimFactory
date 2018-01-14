@@ -10,7 +10,7 @@
 	  <drawSize>(4, 4)</drawSize>
     </graphicData>
 	<size>(2, 2)</size>
-    <altitudeLayer>BuildingOnTop</altitudeLayer>
+    <altitudeLayer>LayingPawn</altitudeLayer>
     <passability>Impassable</passability>
     <fillPercent>0.5</fillPercent>
     <castEdgeShadows>true</castEdgeShadows>
@@ -30,6 +30,8 @@
         <startElectricalFires>true</startElectricalFires>
         <basePowerConsumption>300</basePowerConsumption>
       </li>
+	  <li><compClass>ProjectRimFactory.Common.CompOutputAdjustable</compClass></li>
+	  <li Class="CompProperties_Flickable" />
     </comps>
     <tickerType>Long</tickerType>
     <rotatable>false</rotatable>
@@ -37,7 +39,7 @@
     <staticSunShadowHeight>1</staticSunShadowHeight>
     <constructEffect>ConstructMetal</constructEffect>
     <researchPrerequisites>
-      <li>AutomationBasics</li>
+      <li>AutonomousMining</li>
     </researchPrerequisites>
   </ThingDef>
 </Defs>

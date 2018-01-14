@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+  <ResearchProjectDef Abstract="True">
+    <defName>AutonomousMining</defName>
+	<tab>Automation</tab>
+    <techLevel>Industrial</techLevel>
+    <baseCost>3500</baseCost>
+    <requiredResearchBuilding>HiTechResearchBench</requiredResearchBuilding>
+	<prerequisites>
+	  <li>AutomationBasics</li>
+	</prerequisites>
+	<label>autonomous mining</label>
+    <researchViewX>1</researchViewX>
+    <researchViewY>1</researchViewY>
+	<description>Make buildings that can extract random minerals and rocks from deep underground.</description>
+  </ResearchProjectDef>
+</Defs>

@@ -54,6 +54,7 @@
         <startElectricalFires>true</startElectricalFires>
         <basePowerConsumption>200</basePowerConsumption>
       </li>
+	  <li Class="CompProperties_Flickable" />
     </comps>
     <tickerType>Normal</tickerType>
     <rotatable>true</rotatable>

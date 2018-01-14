@@ -1,4 +1,5 @@
-﻿using RimWorld;
+﻿using ProjectRimFactory.Common;
+using RimWorld;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -28,7 +29,6 @@ namespace ProjectRimFactory.Industry
 
         public int ProducedChunksTotal = 0;
 
-        public virtual IntVec3 OutputCell => Position + Rotation.FacingCell * 2;
         public override void TickLong()
         {
             if (Rand.MTBEventOccurs(ProduceMtbHours, GenDate.TicksPerHour, GenTicks.TickLongInterval))
@@ -42,21 +42,15 @@ namespace ProjectRimFactory.Industry
             base.ExposeData();
         }
 
-        public override void DrawExtraSelectionOverlays()
-        {
-            base.DrawExtraSelectionOverlays();
-            GenDraw.DrawFieldEdges(new List<IntVec3>() { OutputCell }, Color.yellow);
-        }
-
         public virtual void GenerateChunk()
         {
-            GenPlace.TryPlaceThing(GetChunkThingToPlace(), OutputCell, Map, ThingPlaceMode.Near);
+            GenPlace.TryPlaceThing(GetChunkThingToPlace(), GetComp<CompOutputAdjustable>().CurrentCell, Map, ThingPlaceMode.Near);
             ProducedChunksTotal++;
         }
 
         protected virtual Thing GetChunkThingToPlace()
         {
-            ThingDef rock = PossibleRockDefCandidates.RandomElement();
+            ThingDef rock = PossibleRockDefCandidates.RandomElementByWeight(d => d.building.isResourceRock ? d.building.mineableScatterCommonality : 3f);
             Thing t = ThingMaker.MakeThing(rock.building.mineableThing);
             t.stackCount = rock.building.mineableYield;
             return t;

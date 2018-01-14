@@ -4,14 +4,14 @@ using UnityEngine;
 using Verse;
 using RimWorld;
 using ProjectRimFactory.SAL3.UI;
+using ProjectRimFactory.SAL3.Tools;
 
 namespace ProjectRimFactory.SAL3.Things
 {
     public class Building_SmartHopper : Building, IStoreSettingsParent
     {
         public int limit = 75;
-
-        [Unsaved]
+        
         public IEnumerable<IntVec3> cachedDetectorCells;
 
         protected virtual bool ShouldRespectStackLimit => true;
@@ -29,7 +29,9 @@ namespace ProjectRimFactory.SAL3.Things
                     return cachedDetectorCells;
                 }
 
-                var resultCache = from IntVec3 c in (GenRadial.RadialCellsAround(Position, def.specialDisplayRadius, false) ?? new List<IntVec3>()) where c.GetZone(Map) != null && c.GetZone(Map) is Zone_Stockpile select c;
+                var resultCache = from IntVec3 c in GenRadial.RadialCellsAround(Position, def.specialDisplayRadius, false)
+                                  where c.HasSlotGroupParent(Map)
+                                  select c;
                 cachedDetectorCells = resultCache;
                 return resultCache;
             }

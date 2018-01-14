@@ -51,6 +51,7 @@
     <Compile Include="AnimalStation\Building_Classes.cs" />
     <Compile Include="AnimalStation\PlaceWorker_ShowAdjacent.cs" />
     <Compile Include="Common\Cache.cs" />
+    <Compile Include="Common\CompOutputAdjustable.cs" />
     <Compile Include="Common\ProjectRimFactory_ModComponent.cs" />
     <Compile Include="Common\ProjectRimFactory_ModSettings.cs" />
     <Compile Include="CultivatorTools\Buildings.cs" />
@@ -70,6 +71,7 @@
     <Compile Include="SAL3\Things\Building_SmartHopper.cs" />
     <Compile Include="SAL3\Tools\BaseCountUtility.cs" />
     <Compile Include="SAL3\Things\Assemblers\Building_SimpleAssembler.cs" />
+    <Compile Include="SAL3\Tools\CellUtility.cs" />
     <Compile Include="SAL3\Tools\ColorGenerator_RangeHSV.cs" />
     <Compile Include="SAL3\Tools\ModExtension_Assembler.cs" />
     <Compile Include="SAL3\Tools\ProjectSAL_Utilities.cs" />
@@ -78,6 +80,9 @@
     <Compile Include="SAL3\UI\Dialogs.cs" />
     <Compile Include="SAL3\UI\ITab_SAL3Bills.cs" />
     <Compile Include="SAL3\Tools\ReflectionUtility.cs" />
+    <Compile Include="Storage\Building_MassStorageUnit.cs" />
+    <Compile Include="Storage\Editables\DefModExtension_MassStorage.cs" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

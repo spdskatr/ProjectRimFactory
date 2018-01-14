@@ -29,6 +29,10 @@
 	<inspectorTabs>
 	  <li>ProjectRimFactory.SAL3.UI.ITab_SAL3Bills</li>
 	</inspectorTabs>
+	<comps>
+	  <li><compClass>ProjectRimFactory.Common.CompOutputAdjustable</compClass></li>
+	  <li Class="CompProperties_Flickable" />
+	</comps>
   </ThingDef>
   
   <ThingDef ParentName="AssemblerBase">
