@@ -1,4 +1,7 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <LanguageData>
-  <PRF_TotalStacksNum>Total number of stacks: {0}/{1}</PRF_TotalStacksNum>
+  <PRF_TotalStacksNum>Total number of stacks: {0}</PRF_TotalStacksNum>
+  <PRFItemsTab>Items</PRFItemsTab>
+  <PRFItemsTabLabel>All items ({0} stacks total)</PRFItemsTabLabel>
+  <PRFItemsTabLabel_Crate>All items ({0}/{1} stacks total)</PRFItemsTabLabel_Crate>
 </LanguageData>

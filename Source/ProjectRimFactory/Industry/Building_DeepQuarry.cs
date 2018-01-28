@@ -31,7 +31,7 @@ namespace ProjectRimFactory.Industry
 
         public override void TickLong()
         {
-            if (Rand.MTBEventOccurs(ProduceMtbHours, GenDate.TicksPerHour, GenTicks.TickLongInterval))
+            if (GetComp<CompPowerTrader>()?.PowerOn != false && Rand.MTBEventOccurs(ProduceMtbHours, GenDate.TicksPerHour, GenTicks.TickLongInterval))
             {
                 GenerateChunk();
             }

@@ -32,6 +32,10 @@
     <DebugSymbols>true</DebugSymbols>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="0Harmony, Version=1.0.9.1, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Assemblies\0Harmony.dll</HintPath>
+    </Reference>
     <Reference Include="Assembly-CSharp">
       <HintPath>..\..\..\..\RimWorldWin_Data\Managed\Assembly-CSharp.dll</HintPath>
       <Private>False</Private>
@@ -52,6 +56,7 @@
     <Compile Include="AnimalStation\PlaceWorker_ShowAdjacent.cs" />
     <Compile Include="Common\Cache.cs" />
     <Compile Include="Common\CompOutputAdjustable.cs" />
+    <Compile Include="Common\HarmonyPatches.cs" />
     <Compile Include="Common\ProjectRimFactory_ModComponent.cs" />
     <Compile Include="Common\ProjectRimFactory_ModSettings.cs" />
     <Compile Include="CultivatorTools\Buildings.cs" />
@@ -80,8 +85,11 @@
     <Compile Include="SAL3\UI\Dialogs.cs" />
     <Compile Include="SAL3\UI\ITab_SAL3Bills.cs" />
     <Compile Include="SAL3\Tools\ReflectionUtility.cs" />
+    <Compile Include="Storage\Building_Crate.cs" />
     <Compile Include="Storage\Building_MassStorageUnit.cs" />
-    <Compile Include="Storage\Editables\DefModExtension_MassStorage.cs" />
+    <Compile Include="Storage\Building_MassStorageUnitPowered.cs" />
+    <Compile Include="Storage\Editables\DefModExtension_Crate.cs" />
+    <Compile Include="Storage\UI\ITab_Items.cs" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
