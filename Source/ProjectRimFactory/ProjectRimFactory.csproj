@@ -88,8 +88,13 @@
     <Compile Include="Storage\Building_Crate.cs" />
     <Compile Include="Storage\Building_MassStorageUnit.cs" />
     <Compile Include="Storage\Building_MassStorageUnitPowered.cs" />
+    <Compile Include="Storage\Building_StorageUnitIOPort.cs" />
+    <Compile Include="Storage\Editables\DefModExtension_CanUseStorageIOPorts.cs" />
     <Compile Include="Storage\Editables\DefModExtension_Crate.cs" />
+    <Compile Include="Storage\StorageIOMode.cs" />
+    <Compile Include="Storage\UI\Dialog_RenameMassStorageUnit.cs" />
     <Compile Include="Storage\UI\ITab_Items.cs" />
+    <Compile Include="Storage\UI\ITab_StorageUnitIOPort.cs" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

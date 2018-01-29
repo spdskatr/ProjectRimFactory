@@ -2,6 +2,12 @@
 <LanguageData>
   <PRF_TotalStacksNum>Total number of stacks: {0}</PRF_TotalStacksNum>
   <PRFItemsTab>Items</PRFItemsTab>
+  <PRFStorageUnitIOTab>I/O</PRFStorageUnitIOTab>
+  <PRFStorageBuildingGainsName>This storage building is now called {0}.</PRFStorageBuildingGainsName>
   <PRFItemsTabLabel>All items ({0} stacks total)</PRFItemsTabLabel>
   <PRFItemsTabLabel_Crate>All items ({0}/{1} stacks total)</PRFItemsTabLabel_Crate>
+  <PRFRenameMassStorageUnitLabel>Rename</PRFRenameMassStorageUnitLabel>
+  <PRFRenameMassStorageUnitDesc>Rename this building.</PRFRenameMassStorageUnitDesc>
+  <PRFIOMode>I/O mode</PRFIOMode>
+  <PRFBoundStorageBuilding>Item source</PRFBoundStorageBuilding>
 </LanguageData>

@@ -5,15 +5,35 @@ using System.Text;
 using Verse;
 using RimWorld;
 using ProjectRimFactory.Storage.Editables;
+using UnityEngine;
+using ProjectRimFactory.Storage.UI;
 
 namespace ProjectRimFactory.Storage
 {
     public abstract class Building_MassStorageUnit : Building_Storage
     {
         List<Thing> items = new List<Thing>();
+        List<Building_StorageUnitIOPort> ports = new List<Building_StorageUnitIOPort>();
+        public string uniqueName;
+
         public abstract bool CanStoreMoreItems { get; }
         public IEnumerable<Thing> StoredItems => items;
         public int StoredItemsCount => items.Count;
+        public override string LabelNoCount => uniqueName ?? base.LabelNoCount;
+
+        public override IEnumerable<Gizmo> GetGizmos()
+        {
+            foreach (Gizmo g in base.GetGizmos())
+                yield return g;
+            yield return new Command_Action
+            {
+                icon = ContentFinder<Texture2D>.Get("UI/Commands/RenameZone", true),
+                action = () => Find.WindowStack.Add(new Dialog_RenameMassStorageUnit(this)),
+                hotKey = KeyBindingDefOf.Misc1,
+                defaultLabel = "PRFRenameMassStorageUnitLabel".Translate(),
+                defaultDesc = "PRFRenameMassStorageUnitDesc".Translate()
+            };
+        }
 
         public override void Notify_ReceivedThing(Thing newItem)
         {
@@ -57,6 +77,7 @@ namespace ProjectRimFactory.Storage
                 }
             }
         }
+
         public override string GetInspectString()
         {
             string original = base.GetInspectString();
@@ -68,6 +89,7 @@ namespace ProjectRimFactory.Storage
             stringBuilder.Append("PRF_TotalStacksNum".Translate(items.Count));
             return stringBuilder.ToString();
         }
+
         public override void DeSpawn()
         {
             List<Thing> thingsToSplurge = new List<Thing>(Position.GetThingList(Map));
@@ -81,17 +103,20 @@ namespace ProjectRimFactory.Storage
             }
             base.DeSpawn();
         }
+
         public override void Notify_LostThing(Thing newItem)
         {
             base.Notify_LostThing(newItem);
             items.Remove(newItem);
             RefreshStorage();
         }
+
         public override void SpawnSetup(Map map, bool respawningAfterLoad)
         {
             base.SpawnSetup(map, respawningAfterLoad);
             RefreshStorage();
         }
+
         protected virtual void RefreshStorage()
         {
             items = new List<Thing>();
@@ -117,6 +142,10 @@ namespace ProjectRimFactory.Storage
                         }
                     }
                 }
+            }
+            for (int i = 0; i < ports.Count; i++)
+            {
+                ports[i].RefreshInput();
             }
         }
     }
