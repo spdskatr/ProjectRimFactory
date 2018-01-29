@@ -51,7 +51,6 @@ namespace ProjectRimFactory.SAL3.UI
 
         public override void DoWindowContents(Rect rect)
         {
-            //rect.height = 150f;
             Listing_Standard list = new Listing_Standard(GameFont.Small);
             list.ColumnWidth = rect.width;
             list.Begin(rect);
@@ -62,14 +61,14 @@ namespace ProjectRimFactory.SAL3.UI
             list.Gap();
             list.Gap();
             list.Gap();
-            list.CheckboxLabeled("Use Min?", ref smartHopper.useMin, "Do you want the min field to be in use?");
+            list.CheckboxLabeled("Use Min?", ref smartHopper.useMin, "SmartHopper_Minimum_UseTooltip".Translate());
             list.Gap();
             {
                 Rect rectLine = list.GetRect(Text.LineHeight);
                 Rect rectLeft = rectLine.LeftHalf().Rounded();
                 Rect rectRight = rectLine.RightHalf().Rounded();
                 Widgets.DrawHighlightIfMouseover(rectLine);
-                TooltipHandler.TipRegion(rectLine, "Minimum Stack to take");
+                TooltipHandler.TipRegion(rectLine, "SmartHopper_Minimum_ToolTip".Translate());
                 TextAnchor anchorBuffer = Text.Anchor;
                 Text.Anchor = TextAnchor.MiddleLeft;
                 Widgets.Label(rectLeft, "Minimum");
@@ -77,14 +76,14 @@ namespace ProjectRimFactory.SAL3.UI
                 Widgets.TextFieldNumeric(rectRight, ref smartHopper.min, ref smartHopper.minBufferString, 0);
             }
             list.Gap();
-            list.CheckboxLabeled("Use Max?", ref smartHopper.useMax, "Do you want the max field to be in use?");
+            list.CheckboxLabeled("Use Max?", ref smartHopper.useMax, "SmartHopper_Maximum_UseTooltip".Translate());
             list.Gap();
             {
                 Rect rectLine = list.GetRect(Text.LineHeight);
                 Rect rectLeft = rectLine.LeftHalf().Rounded();
                 Rect rectRight = rectLine.RightHalf().Rounded();
                 Widgets.DrawHighlightIfMouseover(rectLine);
-                TooltipHandler.TipRegion(rectLine, "Maximum stack to take");
+                TooltipHandler.TipRegion(rectLine, "SmartHopper_Maximum_ToolTip".Translate());
                 TextAnchor anchorBuffer = Text.Anchor;
                 Text.Anchor = TextAnchor.MiddleLeft;
                 Widgets.Label(rectLeft, "Maximum");

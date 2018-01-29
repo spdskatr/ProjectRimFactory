@@ -95,7 +95,7 @@ namespace ProjectRimFactory.SAL3.Things
                 foreach (var element in ThingsToSelect)
                 {
                     bool withinLimits = true;
-                    if (useMin && useMax) withinLimits = (element.stackCount >= min && element.stackCount <= max);
+                    if (useMin && useMax) withinLimits = (element.stackCount >= min);
                     else if (useMin && !useMax) withinLimits = (element.stackCount >= min);
                     else if (!useMin && useMax) withinLimits = (element.stackCount <= max);
                     
@@ -133,8 +133,8 @@ namespace ProjectRimFactory.SAL3.Things
             {
                 if (StoredThing.CanStackWith(element))
                 {
-                    var num = (StoredThing.def.stackLimit - StoredThing.stackCount);                    
-                    if (useMax) num = (max - StoredThing.stackCount);              
+                    var num = Mathf.Min(element.stackCount, (StoredThing.def.stackLimit - StoredThing.stackCount));                    
+                    if (useMax) num = Mathf.Min(element.stackCount, Mathf.Min((StoredThing.def.stackLimit - StoredThing.stackCount),(max - StoredThing.stackCount)));
                     
                     if (num > 0)
                     {
