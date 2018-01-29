@@ -1,0 +1,3 @@
+C:\Users\nik.bradley\Desktop\Alpha.17b.v0.17.1557\rw.v0.18.1722\Mods\ProjectRimFactory-master\Assemblies\ProjectRimFactory.dll
+C:\Users\nik.bradley\Desktop\Alpha.17b.v0.17.1557\rw.v0.18.1722\Mods\ProjectRimFactory-master\Source\ProjectRimFactory\obj\Release\ProjectRimFactory.dll
+C:\Users\nik.bradley\Desktop\Alpha.17b.v0.17.1557\rw.v0.18.1722\Mods\ProjectRimFactory-master\Source\ProjectRimFactory\obj\Release\ProjectRimFactory.csprojResolveAssemblyReference.cache

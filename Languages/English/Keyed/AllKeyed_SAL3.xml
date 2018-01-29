@@ -19,8 +19,10 @@
   <SALToggleForbidden_Desc>Allow/Disallow the auto-assembler to take forbidden items. Tick means allow.</SALToggleForbidden_Desc>
   <SALCurrentProductionSpeed>Production speed for current recipe ({0}): {1}</SALCurrentProductionSpeed>
   <DeepQuarry_TotalSoFar>Total number of rocks mined so far: {0}</DeepQuarry_TotalSoFar>
-  <SmartHopper_SetTargetAmount>Set target amount</SmartHopper_SetTargetAmount>
+  <SmartHopper_SetTargetAmount>Set min/max amounts</SmartHopper_SetTargetAmount>
   <SmartHopper_Limit>Current item limit: {0}</SmartHopper_Limit>
+  <SmartHopper_Minimum>Current item min limit: {0}</SmartHopper_Minimum>
+  <SmartHopper_Maximum>Current item max limit: {0}</SmartHopper_Maximum>
   
   <!--Mod settings-->
   <ProjectRimFactoryModName>Project RimFactory</ProjectRimFactoryModName>
