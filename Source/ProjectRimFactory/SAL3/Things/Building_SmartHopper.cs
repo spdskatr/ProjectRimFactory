@@ -95,9 +95,7 @@ namespace ProjectRimFactory.SAL3.Things
                 foreach (var element in ThingsToSelect)
                 {
                     bool withinLimits = true;
-                    if (useMin && useMax) withinLimits = (element.stackCount >= min);
-                    else if (useMin && !useMax) withinLimits = (element.stackCount >= min);
-                    else if (!useMin && useMax) withinLimits = (element.stackCount <= max);
+                    if (useMin) withinLimits = (element.stackCount >= min);
                     
                     if (element.def.category == ThingCategory.Item && settings.AllowedToAccept(element) && withinLimits)
                     {
@@ -109,14 +107,14 @@ namespace ProjectRimFactory.SAL3.Things
                 {                    
                     if (settings.AllowedToAccept(StoredThing))
                     {
-                        bool removeItem = false;
+                        bool forbidItem = true;
 
                         if (useMin || useMax)
                         {
-                            if (useMin && StoredThing.stackCount < min) removeItem = true; 
-                            else if(useMax && StoredThing.stackCount > max) removeItem = true;
+                            if (useMin && StoredThing.stackCount < min) forbidItem = false; 
+                            else if(useMax && StoredThing.stackCount > max) forbidItem = false;
                         }                        
-                        if (!removeItem)
+                        if (forbidItem)
                         {
                             StoredThing.SetForbidden(true, false);
                             return;
