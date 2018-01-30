@@ -19,8 +19,14 @@
   <SALToggleForbidden_Desc>Allow/Disallow the auto-assembler to take forbidden items. Tick means allow.</SALToggleForbidden_Desc>
   <SALCurrentProductionSpeed>Production speed for current recipe ({0}): {1}</SALCurrentProductionSpeed>
   <DeepQuarry_TotalSoFar>Total number of rocks mined so far: {0}</DeepQuarry_TotalSoFar>
-  <SmartHopper_SetTargetAmount>Set target amount</SmartHopper_SetTargetAmount>
+  <SmartHopper_SetTargetAmount>Set min/max amounts</SmartHopper_SetTargetAmount>
   <SmartHopper_Limit>Current item limit: {0}</SmartHopper_Limit>
+  <SmartHopper_Minimum>Current item min limit: {0}</SmartHopper_Minimum>
+  <SmartHopper_Maximum>Current item max limit: {0}</SmartHopper_Maximum>
+  <SmartHopper_Minimum_UseTooltip>Do you want to limit the min size of stack to take from and store in the Hopper?</SmartHopper_Minimum_UseTooltip>
+  <SmartHopper_Maximum_UseTooltip>Do you want to limit the max size of stack in the Hopper?</SmartHopper_Maximum_UseTooltip>
+  <SmartHopper_Minimum_ToolTip>This will impact both the contents and the stacks it tries to take</SmartHopper_Minimum_ToolTip>
+  <SmartHopper_Maximum_ToolTip>This will only affect the contents of the SmartHopper, it will still try to take from a larger stack.</SmartHopper_Maximum_ToolTip>
   
   <!--Mod settings-->
   <ProjectRimFactoryModName>Project RimFactory</ProjectRimFactoryModName>
