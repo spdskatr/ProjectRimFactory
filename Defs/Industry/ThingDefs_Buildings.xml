@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Defs>
-  <ThingDef ParentName="PRFBuildingBase" Abstract="True">
+  <ThingDef ParentName="PRFBuildingBase">
     <defName>PRF_DeepQuarry</defName>
     <label>deep quarry</label>
     <thingClass>ProjectRimFactory.Industry.Building_DeepQuarry</thingClass>

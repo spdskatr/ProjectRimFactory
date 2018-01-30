@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+  <ResearchProjectDef>
+    <defName>PRFCrates</defName>
+	<tab>Automation</tab>
+    <techLevel>Industrial</techLevel>
+    <baseCost>1500</baseCost>
+	<label>stockpile crates</label>
+    <researchViewX>0</researchViewX>
+    <researchViewY>0</researchViewY>
+	<description>Allows colonists to build large crates for more compact storage.</description>
+  </ResearchProjectDef>
+</Defs>

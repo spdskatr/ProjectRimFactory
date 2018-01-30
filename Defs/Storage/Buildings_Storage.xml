@@ -1,33 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Defs>
-  <ThingDef ParentName="PRFBuildingBase" Abstract="True">
-    <defName>StockpileCrate</defName>
-    <label>stockpile crate</label>
-    <thingClass>ProjectRimFactory.Storage.Building_MassStorageUnit</thingClass>
-    <graphicData>
-      <texPath>Storage/Wood_Crate</texPath>
+  <ThingDef ParentName="PRFBuildingBase" Name="PRFMassStorageBase" Abstract="True">
+    <thingClass>ProjectRimFactory.Storage.Building_Crate</thingClass>
+	<graphicData>
       <graphicClass>Graphic_Single</graphicClass>
-      <drawSize>(3,3)</drawSize>
-    </graphicData>
-    <altitudeLayer>Building</altitudeLayer>
+	</graphicData>
+    <altitudeLayer>LayingPawn</altitudeLayer>
     <passability>PassThroughOnly</passability>
     <pathCost>150</pathCost>
     <blockWind>true</blockWind>
     <fillPercent>1.0</fillPercent>
     <castEdgeShadows>true</castEdgeShadows>
     <rotatable>false</rotatable>
-    <statBases>
-      <MaxHitPoints>150</MaxHitPoints>
-      <WorkToBuild>1000</WorkToBuild>
-      <Flammability>1.0</Flammability>
-    </statBases>
-    <description>A giant crate that can store 10 items. Items stored in the crate do not deteriorate.</description>
     <canOverlapZones>false</canOverlapZones>
-    <size>(2,2)</size>
-    <costList>
-	  <WoodLog>80</WoodLog>
-      <Steel>20</Steel>
-    </costList>
 	<building>
       <preventDeteriorationOnTop>true</preventDeteriorationOnTop>
       <ignoreStoredThingsBeauty>true</ignoreStoredThingsBeauty>
@@ -59,37 +44,49 @@
     <designationCategory>Automation</designationCategory>
     <staticSunShadowHeight>0.5</staticSunShadowHeight>
     <surfaceType>Item</surfaceType>
-    <designationHotKey>Misc3</designationHotKey>
+	<inspectorTabs>
+	  <li>ITab_Storage</li>
+	  <li>ProjectRimFactory.Storage.UI.ITab_Items</li>
+	</inspectorTabs>
+  </ThingDef>
+  
+  <ThingDef ParentName="PRFMassStorageBase">
+    <defName>StockpileCrate</defName>
+    <label>stockpile crate</label>
+    <graphicData>
+      <texPath>Storage/Wood_Crate</texPath>
+      <drawSize>(3,3)</drawSize>
+    </graphicData>
+    <statBases>
+      <MaxHitPoints>100</MaxHitPoints>
+      <WorkToBuild>1000</WorkToBuild>
+      <Flammability>1.0</Flammability>
+    </statBases>
+    <description>A giant crate that can store 10 items. Items stored in the crate do not deteriorate.</description>
+    <size>(2,2)</size>
+    <costList>
+	  <WoodLog>80</WoodLog>
+      <Steel>20</Steel>
+    </costList>
     <constructEffect>ConstructWood</constructEffect>
     <researchPrerequisites>
-      <li>AutomationBasics</li>
+      <li>PRFCrates</li>
     </researchPrerequisites>
     <constructionSkillPrerequisite>4</constructionSkillPrerequisite>
-	<inspectorTabs>
-      <li>ITab_Storage</li>
-	</inspectorTabs>
 	<modExtensions>
-	  <li Class="ProjectRimFactory.Storage.Editables.DefModExtension_MassStorage">
+	  <li Class="ProjectRimFactory.Storage.Editables.DefModExtension_Crate">
 	    <limit>10</limit>
 	  </li>
 	</modExtensions>
   </ThingDef>
-  <ThingDef ParentName="PRFBuildingBase" Abstract="True">
+  
+  <ThingDef ParentName="PRFMassStorageBase">
     <defName>StockpileCrateReinforced</defName>
     <label>reinforced stockpile crate</label>
-    <thingClass>ProjectRimFactory.Storage.Building_MassStorageUnit</thingClass>
     <graphicData>
       <texPath>Storage/Metal_Crate</texPath>
-      <graphicClass>Graphic_Single</graphicClass>
       <drawSize>(3,3)</drawSize>
     </graphicData>
-    <altitudeLayer>Building</altitudeLayer>
-    <passability>PassThroughOnly</passability>
-    <pathCost>150</pathCost>
-    <blockWind>true</blockWind>
-    <fillPercent>1.0</fillPercent>
-    <castEdgeShadows>true</castEdgeShadows>
-    <rotatable>false</rotatable>
     <statBases>
       <MaxHitPoints>300</MaxHitPoints>
       <WorkToBuild>2500</WorkToBuild>
@@ -101,50 +98,47 @@
     <costList>
       <Steel>100</Steel>
     </costList>
-	<building>
-      <preventDeteriorationOnTop>true</preventDeteriorationOnTop>
-      <ignoreStoredThingsBeauty>true</ignoreStoredThingsBeauty>
-      <fixedStorageSettings>
-        <priority>Preferred</priority>
-        <filter>
-          <categories>
-            <li>Root</li>
-          </categories>
-        </filter>
-      </fixedStorageSettings>
-      <defaultStorageSettings>
-        <priority>Preferred</priority>
-        <filter>
-          <categories>
-            <li>Foods</li>
-			<li>Manufactured</li>
-			<li>ResourcesRaw</li>
-			<li>Items</li>
-			<li>Art</li>
-			<li>Weapons</li>
-			<li>Apparel</li>
-			<li>BodyParts</li>
-          </categories>
-        </filter>
-      </defaultStorageSettings>
-	</building>
-    <terrainAffordanceNeeded>Heavy</terrainAffordanceNeeded>
-    <designationCategory>Automation</designationCategory>
-    <staticSunShadowHeight>0.5</staticSunShadowHeight>
-    <surfaceType>Item</surfaceType>
-    <designationHotKey>Misc3</designationHotKey>
-    <constructEffect>ConstructWood</constructEffect>
+    <constructEffect>ConstructMetal</constructEffect>
     <researchPrerequisites>
-      <li>AutomationBasics</li>
+      <li>PRFCrates</li>
     </researchPrerequisites>
-    <constructionSkillPrerequisite>4</constructionSkillPrerequisite>
-	<inspectorTabs>
-	  <li>ITab_Storage</li>
-	</inspectorTabs>
 	<modExtensions>
-	  <li Class="ProjectRimFactory.Storage.Editables.DefModExtension_MassStorage">
+	  <li Class="ProjectRimFactory.Storage.Editables.DefModExtension_Crate">
 	    <limit>25</limit>
 	  </li>
 	</modExtensions>
+  </ThingDef>
+  <ThingDef ParentName="PRFMassStorageBase">
+    <defName>IndustrialStorageUnit</defName>
+    <label>industrial storage unit</label>
+    <thingClass>ProjectRimFactory.Storage.Building_MassStorageUnitPowered</thingClass>
+    <graphicData>
+      <texPath>Storage/industrial_storage_unit</texPath>
+      <drawSize>(3,3)</drawSize>
+    </graphicData>
+    <statBases>
+      <MaxHitPoints>300</MaxHitPoints>
+      <WorkToBuild>2500</WorkToBuild>
+      <Flammability>0.1</Flammability>
+    </statBases>
+    <description>This device stores items as holograms, allowing it to store virtually infinite amounts of information inside it. When your colony loses power, items will be safely stored inside, but colonists cannot access them.</description>
+    <canOverlapZones>false</canOverlapZones>
+    <size>(3,3)</size>
+    <costList>
+      <Steel>200</Steel>
+	  <Gold>20</Gold>
+	  <Uranium>20</Uranium>
+	  <Component>10</Component>
+    </costList>
+    <constructEffect>ConstructMetal</constructEffect>
+    <researchPrerequisites>
+      <li>PRFCrates</li>
+    </researchPrerequisites>
+	<comps>
+	  <li Class="CompProperties_Power">
+	    <compClass>CompPowerTrader</compClass>
+		<basePowerConsumption>0</basePowerConsumption>
+	  </li>
+	</comps>
   </ThingDef>
 </Defs>

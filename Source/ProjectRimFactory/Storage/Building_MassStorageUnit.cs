@@ -5,14 +5,35 @@ using System.Text;
 using Verse;
 using RimWorld;
 using ProjectRimFactory.Storage.Editables;
+using UnityEngine;
+using ProjectRimFactory.Storage.UI;
 
 namespace ProjectRimFactory.Storage
 {
-    public class Building_MassStorageUnit : Building_Storage
+    public abstract class Building_MassStorageUnit : Building_Storage
     {
-        int totalStoredItems;
-        public virtual bool CanStoreMoreItems => Position.GetThingList(Map).Count(t => t.def.category == ThingCategory.Item) < (Extension.limit - def.Size.Area + 1);
-        public DefModExtension_MassStorage Extension => def.GetModExtension<DefModExtension_MassStorage>();
+        List<Thing> items = new List<Thing>();
+        List<Building_StorageUnitIOPort> ports = new List<Building_StorageUnitIOPort>();
+        public string uniqueName;
+
+        public abstract bool CanStoreMoreItems { get; }
+        public IEnumerable<Thing> StoredItems => items;
+        public int StoredItemsCount => items.Count;
+        public override string LabelNoCount => uniqueName ?? base.LabelNoCount;
+
+        public override IEnumerable<Gizmo> GetGizmos()
+        {
+            foreach (Gizmo g in base.GetGizmos())
+                yield return g;
+            yield return new Command_Action
+            {
+                icon = ContentFinder<Texture2D>.Get("UI/Commands/RenameZone", true),
+                action = () => Find.WindowStack.Add(new Dialog_RenameMassStorageUnit(this)),
+                hotKey = KeyBindingDefOf.Misc1,
+                defaultLabel = "PRFRenameMassStorageUnitLabel".Translate(),
+                defaultDesc = "PRFRenameMassStorageUnitDesc".Translate()
+            };
+        }
 
         public override void Notify_ReceivedThing(Thing newItem)
         {
@@ -21,7 +42,15 @@ namespace ProjectRimFactory.Storage
             {
                 RegisterNewItem(newItem);
             }
-            totalStoredItems++;
+            if (newItem.def.drawGUIOverlay)
+            {
+                Map.listerThings.ThingsInGroup(ThingRequestGroup.HasGUIOverlay).Remove(newItem);
+            }
+        }
+
+        public virtual string GetITabString()
+        {
+            return "PRFItemsTabLabel".Translate(items.Count);
         }
 
         protected virtual void RegisterNewItem(Thing newItem)
@@ -39,11 +68,16 @@ namespace ProjectRimFactory.Storage
                     break;
                 }
             }
-            if (CanStoreMoreItems && !newItem.Destroyed)
+            if (!newItem.Destroyed)
             {
-                newItem.Position = Position;
+                items.Add(newItem);
+                if (CanStoreMoreItems)
+                {
+                    newItem.Position = Position;
+                }
             }
         }
+
         public override string GetInspectString()
         {
             string original = base.GetInspectString();
@@ -52,9 +86,10 @@ namespace ProjectRimFactory.Storage
             {
                 stringBuilder.AppendLine(original);
             }
-            stringBuilder.Append("PRF_TotalStacksNum".Translate(totalStoredItems, Extension.limit));
+            stringBuilder.Append("PRF_TotalStacksNum".Translate(items.Count));
             return stringBuilder.ToString();
         }
+
         public override void DeSpawn()
         {
             List<Thing> thingsToSplurge = new List<Thing>(Position.GetThingList(Map));
@@ -68,40 +103,50 @@ namespace ProjectRimFactory.Storage
             }
             base.DeSpawn();
         }
+
         public override void Notify_LostThing(Thing newItem)
         {
             base.Notify_LostThing(newItem);
+            items.Remove(newItem);
             RefreshStorage();
-            totalStoredItems--;
         }
+
         public override void SpawnSetup(Map map, bool respawningAfterLoad)
         {
             base.SpawnSetup(map, respawningAfterLoad);
             RefreshStorage();
         }
+
         protected virtual void RefreshStorage()
         {
+            items = new List<Thing>();
             foreach (IntVec3 cell in AllSlotCells())
             {
-                if (cell != Position)
+                List<Thing> things = new List<Thing>(cell.GetThingList(Map));
+                for (int i = 0; i < things.Count; i++)
                 {
-                    List<Thing> things = cell.GetThingList(Map);
-                    for (int i = 0; i < things.Count; i++)
+                    Thing item = things[i];
+                    if (item.def.category == ThingCategory.Item)
                     {
-                        Thing item = things[i];
-                        Log.Message($"{item.GetUniqueLoadID()} at {item.Position}");
-                        if (item.def.category == ThingCategory.Item)
+                        if (cell != Position)
                         {
                             RegisterNewItem(item);
+                        }
+                        else
+                        {
+                            items.Add(item);
+                        }
+                        if (item.def.drawGUIOverlay)
+                        {
+                            Map.listerThings.ThingsInGroup(ThingRequestGroup.HasGUIOverlay).Remove(item);
                         }
                     }
                 }
             }
-        }
-        public override void ExposeData()
-        {
-            Scribe_Values.Look(ref totalStoredItems, "total");
-            base.ExposeData();
+            for (int i = 0; i < ports.Count; i++)
+            {
+                ports[i].RefreshInput();
+            }
         }
     }
 }

@@ -31,7 +31,7 @@ namespace ProjectRimFactory.Industry
 
         public override void TickLong()
         {
-            if (Rand.MTBEventOccurs(ProduceMtbHours, GenDate.TicksPerHour, GenTicks.TickLongInterval))
+            if (GetComp<CompPowerTrader>()?.PowerOn != false && Rand.MTBEventOccurs(ProduceMtbHours, GenDate.TicksPerHour, GenTicks.TickLongInterval))
             {
                 GenerateChunk();
             }
@@ -50,7 +50,7 @@ namespace ProjectRimFactory.Industry
 
         protected virtual Thing GetChunkThingToPlace()
         {
-            ThingDef rock = PossibleRockDefCandidates.RandomElementByWeight(d => d.building.isResourceRock ? d.building.mineableScatterCommonality : 3f);
+            ThingDef rock = PossibleRockDefCandidates.RandomElementByWeight(d => d.building.isResourceRock ? d.building.mineableScatterCommonality * d.building.mineableScatterLumpSizeRange.Average * d.building.mineableDropChance : 3f);
             Thing t = ThingMaker.MakeThing(rock.building.mineableThing);
             t.stackCount = rock.building.mineableYield;
             return t;

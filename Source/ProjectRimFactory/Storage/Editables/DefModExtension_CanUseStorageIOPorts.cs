@@ -6,8 +6,7 @@ using Verse;
 
 namespace ProjectRimFactory.Storage.Editables
 {
-    public class DefModExtension_MassStorage : DefModExtension
+    public class DefModExtension_CanUseStorageIOPorts : DefModExtension
     {
-        public int limit = 10;
     }
 }
