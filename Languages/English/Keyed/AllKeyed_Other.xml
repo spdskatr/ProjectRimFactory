@@ -10,4 +10,6 @@
   <PRFRenameMassStorageUnitDesc>Rename this building.</PRFRenameMassStorageUnitDesc>
   <PRFIOMode>I/O mode</PRFIOMode>
   <PRFBoundStorageBuilding>Item source</PRFBoundStorageBuilding>
+  <PRFOutputItem>Currently outputting: {0}</PRFOutputItem>
+  <PRFNoDesc>No description.</PRFNoDesc>
 </LanguageData>

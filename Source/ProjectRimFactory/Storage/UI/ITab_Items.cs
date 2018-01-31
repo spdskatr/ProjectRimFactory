@@ -28,12 +28,11 @@ namespace ProjectRimFactory.Storage.UI
             Rect viewRect = new Rect(0f, 0f, outRect.width - 16f, scrollViewHeight);
             Widgets.BeginScrollView(outRect, ref scrollPos, viewRect);
             float curY = 0;
-            foreach (Thing thing in SelBuilding.StoredItems)
+            foreach (Thing thing in (from Thing t in SelBuilding.StoredItems
+                                     where string.IsNullOrEmpty(searchQuery) || t.Label.ToLower().Contains(searchQuery.ToLower())
+                                     select t).Take(500))
             {
-                if (string.IsNullOrEmpty(searchQuery) || thing.Label.ToLower().Contains(searchQuery.ToLower()))
-                {
-                    DrawThingRow(ref curY, viewRect.width, thing);
-                }
+                DrawThingRow(ref curY, viewRect.width, thing);
             }
             if (Event.current.type == EventType.Layout)
             {
@@ -48,10 +47,7 @@ namespace ProjectRimFactory.Storage.UI
         {
             Rect rect = new Rect(0f, y, width, 28f);
             Widgets.InfoCardButton(rect.width - 24f, y, thing);
-            rect.width -= 24f;
-            Rect rect4 = rect;
-            rect4.xMin = rect4.xMax - 60f;
-            rect.width -= 60f;
+            rect.width -= 84f;
             if (Mouse.IsOver(rect))
             {
                 GUI.color = new Color(0.5f, 0.5f, 0.5f, 1f);

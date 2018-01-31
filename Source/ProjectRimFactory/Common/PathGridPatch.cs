@@ -13,7 +13,7 @@ using System.Reflection.Emit;
 namespace ProjectRimFactory.Common
 {
     [HarmonyPatch(typeof(PathGrid), "CalculatedCostAt")]
-    public static class HarmonyPatches
+    public static class PathGridPatch
     {
         public static IEnumerable<CodeInstruction> Transpiler(IEnumerable<CodeInstruction> previousInstructions)
         {
@@ -27,7 +27,7 @@ namespace ProjectRimFactory.Common
                     yield return new CodeInstruction(OpCodes.Ldarg_1);
                     yield return new CodeInstruction(OpCodes.Ldarg_0);
                     yield return new CodeInstruction(OpCodes.Ldfld, typeof(PathGrid).GetField("map", BindingFlags.NonPublic | BindingFlags.Instance));
-                    yield return new CodeInstruction(OpCodes.Call, typeof(HarmonyPatches).GetMethod("ApparentPathCost"));
+                    yield return new CodeInstruction(OpCodes.Call, typeof(PathGridPatch).GetMethod("ApparentPathCost"));
                 }
                 else
                 {

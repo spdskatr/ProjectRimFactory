@@ -10,6 +10,8 @@ namespace ProjectRimFactory.Storage
     public class Building_MassStorageUnitPowered : Building_MassStorageUnit
     {
         public override bool CanStoreMoreItems => GetComp<CompPowerTrader>().PowerOn;
+        public override bool CanReceiveIO => base.CanReceiveIO && GetComp<CompPowerTrader>().PowerOn;
+
         public override void Notify_ReceivedThing(Thing newItem)
         {
             base.Notify_ReceivedThing(newItem);

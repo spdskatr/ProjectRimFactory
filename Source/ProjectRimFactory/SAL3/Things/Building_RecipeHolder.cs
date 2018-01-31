@@ -78,33 +78,23 @@ namespace ProjectRimFactory.SAL3.Things
                     action = ResetProgress
                 };
             }
-            if (def.defName == "RecipeDatabase")
+            if (Prefs.DevMode)
             {
-                void DoNothing()
-                {
-                }
-
                 yield return new Command_Action()
                 {
-                    icon = Textures.button_play_red,
-                    action = DoNothing
-                };
-                yield return new Command_Action()
-                {
-                    icon = Textures.button_record_red,
-                    action = DoNothing
-                };
-                yield return new Command_Action()
-                {
-                    icon = Textures.button_pause_black,
-                    action = DoNothing
-                };
-                yield return new Command_Action()
-                {
-                    icon = Textures.button_rewind_black,
-                    action = DoNothing
+                    defaultLabel = "Debug actions",
+                    action = () => Find.WindowStack.Add(new FloatMenu(GetDebugOptions()))
                 };
             }
+        }
+
+        List<FloatMenuOption> GetDebugOptions()
+        {
+            List<FloatMenuOption> list = new List<FloatMenuOption>
+            {
+                new FloatMenuOption("Insta-finish", () => workAmount = 0f)
+            };
+            return list;
         }
 
         protected virtual IEnumerable<FloatMenuOption> GetPossibleOptions()

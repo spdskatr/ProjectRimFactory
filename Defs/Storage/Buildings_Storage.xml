@@ -140,5 +140,8 @@
 		<basePowerConsumption>0</basePowerConsumption>
 	  </li>
 	</comps>
+	<modExtensions>
+	  <li Class="ProjectRimFactory.Storage.Editables.DefModExtension_CanUseStorageIOPorts" />
+	</modExtensions>
   </ThingDef>
 </Defs>

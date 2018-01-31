@@ -10,8 +10,11 @@ using ProjectRimFactory.Storage.UI;
 
 namespace ProjectRimFactory.Storage
 {
+    [StaticConstructorOnStartup]
     public abstract class Building_MassStorageUnit : Building_Storage
     {
+        static readonly Texture2D RenameTex = ContentFinder<Texture2D>.Get("UI/Buttons/Rename", true);
+
         List<Thing> items = new List<Thing>();
         List<Building_StorageUnitIOPort> ports = new List<Building_StorageUnitIOPort>();
         public string uniqueName;
@@ -20,6 +23,17 @@ namespace ProjectRimFactory.Storage
         public IEnumerable<Thing> StoredItems => items;
         public int StoredItemsCount => items.Count;
         public override string LabelNoCount => uniqueName ?? base.LabelNoCount;
+        public override string LabelCap => uniqueName ?? base.LabelCap;
+        public virtual bool CanReceiveIO => true;
+
+        public void DeregisterPort(Building_StorageUnitIOPort port)
+        {
+            ports.Remove(port);
+        }
+        public void RegisterPort(Building_StorageUnitIOPort port)
+        {
+            ports.Add(port);
+        }
 
         public override IEnumerable<Gizmo> GetGizmos()
         {
@@ -27,7 +41,7 @@ namespace ProjectRimFactory.Storage
                 yield return g;
             yield return new Command_Action
             {
-                icon = ContentFinder<Texture2D>.Get("UI/Commands/RenameZone", true),
+                icon = RenameTex,
                 action = () => Find.WindowStack.Add(new Dialog_RenameMassStorageUnit(this)),
                 hotKey = KeyBindingDefOf.Misc1,
                 defaultLabel = "PRFRenameMassStorageUnitLabel".Translate(),
@@ -78,6 +92,13 @@ namespace ProjectRimFactory.Storage
             }
         }
 
+        public override void ExposeData()
+        {
+            base.ExposeData();
+            Scribe_Collections.Look(ref ports, "ports", LookMode.Reference);
+            Scribe_Values.Look(ref uniqueName, "uniqueName");
+        }
+
         public override string GetInspectString()
         {
             string original = base.GetInspectString();
@@ -108,6 +129,14 @@ namespace ProjectRimFactory.Storage
         {
             base.Notify_LostThing(newItem);
             items.Remove(newItem);
+            if (newItem.Spawned)
+            {
+                List<Thing> list = Map.listerThings.ThingsInGroup(ThingRequestGroup.HasGUIOverlay);
+                if (!list.Contains(newItem))
+                {
+                    list.Add(newItem);
+                }
+            }
             RefreshStorage();
         }
 
@@ -117,7 +146,7 @@ namespace ProjectRimFactory.Storage
             RefreshStorage();
         }
 
-        protected virtual void RefreshStorage()
+        public virtual void RefreshStorage()
         {
             items = new List<Thing>();
             foreach (IntVec3 cell in AllSlotCells())
