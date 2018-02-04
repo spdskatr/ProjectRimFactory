@@ -11,7 +11,7 @@ namespace ProjectRimFactory.Storage
     {
         StorageIOMode mode = StorageIOMode.Input;
         Building_MassStorageUnit boundStorageUnit;
-        private ThingDef boundThingDef;
+        ThingDef boundThingDef;
 
         public StorageIOMode IOMode
         {
@@ -69,7 +69,13 @@ namespace ProjectRimFactory.Storage
             Notify_NeedRefresh();
         }
 
-        private void Notify_NeedRefresh()
+        public override void DeSpawn()
+        {
+            base.DeSpawn();
+            boundStorageUnit?.DeregisterPort(this);
+        }
+
+        public void Notify_NeedRefresh()
         {
             switch (IOMode)
             {
@@ -136,8 +142,7 @@ namespace ProjectRimFactory.Storage
                 {
                     if (cell.GetFirstItem(Map) == null)
                     {
-                        item.Position = cell;
-                        boundStorageUnit.RefreshStorage();
+                        boundStorageUnit.RegisterNewItem(item);
                         break;
                     }
                 }
@@ -150,7 +155,7 @@ namespace ProjectRimFactory.Storage
             bool storageSlotAvailable = (currentItem == null || (currentItem.def == boundThingDef && currentItem.stackCount < currentItem.def.stackLimit));
             if (boundStorageUnit != null && boundStorageUnit.CanReceiveIO && storageSlotAvailable)
             {
-                foreach (Thing item in boundStorageUnit.StoredItems)
+                foreach (Thing item in boundStorageUnit.StoredItems.ToList())
                 {
                     if (item.def == boundThingDef)
                     {
@@ -162,7 +167,6 @@ namespace ProjectRimFactory.Storage
                         {
                             item.Position = Position;
                             currentItem = item;
-                            break;
                         }
                         if (currentItem != null && currentItem.stackCount >= currentItem.def.stackLimit)
                         {

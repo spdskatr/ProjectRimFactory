@@ -64,7 +64,7 @@
     <constructEffect>ConstructMetal</constructEffect>
 	<minifiedDef>MinifiedFurniture</minifiedDef>
     <researchPrerequisites>
-      <li>AutomationBasics</li>
+      <li>PRFStorageIO</li>
     </researchPrerequisites>
   </ThingDef>
 </Defs>

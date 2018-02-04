@@ -67,7 +67,7 @@ namespace ProjectRimFactory.Storage
             return "PRFItemsTabLabel".Translate(items.Count);
         }
 
-        protected virtual void RegisterNewItem(Thing newItem)
+        public virtual void RegisterNewItem(Thing newItem)
         {
             List<Thing> things = Position.GetThingList(Map);
             for (int i = 0; i < things.Count; i++)
@@ -174,7 +174,15 @@ namespace ProjectRimFactory.Storage
             }
             for (int i = 0; i < ports.Count; i++)
             {
-                ports[i].RefreshInput();
+                if (ports[i] == null)
+                {
+                    ports.RemoveAt(i);
+                    i--;
+                }
+                else
+                {
+                    ports[i].Notify_NeedRefresh();
+                }
             }
         }
     }

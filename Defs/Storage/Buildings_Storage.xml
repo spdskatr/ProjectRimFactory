@@ -132,7 +132,7 @@
     </costList>
     <constructEffect>ConstructMetal</constructEffect>
     <researchPrerequisites>
-      <li>PRFCrates</li>
+      <li>PRFStorage</li>
     </researchPrerequisites>
 	<comps>
 	  <li Class="CompProperties_Power">

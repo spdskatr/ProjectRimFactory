@@ -10,4 +10,33 @@
     <researchViewY>0</researchViewY>
 	<description>Allows colonists to build large crates for more compact storage.</description>
   </ResearchProjectDef>
+  <ResearchProjectDef>
+    <defName>PRFStorage</defName>
+	<tab>Automation</tab>
+    <techLevel>Industrial</techLevel>
+    <baseCost>1500</baseCost>
+	<label>Efficient storage</label>
+    <researchViewX>1</researchViewX>
+    <researchViewY>0</researchViewY>
+	<description>Allows colonists to build even better powered storage solutions.</description>
+    <prerequisites>
+      <li>AutomationBasics</li>
+      <li>PRFCrates</li>
+    </prerequisites>
+    <requiredResearchBuilding>HiTechResearchBench</requiredResearchBuilding>
+  </ResearchProjectDef>
+  <ResearchProjectDef>
+    <defName>PRFStorageIO</defName>
+	<tab>Automation</tab>
+    <techLevel>Industrial</techLevel>
+    <baseCost>1500</baseCost>
+	<label>Wireless item transfer</label>
+    <researchViewX>1</researchViewX>
+    <researchViewY>0</researchViewY>
+	<description>Allows colonists to build machines that can transfer items to and from industrial storage units.</description>
+    <prerequisites>
+      <li>PRFStorage</li>
+    </prerequisites>
+    <requiredResearchBuilding>HiTechResearchBench</requiredResearchBuilding>
+  </ResearchProjectDef>
 </Defs>
