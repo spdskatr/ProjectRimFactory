@@ -51,6 +51,14 @@ namespace ProjectRimFactory.SAL3.UI
 
         public override void DoWindowContents(Rect rect)
         {
+            if (smartHopper.maxBufferString == null)
+            {
+                smartHopper.maxBufferString = smartHopper.max.ToString();
+            }
+            if (smartHopper.minBufferString == null)
+            {
+                smartHopper.minBufferString = smartHopper.min.ToString();
+            }
             Listing_Standard list = new Listing_Standard(GameFont.Small);
             list.ColumnWidth = rect.width;
             list.Begin(rect);

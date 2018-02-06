@@ -5,3 +5,7 @@ F:\rw\Mods\_Project RimFactory\Assemblies\ProjectRimFactory.dll
 F:\rw\Mods\_Project RimFactory\Source\ProjectRimFactory\obj\Release\ProjectRimFactory.csprojResolveAssemblyReference.cache
 F:\rw\Mods\_Project RimFactory\Source\ProjectRimFactory\obj\Release\ProjectRimFactory.csproj.CoreCompileInputs.cache
 F:\rw\Mods\_Project RimFactory\Source\ProjectRimFactory\obj\Release\ProjectRimFactory.dll
+C:\Program Files (x86)\Steam\steamapps\common\RimWorld\Mods\_Project RimFactory\Assemblies\ProjectRimFactory.dll
+C:\Program Files (x86)\Steam\steamapps\common\RimWorld\Mods\_Project RimFactory\Source\ProjectRimFactory\obj\Release\ProjectRimFactory.csprojResolveAssemblyReference.cache
+C:\Program Files (x86)\Steam\steamapps\common\RimWorld\Mods\_Project RimFactory\Source\ProjectRimFactory\obj\Release\ProjectRimFactory.csproj.CoreCompileInputs.cache
+C:\Program Files (x86)\Steam\steamapps\common\RimWorld\Mods\_Project RimFactory\Source\ProjectRimFactory\obj\Release\ProjectRimFactory.dll

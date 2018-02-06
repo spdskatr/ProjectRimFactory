@@ -13,8 +13,8 @@ namespace ProjectRimFactory.SAL3.Things
         public int limit = 80;
         public int min = 10;
         public int max = 100;
-        public string minBufferString = "10";
-        public string maxBufferString = "100";
+        public string minBufferString;
+        public string maxBufferString;
         public bool useMin = true;
         public bool useMax = false;
 
@@ -76,6 +76,8 @@ namespace ProjectRimFactory.SAL3.Things
             Scribe_Values.Look(ref limit, "limit", 75);
             Scribe_Values.Look(ref min, "min", 10);
             Scribe_Values.Look(ref max, "max", 100);
+            Scribe_Values.Look(ref useMin, "useMin");
+            Scribe_Values.Look(ref useMax, "useMax", true);
             Scribe_Deep.Look(ref settings, "settings", this);
         }
 
