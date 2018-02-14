@@ -16,7 +16,7 @@ namespace ProjectRimFactory.Storage.UI
         static ITab_StorageUnitIOPort()
         {
             itemList = new List<ThingDef>(from ThingDef tDef in DefDatabase<ThingDef>.AllDefs
-                                          where tDef.category == ThingCategory.Item
+                                          where tDef.category == ThingCategory.Item && !tDef.saveCompressible
                                           orderby tDef.LabelCap
                                           select tDef);
         }
@@ -69,7 +69,7 @@ namespace ProjectRimFactory.Storage.UI
                     }
                     catch (Exception e)
                     {
-                        Log.Error($"Exception displaying row for {itemList[i]}:{e}");
+                        Log.Error($"Project RimFactory :: Exception displaying row for {itemList[i]}:{e}");
                     }
                 }
             }

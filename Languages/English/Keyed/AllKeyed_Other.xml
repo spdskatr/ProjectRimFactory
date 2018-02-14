@@ -12,4 +12,5 @@
   <PRFBoundStorageBuilding>Item source</PRFBoundStorageBuilding>
   <PRFOutputItem>Currently outputting: {0}</PRFOutputItem>
   <PRFNoDesc>No description.</PRFNoDesc>
+  <PRFStoredChunks>Stored chunks: {0}</PRFStoredChunks>
 </LanguageData>

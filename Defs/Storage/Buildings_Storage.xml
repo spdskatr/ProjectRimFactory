@@ -22,6 +22,9 @@
           <categories>
             <li>Root</li>
           </categories>
+          <exceptedCategories>
+            <li>Chunks</li>
+          </exceptedCategories>
         </filter>
       </fixedStorageSettings>
       <defaultStorageSettings>
@@ -98,6 +101,7 @@
     <costList>
       <Steel>100</Steel>
     </costList>
+    <constructionSkillPrerequisite>6</constructionSkillPrerequisite>
     <constructEffect>ConstructMetal</constructEffect>
     <researchPrerequisites>
       <li>PRFCrates</li>
@@ -123,6 +127,7 @@
     </statBases>
     <description>This device stores items as holograms, allowing it to store virtually infinite amounts of information inside it. When your colony loses power, items will be safely stored inside, but colonists cannot access them.</description>
     <canOverlapZones>false</canOverlapZones>
+    <blockWind>true</blockWind>
     <size>(3,3)</size>
     <costList>
       <Steel>200</Steel>
@@ -140,6 +145,7 @@
 		<basePowerConsumption>0</basePowerConsumption>
 	  </li>
 	</comps>
+    <constructionSkillPrerequisite>8</constructionSkillPrerequisite>
 	<modExtensions>
 	  <li Class="ProjectRimFactory.Storage.Editables.DefModExtension_CanUseStorageIOPorts" />
 	</modExtensions>
