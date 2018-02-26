@@ -143,6 +143,10 @@ namespace ProjectRimFactory.Storage
                     if (cell.GetFirstItem(Map) == null)
                     {
                         boundStorageUnit.RegisterNewItem(item);
+                        if (item.def.drawGUIOverlay)
+                        {
+                            Map.listerThings.ThingsInGroup(ThingRequestGroup.HasGUIOverlay).Remove(item);
+                        }
                         break;
                     }
                 }

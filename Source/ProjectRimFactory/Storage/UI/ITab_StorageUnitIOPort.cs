@@ -10,13 +10,18 @@ using Verse.Sound;
 
 namespace ProjectRimFactory.Storage.UI
 {
+    [StaticConstructorOnStartup]
     public class ITab_StorageUnitIOPort : ITab
     {
-        static readonly List<ThingDef> itemList;
+        static List<ThingDef> itemList;
         static ITab_StorageUnitIOPort()
         {
+            LongEventHandler.QueueLongEvent(InitItemList, "Initializing", true, e => Log.Error($"Project RimFactory: Exception initializing items list: {e}"));
+        }
+        private static void InitItemList()
+        {
             itemList = new List<ThingDef>(from ThingDef tDef in DefDatabase<ThingDef>.AllDefs
-                                          where tDef.category == ThingCategory.Item && !tDef.saveCompressible
+                                          where tDef.category == ThingCategory.Item
                                           orderby tDef.LabelCap
                                           select tDef);
         }

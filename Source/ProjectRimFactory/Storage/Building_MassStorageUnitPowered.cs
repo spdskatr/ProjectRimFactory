@@ -21,10 +21,7 @@ namespace ProjectRimFactory.Storage
         {
             GetComp<CompPowerTrader>().PowerOutput = -10 * StoredItemsCount;
         }
-        public override bool BlocksPawn(Pawn p)
-        {
-            return base.BlocksPawn(p) || !GetComp<CompPowerTrader>().PowerOn;
-        }
+
         protected override void ReceiveCompSignal(string signal)
         {
             base.ReceiveCompSignal(signal);
@@ -37,6 +34,7 @@ namespace ProjectRimFactory.Storage
                     break;
             }
         }
+
         public override void SpawnSetup(Map map, bool respawningAfterLoad)
         {
             base.SpawnSetup(map, respawningAfterLoad);

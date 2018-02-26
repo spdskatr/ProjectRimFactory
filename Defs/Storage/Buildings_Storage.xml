@@ -22,9 +22,6 @@
           <categories>
             <li>Root</li>
           </categories>
-          <exceptedCategories>
-            <li>Chunks</li>
-          </exceptedCategories>
         </filter>
       </fixedStorageSettings>
       <defaultStorageSettings>
@@ -125,7 +122,7 @@
       <WorkToBuild>2500</WorkToBuild>
       <Flammability>0.1</Flammability>
     </statBases>
-    <description>This device stores items as holograms, allowing it to store virtually infinite amounts of information inside it. When your colony loses power, items will be safely stored inside, but colonists cannot access them.</description>
+    <description>This device stores items as holograms, allowing it to contain virtually infinite amounts of information inside it. When your colony loses power, items will be safely stored inside, but the building will stop compressing the items into the central cell.</description>
     <canOverlapZones>false</canOverlapZones>
     <blockWind>true</blockWind>
     <size>(3,3)</size>

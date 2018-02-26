@@ -59,6 +59,7 @@
     <Compile Include="Common\PathGridPatch.cs" />
     <Compile Include="Common\ProjectRimFactory_ModComponent.cs" />
     <Compile Include="Common\ProjectRimFactory_ModSettings.cs" />
+    <Compile Include="Common\SaveCompressiblePatch.cs" />
     <Compile Include="Common\SetPositionPatch.cs" />
     <Compile Include="CultivatorTools\Buildings.cs" />
     <Compile Include="CultivatorTools\Building_RadialCellIterator.cs" />
