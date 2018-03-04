@@ -13,7 +13,7 @@
     </prerequisites>
     <requiredResearchBuilding>HiTechResearchBench</requiredResearchBuilding>
     <tab>Automation</tab>
-    <researchViewX>0</researchViewX>
-    <researchViewY>4</researchViewY>
+    <researchViewX>1</researchViewX>
+    <researchViewY>5</researchViewY>
   </ResearchProjectDef>
 </Defs>

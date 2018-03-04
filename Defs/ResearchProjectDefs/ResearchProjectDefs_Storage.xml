@@ -31,7 +31,7 @@
     <techLevel>Industrial</techLevel>
     <baseCost>1500</baseCost>
 	<label>Wireless item transfer</label>
-    <researchViewX>1</researchViewX>
+    <researchViewX>2</researchViewX>
     <researchViewY>0</researchViewY>
 	<description>Allows colonists to build machines that can transfer items to and from industrial storage units.</description>
     <prerequisites>

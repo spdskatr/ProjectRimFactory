@@ -61,7 +61,7 @@
 	</comps>
 	<researchPrerequisites>
 	  <li>UniversalAutocrafting</li>
-	  <li>PRMachineLearning</li>
+	  <li>PRFMachineLearning</li>
 	</researchPrerequisites>
     <rotatable>false</rotatable>
   </ThingDef>
