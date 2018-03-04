@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  <ThingDef ParentName="BuildingBase">
+    <defName>AIResearchStation</defName>
+    <label>AI research station</label>
+    <description>Increases research speed by 10%. Needs to be placed near hi-tech research bench. One research bench can be linked to only one AI research station.</description>
+    <graphicData>
+      <texPath>Things/Building/Misc/MultiAnalyzer</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <drawSize>(2,2)</drawSize>
+      <damageData>
+        <rect>(0.15,0.15,1.7,1.7)</rect>
+      </damageData>
+    </graphicData>
+    <researchPrerequisites><li>PRFMachineLearning</li></researchPrerequisites>
+    <size>(2,2)</size>
+    <rotatable>false</rotatable>
+    <altitudeLayer>Building</altitudeLayer>
+    <passability>PassThroughOnly</passability>
+    <castEdgeShadows>true</castEdgeShadows>
+    <fillPercent>0.5</fillPercent>
+    <designationCategory>Automation</designationCategory>
+    <minifiedDef>MinifiedFurniture</minifiedDef>
+    <canOverlapZones>false</canOverlapZones>
+    <statBases>
+      <MaxHitPoints>200</MaxHitPoints>
+      <WorkToBuild>5000</WorkToBuild>
+      <Mass>100</Mass>
+      <Flammability>1.0</Flammability>
+    </statBases>
+    <costList>
+      <Steel>100</Steel>
+      <Plasteel>50</Plasteel>
+      <Gold>20</Gold>
+    </costList>
+    <comps>
+      <li Class="CompProperties_Power">
+        <compClass>CompPowerTrader</compClass>
+        <startElectricalFires>true</startElectricalFires>
+        <basePowerConsumption>200</basePowerConsumption>
+      </li>
+      <li Class="CompProperties_Flickable"/>
+      <li Class="CompProperties_Facility">
+        <statOffsets>
+          <ResearchSpeedFactor>0.1</ResearchSpeedFactor>
+        </statOffsets>
+        <maxSimultaneous>1</maxSimultaneous>
+      </li>
+    </comps>
+		<placeWorkers>
+			<li>PlaceWorker_ShowFacilitiesConnections</li>
+		</placeWorkers>
+    <constructionSkillPrerequisite>9</constructionSkillPrerequisite>
+  </ThingDef>
+
+</Defs>

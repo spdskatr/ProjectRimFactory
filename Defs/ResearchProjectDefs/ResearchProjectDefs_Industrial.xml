@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Defs>
+  <!-- Tier 1 -->
   <ResearchProjectDef>
     <defName>AutonomousMining</defName>
 	<tab>Automation</tab>
@@ -13,5 +14,73 @@
     <researchViewX>1</researchViewX>
     <researchViewY>1</researchViewY>
 	<description>Make buildings that can extract random minerals and rocks from deep underground.</description>
+  </ResearchProjectDef>
+  
+  <!-- Tier 2 -->
+  <ResearchProjectDef>
+    <defName>PaperclipProduction</defName>
+    <label>paperclip production</label>
+    <description>"The AI does not hate you, nor does it love you, but you are made out of atoms which it can use for something else."\nAllows colonists to build an AI that creates paperclips from any matter fed into it, and a machine the generates power from paperclips.</description>
+    <techLevel>Spacer</techLevel>
+    <baseCost>1000</baseCost>
+    <requiredResearchBuilding>HiTechResearchBench</requiredResearchBuilding>
+	<requiredResearchFacilities><li>AIResearchStation</li></requiredResearchFacilities>
+    <prerequisites>
+      <li>PRFMachineLearning</li>
+    </prerequisites>
+    <tab>Automation</tab>
+    <researchViewX>4</researchViewX>
+    <researchViewY>4</researchViewY>
+  </ResearchProjectDef>
+  
+  <ResearchProjectDef>
+    <defName>AdvancedProteinSynthesis</defName>
+    <label>advanced protein synthesis</label>
+    <techLevel>Spacer</techLevel>
+    <baseCost>2750</baseCost>
+    <description>Create meat and vegetable substitute by manipulating the molecular structure of paperclips.</description>
+    <prerequisites>
+      <li>PRFAnnealmentI</li>
+      <li>PaperclipProduction</li>
+    </prerequisites>
+    <requiredResearchBuilding>HiTechResearchBench</requiredResearchBuilding>
+	<requiredResearchFacilities><li>AIResearchStation</li></requiredResearchFacilities>
+    <tab>Automation</tab>
+    <researchViewX>5</researchViewX>
+    <researchViewY>5</researchViewY>
+  </ResearchProjectDef>
+  
+  <ResearchProjectDef>
+    <defName>PaperclipGeneratorSelfImprovement</defName>
+    <label>paperclip generator: self-improvement</label>
+    <techLevel>Spacer</techLevel>
+    <baseCost>2250</baseCost>
+    <description>Paperclip generator slowly gains speed up to 500% unless flicked or disrupted.</description>
+    <prerequisites>
+      <li>PRFAnnealmentI</li>
+      <li>PaperclipProduction</li>
+    </prerequisites>
+    <requiredResearchBuilding>HiTechResearchBench</requiredResearchBuilding>
+	<requiredResearchFacilities><li>AIResearchStation</li></requiredResearchFacilities>
+    <tab>Automation</tab>
+    <researchViewX>5</researchViewX>
+    <researchViewY>1</researchViewY>
+  </ResearchProjectDef>
+  
+  <ResearchProjectDef>
+    <defName>PaperclipGeneratorKugelblitz</defName>
+    <label>paperclip generator: kugelblitz</label>
+    <techLevel>Spacer</techLevel>
+    <baseCost>5000</baseCost>
+    <description>Paperclip generator maximum efficiency increased to 5000%.</description>
+    <prerequisites>
+      <li>PRFAnnealmentI</li>
+      <li>PaperclipProduction</li>
+    </prerequisites>
+    <requiredResearchBuilding>HiTechResearchBench</requiredResearchBuilding>
+	<requiredResearchFacilities><li>AIResearchStation</li></requiredResearchFacilities>
+    <tab>Automation</tab>
+    <researchViewX>5</researchViewX>
+    <researchViewY>1</researchViewY>
   </ResearchProjectDef>
 </Defs>
