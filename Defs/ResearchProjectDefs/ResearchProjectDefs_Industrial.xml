@@ -20,7 +20,7 @@
   <ResearchProjectDef>
     <defName>PaperclipProduction</defName>
     <label>paperclip production</label>
-    <description>"The AI does not hate you, nor does it love you, but you are made out of atoms which it can use for something else."\nAllows colonists to build an factory that creates paperclips from any matter, and a machine the generates power from paperclips.</description>
+    <description>"The AI does not hate you, nor does it love you, but you are made out of atoms which it can use for something else."\nAllows colonists to build a factory that creates paperclips from any matter, and a machine the generates power from paperclips.</description>
     <techLevel>Spacer</techLevel>
     <baseCost>1000</baseCost>
     <requiredResearchBuilding>HiTechResearchBench</requiredResearchBuilding>
