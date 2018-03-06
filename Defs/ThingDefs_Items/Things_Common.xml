@@ -136,7 +136,7 @@
     <soundDrop>Metal_Drop</soundDrop>
     <statBases>
       <MarketValue>0.1</MarketValue>
-      <MaxHitPoints>10</MaxHitPoints>
+      <MaxHitPoints>50</MaxHitPoints>
       <Mass>0.001</Mass>
     </statBases>
     <thingCategories>
