@@ -20,7 +20,7 @@
   <ResearchProjectDef>
     <defName>PaperclipProduction</defName>
     <label>paperclip production</label>
-    <description>"The AI does not hate you, nor does it love you, but you are made out of atoms which it can use for something else."\nAllows colonists to build an AI that creates paperclips from any matter fed into it, and a machine the generates power from paperclips.</description>
+    <description>"The AI does not hate you, nor does it love you, but you are made out of atoms which it can use for something else."\nAllows colonists to build an factory that creates paperclips from any matter, and a machine the generates power from paperclips.</description>
     <techLevel>Spacer</techLevel>
     <baseCost>1000</baseCost>
     <requiredResearchBuilding>HiTechResearchBench</requiredResearchBuilding>
@@ -72,15 +72,30 @@
     <label>paperclip generator: kugelblitz</label>
     <techLevel>Spacer</techLevel>
     <baseCost>5000</baseCost>
-    <description>Paperclip generator maximum efficiency increased to 5000%.</description>
+    <description>Paperclip generator maximum efficiency increased up to 2500%.</description>
     <prerequisites>
-      <li>PRFAnnealmentI</li>
-      <li>PaperclipProduction</li>
+      <li>PaperclipGeneratorSelfImprovement</li>
     </prerequisites>
     <requiredResearchBuilding>HiTechResearchBench</requiredResearchBuilding>
 	<requiredResearchFacilities><li>AIResearchStation</li></requiredResearchFacilities>
     <tab>Automation</tab>
-    <researchViewX>5</researchViewX>
+    <researchViewX>6</researchViewX>
+    <researchViewY>1</researchViewY>
+  </ResearchProjectDef>
+  
+  <ResearchProjectDef>
+    <defName>PaperclipGeneratorQuantumFoamManipulation</defName>
+    <label>paperclip generator: quantum foam manipulation</label>
+    <techLevel>Spacer</techLevel>
+    <baseCost>5000</baseCost>
+    <description>Paperclip generator maximum efficiency increased up to 10000%.</description>
+    <prerequisites>
+      <li>PaperclipGeneratorKugelblitz</li>
+    </prerequisites>
+    <requiredResearchBuilding>HiTechResearchBench</requiredResearchBuilding>
+	<requiredResearchFacilities><li>AIResearchStation</li></requiredResearchFacilities>
+    <tab>Automation</tab>
+    <researchViewX>7</researchViewX>
     <researchViewY>1</researchViewY>
   </ResearchProjectDef>
 </Defs>

@@ -37,7 +37,7 @@
   
   <ThingDef ParentName="AssemblerBase">
     <defName>MachineLearningAssembler</defName>
-    <label>machine learning assembler</label>
+    <label>self-correcting assembler</label>
     <thingClass>ProjectRimFactory.SAL3.Things.Assemblers.Special.Building_Assembler_Learning</thingClass>
     <graphicData>
       <texPath>SAL3/smart_assembler</texPath>
@@ -60,8 +60,7 @@
 	  </li>
 	</comps>
 	<researchPrerequisites>
-	  <li>UniversalAutocrafting</li>
-	  <li>PRFMachineLearning</li>
+	  <li>SelfCorrectingAssemblers</li>
 	</researchPrerequisites>
     <rotatable>false</rotatable>
   </ThingDef>
@@ -136,6 +135,42 @@
     <rotatable>false</rotatable>
   </ThingDef>
   
+  <ThingDef ParentName="AssemblerBase">
+    <defName>PaperclipFactory</defName>
+    <label>paperclip factory</label>
+    <thingClass>ProjectRimFactory.SAL3.Things.Assemblers.Special.Building_PaperclipFactory</thingClass>
+    <graphicData>
+      <texPath>SAL3/PaperclipFactory</texPath>
+      <drawSize>(2, 2)</drawSize>
+    </graphicData>
+    <size>(2, 2)</size>
+    <statBases>
+      <WorkToBuild>2000</WorkToBuild>
+    </statBases>
+    <description>A machine that makes paperclips from any raw matter inserted into it - metal, plant or corpse.</description>
+	<stuffCategories />
+    <costList>
+      <PRFMachineFrame>1</PRFMachineFrame>
+      <Steel>20</Steel>
+      <Component>2</Component>
+      <PRFWeakAIChip>2</PRFWeakAIChip>
+    </costList>
+	<comps>
+	  <li Class="CompProperties_Power">
+	    <compClass>CompPowerTrader</compClass>
+		<basePowerConsumption>400</basePowerConsumption>
+	  </li>
+	</comps>
+	<recipes>
+      <li>MakePaperclips</li>
+      <li>MakePaperclipsTake10Items</li>
+	</recipes>
+	<researchPrerequisites>
+	  <li>SelfCooking</li>
+	</researchPrerequisites>
+    <rotatable>false</rotatable>
+  </ThingDef>
+  
    <!--Recipe database-->
   
   <ThingDef ParentName="PRFBuildingBase">
@@ -160,9 +195,9 @@
 	<minifiedDef>MinifiedFurniture</minifiedDef>
     <description>Stores recipes for use by smart assemblers, and imports recipes from adjacent work tables. I wonder what all the buttons do...</description>
     <costList>
-	  <Plasteel>25</Plasteel>
-      <Steel>100</Steel>
-	  <Component>5</Component>
+      <PRFMachineFrame>1</PRFMachineFrame>
+      <Steel>20</Steel>
+	  <Component>1</Component>
 	  <RimFactory_Data_Disk>1</RimFactory_Data_Disk>
     </costList>
     <tickerType>Normal</tickerType>

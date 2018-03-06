@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+  <ThingDef ParentName="PRFResourceBase">
+    <defName>PRFRoboticArm</defName>
+    <label>robotic arm</label>
+    <description>A robotic arm powered by an electric motor. Used in the construction of some automation buildings.</description>
+    <graphicData>
+      <texPath>Common/RoboticArm</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <resourceReadoutPriority>Middle</resourceReadoutPriority>
+    <soundInteract>Metal_Drop</soundInteract>
+    <soundDrop>Metal_Drop</soundDrop>
+    <statBases>
+      <MarketValue>150</MarketValue>
+      <MaxHitPoints>50</MaxHitPoints>
+      <Mass>2</Mass>
+    </statBases>
+    <thingCategories>
+      <li>Items</li>
+    </thingCategories>
+    <tradeability>Sellable</tradeability>
+  </ThingDef>
+  <ThingDef ParentName="PRFResourceBase">
+    <defName>PRFWeakAIChip</defName>
+    <label>weak AI chip</label>
+    <description>A microchip with embedded classifier, regressor and generator modules. The most primitive level of AI.</description>
+    <graphicData>
+      <texPath>Common/WeakAICore</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <resourceReadoutPriority>Middle</resourceReadoutPriority>
+    <soundInteract>Metal_Drop</soundInteract>
+    <soundDrop>Metal_Drop</soundDrop>
+    <statBases>
+      <MarketValue>150</MarketValue>
+      <MaxHitPoints>50</MaxHitPoints>
+      <Mass>1</Mass>
+    </statBases>
+    <thingCategories>
+      <li>Items</li>
+    </thingCategories>
+    <tradeability>Sellable</tradeability>
+  </ThingDef>
+  <ThingDef ParentName="PRFResourceBase">
+    <defName>PRFMachineFrame</defName>
+    <label>machine frame</label>
+    <description>The empty shell of a medium-sized automation building.</description>
+    <graphicData>
+      <texPath>Common/MachineFrame</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <resourceReadoutPriority>Middle</resourceReadoutPriority>
+    <soundInteract>Metal_Drop</soundInteract>
+    <soundDrop>Metal_Drop</soundDrop>
+    <statBases>
+      <MarketValue>150</MarketValue>
+      <MaxHitPoints>50</MaxHitPoints>
+      <Mass>10</Mass>
+    </statBases>
+    <thingCategories>
+      <li>Items</li>
+    </thingCategories>
+    <costList>
+      <Steel>80</Steel>
+      <Plasteel>20</Plasteel>
+      <Component>4</Component>
+    </costList>
+    <recipeMaker>
+      <workSpeedStat>SmithingSpeed</workSpeedStat>
+      <efficiencyStat>SmithingSpeed</efficiencyStat>
+      <workSkill>Crafting</workSkill>
+      <effectWorking>Cook</effectWorking>
+      <soundWorking>Recipe_Machining</soundWorking>
+      <recipeUsers>
+        <li>TableRoboticMachining</li>
+      </recipeUsers>
+    </recipeMaker>
+    <tradeability>Sellable</tradeability>
+    <stackLimit>5</stackLimit>
+  </ThingDef>
+  <ThingDef ParentName="PRFResourceBase">
+    <defName>PRFMachineFrameLarge</defName>
+    <label>large machine frame</label>
+    <description>The empty shell of a large automation building.</description>
+    <graphicData>
+      <texPath>Common/MachineFrameLarge</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <resourceReadoutPriority>Middle</resourceReadoutPriority>
+    <soundInteract>Metal_Drop</soundInteract>
+    <soundDrop>Metal_Drop</soundDrop>
+    <statBases>
+      <MarketValue>300</MarketValue>
+      <MaxHitPoints>150</MaxHitPoints>
+      <Mass>20</Mass>
+    </statBases>
+    <thingCategories>
+      <li>Items</li>
+    </thingCategories>
+    <tradeability>Sellable</tradeability>
+    <stackLimit>5</stackLimit>
+  </ThingDef>
+  <ThingDef ParentName="PRFResourceBase">
+    <defName>PRFDroneModule</defName>
+    <label>drone module</label>
+    <description>A small AI processor on a dormant quadcopter frame.</description>
+    <graphicData>
+      <texPath>Common/DroneModule</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <resourceReadoutPriority>Middle</resourceReadoutPriority>
+    <soundInteract>Metal_Drop</soundInteract>
+    <soundDrop>Metal_Drop</soundDrop>
+    <statBases>
+      <MarketValue>500</MarketValue>
+      <MaxHitPoints>50</MaxHitPoints>
+      <Mass>2</Mass>
+    </statBases>
+    <thingCategories>
+      <li>Items</li>
+    </thingCategories>
+    <tradeability>Sellable</tradeability>
+    <stackLimit>75</stackLimit>
+  </ThingDef>
+  <ThingDef ParentName="PRFResourceBase">
+    <defName>Paperclip</defName>
+    <label>paperclip</label>
+    <description>A small metal object weighing exactly 1 gram. It is used to bind pieces of paper together.</description>
+    <graphicData>
+      <texPath>Common/Paperclip</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <resourceReadoutPriority>Middle</resourceReadoutPriority>
+    <soundInteract>Metal_Drop</soundInteract>
+    <soundDrop>Metal_Drop</soundDrop>
+    <statBases>
+      <MarketValue>0.1</MarketValue>
+      <MaxHitPoints>10</MaxHitPoints>
+      <Mass>0.001</Mass>
+    </statBases>
+    <thingCategories>
+      <li>ResourcesRaw</li>
+    </thingCategories>
+    <stackLimit>1000000</stackLimit>
+  </ThingDef>
+</Defs>

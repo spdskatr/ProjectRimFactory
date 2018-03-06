@@ -73,6 +73,7 @@
     <Compile Include="SAL3\Things\Assemblers\Building_DynamicBillGiver.cs" />
     <Compile Include="SAL3\Things\Assemblers\Building_SmartAssembler.cs" />
     <Compile Include="SAL3\Things\Assemblers\Special\Building_Assembler_Learning.cs" />
+    <Compile Include="SAL3\Things\Assemblers\Special\Building_PaperclipFactory.cs" />
     <Compile Include="SAL3\Things\Assemblers\Special\WorkSpeedFactorManager.cs" />
     <Compile Include="SAL3\Things\Building_RecipeHolder.cs" />
     <Compile Include="SAL3\Things\Building_SmartHopper.cs" />

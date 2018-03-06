@@ -14,7 +14,7 @@
     <defName>PRFStorage</defName>
 	<tab>Automation</tab>
     <techLevel>Industrial</techLevel>
-    <baseCost>1500</baseCost>
+    <baseCost>3000</baseCost>
 	<label>Efficient storage</label>
     <researchViewX>1</researchViewX>
     <researchViewY>0</researchViewY>
@@ -29,7 +29,7 @@
     <defName>PRFStorageIO</defName>
 	<tab>Automation</tab>
     <techLevel>Industrial</techLevel>
-    <baseCost>1500</baseCost>
+    <baseCost>3500</baseCost>
 	<label>Wireless item transfer</label>
     <researchViewX>2</researchViewX>
     <researchViewY>0</researchViewY>

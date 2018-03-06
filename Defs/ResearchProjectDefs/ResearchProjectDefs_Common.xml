@@ -3,7 +3,7 @@
   <!-- Tier 1 -->
   <ResearchProjectDef>
     <defName>AutomationBasics</defName>
-    <label>automation basics</label>
+    <label>Automation basics</label>
     <techLevel>Industrial</techLevel>
     <baseCost>1000</baseCost>
     <description>Learn the very basics of automation and mechanisms, the gateway to an industrial colony.</description>
@@ -17,7 +17,7 @@
   </ResearchProjectDef>
   <ResearchProjectDef>
     <defName>PRFMachineLearning</defName>
-    <label>machine learning</label>
+    <label>Machine learning</label>
     <techLevel>Industrial</techLevel>
     <baseCost>2000</baseCost>
     <description>Teach machines how to improve their abilities by themselves.</description>
@@ -34,7 +34,7 @@
   <!-- Tier 2 -->
   <ResearchProjectDef>
     <defName>PRFAnnealmentI</defName>
-    <label>annealment I</label>
+    <label>Annealment I</label>
     <techLevel>Spacer</techLevel>
     <baseCost>1500</baseCost>
     <description>Reduces power consumption of all automation buildings by 10%.</description>
@@ -98,18 +98,52 @@
   </ResearchProjectDef>
   
   <ResearchProjectDef>
-    <defName>PRFAdvancedAI</defName>
-    <label>Advanced AI</label>
+    <defName>PRFAdvancedAutomation</defName>
+    <label>Advanced Automation</label>
     <techLevel>Spacer</techLevel>
     <baseCost>4250</baseCost>
-    <description>Learn how to create more advanced AI, such as the AI subpersona chip.</description>
+    <description>Learn how to create advanced machine frames to build more complex automation buildings.</description>
     <prerequisites>
       <li>PRFQuantumComputing</li>
+      <li>PRFNanoMaterials</li>
+      <li>PRFDrones</li>
     </prerequisites>
     <requiredResearchBuilding>HiTechResearchBench</requiredResearchBuilding>
 	<requiredResearchFacilities><li>AIResearchStation</li></requiredResearchFacilities>
     <tab>Automation</tab>
-    <researchViewX>5</researchViewX>
-    <researchViewY>4</researchViewY>
+    <researchViewX>6</researchViewX>
+    <researchViewY>3</researchViewY>
+  </ResearchProjectDef>
+  
+  <ResearchProjectDef>
+    <defName>PRFAIPersonaProduction</defName>
+    <label>AI persona production</label>
+    <techLevel>Spacer</techLevel>
+    <baseCost>4250</baseCost>
+    <description>Allows colonists to fuse weak AI cores to make an AI persona core.</description>
+    <prerequisites>
+      <li>PRFAdvancedAutomation</li>
+    </prerequisites>
+    <requiredResearchBuilding>HiTechResearchBench</requiredResearchBuilding>
+	<requiredResearchFacilities><li>AIResearchStation</li></requiredResearchFacilities>
+    <tab>Automation</tab>
+    <researchViewX>7</researchViewX>
+    <researchViewY>3</researchViewY>
+  </ResearchProjectDef>
+  
+  <ResearchProjectDef>
+    <defName>PRFOrdoDataRummaging</defName>
+    <label>Ordo data rummaging</label>
+    <techLevel>Spacer</techLevel>
+    <baseCost>10000</baseCost>
+    <description>The AI research bench has detected a radio signal originating from deep within the planet, broadcasting records of the Ordo Historia. Search through the records in the hopes of uncovering more technology.</description>
+    <prerequisites>
+      <li>PRFAIPersonaProduction</li>
+    </prerequisites>
+    <requiredResearchBuilding>HiTechResearchBench</requiredResearchBuilding>
+	<requiredResearchFacilities><li>AIResearchStation</li></requiredResearchFacilities>
+    <tab>Automation</tab>
+    <researchViewX>8</researchViewX>
+    <researchViewY>3</researchViewY>
   </ResearchProjectDef>
 </Defs>
