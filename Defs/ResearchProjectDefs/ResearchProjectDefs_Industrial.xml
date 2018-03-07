@@ -40,7 +40,7 @@
     <baseCost>2750</baseCost>
     <description>Create meat and vegetable substitute by manipulating the molecular structure of paperclips.</description>
     <prerequisites>
-      <li>PRFAnnealmentI</li>
+      <li>PRFPhysicsSimulations</li>
       <li>PaperclipProduction</li>
     </prerequisites>
     <requiredResearchBuilding>HiTechResearchBench</requiredResearchBuilding>
@@ -57,7 +57,7 @@
     <baseCost>2250</baseCost>
     <description>Paperclip generator slowly gains speed up to 500% unless flicked or disrupted.</description>
     <prerequisites>
-      <li>PRFAnnealmentI</li>
+      <li>PRFPhysicsSimulations</li>
       <li>PaperclipProduction</li>
     </prerequisites>
     <requiredResearchBuilding>HiTechResearchBench</requiredResearchBuilding>

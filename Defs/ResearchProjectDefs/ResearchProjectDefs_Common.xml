@@ -33,11 +33,11 @@
   
   <!-- Tier 2 -->
   <ResearchProjectDef>
-    <defName>PRFAnnealmentI</defName>
-    <label>Annealment I</label>
+    <defName>PRFPhysicsSimulations</defName>
+    <label>Physics simulations</label>
     <techLevel>Spacer</techLevel>
     <baseCost>1500</baseCost>
-    <description>Reduces power consumption of all automation buildings by 10%.</description>
+    <description>Allows colonists to create physics simulations, unlocking new research projects that were previously unfeasible.</description>
     <prerequisites>
       <li>PRFMachineLearning</li>
     </prerequisites>
@@ -55,7 +55,7 @@
     <baseCost>2000</baseCost>
     <description>Learn how to create independent target-specific flying AI-powered devices.</description>
     <prerequisites>
-      <li>PRFAnnealmentI</li>
+      <li>PRFPhysicsSimulations</li>
     </prerequisites>
     <requiredResearchBuilding>HiTechResearchBench</requiredResearchBuilding>
 	<requiredResearchFacilities><li>AIResearchStation</li></requiredResearchFacilities>
@@ -71,7 +71,7 @@
     <baseCost>2000</baseCost>
     <description>Learn how to create quantum computers to aid in research projects.</description>
     <prerequisites>
-      <li>PRFAnnealmentI</li>
+      <li>PRFPhysicsSimulations</li>
     </prerequisites>
     <requiredResearchBuilding>HiTechResearchBench</requiredResearchBuilding>
 	<requiredResearchFacilities><li>AIResearchStation</li></requiredResearchFacilities>
@@ -87,7 +87,7 @@
     <baseCost>2000</baseCost>
     <description>Create new materials by manipulating the molecular structure of paperclips.</description>
     <prerequisites>
-      <li>PRFAnnealmentI</li>
+      <li>PRFPhysicsSimulations</li>
       <li>PaperclipProduction</li>
     </prerequisites>
     <requiredResearchBuilding>HiTechResearchBench</requiredResearchBuilding>

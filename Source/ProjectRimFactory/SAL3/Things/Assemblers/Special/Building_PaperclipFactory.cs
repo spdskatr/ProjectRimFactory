@@ -21,7 +21,7 @@ namespace ProjectRimFactory.SAL3.Things.Assemblers.Special
         protected override void PostProcessRecipeProduct(Thing thing)
         {
             int limit = thing.def.stackLimit;
-            int paperclips = Mathf.RoundToInt(currentBillReport.selected.Sum(t => t.GetStatValue(StatDefOf.Mass) * PaperclipsPerKilogram));
+            int paperclips = Mathf.RoundToInt(currentBillReport.selected.Sum(t => t.GetStatValue(StatDefOf.Mass) * t.stackCount * PaperclipsPerKilogram));
             if (paperclips <= limit)
             {
                 thing.stackCount = paperclips;
