@@ -55,7 +55,7 @@
     <label>paperclip generator: self-improvement</label>
     <techLevel>Spacer</techLevel>
     <baseCost>2250</baseCost>
-    <description>Paperclip generator slowly gains speed up to 500% unless flicked or disrupted.</description>
+    <description>Paperclip generator slowly gains speed (up to 500%) unless flicked or disrupted.</description>
     <prerequisites>
       <li>PRFPhysicsSimulations</li>
       <li>PaperclipProduction</li>

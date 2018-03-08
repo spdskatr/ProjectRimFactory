@@ -13,4 +13,8 @@
   <PRFOutputItem>Currently outputting: {0}</PRFOutputItem>
   <PRFNoDesc>No description.</PRFNoDesc>
   <PRFStoredChunks>Stored chunks: {0}</PRFStoredChunks>
+  <PaperclipFuelConsumption>Fuel consumption: {0} paperclips/second</PaperclipFuelConsumption>
+  <PaperclipGeneratorEfficiency>Current efficiency: {0}%/{1}%</PaperclipGeneratorEfficiency>
+  <SetPaperclipConsumptionPerSecond>Adjust paperclip consumption</SetPaperclipConsumptionPerSecond>
+  <SetPaperclipConsumptionPerSecond_Desc>Change the number of paperclips consumed per second.</SetPaperclipConsumptionPerSecond_Desc>
 </LanguageData>

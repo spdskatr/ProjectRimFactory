@@ -42,4 +42,107 @@
       <li>AutonomousMining</li>
     </researchPrerequisites>
   </ThingDef>
+  
+  <ThingDef ParentName="AssemblerBase">
+    <defName>PaperclipFactory</defName>
+    <label>paperclip factory</label>
+    <thingClass>ProjectRimFactory.Industry.Building_PaperclipFactory</thingClass>
+    <graphicData>
+      <texPath>SAL3/PaperclipFactory</texPath>
+      <drawSize>(2, 2)</drawSize>
+    </graphicData>
+    <size>(2, 2)</size>
+    <statBases>
+      <WorkToBuild>2000</WorkToBuild>
+    </statBases>
+    <description>A machine that makes paperclips from any raw matter inserted into it - metal, plant or corpse.</description>
+	<stuffCategories />
+    <costList>
+      <PRFMachineFrame>1</PRFMachineFrame>
+      <Steel>20</Steel>
+      <Component>2</Component>
+      <PRFWeakAIChip>2</PRFWeakAIChip>
+    </costList>
+	<comps>
+	  <li Class="CompProperties_Power">
+	    <compClass>CompPowerTrader</compClass>
+		<basePowerConsumption>400</basePowerConsumption>
+	  </li>
+	</comps>
+	<recipes>
+      <li>MakePaperclips</li>
+      <li>MakePaperclipsTake10Items</li>
+	</recipes>
+	<researchPrerequisites>
+	  <li>PaperclipProduction</li>
+	</researchPrerequisites>
+    <rotatable>false</rotatable>
+  </ThingDef>
+  
+  <ThingDef ParentName="PRFBuildingBase">
+    <defName>PRFPaperclipPowerGenerator</defName>
+    <label>paperclip power generator</label>
+    <thingClass>Building</thingClass>
+    <graphicData>
+      <texPath>Industry/PaperclipGenerator</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <drawSize>(2,2)</drawSize>
+    </graphicData>
+    <altitudeLayer>Building</altitudeLayer>
+    <passability>PassThroughOnly</passability>
+    <pathCost>150</pathCost>
+    <blockWind>true</blockWind>
+    <fillPercent>1.0</fillPercent>
+    <castEdgeShadows>false</castEdgeShadows>
+    <rotatable>false</rotatable>
+    <statBases>
+      <MaxHitPoints>300</MaxHitPoints>
+      <WorkToBuild>5000</WorkToBuild>
+      <Flammability>1.0</Flammability>
+      <Mass>105</Mass>
+    </statBases>
+    <tickerType>Normal</tickerType>
+    <description>Produces power by consuming paperclips. Must be fueled by hand.</description>
+    <canOverlapZones>false</canOverlapZones>
+    <size>(2,2)</size>
+    <costList>
+      <Steel>100</Steel>
+      <PRFWeakAIChip>1</PRFWeakAIChip>
+      <Paperclip>100000</Paperclip>
+      <Component>4</Component>
+    </costList>
+    <comps>
+      <li Class="CompProperties_Power">
+        <compClass>ProjectRimFactory.Industry.CompPaperclipPowerPlant</compClass>
+        <basePowerConsumption>-10</basePowerConsumption>
+        <transmitsPower>true</transmitsPower>
+      </li>
+      <li Class="CompProperties_Flickable" />
+      <li Class="CompProperties_Refuelable">
+        <fuelConsumptionRate>0</fuelConsumptionRate>
+        <fuelCapacity>100000</fuelCapacity>
+        <targetFuelLevelConfigurable>true</targetFuelLevelConfigurable>
+        <initialConfigurableTargetFuelLevel>10000</initialConfigurableTargetFuelLevel>
+        <fuelFilter>
+          <thingDefs>
+            <li>Paperclip</li>
+          </thingDefs>
+        </fuelFilter>
+      </li>
+      <li Class="CompProperties_Glower">
+        <glowRadius>6</glowRadius>
+        <glowColor>(217,112,33,0)</glowColor>
+      </li>
+      <li Class="CompProperties_Breakdownable"/>
+    </comps>
+    <terrainAffordanceNeeded>Heavy</terrainAffordanceNeeded>
+    <designationCategory>Automation</designationCategory>
+    <staticSunShadowHeight>0.5</staticSunShadowHeight>
+    <designationHotKey>Misc3</designationHotKey>
+    <constructEffect>ConstructMetal</constructEffect>
+    <researchPrerequisites>
+      <li>PaperclipProduction</li>
+    </researchPrerequisites>
+    <constructionSkillPrerequisite>4</constructionSkillPrerequisite>
+  </ThingDef>
 </Defs>

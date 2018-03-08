@@ -135,42 +135,6 @@
     <rotatable>false</rotatable>
   </ThingDef>
   
-  <ThingDef ParentName="AssemblerBase">
-    <defName>PaperclipFactory</defName>
-    <label>paperclip factory</label>
-    <thingClass>ProjectRimFactory.SAL3.Things.Assemblers.Special.Building_PaperclipFactory</thingClass>
-    <graphicData>
-      <texPath>SAL3/PaperclipFactory</texPath>
-      <drawSize>(2, 2)</drawSize>
-    </graphicData>
-    <size>(2, 2)</size>
-    <statBases>
-      <WorkToBuild>2000</WorkToBuild>
-    </statBases>
-    <description>A machine that makes paperclips from any raw matter inserted into it - metal, plant or corpse.</description>
-	<stuffCategories />
-    <costList>
-      <PRFMachineFrame>1</PRFMachineFrame>
-      <Steel>20</Steel>
-      <Component>2</Component>
-      <PRFWeakAIChip>2</PRFWeakAIChip>
-    </costList>
-	<comps>
-	  <li Class="CompProperties_Power">
-	    <compClass>CompPowerTrader</compClass>
-		<basePowerConsumption>400</basePowerConsumption>
-	  </li>
-	</comps>
-	<recipes>
-      <li>MakePaperclips</li>
-      <li>MakePaperclipsTake10Items</li>
-	</recipes>
-	<researchPrerequisites>
-	  <li>SelfCooking</li>
-	</researchPrerequisites>
-    <rotatable>false</rotatable>
-  </ThingDef>
-  
    <!--Recipe database-->
   
   <ThingDef ParentName="PRFBuildingBase">

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ProjectRimFactory.SAL3.Things.Assemblers;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,7 +7,7 @@ using Verse;
 using RimWorld;
 using UnityEngine;
 
-namespace ProjectRimFactory.SAL3.Things.Assemblers.Special
+namespace ProjectRimFactory.Industry
 {
     public class Building_PaperclipFactory : Building_SimpleAssembler
     {

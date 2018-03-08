@@ -72,6 +72,7 @@
     <description>Learn how to create quantum computers to aid in research projects.</description>
     <prerequisites>
       <li>PRFPhysicsSimulations</li>
+      <li>PaperclipProduction</li>
     </prerequisites>
     <requiredResearchBuilding>HiTechResearchBench</requiredResearchBuilding>
 	<requiredResearchFacilities><li>AIResearchStation</li></requiredResearchFacilities>
