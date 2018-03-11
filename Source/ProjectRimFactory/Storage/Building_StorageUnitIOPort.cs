@@ -118,6 +118,10 @@ namespace ProjectRimFactory.Storage
             if (mode == StorageIOMode.Output)
             {
                 settings = new StorageSettings(this);
+                if (boundStorageUnit != null)
+                {
+                    settings.Priority = boundStorageUnit.settings.Priority;
+                }
                 if (boundThingDef != null)
                 {
                     settings.filter.SetAllow(boundThingDef, true);

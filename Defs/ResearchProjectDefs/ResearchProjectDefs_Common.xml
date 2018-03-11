@@ -100,7 +100,7 @@
   
   <ResearchProjectDef>
     <defName>PRFAdvancedAutomation</defName>
-    <label>Advanced Automation</label>
+    <label>Advanced automation</label>
     <techLevel>Spacer</techLevel>
     <baseCost>4250</baseCost>
     <description>Learn how to create advanced machine frames to build more complex automation buildings.</description>

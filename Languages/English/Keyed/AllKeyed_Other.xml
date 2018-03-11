@@ -15,6 +15,7 @@
   <PRFStoredChunks>Stored chunks: {0}</PRFStoredChunks>
   <PaperclipFuelConsumption>Fuel consumption: {0} paperclips/second</PaperclipFuelConsumption>
   <PaperclipGeneratorEfficiency>Current efficiency: {0}%/{1}%</PaperclipGeneratorEfficiency>
+  <PaperclipGeneratorRunsOutIn>Runs out of paperclips in: {0}</PaperclipGeneratorRunsOutIn>
   <SetPaperclipConsumptionPerSecond>Adjust paperclip consumption</SetPaperclipConsumptionPerSecond>
   <SetPaperclipConsumptionPerSecond_Desc>Change the number of paperclips consumed per second.</SetPaperclipConsumptionPerSecond_Desc>
 </LanguageData>

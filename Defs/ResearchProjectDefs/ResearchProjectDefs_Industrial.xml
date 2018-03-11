@@ -20,7 +20,7 @@
   <ResearchProjectDef>
     <defName>PaperclipProduction</defName>
     <label>paperclip production</label>
-    <description>"The AI does not hate you, nor does it love you, but you are made out of atoms which it can use for something else."\nAllows colonists to build a factory that creates paperclips from any matter, and a machine the generates power from paperclips.</description>
+    <description>"The AI does not hate you, nor does it love you, but you are made out of atoms which it can use for something else."\nAllows colonists to build a factory that creates paperclips from any matter, and a machine that generates power from paperclips.</description>
     <techLevel>Spacer</techLevel>
     <baseCost>1000</baseCost>
     <requiredResearchBuilding>HiTechResearchBench</requiredResearchBuilding>
@@ -55,7 +55,7 @@
     <label>paperclip generator: self-improvement</label>
     <techLevel>Spacer</techLevel>
     <baseCost>2250</baseCost>
-    <description>Paperclip generator slowly gains speed (up to 500%) unless flicked or disrupted.</description>
+    <description>Paperclip generator slowly produces more power per paperclip (up to 500%) unless flicked or out of fuel.</description>
     <prerequisites>
       <li>PRFPhysicsSimulations</li>
       <li>PaperclipProduction</li>
@@ -87,7 +87,7 @@
     <defName>PaperclipGeneratorQuantumFoamManipulation</defName>
     <label>paperclip generator: quantum foam manipulation</label>
     <techLevel>Spacer</techLevel>
-    <baseCost>5000</baseCost>
+    <baseCost>10000</baseCost>
     <description>Paperclip generator maximum efficiency increased up to 10000%.</description>
     <prerequisites>
       <li>PaperclipGeneratorKugelblitz</li>

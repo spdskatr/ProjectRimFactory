@@ -34,10 +34,19 @@ namespace ProjectRimFactory.Industry
             }
         }
 
+        public override void ReceiveCompSignal(string signal)
+        {
+            base.ReceiveCompSignal(signal);
+            if (signal == "RanOutOfFuel" || signal == "FlickedOff")
+            {
+                currentPowerModifierPct = 100;
+            }
+        }
+
         public override void CompTick()
         {
             base.CompTick();
-            if (parent.IsHashIntervalTick(60))
+            if (parent.IsHashIntervalTick(60) && parent.GetComp<CompRefuelable>().HasFuel && parent.GetComp<CompFlickable>().SwitchIsOn)
             {
                 if (PRFDefOf.PaperclipGeneratorQuantumFoamManipulation.IsFinished)
                 {
@@ -81,7 +90,9 @@ namespace ProjectRimFactory.Industry
         {
             StringBuilder builder = new StringBuilder();
             builder.AppendLine(base.CompInspectStringExtra());
-            builder.Append("PaperclipGeneratorEfficiency".Translate(currentPowerModifierPct, maxPowerModifierPct));
+            builder.AppendLine("PaperclipGeneratorEfficiency".Translate(currentPowerModifierPct, maxPowerModifierPct));
+            int runsOutTicks = (int)(parent.GetComp<CompRefuelable>().Fuel / fuelPerSecond * 60f);
+            builder.AppendLine("PaperclipGeneratorRunsOutIn".Translate(runsOutTicks.ToStringTicksToPeriod()));
             return builder.ToString();
         }
 

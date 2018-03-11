@@ -80,6 +80,54 @@
   </ThingDef>
   
   <ThingDef ParentName="PRFBuildingBase">
+    <defName>FuelingMachine</defName>
+    <label>fueling machine</label>
+    <thingClass>ProjectRimFactory.Industry.Building_FuelingMachine</thingClass>
+    <graphicData>
+      <texPath>Industry/FuelingMachine</texPath>
+      <graphicClass>Graphic_Multi</graphicClass>
+      <damageData>
+        <rect>(0.05,0.1,0.9,0.9)</rect>
+        <cornerTL>Damage/Corner</cornerTL>
+        <cornerTR>Damage/Corner</cornerTR>
+      </damageData>
+      <drawSize>(2, 2)</drawSize>
+    </graphicData>
+    <altitudeLayer>Building</altitudeLayer>
+    <passability>PassThroughOnly</passability>
+    <fillPercent>0.5</fillPercent>
+    <pathCost>70</pathCost>
+    <castEdgeShadows>true</castEdgeShadows>
+    <statBases>
+      <WorkToBuild>450</WorkToBuild>
+      <MaxHitPoints>100</MaxHitPoints>
+      <Flammability>1.0</Flammability>
+    </statBases>
+    <description>A robotic arm built on a small machine frame that can automatically fuel the building in front of it.</description>
+    <costList>
+      <PRFMachineFrameSmall>1</PRFMachineFrameSmall>
+      <PRFRoboticArm>1</PRFRoboticArm>
+      <Component>2</Component>
+    </costList>
+    <comps>
+      <li Class="CompProperties_Power">
+        <compClass>CompPowerTrader</compClass>
+        <shortCircuitInRain>false</shortCircuitInRain>
+        <basePowerConsumption>50</basePowerConsumption>
+      </li>
+      <li Class="CompProperties_Flickable" />
+    </comps>
+    <tickerType>Normal</tickerType>
+    <rotatable>true</rotatable>
+    <designationCategory>Automation</designationCategory>
+    <staticSunShadowHeight>0.1</staticSunShadowHeight>
+    <constructEffect>ConstructMetal</constructEffect>
+    <researchPrerequisites>
+      <li>AutomationBasics</li>
+    </researchPrerequisites>
+  </ThingDef>
+  
+  <ThingDef ParentName="PRFBuildingBase">
     <defName>PRFPaperclipPowerGenerator</defName>
     <label>paperclip power generator</label>
     <thingClass>Building</thingClass>
@@ -120,14 +168,15 @@
       <li Class="CompProperties_Flickable" />
       <li Class="CompProperties_Refuelable">
         <fuelConsumptionRate>0</fuelConsumptionRate>
-        <fuelCapacity>100000</fuelCapacity>
+        <fuelCapacity>1000000</fuelCapacity>
         <targetFuelLevelConfigurable>true</targetFuelLevelConfigurable>
-        <initialConfigurableTargetFuelLevel>10000</initialConfigurableTargetFuelLevel>
+        <initialConfigurableTargetFuelLevel>100000</initialConfigurableTargetFuelLevel>
         <fuelFilter>
           <thingDefs>
             <li>Paperclip</li>
           </thingDefs>
         </fuelFilter>
+        <consumeFuelOnlyWhenUsed>true</consumeFuelOnlyWhenUsed>
       </li>
       <li Class="CompProperties_Glower">
         <glowRadius>6</glowRadius>
