@@ -9,6 +9,7 @@
     <description>Learn the very basics of automation and mechanisms, the gateway to an industrial colony.</description>
     <prerequisites>
       <li>Machining</li>
+      <li>MicroelectronicsBasics</li>
     </prerequisites>
     <requiredResearchBuilding>HiTechResearchBench</requiredResearchBuilding>
     <tab>Automation</tab>

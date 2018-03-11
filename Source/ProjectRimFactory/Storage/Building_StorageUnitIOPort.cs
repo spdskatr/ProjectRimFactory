@@ -107,9 +107,13 @@ namespace ProjectRimFactory.Storage
         public override void Tick()
         {
             base.Tick();
-            if (mode == StorageIOMode.Output && this.IsHashIntervalTick(10) && boundThingDef != null)
+            if (this.IsHashIntervalTick(10))
             {
-                RefreshOutput();
+                if (mode == StorageIOMode.Output && boundThingDef != null)
+                {
+                    RefreshOutput();
+                }
+                RefreshStoreSettings();
             }
         }
 
