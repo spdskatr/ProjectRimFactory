@@ -16,7 +16,7 @@
     <researchViewY>3</researchViewY>
   </ResearchProjectDef>
   <ResearchProjectDef>
-    <defName>PRMachineLearning</defName>
+    <defName>PRFMachineLearning</defName>
     <label>machine learning</label>
     <techLevel>Industrial</techLevel>
     <baseCost>2000</baseCost>
