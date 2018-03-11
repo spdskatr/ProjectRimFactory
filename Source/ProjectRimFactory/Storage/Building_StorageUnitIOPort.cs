@@ -107,9 +107,13 @@ namespace ProjectRimFactory.Storage
         public override void Tick()
         {
             base.Tick();
-            if (mode == StorageIOMode.Output && this.IsHashIntervalTick(10) && boundThingDef != null)
+            if (this.IsHashIntervalTick(10))
             {
-                RefreshOutput();
+                if (mode == StorageIOMode.Output && boundThingDef != null)
+                {
+                    RefreshOutput();
+                }
+                RefreshStoreSettings();
             }
         }
 
@@ -118,6 +122,10 @@ namespace ProjectRimFactory.Storage
             if (mode == StorageIOMode.Output)
             {
                 settings = new StorageSettings(this);
+                if (boundStorageUnit != null)
+                {
+                    settings.Priority = boundStorageUnit.settings.Priority;
+                }
                 if (boundThingDef != null)
                 {
                     settings.filter.SetAllow(boundThingDef, true);
