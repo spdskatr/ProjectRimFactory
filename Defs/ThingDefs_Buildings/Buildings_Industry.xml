@@ -30,8 +30,9 @@
         <startElectricalFires>true</startElectricalFires>
         <basePowerConsumption>300</basePowerConsumption>
       </li>
-	  <li><compClass>ProjectRimFactory.Common.CompOutputAdjustable</compClass></li>
 	  <li Class="CompProperties_Flickable" />
+	  <li><compClass>ProjectRimFactory.Common.CompOutputAdjustable</compClass></li>
+	  <li><compClass>ProjectRimFactory.Common.CompPRFHelp</compClass></li>
     </comps>
     <tickerType>Long</tickerType>
     <rotatable>false</rotatable>
@@ -125,6 +126,9 @@
     <researchPrerequisites>
       <li>AutomationBasics</li>
     </researchPrerequisites>
+    <placeWorkers>
+      <li>ProjectRimFactory.Industry.PlaceWorker_FuelingMachine</li>
+    </placeWorkers>
   </ThingDef>
   
   <ThingDef ParentName="PRFBuildingBase">

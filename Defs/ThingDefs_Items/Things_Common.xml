@@ -14,8 +14,22 @@
     <statBases>
       <MarketValue>150</MarketValue>
       <MaxHitPoints>50</MaxHitPoints>
+      <WorkToMake>1000</WorkToMake>
       <Mass>2</Mass>
     </statBases>
+    <costList>
+      <Steel>20</Steel>
+      <Component>2</Component>
+    </costList>
+    <recipeMaker>
+      <workSpeedStat>SmithingSpeed</workSpeedStat>
+      <workSkill>Crafting</workSkill>
+      <effectWorking>Cook</effectWorking>
+      <soundWorking>Recipe_Machining</soundWorking>
+      <recipeUsers>
+        <li>TableRoboticMachining</li>
+      </recipeUsers>
+    </recipeMaker>
     <thingCategories>
       <li>Items</li>
     </thingCategories>
@@ -35,8 +49,22 @@
     <statBases>
       <MarketValue>150</MarketValue>
       <MaxHitPoints>50</MaxHitPoints>
+      <WorkToMake>2000</WorkToMake>
       <Mass>1</Mass>
     </statBases>
+    <costList>
+      <Steel>10</Steel>
+      <Component>4</Component>
+    </costList>
+    <recipeMaker>
+      <workSpeedStat>SmithingSpeed</workSpeedStat>
+      <workSkill>Crafting</workSkill>
+      <effectWorking>Cook</effectWorking>
+      <soundWorking>Recipe_Machining</soundWorking>
+      <recipeUsers>
+        <li>TableRoboticMachining</li>
+      </recipeUsers>
+    </recipeMaker>
     <thingCategories>
       <li>Items</li>
     </thingCategories>
@@ -168,7 +196,22 @@
       <MarketValue>500</MarketValue>
       <MaxHitPoints>50</MaxHitPoints>
       <Mass>2</Mass>
+      <WorkToMake>2000</WorkToMake>
     </statBases>
+    <costList>
+      <Plasteel>10</Plasteel>
+      <Steel>30</Steel>
+      <WeakAICore>1</WeakAICore>
+    </costList>
+    <recipeMaker>
+      <workSpeedStat>SmithingSpeed</workSpeedStat>
+      <workSkill>Crafting</workSkill>
+      <effectWorking>Cook</effectWorking>
+      <soundWorking>Recipe_Machining</soundWorking>
+      <recipeUsers>
+        <li>TableRoboticMachining</li>
+      </recipeUsers>
+    </recipeMaker>
     <thingCategories>
       <li>Items</li>
     </thingCategories>

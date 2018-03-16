@@ -3,11 +3,16 @@ using Verse;
 using RimWorld;
 using UnityEngine;
 using System.Reflection;
+using System.Linq;
 
 namespace ProjectRimFactory.AnimalStation
 {
     public abstract class Building_CompHarvester : Building_Storage
     {
+        public static readonly PropertyInfo ResourceAmount = typeof(CompHasGatherableBodyResource).GetProperty("ResourceAmount", BindingFlags.NonPublic | BindingFlags.Instance);
+        public static readonly PropertyInfo ResourceDef = typeof(CompHasGatherableBodyResource).GetProperty("ResourceDef", BindingFlags.NonPublic | BindingFlags.Instance);
+        public static readonly FieldInfo Fullness = typeof(CompHasGatherableBodyResource).GetField("fullness", BindingFlags.NonPublic | BindingFlags.Instance);
+
         public IEnumerable<IntVec3> ScannerCells
         {
             get
@@ -16,52 +21,58 @@ namespace ProjectRimFactory.AnimalStation
             }
         }
 
-        public abstract CompHasGatherableBodyResource GetProperComp(Pawn pawn);
+        public abstract bool CompValidator(CompHasGatherableBodyResource comp);
 
         public override void TickRare()
         {
             base.TickRare();
             if (!GetComp<CompPowerTrader>().PowerOn) return;
-            foreach (IntVec3 c in ScannerCells)
+            foreach (Pawn p in from c in ScannerCells
+                               from p in c.GetThingList(Map).OfType<Pawn>()
+                               where p.Faction == Faction.OfPlayer
+                               select p)
             {
-                var p = c.GetThingList(Map).Find(t => t is Pawn pawn && GetProperComp(pawn) != null);
-                if (p == null || p.Faction != Faction.OfPlayer) continue;
-                var comp = GetProperComp(p as Pawn);
-                var reflection = typeof(CompHasGatherableBodyResource);
-                int i = GenMath.RoundRandom((int)reflection.GetProperty("ResourceAmount", BindingFlags.NonPublic | BindingFlags.Instance).GetValue(comp, null) * comp.Fullness);
-                if (i == 0) continue;
-                var resource = (ThingDef)reflection.GetProperty("ResourceDef", BindingFlags.NonPublic | BindingFlags.Instance).GetValue(comp, null);
-                while (i > 0)
+                foreach (CompHasGatherableBodyResource comp in from comp in p.AllComps.OfType<CompHasGatherableBodyResource>()
+                                                               where CompValidator(comp)
+                                                               select comp)
                 {
-                    int num = Mathf.Clamp(i, 1, resource.stackLimit);
-                    i -= num;
-                    Thing thing = ThingMaker.MakeThing(resource, null);
-                    thing.stackCount = num;
-                    GenPlace.TryPlaceThing(thing, p.Position, p.Map, ThingPlaceMode.Near, null);
+                    int amount = GenMath.RoundRandom((int)ResourceAmount.GetValue(comp, null) * comp.Fullness);
+                    if (amount != 0)
+                    {
+                        var resource = (ThingDef)ResourceDef.GetValue(comp, null);
+                        while (amount > 0)
+                        {
+                            int num = Mathf.Clamp(amount, 1, resource.stackLimit);
+                            amount -= num;
+                            Thing thing = ThingMaker.MakeThing(resource, null);
+                            thing.stackCount = num;
+                            GenPlace.TryPlaceThing(thing, p.Position, p.Map, ThingPlaceMode.Near, null);
+                        }
+                        Fullness.SetValue(comp, 0f);
+                    }
                 }
-                reflection.GetField("fullness", BindingFlags.NonPublic | BindingFlags.Instance).SetValue(comp, 0f);
             }
         }
     }
     public class Building_Shearer : Building_CompHarvester
     {
-        public override CompHasGatherableBodyResource GetProperComp(Pawn pawn)
+        public override bool CompValidator(CompHasGatherableBodyResource comp)
         {
-            return pawn.GetComp<CompShearable>();
+            return comp is CompShearable;
         }
     }
     public class Building_Milker : Building_CompHarvester
     {
-        public override CompHasGatherableBodyResource GetProperComp(Pawn pawn)
+        public override bool CompValidator(CompHasGatherableBodyResource comp)
         {
-            return pawn.GetComp<CompMilkable>();
+            return comp is CompMilkable;
         }
     }
     public class Building_GenericBodyResourceGatherer : Building_CompHarvester
     {
-        public override CompHasGatherableBodyResource GetProperComp(Pawn pawn)
+        public override bool CompValidator(CompHasGatherableBodyResource comp)
         {
-            return (pawn.GetComps<CompHasGatherableBodyResource>().TryRandomElement(out CompHasGatherableBodyResource result)) ? result : null;
+            return true;
         }
     }
 }

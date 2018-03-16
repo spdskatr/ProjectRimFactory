@@ -221,7 +221,12 @@ namespace ProjectRimFactory.SAL3.Things.Assemblers
                     }
                 }
                 else if (this.IsHashIntervalTick(60))
-                    currentBillReport = CheckBills();
+                {
+                    if ((currentBillReport = CheckBills()) != null)
+                    {
+                        Notify_BillStarted();
+                    }
+                }
             }
         }
 
@@ -314,6 +319,10 @@ namespace ProjectRimFactory.SAL3.Things.Assemblers
         }
 
         protected virtual void PostProcessRecipeProduct(Thing thing)
+        {
+        }
+
+        protected virtual void Notify_BillStarted()
         {
         }
     }

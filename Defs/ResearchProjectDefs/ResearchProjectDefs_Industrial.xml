@@ -40,14 +40,13 @@
     <baseCost>2750</baseCost>
     <description>Create meat and vegetable substitute by manipulating the molecular structure of paperclips.</description>
     <prerequisites>
-      <li>PRFPhysicsSimulations</li>
-      <li>PaperclipProduction</li>
+      <li>PRFNanoMaterials</li>
     </prerequisites>
     <requiredResearchBuilding>HiTechResearchBench</requiredResearchBuilding>
 	<requiredResearchFacilities><li>AIResearchStation</li></requiredResearchFacilities>
     <tab>Automation</tab>
-    <researchViewX>5</researchViewX>
-    <researchViewY>5</researchViewY>
+    <researchViewX>6</researchViewX>
+    <researchViewY>4</researchViewY>
   </ResearchProjectDef>
   
   <ResearchProjectDef>

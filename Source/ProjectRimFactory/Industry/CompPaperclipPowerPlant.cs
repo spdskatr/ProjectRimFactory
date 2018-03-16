@@ -92,7 +92,7 @@ namespace ProjectRimFactory.Industry
             builder.AppendLine(base.CompInspectStringExtra());
             builder.AppendLine("PaperclipGeneratorEfficiency".Translate(currentPowerModifierPct, maxPowerModifierPct));
             int runsOutTicks = (int)(parent.GetComp<CompRefuelable>().Fuel / fuelPerSecond * 60f);
-            builder.AppendLine("PaperclipGeneratorRunsOutIn".Translate(runsOutTicks.ToStringTicksToPeriod()));
+            builder.Append("PaperclipsRunOutIn".Translate(runsOutTicks.ToStringTicksToPeriod()));
             return builder.ToString();
         }
 

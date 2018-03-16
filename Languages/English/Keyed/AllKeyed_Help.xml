@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <PRFHelp>Help</PRFHelp>
+  <PRFHelpDesc>View help for this item.</PRFHelpDesc>
+  <PRFViewOrdo>Ordo Historia: {0}</PRFViewOrdo>
+  <PRF_DeepQuarry_HelpText>The deep quarry is used for extraction of random mineral resources from underground. It functions like a colonist miner would - it mines the nearest rock or compacted resource, and returns its products. Hence, rock chunks are the most common products of deep quarries, followed by the various commonalities of other resources.</PRF_DeepQuarry_HelpText>
+  <PRF_Shearer_HelpText>Animal harvesters automatically harvest animals when they come near the vicinity of the building. Store food at those stations to coerce animals to come to the stations so they can be harvested.</PRF_Shearer_HelpText>
+  <PRF_Milker_HelpText>Animal harvesters automatically harvest animals when they come near the vicinity of the building. Store food at those stations to coerce animals to come to the stations so they can be harvested.</PRF_Milker_HelpText>
+  <PRF_GenericAnimalHarvester_HelpText>Animal harvesters automatically harvest animals when they come near the vicinity of the building. Store food at those stations to coerce animals to come to the stations so they can be harvested.</PRF_GenericAnimalHarvester_HelpText>
+  
+</LanguageData>

@@ -9,5 +9,8 @@ namespace ProjectRimFactory.Common
         public static ResearchProjectDef PaperclipGeneratorSelfImprovement;
         public static ResearchProjectDef PaperclipGeneratorKugelblitz;
         public static ResearchProjectDef PaperclipGeneratorQuantumFoamManipulation;
+        public static ResearchProjectDef PRFOrdoDataRummaging;
+
+        public static ThingDef Paperclip;
     }
 }

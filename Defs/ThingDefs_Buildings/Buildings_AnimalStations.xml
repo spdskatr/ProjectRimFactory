@@ -34,9 +34,9 @@
     <size>(2,2)</size>
     <costStuffCount>50</costStuffCount>
     <costList>
-      <Steel>50</Steel>
+      <PRFMachineFrame>1</PRFMachineFrame>
       <Hay>50</Hay>
-      <Component>10</Component>
+      <PRFRoboticArm>2</PRFRoboticArm>
     </costList>
     <stuffCategories>
       <li>Woody</li>
@@ -51,6 +51,7 @@
       </li>
       <li Class="CompProperties_Flickable"/>
       <li Class="CompProperties_Breakdownable"/>
+      <li><compClass>ProjectRimFactory.Common.CompPRFHelp</compClass></li>
     </comps>
     <rotatable>true</rotatable>
     <terrainAffordanceNeeded>Heavy</terrainAffordanceNeeded>
@@ -119,9 +120,9 @@
     <size>(2,2)</size>
     <costStuffCount>50</costStuffCount>
     <costList>
-	    <Steel>50</Steel>
+      <PRFMachineFrame>1</PRFMachineFrame>
       <Hay>50</Hay>
-      <Component>10</Component>
+      <PRFRoboticArm>2</PRFRoboticArm>
     </costList>
     <stuffCategories>
       <li>Woody</li>
@@ -136,6 +137,7 @@
       </li>
       <li Class="CompProperties_Flickable"/>
       <li Class="CompProperties_Breakdownable"/>
+      <li><compClass>ProjectRimFactory.Common.CompPRFHelp</compClass></li>
     </comps>
     <rotatable>true</rotatable>
     <terrainAffordanceNeeded>Heavy</terrainAffordanceNeeded>
@@ -202,9 +204,9 @@
     <size>(2,2)</size>
     <costStuffCount>50</costStuffCount>
     <costList>
-	    <Steel>100</Steel>
+      <PRFMachineFrame>1</PRFMachineFrame>
       <Hay>50</Hay>
-      <Component>15</Component>
+      <PRFRoboticArm>4</PRFRoboticArm>
     </costList>
     <stuffCategories>
       <li>Woody</li>
@@ -219,6 +221,7 @@
       </li>
       <li Class="CompProperties_Flickable"/>
       <li Class="CompProperties_Breakdownable"/>
+      <li><compClass>ProjectRimFactory.Common.CompPRFHelp</compClass></li>
     </comps>
     <rotatable>true</rotatable>
     <terrainAffordanceNeeded>Heavy</terrainAffordanceNeeded>
