@@ -8,6 +8,7 @@ using Verse;
 
 namespace ProjectRimFactory.Common
 {
+    [StaticConstructorOnStartup]
     public class CompPRFHelp : ThingComp
     {
         public static readonly Texture2D LaunchReportTex = ContentFinder<Texture2D>.Get("UI/Commands/LaunchReport", true);

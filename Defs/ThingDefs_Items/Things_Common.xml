@@ -237,6 +237,6 @@
     <thingCategories>
       <li>ResourcesRaw</li>
     </thingCategories>
-    <stackLimit>1000000</stackLimit>
+    <stackLimit>100000</stackLimit>
   </ThingDef>
 </Defs>
