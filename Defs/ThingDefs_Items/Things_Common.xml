@@ -201,7 +201,7 @@
     <costList>
       <Plasteel>10</Plasteel>
       <Steel>30</Steel>
-      <WeakAICore>1</WeakAICore>
+      <PRFWeakAIChip>1</PRFWeakAIChip>
     </costList>
     <recipeMaker>
       <workSpeedStat>SmithingSpeed</workSpeedStat>
