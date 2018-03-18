@@ -45,9 +45,12 @@
     </graphicData>
     <costStuffCount>100</costStuffCount>
 	<costList>
-	  <Plasteel>100</Plasteel>
-      <Steel>150</Steel>
-	  <Component>8</Component>
+      <PRFRoboticArm>2</PRFRoboticArm>
+      <PRFWeakAIChip>1</PRFWeakAIChip>
+      <PRFMachineFrameLarge>1</PRFMachineFrameLarge>
+	  <Plasteel>10</Plasteel>
+      <Steel>50</Steel>
+      <Component>2</Component>
     </costList>
     <description>An auto-crafter controlled by a computer. Slowly gets better at recipes the more it completes them. However, it also gets a bit worse over time.</description>
     <statBases>
@@ -75,9 +78,10 @@
     </graphicData>
     <costStuffCount>100</costStuffCount>
 	<costList>
-	  <Plasteel>75</Plasteel>
-      <Steel>100</Steel>
-	  <Component>8</Component>
+      <PRFRoboticArm>2</PRFRoboticArm>
+      <PRFMachineFrameLarge>1</PRFMachineFrameLarge>
+      <Steel>20</Steel>
+      <Plasteel>10</Plasteel>
     </costList>
     <description>An auto-crafter controlled by a computer. Reads recipe instructions from a recipe database.</description>
     <statBases>
@@ -109,9 +113,9 @@
     <description>A machine that can cook meals all by itself. Just look at it go!</description>
     <costStuffCount>100</costStuffCount>
 	<costList>
-	  <Plasteel>10</Plasteel>
-      <Steel>60</Steel>
-	  <Component>6</Component>
+      <PRFRoboticArm>2</PRFRoboticArm>
+      <PRFMachineFrameLarge>1</PRFMachineFrameLarge>
+      <Steel>10</Steel>
     </costList>
 	<comps>
 	  <li Class="CompProperties_Power">
@@ -157,7 +161,7 @@
 	<minifiedDef>MinifiedFurniture</minifiedDef>
     <description>Stores recipes for use by smart assemblers, and imports recipes from adjacent work tables. I wonder what all the buttons do...</description>
     <costList>
-      <PRFMachineFrame>1</PRFMachineFrame>
+      <PRFMachineFrameSmall>1</PRFMachineFrameSmall>
       <Steel>20</Steel>
 	  <Component>1</Component>
 	  <RimFactory_Data_Disk>1</RimFactory_Data_Disk>

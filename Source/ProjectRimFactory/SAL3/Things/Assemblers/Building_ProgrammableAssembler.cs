@@ -48,8 +48,7 @@ namespace ProjectRimFactory.SAL3.Things.Assemblers
             //Assign skills
             foreach (var s in p.skills.skills)
             {
-                int level = 10; // Skill level
-                s.levelInt = level;
+                s.levelInt = s.def == SkillDefOf.Artistic ? 0 : 10;
             }
             //Assign Pawn's mapIndexOrState to building's mapIndexOrState
             ReflectionUtility.mapIndexOrState.SetValue(p, ReflectionUtility.mapIndexOrState.GetValue(this));
