@@ -36,24 +36,20 @@ namespace ProjectRimFactory.Common
         public override IEnumerable<Gizmo> CompGetGizmosExtra()
         {
             foreach (Gizmo g in base.CompGetGizmosExtra()) yield return g;
-            yield return new Command_Action
+            string helpText = HelpText;
+            if (!string.IsNullOrEmpty(helpText))
             {
-                defaultLabel = "PRFHelp".Translate(),
-                defaultDesc = "PRFHelpDesc".Translate(),
-                icon = LaunchReportTex,
-                action = () =>
+                yield return new Command_Action
                 {
-                    string helpText = HelpText;
-                    if (!string.IsNullOrEmpty(helpText))
+                    defaultLabel = "PRFHelp".Translate(),
+                    defaultDesc = "PRFHelpDesc".Translate(),
+                    icon = LaunchReportTex,
+                    action = () =>
                     {
                         Find.WindowStack.Add(new Dialog_MessageBox(helpText));
                     }
-                    else
-                    {
-                        Messages.Message("No help for this item.", MessageTypeDefOf.RejectInput);
-                    }
-                }
-            };
+                };
+            }
             if (PRFDefOf.PRFOrdoDataRummaging.IsFinished)
             {
                 string ordoText = OrdoText;
@@ -65,14 +61,7 @@ namespace ProjectRimFactory.Common
                         icon = LaunchReportTex,
                         action = () =>
                         {
-                            if (!string.IsNullOrEmpty(ordoText))
-                            {
-                                Find.WindowStack.Add(new Dialog_MessageBox(ordoText));
-                            }
-                            else
-                            {
-                                Messages.Message("No Ordo page for this item.", MessageTypeDefOf.RejectInput);
-                            }
+                            Find.WindowStack.Add(new Dialog_MessageBox(ordoText));
                         }
                     };
                 }

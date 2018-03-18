@@ -87,7 +87,6 @@
     <Compile Include="SAL3\Things\Assemblers\Building_SimpleAssembler.cs" />
     <Compile Include="SAL3\Tools\CellUtility.cs" />
     <Compile Include="SAL3\Tools\ColorGenerator_RangeHSV.cs" />
-    <Compile Include="SAL3\Tools\ModExtension_Assembler.cs" />
     <Compile Include="SAL3\Tools\ProjectSAL_Utilities.cs" />
     <Compile Include="SAL3\Things\Assemblers\Building_ProgrammableAssembler.cs" />
     <Compile Include="SAL3\Tools\Textures.cs" />

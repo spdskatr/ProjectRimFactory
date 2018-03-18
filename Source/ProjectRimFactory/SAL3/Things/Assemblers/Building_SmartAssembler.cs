@@ -9,8 +9,6 @@ namespace ProjectRimFactory.SAL3.Things.Assemblers
 {
     public class Building_SmartAssembler : Building_ProgrammableAssembler
     {
-        protected override float ProductionSpeedFactor => 1f;
-
         public override IEnumerable<RecipeDef> GetAllRecipes()
         {
             return from IntVec3 c in GenAdj.CellsAdjacent8Way(this)

@@ -69,6 +69,7 @@
 	    <compClass>CompPowerTrader</compClass>
 		<basePowerConsumption>400</basePowerConsumption>
 	  </li>
+	  <li><compClass>ProjectRimFactory.Common.CompPRFHelp</compClass></li>
 	</comps>
 	<recipes>
       <li>MakePaperclips</li>

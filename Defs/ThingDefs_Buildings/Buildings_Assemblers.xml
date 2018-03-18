@@ -122,17 +122,15 @@
 	<building>
 	  <isMealSource>true</isMealSource>
 	</building>
-	<recipes>
-      <li>CookMealSimple</li>
-      <li>CookMealFine</li>
-      <li>CookMealLavish</li>
-      <li>CookMealSurvival</li>
-      <li>MakePemmican</li>
-	</recipes>
 	<researchPrerequisites>
 	  <li>SelfCooking</li>
 	</researchPrerequisites>
     <rotatable>false</rotatable>
+    <modExtensions>
+      <li Class="ProjectRimFactory.SAL3.Exposables.AssemblerDefModExtension">
+        <importRecipesFrom>ElectricStove</importRecipesFrom>
+      </li>
+    </modExtensions>
   </ThingDef>
   
    <!--Recipe database-->

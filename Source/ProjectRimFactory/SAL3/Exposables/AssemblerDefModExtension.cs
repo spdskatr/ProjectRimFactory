@@ -8,7 +8,7 @@ namespace ProjectRimFactory.SAL3.Exposables
 {
     public class AssemblerDefModExtension : DefModExtension
     {
-        public bool showInputs = true;
         public float workSpeedBaseFactor = 1f;
+        public ThingDef importRecipesFrom;
     }
 }

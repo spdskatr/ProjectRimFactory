@@ -8,6 +8,7 @@ using Verse;
 using ProjectRimFactory.SAL3.Tools;
 using UnityEngine;
 using ProjectRimFactory.Common;
+using ProjectRimFactory.SAL3.Exposables;
 
 namespace ProjectRimFactory.SAL3.Things.Assemblers
 {
@@ -297,7 +298,7 @@ namespace ProjectRimFactory.SAL3.Things.Assemblers
         // Settings
         public bool allowForbidden;
         public virtual bool AllowForbidden => allowForbidden;
-        protected abstract float ProductionSpeedFactor { get; }
+        protected virtual float ProductionSpeedFactor => def.GetModExtension<AssemblerDefModExtension>()?.workSpeedBaseFactor ?? 1f;
 
         public override void DrawExtraSelectionOverlays()
         {
