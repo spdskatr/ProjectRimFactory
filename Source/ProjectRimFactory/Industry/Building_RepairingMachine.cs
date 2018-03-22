@@ -9,6 +9,7 @@ using ProjectRimFactory.Common;
 
 namespace ProjectRimFactory.Industry
 {
+    // Unfinished.
     public class Building_RepairingMachine : Building_SimpleAssembler
     {
         public class Recipe_Repair : RecipeWorker

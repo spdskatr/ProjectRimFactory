@@ -7,23 +7,6 @@ using ProjectRimFactory.SAL3.Things;
 
 namespace ProjectRimFactory.SAL3.UI
 {
-    public class Dialog_SmartHopperSetTargetAmount : Dialog_Rename
-    {
-        protected Building_SmartHopper smartHopper;
-        public Dialog_SmartHopperSetTargetAmount(Building_SmartHopper building)
-        {
-            smartHopper = building;
-        }
-        protected override AcceptanceReport NameIsValid(string name)
-        {
-            return int.TryParse(name, out int i);
-        }
-        protected override void SetName(string name)
-        {
-            smartHopper.limit = int.Parse(name);
-        }
-    }
-
     public class Dialog_SmartHopperMinMax : Window
     {
         protected Building_SmartHopper smartHopper;
@@ -64,12 +47,12 @@ namespace ProjectRimFactory.SAL3.UI
             list.Begin(rect);
             var titleRect = new Rect(0f, 0f, rect.width, TitleLabelHeight);
             Text.Font = GameFont.Medium;
-            Widgets.Label(titleRect, "Set Min / Max for Hopper");
+            Widgets.Label(titleRect, "SmartHopper_SetTargetAmount".Translate());
             Text.Font = GameFont.Small;
             list.Gap();
             list.Gap();
             list.Gap();
-            list.CheckboxLabeled("Use Min?", ref smartHopper.useMin, "SmartHopper_Minimum_UseTooltip".Translate());
+            list.CheckboxLabeled("SmartHopper_Minimum_Label".Translate(), ref smartHopper.useMin, "SmartHopper_Minimum_UseTooltip".Translate());
             list.Gap();
             {
                 Rect rectLine = list.GetRect(Text.LineHeight);
@@ -79,12 +62,12 @@ namespace ProjectRimFactory.SAL3.UI
                 TooltipHandler.TipRegion(rectLine, "SmartHopper_Minimum_ToolTip".Translate());
                 TextAnchor anchorBuffer = Text.Anchor;
                 Text.Anchor = TextAnchor.MiddleLeft;
-                Widgets.Label(rectLeft, "Minimum");
+                Widgets.Label(rectLeft, "SmartHopper_Minimum_Keyword".Translate());
                 Text.Anchor = anchorBuffer;
                 Widgets.TextFieldNumeric(rectRight, ref smartHopper.min, ref smartHopper.minBufferString, 0);
             }
             list.Gap();
-            list.CheckboxLabeled("Use Max?", ref smartHopper.useMax, "SmartHopper_Maximum_UseTooltip".Translate());
+            list.CheckboxLabeled("SmartHopper_Maximum_Label".Translate(), ref smartHopper.useMax, "SmartHopper_Maximum_UseTooltip".Translate());
             list.Gap();
             {
                 Rect rectLine = list.GetRect(Text.LineHeight);
@@ -94,7 +77,7 @@ namespace ProjectRimFactory.SAL3.UI
                 TooltipHandler.TipRegion(rectLine, "SmartHopper_Maximum_ToolTip".Translate());
                 TextAnchor anchorBuffer = Text.Anchor;
                 Text.Anchor = TextAnchor.MiddleLeft;
-                Widgets.Label(rectLeft, "Maximum");
+                Widgets.Label(rectLeft, "SmartHopper_MaximumKeyword".Translate());
                 Text.Anchor = anchorBuffer;
                 Widgets.TextFieldNumeric(rectRight, ref smartHopper.max, ref smartHopper.maxBufferString, 0);
             }
