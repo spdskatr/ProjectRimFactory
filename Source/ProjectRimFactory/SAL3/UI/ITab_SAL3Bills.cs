@@ -33,6 +33,8 @@ namespace ProjectRimFactory.SAL3.UI
             labelKey = "SAL3_BillsTabLabel";
         }
 
+        public override bool IsVisible => SelThing is Building_DynamicBillGiver;
+
         protected override void FillTab()
         { 
             Rect rect = new Rect(0f, 0f, WinSize.x, WinSize.y).ContractedBy(10f);

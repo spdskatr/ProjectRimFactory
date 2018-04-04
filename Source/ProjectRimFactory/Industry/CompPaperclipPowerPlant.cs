@@ -22,7 +22,7 @@ namespace ProjectRimFactory.Industry
         {
             get
             {
-                return (currentPowerModifierPct * fuelPerSecond) / 100f;
+                return currentPowerModifierPct * fuelPerSecond; // 1000W per paperclip per second
             }
         }
 

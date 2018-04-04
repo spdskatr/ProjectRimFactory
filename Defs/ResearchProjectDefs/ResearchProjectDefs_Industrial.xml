@@ -34,29 +34,13 @@
   </ResearchProjectDef>
   
   <ResearchProjectDef>
-    <defName>AdvancedProteinSynthesis</defName>
-    <label>advanced protein synthesis</label>
-    <techLevel>Spacer</techLevel>
-    <baseCost>2750</baseCost>
-    <description>Create meat and vegetable substitute by manipulating the molecular structure of paperclips.</description>
-    <prerequisites>
-      <li>PRFNanoMaterials</li>
-    </prerequisites>
-    <requiredResearchBuilding>HiTechResearchBench</requiredResearchBuilding>
-	<requiredResearchFacilities><li>AIResearchStation</li></requiredResearchFacilities>
-    <tab>Automation</tab>
-    <researchViewX>6</researchViewX>
-    <researchViewY>4</researchViewY>
-  </ResearchProjectDef>
-  
-  <ResearchProjectDef>
     <defName>PaperclipGeneratorSelfImprovement</defName>
     <label>paperclip generator: self-improvement</label>
     <techLevel>Spacer</techLevel>
     <baseCost>2250</baseCost>
     <description>Paperclip generator slowly produces more power per paperclip (up to 500%) unless flicked or out of fuel.</description>
     <prerequisites>
-      <li>PRFPhysicsSimulations</li>
+      <li>PRFGoldbachConjecture</li>
       <li>PaperclipProduction</li>
     </prerequisites>
     <requiredResearchBuilding>HiTechResearchBench</requiredResearchBuilding>

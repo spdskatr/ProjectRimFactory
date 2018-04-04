@@ -13,6 +13,8 @@ namespace ProjectRimFactory.Storage
         Building_MassStorageUnit boundStorageUnit;
         ThingDef boundThingDef;
 
+        CompPowerTrader powerComp;
+
         public StorageIOMode IOMode
         {
             get
@@ -63,10 +65,26 @@ namespace ProjectRimFactory.Storage
             Scribe_Defs.Look(ref boundThingDef, "boundThingDef");
         }
 
+        public override void PostMake()
+        {
+            base.PostMake();
+            powerComp = GetComp<CompPowerTrader>();
+        }
+
         public override void SpawnSetup(Map map, bool respawningAfterLoad)
         {
             base.SpawnSetup(map, respawningAfterLoad);
+            powerComp = GetComp<CompPowerTrader>();
             Notify_NeedRefresh();
+        }
+
+        protected override void ReceiveCompSignal(string signal)
+        {
+            base.ReceiveCompSignal(signal);
+            if (signal == CompPowerTrader.PowerTurnedOnSignal)
+            {
+                Notify_NeedRefresh();
+            }
         }
 
         public override void DeSpawn()
@@ -94,6 +112,7 @@ namespace ProjectRimFactory.Storage
             base.Notify_ReceivedThing(newItem);
             RefreshInput();
         }
+
         public override void Notify_LostThing(Thing newItem)
         {
             base.Notify_LostThing(newItem);
@@ -143,19 +162,22 @@ namespace ProjectRimFactory.Storage
 
         public void RefreshInput()
         {
-            Thing item = Position.GetFirstItem(Map);
-            if (mode == StorageIOMode.Input && item != null && boundStorageUnit != null && boundStorageUnit.settings.AllowedToAccept(item) && boundStorageUnit.CanReceiveIO)
+            if (powerComp.PowerOn)
             {
-                foreach (IntVec3 cell in boundStorageUnit.AllSlotCells())
+                Thing item = Position.GetFirstItem(Map);
+                if (mode == StorageIOMode.Input && item != null && boundStorageUnit != null && boundStorageUnit.settings.AllowedToAccept(item) && boundStorageUnit.CanReceiveIO)
                 {
-                    if (cell.GetFirstItem(Map) == null)
+                    foreach (IntVec3 cell in boundStorageUnit.AllSlotCells())
                     {
-                        boundStorageUnit.RegisterNewItem(item);
-                        if (item.def.drawGUIOverlay)
+                        if (cell.GetFirstItem(Map) == null)
                         {
-                            Map.listerThings.ThingsInGroup(ThingRequestGroup.HasGUIOverlay).Remove(item);
+                            boundStorageUnit.RegisterNewItem(item);
+                            if (item.def.drawGUIOverlay)
+                            {
+                                Map.listerThings.ThingsInGroup(ThingRequestGroup.HasGUIOverlay).Remove(item);
+                            }
+                            break;
                         }
-                        break;
                     }
                 }
             }
@@ -163,26 +185,29 @@ namespace ProjectRimFactory.Storage
 
         protected void RefreshOutput()
         {
-            Thing currentItem = Position.GetFirstItem(Map);
-            bool storageSlotAvailable = (currentItem == null || (currentItem.def == boundThingDef && currentItem.stackCount < currentItem.def.stackLimit));
-            if (boundStorageUnit != null && boundStorageUnit.CanReceiveIO && storageSlotAvailable)
+            if (powerComp.PowerOn)
             {
-                foreach (Thing item in boundStorageUnit.StoredItems.ToList())
+                Thing currentItem = Position.GetFirstItem(Map);
+                bool storageSlotAvailable = (currentItem == null || (currentItem.def == boundThingDef && currentItem.stackCount < currentItem.def.stackLimit));
+                if (boundStorageUnit != null && boundStorageUnit.CanReceiveIO && storageSlotAvailable)
                 {
-                    if (item.def == boundThingDef)
+                    foreach (Thing item in boundStorageUnit.StoredItems.ToList()) // ToList very important - evaluates enumerable
                     {
-                        if (currentItem != null && currentItem.CanStackWith(item))
+                        if (item.def == boundThingDef)
                         {
-                            currentItem.TryAbsorbStack(item, true);
-                        }
-                        else
-                        {
-                            item.Position = Position;
-                            currentItem = item;
-                        }
-                        if (currentItem != null && currentItem.stackCount >= currentItem.def.stackLimit)
-                        {
-                            break;
+                            if (currentItem != null && currentItem.CanStackWith(item))
+                            {
+                                currentItem.TryAbsorbStack(item, true);
+                            }
+                            else
+                            {
+                                item.Position = Position;
+                                currentItem = item;
+                            }
+                            if (currentItem != null && currentItem.stackCount >= currentItem.def.stackLimit)
+                            {
+                                break;
+                            }
                         }
                     }
                 }

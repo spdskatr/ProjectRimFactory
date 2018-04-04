@@ -129,7 +129,7 @@
     </thingCategories>
     <costList>
       <Steel>30</Steel>
-      <Plasteel>50</Plasteel>
+      <Plasteel>5</Plasteel>
       <Component>2</Component>
     </costList>
     <recipeMaker>

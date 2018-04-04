@@ -11,18 +11,18 @@ namespace ProjectRimFactory.Industry
 {
     public class Building_PaperclipFactory : Building_SimpleAssembler
     {
-        public int PaperclipsPerKilogram
+        public float PaperclipsPerKilogramModifier
         {
             get
             {
-                return 250;
+                return 0.25f;
             }
         }
 
         protected override void PostProcessRecipeProduct(Thing thing)
         {
             int limit = thing.def.stackLimit;
-            int paperclips = Mathf.RoundToInt(currentBillReport.selected.Sum(t => t.GetStatValue(StatDefOf.Mass) * t.stackCount * PaperclipsPerKilogram));
+            int paperclips = Mathf.RoundToInt(currentBillReport.selected.Sum(t => t.PaperclipAmount() * PaperclipsPerKilogramModifier));
             if (paperclips <= limit)
             {
                 thing.stackCount = paperclips;

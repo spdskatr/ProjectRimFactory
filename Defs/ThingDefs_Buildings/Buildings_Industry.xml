@@ -199,4 +199,52 @@
     </researchPrerequisites>
     <constructionSkillPrerequisite>4</constructionSkillPrerequisite>
   </ThingDef>
+  
+  <ThingDef ParentName="AssemblerBase">
+    <defName>AtomicReconstructor</defName>
+    <label>atomic reconstructor</label>
+    <thingClass>ProjectRimFactory.Industry.Building_AtomicReconstructor</thingClass>
+    <graphicData>
+      <texPath>Industry/AtomicReconstructor</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+	<costList>
+      <PRFWeakAIChip>3</PRFWeakAIChip>
+      <PRFMachineFrameLarge>1</PRFMachineFrameLarge>
+	  <Plasteel>40</Plasteel>
+      <Steel>50</Steel>
+      <Component>2</Component>
+    </costList>
+    <description>Converts paperclips into something more useful.</description>
+    <statBases>
+      <WorkToBuild>3000</WorkToBuild>
+	  <MarketValue>1000</MarketValue>
+    </statBases>
+	<comps>
+	  <li Class="CompProperties_Power">
+	    <compClass>CompPowerTrader</compClass>
+		<basePowerConsumption>700</basePowerConsumption>
+	  </li>
+      <li Class="CompProperties_Refuelable">
+        <fuelConsumptionRate>0</fuelConsumptionRate>
+        <fuelCapacity>1000000</fuelCapacity>
+        <targetFuelLevelConfigurable>true</targetFuelLevelConfigurable>
+        <initialConfigurableTargetFuelLevel>100000</initialConfigurableTargetFuelLevel>
+        <fuelFilter>
+          <thingDefs>
+            <li>Paperclip</li>
+          </thingDefs>
+        </fuelFilter>
+        <consumeFuelOnlyWhenUsed>true</consumeFuelOnlyWhenUsed>
+      </li>
+	</comps>
+	<researchPrerequisites>
+	  <li>SelfCorrectingAssemblers</li>
+	</researchPrerequisites>
+    <rotatable>false</rotatable>
+	<inspectorTabs>
+	  <li>ProjectRimFactory.Industry.UI.ITab_AtomicReconstruction</li>
+	</inspectorTabs>
+    <stuffCategories />
+  </ThingDef>
 </Defs>

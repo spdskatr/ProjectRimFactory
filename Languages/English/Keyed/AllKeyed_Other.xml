@@ -18,4 +18,10 @@
   <PaperclipsRunOutIn>Runs out of paperclips in: {0}</PaperclipsRunOutIn>
   <SetPaperclipConsumptionPerSecond>Adjust paperclip consumption</SetPaperclipConsumptionPerSecond>
   <SetPaperclipConsumptionPerSecond_Desc>Change the number of paperclips consumed per second.</SetPaperclipConsumptionPerSecond_Desc>
+  <AtomicReconstructorProgress>Reconstruction progress: {0}</AtomicReconstructorProgress>
+  <PRFAtomicReconstructionTab>Config</PRFAtomicReconstructionTab>
+  <AtomicReconstructionTab_NowProducing>Producing:</AtomicReconstructionTab_NowProducing>
+  <AtomicReconstructionTab_PaperclipCost>Paperclip cost:</AtomicReconstructionTab_PaperclipCost>
+  <AtomicReconstructionTab_ConsumptionPerSecond>Consumption per second:</AtomicReconstructionTab_ConsumptionPerSecond>
+  <AtomicReconstructionTab_Progress>Progress:</AtomicReconstructionTab_Progress>
 </LanguageData>

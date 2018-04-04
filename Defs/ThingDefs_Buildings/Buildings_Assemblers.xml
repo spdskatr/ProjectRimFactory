@@ -55,6 +55,7 @@
     <description>An auto-crafter controlled by a computer. Slowly gets better at recipes the more it completes them. However, it also gets a bit worse over time.</description>
     <statBases>
       <WorkToBuild>3000</WorkToBuild>
+	  <MarketValue>1250</MarketValue>
     </statBases>
 	<comps>
 	  <li Class="CompProperties_Power">
@@ -86,6 +87,7 @@
     <description>An auto-crafter controlled by a computer. Reads recipe instructions from a recipe database.</description>
     <statBases>
       <WorkToBuild>2500</WorkToBuild>
+	  <MarketValue>1000</MarketValue>
     </statBases>
 	<comps>
 	  <li Class="CompProperties_Power">
@@ -109,6 +111,7 @@
     </graphicData>
     <statBases>
       <WorkToBuild>2000</WorkToBuild>
+	  <MarketValue>700</MarketValue>
     </statBases>
     <description>A machine that can cook meals all by itself. Just look at it go!</description>
     <costStuffCount>100</costStuffCount>

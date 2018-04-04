@@ -34,11 +34,11 @@
   
   <!-- Tier 2 -->
   <ResearchProjectDef>
-    <defName>PRFPhysicsSimulations</defName>
-    <label>Physics simulations</label>
+    <defName>PRFGoldbachConjecture</defName>
+    <label>Goldbach's conjecture</label>
     <techLevel>Spacer</techLevel>
     <baseCost>1500</baseCost>
-    <description>Allows colonists to create physics simulations, unlocking new research projects that were previously unfeasible.</description>
+    <description>"Any even integer greater than or equal to 4 can be formed from the sum of 2 prime numbers."\nUnlocks a new array of research projects.</description>
     <prerequisites>
       <li>PRFMachineLearning</li>
     </prerequisites>
@@ -56,7 +56,7 @@
     <baseCost>2000</baseCost>
     <description>Learn how to create independent target-specific flying AI-powered devices.</description>
     <prerequisites>
-      <li>PRFPhysicsSimulations</li>
+      <li>PRFGoldbachConjecture</li>
     </prerequisites>
     <requiredResearchBuilding>HiTechResearchBench</requiredResearchBuilding>
 	<requiredResearchFacilities><li>AIResearchStation</li></requiredResearchFacilities>
@@ -72,7 +72,7 @@
     <baseCost>2000</baseCost>
     <description>Learn how to create quantum computers to aid in research projects.</description>
     <prerequisites>
-      <li>PRFPhysicsSimulations</li>
+      <li>PRFGoldbachConjecture</li>
       <li>PaperclipProduction</li>
     </prerequisites>
     <requiredResearchBuilding>HiTechResearchBench</requiredResearchBuilding>
@@ -83,19 +83,67 @@
   </ResearchProjectDef>
   
   <ResearchProjectDef>
-    <defName>PRFNanoMaterials</defName>
-    <label>Nano-materials</label>
+    <defName>PRFAtomicReconstruction</defName>
+    <label>Atomic reconstruction</label>
     <techLevel>Spacer</techLevel>
     <baseCost>2000</baseCost>
-    <description>Create new materials by manipulating the molecular structure of paperclips.</description>
+    <description>Allows colonists to turn paperclips into raw materials.</description>
     <prerequisites>
-      <li>PRFPhysicsSimulations</li>
+      <li>PRFGoldbachConjecture</li>
       <li>PaperclipProduction</li>
     </prerequisites>
     <requiredResearchBuilding>HiTechResearchBench</requiredResearchBuilding>
 	<requiredResearchFacilities><li>AIResearchStation</li></requiredResearchFacilities>
     <tab>Automation</tab>
     <researchViewX>5</researchViewX>
+    <researchViewY>4</researchViewY>
+  </ResearchProjectDef>
+  
+  <ResearchProjectDef>
+    <defName>PRFNanoMaterials</defName>
+    <label>Nano-materials</label>
+    <techLevel>Spacer</techLevel>
+    <baseCost>2500</baseCost>
+    <description>Create new materials by manipulating the molecular structure of paperclips.</description>
+    <prerequisites>
+      <li>PRFAtomicReconstruction</li>
+    </prerequisites>
+    <requiredResearchBuilding>HiTechResearchBench</requiredResearchBuilding>
+	<requiredResearchFacilities><li>AIResearchStation</li></requiredResearchFacilities>
+    <tab>Automation</tab>
+    <researchViewX>6</researchViewX>
+    <researchViewY>5</researchViewY>
+  </ResearchProjectDef>
+  
+  <ResearchProjectDef>
+    <defName>PRFEdiblesSynthesis</defName>
+    <label>edibles synthesis</label>
+    <techLevel>Spacer</techLevel>
+    <baseCost>2500</baseCost>
+    <description>Create foods by manipulating the molecular structure of paperclips.</description>
+    <prerequisites>
+      <li>PRFAtomicReconstruction</li>
+    </prerequisites>
+    <requiredResearchBuilding>HiTechResearchBench</requiredResearchBuilding>
+	<requiredResearchFacilities><li>AIResearchStation</li></requiredResearchFacilities>
+    <tab>Automation</tab>
+    <researchViewX>6</researchViewX>
+    <researchViewY>4</researchViewY>
+  </ResearchProjectDef>
+  
+  <ResearchProjectDef>
+    <defName>PRFManufacturablesProduction</defName>
+    <label>manufacturables production</label>
+    <techLevel>Spacer</techLevel>
+    <baseCost>3000</baseCost>
+    <description>Allows colonists to also convert paperclips into items in the "manufactured" category.</description>
+    <prerequisites>
+      <li>PRFAtomicReconstruction</li>
+    </prerequisites>
+    <requiredResearchBuilding>HiTechResearchBench</requiredResearchBuilding>
+	<requiredResearchFacilities><li>AIResearchStation</li></requiredResearchFacilities>
+    <tab>Automation</tab>
+    <researchViewX>7</researchViewX>
     <researchViewY>4</researchViewY>
   </ResearchProjectDef>
   
@@ -107,7 +155,7 @@
     <description>Learn how to create advanced machine frames to build more complex automation buildings.</description>
     <prerequisites>
       <li>PRFQuantumComputing</li>
-      <li>PRFNanoMaterials</li>
+      <li>PRFAtomicReconstruction</li>
       <li>PRFDrones</li>
     </prerequisites>
     <requiredResearchBuilding>HiTechResearchBench</requiredResearchBuilding>
