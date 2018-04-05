@@ -53,8 +53,7 @@
     <techLevel>Spacer</techLevel>
     <baseCost>2250</baseCost>
     <tab>Automation</tab>
-    <requiredResearchBuilding>HiTechResearchBench</requiredResearchBuilding>
-	<requiredResearchFacilities><li>AIResearchStation</li></requiredResearchFacilities>
+    <requiredResearchBuilding>AIResearchBench</requiredResearchBuilding>
 	<prerequisites>
 	  <li>PRFMachineLearning</li>
       <li>UniversalAutocrafting</li>

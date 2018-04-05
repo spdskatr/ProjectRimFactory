@@ -26,15 +26,17 @@ namespace ProjectRimFactory.Industry.UI
             listing.Begin(rect);
             listing.Label(SelThing.LabelCapNoCount);
             listing.LabelDouble("AtomicReconstructionTab_NowProducing".Translate(), (SelBuilding.ThingToGenerate?.LabelCap ?? "NoneBrackets".Translate()));
-            listing.LabelDouble("AtomicReconstructionTab_PaperclipCost".Translate(), (SelBuilding.ThingToGenerate?.PaperclipAmount() ?? 0f).ToStringDecimalIfSmall());
+            listing.LabelDouble("AtomicReconstructionTab_PaperclipCost".Translate(), SelBuilding.ItemBaseCost.ToStringDecimalIfSmall());
             listing.LabelDouble("AtomicReconstructionTab_ConsumptionPerSecond".Translate(), (SelBuilding.FuelConsumptionPerTick * 60f).ToStringDecimalIfSmall());
             listing.LabelDouble("AtomicReconstructionTab_Progress".Translate(), SelBuilding.ProgressToStringPercent);
+            listing.Label("AtomicReconstructionTab_Speed".Translate(SelBuilding.speedFactor, SelBuilding.PaperclipConsumptionFactor));
+            SelBuilding.speedFactor = (int)listing.Slider(SelBuilding.speedFactor, 1f, 20f);
             searchQuery = listing.TextEntry(searchQuery);
             Rect rect2 = new Rect(0, listing.CurHeight, rect.width, rect.height - listing.CurHeight);
             Rect viewRect = new Rect(0f, 0f, rect2.width - 16f, scrollViewHeight);
             Widgets.BeginScrollView(rect2, ref scrollPos, viewRect);
             float curY = 0;
-            foreach (ThingDef tDef in AllAllowedThingDefsColonyCanProduce())
+            foreach (ThingDef tDef in AllAllowedThingDefsColonyCanProduce().OrderBy(d => d.LabelCap))
             {
                 if (searchQuery == null || tDef.label.ToLower().Contains(searchQuery))
                 {
@@ -77,10 +79,16 @@ namespace ProjectRimFactory.Industry.UI
             Widgets.Label(rect5, thingDef.LabelCap.Truncate(rect5.width, null));
             Text.WordWrap = true;
             string text2 = thingDef.description;
-            TooltipHandler.TipRegion(rect, string.IsNullOrEmpty(text2) ? "PRFNoDesc".Translate() : text2);
+            if (y > -28f)
+            {
+                TooltipHandler.TipRegion(rect, string.IsNullOrEmpty(text2) ? "PRFNoDesc".Translate() : text2);
+            }
             if (GUI.Button(rect, "", Widgets.EmptyStyle))
             {
-                SelBuilding.ThingToGenerate = thingDef;
+                if (SelBuilding.ThingToGenerate != thingDef)
+                {
+                    SelBuilding.ThingToGenerate = thingDef;
+                }
                 SoundDefOf.Click.PlayOneShot(SoundInfo.OnCamera());
             }
             Text.Anchor = TextAnchor.UpperLeft;

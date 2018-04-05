@@ -55,6 +55,7 @@
     <size>(2, 2)</size>
     <statBases>
       <WorkToBuild>2000</WorkToBuild>
+	  <Mass>30</Mass>
     </statBases>
     <description>A machine that makes paperclips from any raw matter inserted into it - metal, plant or corpse.</description>
 	<stuffCategories />
@@ -74,6 +75,7 @@
 	<recipes>
       <li>MakePaperclips</li>
       <li>MakePaperclipsTake10Items</li>
+      <li>MakePaperclipsTake75Items</li>
 	</recipes>
 	<researchPrerequisites>
 	  <li>PaperclipProduction</li>
@@ -104,6 +106,7 @@
       <WorkToBuild>450</WorkToBuild>
       <MaxHitPoints>100</MaxHitPoints>
       <Flammability>1.0</Flammability>
+	  <Mass>15</Mass>
     </statBases>
     <description>A robotic arm built on a small machine frame that can automatically fuel the building in front of it.</description>
     <costList>
@@ -111,6 +114,7 @@
       <PRFRoboticArm>1</PRFRoboticArm>
       <Component>2</Component>
     </costList>
+	<minifiedDef>MinifiedFurniture</minifiedDef>
     <comps>
       <li Class="CompProperties_Power">
         <compClass>CompPowerTrader</compClass>
@@ -219,6 +223,7 @@
     <statBases>
       <WorkToBuild>3000</WorkToBuild>
 	  <MarketValue>1000</MarketValue>
+	  <Mass>100</Mass>
     </statBases>
 	<comps>
 	  <li Class="CompProperties_Power">

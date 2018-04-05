@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using UnityEngine;
 using Verse;
 
 namespace ProjectRimFactory.Industry
@@ -11,7 +12,7 @@ namespace ProjectRimFactory.Industry
         public override void DrawGhost(ThingDef def, IntVec3 center, Rot4 rot)
         {
             base.DrawGhost(def, center, rot);
-            GenDraw.DrawFieldEdges(new List<IntVec3>() { rot.FacingCell + center });
+            GenDraw.DrawFieldEdges(new List<IntVec3>() { rot.FacingCell + center }, Color.yellow);
         }
     }
 }

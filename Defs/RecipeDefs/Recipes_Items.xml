@@ -108,4 +108,75 @@
     <workSkill>Crafting</workSkill>
 	<researchPrerequisite>PaperclipProduction</researchPrerequisite>
   </RecipeDef>
+  <RecipeDef>
+    <defName>MakePaperclipsTake75Items</defName>
+	<label>make paperclips (take 75 items)</label>
+	<description>Make paperclips, processing 75 items (750 for small volume) at once.</description>
+    <jobString>Making paperclips.</jobString>
+    <workSpeedStat>SmithingSpeed</workSpeedStat>
+    <effectWorking>Drill</effectWorking>
+    <soundWorking>Recipe_Machining</soundWorking>
+    <workAmount>60</workAmount>
+    <ingredients>
+      <li>
+        <filter>
+          <categories>
+            <li>Root</li>
+          </categories>
+          <exceptedThingDefs>
+            <li>Paperclip</li>
+          </exceptedThingDefs>
+        </filter>
+        <count>75</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <categories>
+        <li>Root</li>
+      </categories>
+      <exceptedThingDefs>
+        <li>Paperclip</li>
+      </exceptedThingDefs>
+    </fixedIngredientFilter>
+    <allowMixingIngredients>true</allowMixingIngredients>
+    <products> <!-- Products are handled in the Building_PaperclipFactory class -->
+      <Paperclip>1</Paperclip>
+    </products>
+    <workSkill>Crafting</workSkill>
+	<researchPrerequisite>PaperclipProduction</researchPrerequisite>
+  </RecipeDef>
+  <RecipeDef>
+    <defName>MakeAIPersonaCoreFromWeakAIChips</defName>
+	<label>make AI persona core from weak AI clips</label>
+	<description>Make an AI persona core by fusing together 10 weak AI chips.</description>
+    <jobString>Making data disk.</jobString>
+    <workSpeedStat>SmithingSpeed</workSpeedStat>
+    <effectWorking>Cook</effectWorking>
+    <soundWorking>Recipe_Machining</soundWorking>
+    <workAmount>5000</workAmount>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>PRFWeakAIChip</li>
+          </thingDefs>
+        </filter>
+        <count>10</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs>
+        <li>PRFWeakAIChip</li>
+      </thingDefs>
+    </fixedIngredientFilter>
+	<products>
+	  <AIPersonaCore>1</AIPersonaCore>
+	</products>
+    <skillRequirements>
+	  <Crafting>10</Crafting>
+	</skillRequirements>
+    <workSkill>Crafting</workSkill>
+	<recipeUsers><li>TableRoboticMachining</li></recipeUsers>
+	<researchPrerequisite>MagneticTape</researchPrerequisite>
+  </RecipeDef>
 </Defs>

@@ -1,63 +1,73 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Defs>
-
-  <ThingDef ParentName="BuildingBase">
-    <defName>AIResearchStation</defName>
-    <label>AI research station</label>
-    <description>Increases research speed by 10%. Needs to be placed near hi-tech research bench. One research bench can be linked to only one AI research station.</description>
-    <graphicData>
-      <texPath>Things/Building/Misc/MultiAnalyzer</texPath>
-      <graphicClass>Graphic_Single</graphicClass>
-      <drawSize>(2,2)</drawSize>
-      <damageData>
-        <rect>(0.15,0.15,1.7,1.7)</rect>
-      </damageData>
-    </graphicData>
-    <researchPrerequisites><li>PRFMachineLearning</li></researchPrerequisites>
-    <size>(2,2)</size>
-    <rotatable>false</rotatable>
-    <altitudeLayer>Building</altitudeLayer>
-    <passability>PassThroughOnly</passability>
-    <castEdgeShadows>true</castEdgeShadows>
-    <fillPercent>0.5</fillPercent>
-    <designationCategory>Automation</designationCategory>
-    <minifiedDef>MinifiedFurniture</minifiedDef>
-    <canOverlapZones>false</canOverlapZones>
-    <statBases>
-      <MaxHitPoints>200</MaxHitPoints>
-      <WorkToBuild>5000</WorkToBuild>
-      <Mass>100</Mass>
-      <Flammability>1.0</Flammability>
-    </statBases>
+  
+  <ThingDef ParentName="PRFBenchBase">
+    <defName>AIResearchBench</defName>
+    <label>AI research bench</label>
+    <description>A high-tech bench with an AI module installed. Required for tier 2 automation research and is not a replacement for the hi-tech research bench. Requires power.</description>
+    <thingClass>Building_ResearchBench</thingClass>
+    <size>(5,2)</size>
+    <stuffCategories>
+      <li>Metallic</li>
+    </stuffCategories>
+    <costStuffCount>150</costStuffCount>
     <costList>
       <Steel>100</Steel>
-      <Plasteel>50</Plasteel>
-      <Gold>20</Gold>
+      <Component>10</Component>
+	  <PRFWeakAIChip>1</PRFWeakAIChip>
     </costList>
+    <graphicData>
+      <texPath>Common/ResearchBenchAI</texPath>
+      <graphicClass>Graphic_Multi</graphicClass>
+      <shaderType>CutoutComplex</shaderType>
+      <drawSize>(7,4)</drawSize>
+      <damageData>
+        <cornerTL>Damage/Corner</cornerTL>
+        <cornerTR>Damage/Corner</cornerTR>
+        <cornerBL>Damage/Corner</cornerBL>
+        <cornerBR>Damage/Corner</cornerBR>
+      </damageData>
+    </graphicData>
+    <altitudeLayer>Building</altitudeLayer>
+    <passability>PassThroughOnly</passability>
+    <pathCost>70</pathCost>
+    <statBases>
+      <MaxHitPoints>250</MaxHitPoints>
+      <WorkToBuild>5000</WorkToBuild>
+      <Flammability>1.0</Flammability>
+      <ResearchSpeedFactor>1.0</ResearchSpeedFactor>
+    </statBases>
     <comps>
       <li Class="CompProperties_Power">
         <compClass>CompPowerTrader</compClass>
+        <basePowerConsumption>250</basePowerConsumption>
         <startElectricalFires>true</startElectricalFires>
-        <basePowerConsumption>300</basePowerConsumption>
       </li>
       <li Class="CompProperties_Flickable"/>
-      <li Class="CompProperties_Facility">
-        <statOffsets>
-          <ResearchSpeedFactor>0.1</ResearchSpeedFactor>
-        </statOffsets>
-        <maxSimultaneous>1</maxSimultaneous>
+      <li Class="CompProperties_AffectedByFacilities">
+        <linkableFacilities>
+          <li>PRFQuantumComputer</li>
+        </linkableFacilities>
       </li>
     </comps>
-		<placeWorkers>
-			<li>PlaceWorker_ShowFacilitiesConnections</li>
-		</placeWorkers>
-    <constructionSkillPrerequisite>9</constructionSkillPrerequisite>
+    <fillPercent>0.5</fillPercent>
+    <interactionCellOffset>(0,0,-1)</interactionCellOffset>
+    <hasInteractionCell>true</hasInteractionCell>
+    <terrainAffordanceNeeded>Heavy</terrainAffordanceNeeded>
+    <designationCategory>Production</designationCategory>
+    <surfaceType>Item</surfaceType>
+    <placeWorkers>
+      <li>PlaceWorker_ShowFacilitiesConnections</li>
+    </placeWorkers>
+    <researchPrerequisites>
+	  <li>PRFMachineLearning</li>
+	</researchPrerequisites>
   </ThingDef>
   
   <ThingDef ParentName="BuildingBase">
     <defName>PRFQuantumComputer</defName>
     <label>quantum computer</label>
-    <description>Increases research speed by 75%. Needs to be placed near hi-tech research bench. One research bench can be linked to only one quantum computer.</description>
+    <description>Increases research speed by 75%. Needs to be placed near AI research bench. One research bench can be linked to only one quantum computer.</description>
     <graphicData>
       <texPath>Things/Building/Misc/MultiAnalyzer</texPath>
       <graphicClass>Graphic_Single</graphicClass>
@@ -96,60 +106,7 @@
       <li Class="CompProperties_Flickable"/>
       <li Class="CompProperties_Facility">
         <statOffsets>
-          <ResearchSpeedFactor>0.1</ResearchSpeedFactor>
-        </statOffsets>
-        <maxSimultaneous>1</maxSimultaneous>
-      </li>
-    </comps>
-		<placeWorkers>
-			<li>PlaceWorker_ShowFacilitiesConnections</li>
-		</placeWorkers>
-    <constructionSkillPrerequisite>9</constructionSkillPrerequisite>
-  </ThingDef>
-  
-  <ThingDef ParentName="BuildingBase">
-    <defName>AIPersonaResearchStation</defName>
-    <label>AI persona research station</label>
-    <description>Increases research speed by 15%. Needs to be placed near hi-tech research bench. One research bench can be linked to only one AI persona research station.</description>
-    <graphicData>
-      <texPath>Things/Building/Misc/MultiAnalyzer</texPath>
-      <graphicClass>Graphic_Single</graphicClass>
-      <drawSize>(2,2)</drawSize>
-      <damageData>
-        <rect>(0.15,0.15,1.7,1.7)</rect>
-      </damageData>
-    </graphicData>
-    <researchPrerequisites><li>PRFAIPersonaProduction</li></researchPrerequisites>
-    <size>(2,2)</size>
-    <rotatable>false</rotatable>
-    <altitudeLayer>Building</altitudeLayer>
-    <passability>PassThroughOnly</passability>
-    <castEdgeShadows>true</castEdgeShadows>
-    <fillPercent>0.5</fillPercent>
-    <designationCategory>Automation</designationCategory>
-    <minifiedDef>MinifiedFurniture</minifiedDef>
-    <canOverlapZones>false</canOverlapZones>
-    <statBases>
-      <MaxHitPoints>200</MaxHitPoints>
-      <WorkToBuild>5000</WorkToBuild>
-      <Mass>100</Mass>
-      <Flammability>1.0</Flammability>
-    </statBases>
-    <costList>
-      <Steel>100</Steel>
-      <Plasteel>50</Plasteel>
-      <Gold>20</Gold>
-    </costList>
-    <comps>
-      <li Class="CompProperties_Power">
-        <compClass>CompPowerTrader</compClass>
-        <startElectricalFires>true</startElectricalFires>
-        <basePowerConsumption>1000</basePowerConsumption>
-      </li>
-      <li Class="CompProperties_Flickable"/>
-      <li Class="CompProperties_Facility">
-        <statOffsets>
-          <ResearchSpeedFactor>0.1</ResearchSpeedFactor>
+          <ResearchSpeedFactor>0.75</ResearchSpeedFactor>
         </statOffsets>
         <maxSimultaneous>1</maxSimultaneous>
       </li>

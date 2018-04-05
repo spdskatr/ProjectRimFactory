@@ -56,6 +56,7 @@
     <statBases>
       <WorkToBuild>3000</WorkToBuild>
 	  <MarketValue>1250</MarketValue>
+	  <Mass>70</Mass>
     </statBases>
 	<comps>
 	  <li Class="CompProperties_Power">
@@ -88,6 +89,7 @@
     <statBases>
       <WorkToBuild>2500</WorkToBuild>
 	  <MarketValue>1000</MarketValue>
+	  <Mass>70</Mass>
     </statBases>
 	<comps>
 	  <li Class="CompProperties_Power">
@@ -112,6 +114,7 @@
     <statBases>
       <WorkToBuild>2000</WorkToBuild>
 	  <MarketValue>700</MarketValue>
+	  <Mass>50</Mass>
     </statBases>
     <description>A machine that can cook meals all by itself. Just look at it go!</description>
     <costStuffCount>100</costStuffCount>
@@ -160,6 +163,7 @@
       <WorkToBuild>800</WorkToBuild>
       <MaxHitPoints>100</MaxHitPoints>
       <Flammability>1.0</Flammability>
+	  <Mass>25</Mass>
     </statBases>
 	<minifiedDef>MinifiedFurniture</minifiedDef>
     <description>Stores recipes for use by smart assemblers, and imports recipes from adjacent work tables. I wonder what all the buttons do...</description>

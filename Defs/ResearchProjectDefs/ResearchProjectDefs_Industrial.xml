@@ -23,8 +23,7 @@
     <description>"The AI does not hate you, nor does it love you, but you are made out of atoms which it can use for something else."\nAllows colonists to build a factory that creates paperclips from any matter, and a machine that generates power from paperclips.</description>
     <techLevel>Spacer</techLevel>
     <baseCost>1000</baseCost>
-    <requiredResearchBuilding>HiTechResearchBench</requiredResearchBuilding>
-	<requiredResearchFacilities><li>AIResearchStation</li></requiredResearchFacilities>
+    <requiredResearchBuilding>AIResearchBench</requiredResearchBuilding>
     <prerequisites>
       <li>PRFMachineLearning</li>
     </prerequisites>
@@ -43,8 +42,7 @@
       <li>PRFGoldbachConjecture</li>
       <li>PaperclipProduction</li>
     </prerequisites>
-    <requiredResearchBuilding>HiTechResearchBench</requiredResearchBuilding>
-	<requiredResearchFacilities><li>AIResearchStation</li></requiredResearchFacilities>
+    <requiredResearchBuilding>AIResearchBench</requiredResearchBuilding>
     <tab>Automation</tab>
     <researchViewX>5</researchViewX>
     <researchViewY>1</researchViewY>
@@ -59,8 +57,7 @@
     <prerequisites>
       <li>PaperclipGeneratorSelfImprovement</li>
     </prerequisites>
-    <requiredResearchBuilding>HiTechResearchBench</requiredResearchBuilding>
-	<requiredResearchFacilities><li>AIResearchStation</li></requiredResearchFacilities>
+    <requiredResearchBuilding>AIResearchBench</requiredResearchBuilding>
     <tab>Automation</tab>
     <researchViewX>6</researchViewX>
     <researchViewY>1</researchViewY>
@@ -75,8 +72,7 @@
     <prerequisites>
       <li>PaperclipGeneratorKugelblitz</li>
     </prerequisites>
-    <requiredResearchBuilding>HiTechResearchBench</requiredResearchBuilding>
-	<requiredResearchFacilities><li>AIResearchStation</li></requiredResearchFacilities>
+    <requiredResearchBuilding>AIResearchBench</requiredResearchBuilding>
     <tab>Automation</tab>
     <researchViewX>7</researchViewX>
     <researchViewY>1</researchViewY>

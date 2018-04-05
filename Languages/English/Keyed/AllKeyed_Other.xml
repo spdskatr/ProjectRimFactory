@@ -24,4 +24,5 @@
   <AtomicReconstructionTab_PaperclipCost>Paperclip cost:</AtomicReconstructionTab_PaperclipCost>
   <AtomicReconstructionTab_ConsumptionPerSecond>Consumption per second:</AtomicReconstructionTab_ConsumptionPerSecond>
   <AtomicReconstructionTab_Progress>Progress:</AtomicReconstructionTab_Progress>
+  <AtomicReconstructionTab_Speed>Speed multiplier: {0} (Consumes {1}x more paperclips)</AtomicReconstructionTab_Speed>
 </LanguageData>

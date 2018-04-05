@@ -13,9 +13,18 @@ namespace ProjectRimFactory.Industry
     {
         private ThingDef thingToGenerate;
         public int progressTicks;
+        public int speedFactor = 1; // fuel consumption = efficiencyFactor^2
         CompPowerTrader powerComp;
         CompRefuelable refuelableComp;
         CompOutputAdjustable outputComp;
+
+        public int PaperclipConsumptionFactor
+        {
+            get
+            {
+                return speedFactor * speedFactor;
+            }
+        }
 
         public int TotalWorkRequired
         {
@@ -27,13 +36,23 @@ namespace ProjectRimFactory.Industry
             }
         }
 
+        public float ItemBaseCost
+        {
+            get
+            {
+                if (ThingToGenerate == null)
+                    return 0;
+                return ThingToGenerate.PaperclipAmount() * PaperclipConsumptionFactor;
+            }
+        }
+
         public float FuelConsumptionPerTick
         {
             get
             {
                 if (ThingToGenerate == null)
                     return 0;
-                return ThingToGenerate.PaperclipAmount() / TotalWorkRequired;
+                return ItemBaseCost / TotalWorkRequired;
             }
         }
 
@@ -76,16 +95,15 @@ namespace ProjectRimFactory.Industry
         public override void Tick()
         {
             base.Tick();
-            if (powerComp.PowerOn && this.IsHashIntervalTick(10))
+            if (powerComp.PowerOn)
             {
                 if (ThingToGenerate != null)
                 {
                     float fuel = refuelableComp.Fuel;
-                    float consumption = FuelConsumptionPerTick * 10;
-                    if (fuel >= consumption)
+                    if (fuel >= FuelConsumptionPerTick)
                     {
-                        refuelableComp.ConsumeFuel(consumption);
-                        progressTicks += 10;
+                        refuelableComp.ConsumeFuel(FuelConsumptionPerTick);
+                        progressTicks += speedFactor;
                         if (progressTicks >= TotalWorkRequired)
                         {
                             Thing thing = ThingMaker.MakeThing(ThingToGenerate);
@@ -107,6 +125,14 @@ namespace ProjectRimFactory.Industry
             }
             builder.Append("AtomicReconstructorProgress".Translate(ProgressToStringPercent));
             return builder.ToString().TrimEndNewlines();
+        }
+
+        public override void ExposeData()
+        {
+            base.ExposeData();
+            Scribe_Defs.Look(ref thingToGenerate, "thingToGenerate");
+            Scribe_Values.Look(ref progressTicks, "progressTicks");
+            Scribe_Values.Look(ref speedFactor, "speedFactor", 1);
         }
     }
 }
