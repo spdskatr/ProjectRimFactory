@@ -122,6 +122,7 @@
         <basePowerConsumption>50</basePowerConsumption>
       </li>
       <li Class="CompProperties_Flickable" />
+	  <li><compClass>ProjectRimFactory.Common.CompPRFHelp</compClass></li>
     </comps>
     <tickerType>Normal</tickerType>
     <rotatable>true</rotatable>
@@ -171,7 +172,7 @@
     <comps>
       <li Class="CompProperties_Power">
         <compClass>ProjectRimFactory.Industry.CompPaperclipPowerPlant</compClass>
-        <basePowerConsumption>-10</basePowerConsumption>
+        <basePowerConsumption>-1</basePowerConsumption>
         <transmitsPower>true</transmitsPower>
       </li>
       <li Class="CompProperties_Flickable" />
@@ -192,6 +193,7 @@
         <glowColor>(217,112,33,0)</glowColor>
       </li>
       <li Class="CompProperties_Breakdownable"/>
+	  <li><compClass>ProjectRimFactory.Common.CompPRFHelp</compClass></li>
     </comps>
     <terrainAffordanceNeeded>Heavy</terrainAffordanceNeeded>
     <designationCategory>Automation</designationCategory>
@@ -242,6 +244,7 @@
         </fuelFilter>
         <consumeFuelOnlyWhenUsed>true</consumeFuelOnlyWhenUsed>
       </li>
+	  <li><compClass>ProjectRimFactory.Common.CompPRFHelp</compClass></li>
 	</comps>
 	<researchPrerequisites>
 	  <li>SelfCorrectingAssemblers</li>

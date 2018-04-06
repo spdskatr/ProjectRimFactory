@@ -191,10 +191,6 @@ namespace ProjectRimFactory.CultivatorTools
     public class Building_Sprinkler : Building_RadialCellIterator
     {
         public override int TickRate => 50;
-        public override bool CellValidator(IntVec3 c)
-        { 
-            return base.CellValidator(c) && c.GetPlant(Map) != null;
-        }
 
         public override bool DoIterationWork(IntVec3 c)
         {

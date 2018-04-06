@@ -37,6 +37,7 @@
 		<shortCircuitInRain>false</shortCircuitInRain>
         <basePowerConsumption>500</basePowerConsumption>
       </li>
+      <li><compClass>ProjectRimFactory.Common.CompPRFHelp</compClass></li>
     </comps>
     <tickerType>Normal</tickerType>
     <rotatable>true</rotatable>
@@ -98,6 +99,7 @@
         <glowColor>(370,370,370,0)</glowColor>
       </li>
       <li Class="CompProperties_Flickable" />
+      <li><compClass>ProjectRimFactory.Common.CompPRFHelp</compClass></li>
     </comps>
     <tickerType>Normal</tickerType>
     <rotatable>true</rotatable>
@@ -154,6 +156,7 @@
 		<shortCircuitInRain>false</shortCircuitInRain>
       </li>
 	  <li Class="CompProperties_Flickable" />
+      <li><compClass>ProjectRimFactory.Common.CompPRFHelp</compClass></li>
     </comps>
     <specialDisplayRadius>12</specialDisplayRadius>
     <tickerType>Normal</tickerType>

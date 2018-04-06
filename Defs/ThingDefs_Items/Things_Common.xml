@@ -221,7 +221,7 @@
   <ThingDef ParentName="PRFResourceBase">
     <defName>Paperclip</defName>
     <label>paperclip</label>
-    <description>A small metal object weighing exactly 1 gram. These paperclips have very predictable and regular physical properties, and are quite flexible, making them ideal as an intermediate resource for subatomic and molecular resassembly.</description>
+    <description>A small metal object weighing exactly 1 gram. Paperclips are ideal as an intermediate resource for atomic and molecular resassembly.</description>
     <graphicData>
       <texPath>Common/Paperclip</texPath>
       <graphicClass>Graphic_Single</graphicClass>

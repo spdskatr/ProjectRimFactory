@@ -32,6 +32,7 @@
 	<comps>
 	  <li><compClass>ProjectRimFactory.Common.CompOutputAdjustable</compClass></li>
 	  <li Class="CompProperties_Flickable" />
+      <li><compClass>ProjectRimFactory.Common.CompPRFHelp</compClass></li>
 	</comps>
   </ThingDef>
   
@@ -183,6 +184,7 @@
 	    <compClass>CompPowerTrader</compClass>
 		<basePowerConsumption>250</basePowerConsumption>
 	  </li>
+      <li><compClass>ProjectRimFactory.Common.CompPRFHelp</compClass></li>
 	</comps>
 	<researchPrerequisites>
 	  <li>MagneticTape</li>

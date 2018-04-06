@@ -48,6 +48,9 @@
 	  <li>ITab_Storage</li>
 	  <li>ProjectRimFactory.Storage.UI.ITab_Items</li>
 	</inspectorTabs>
+    <comps>
+	  <li><compClass>ProjectRimFactory.Common.CompPRFHelp</compClass></li>
+    </comps>
   </ThingDef>
   
   <ThingDef ParentName="PRFMassStorageBase">

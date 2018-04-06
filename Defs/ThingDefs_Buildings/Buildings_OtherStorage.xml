@@ -55,6 +55,7 @@
         <basePowerConsumption>300</basePowerConsumption>
       </li>
 	  <li Class="CompProperties_Flickable" />
+	  <li><compClass>ProjectRimFactory.Common.CompPRFHelp</compClass></li>
     </comps>
     <tickerType>Normal</tickerType>
     <rotatable>true</rotatable>
