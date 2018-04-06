@@ -47,7 +47,10 @@ namespace ProjectRimFactory.Common
                     icon = LaunchReportTex,
                     action = () =>
                     {
-                        Find.WindowStack.Add(new Dialog_MessageBox(helpText));
+                        if (Find.WindowStack.WindowOfType<Dialog_MessageBox>() == null)
+                        {
+                            Find.WindowStack.Add(new Dialog_MessageBox(helpText));
+                        }
                     }
                 };
             }
@@ -62,7 +65,10 @@ namespace ProjectRimFactory.Common
                         icon = LaunchReportTex,
                         action = () =>
                         {
-                            Find.WindowStack.Add(new Dialog_MessageBox(ordoText));
+                            if (Find.WindowStack.WindowOfType<Dialog_MessageBox>() == null)
+                            {
+                                Find.WindowStack.Add(new Dialog_MessageBox(ordoText));
+                            }
                         }
                     };
                 }

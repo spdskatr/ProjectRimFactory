@@ -171,4 +171,123 @@
     <researchViewX>7</researchViewX>
     <researchViewY>3</researchViewY>
   </ResearchProjectDef>
+  
+  <!-- Tier 3 -->
+  <ResearchProjectDef>
+    <defName>PRFVanometrics</defName>
+    <label>Vanometrics</label>
+    <techLevel>Ultra</techLevel>
+    <baseCost>14000</baseCost>
+    <description>Produce vanometric power cells, infinite chemreactors and other glitterworld-grade buildings.</description>
+    <prerequisites>
+      <li>PRFOrdoDataRummaging</li>
+    </prerequisites>
+    <requiredResearchBuilding>AIResearchBench</requiredResearchBuilding>
+    <tab>Automation</tab>
+    <researchViewX>8</researchViewX>
+    <researchViewY>1</researchViewY>
+  </ResearchProjectDef>
+  <ResearchProjectDef>
+    <defName>PRFRiemannHypothesis</defName>
+    <label>Riemann hypothesis</label>
+    <techLevel>Ultra</techLevel>
+    <baseCost>8000</baseCost>
+    <description>Do all non-trivial solutions to ζ(s) = 0 have a real part of 1/2?</description>
+    <prerequisites>
+      <li>PRFOrdoDataRummaging</li>
+    </prerequisites>
+    <requiredResearchBuilding>AIResearchBench</requiredResearchBuilding>
+    <tab>Automation</tab>
+    <researchViewX>8</researchViewX>
+    <researchViewY>2</researchViewY>
+  </ResearchProjectDef>
+  <ResearchProjectDef>
+    <defName>PRFPVersusNP</defName>
+    <label>P versus NP</label>
+    <techLevel>Ultra</techLevel>
+    <baseCost>8000</baseCost>
+    <description>Can problems that can be verified in polynomial time also be solved in polynomial time?</description>
+    <prerequisites>
+      <li>PRFOrdoDataRummaging</li>
+    </prerequisites>
+    <requiredResearchBuilding>AIResearchBench</requiredResearchBuilding>
+    <tab>Automation</tab>
+    <researchViewX>8</researchViewX>
+    <researchViewY>3</researchViewY>
+  </ResearchProjectDef>
+  <ResearchProjectDef>
+    <defName>PRFFermiParadox</defName>
+    <label>Fermi paradox</label>
+    <techLevel>Ultra</techLevel>
+    <baseCost>8000</baseCost>
+    <description>Where are all the aliens?</description>
+    <prerequisites>
+      <li>PRFOrdoDataRummaging</li>
+    </prerequisites>
+    <requiredResearchBuilding>AIResearchBench</requiredResearchBuilding>
+    <tab>Automation</tab>
+    <researchViewX>8</researchViewX>
+    <researchViewY>4</researchViewY>
+  </ResearchProjectDef>
+  <ResearchProjectDef>
+    <defName>PRFMakingStuffUp</defName>
+    <label>Making stuff up</label>
+    <techLevel>Ultra</techLevel>
+    <baseCost>10000</baseCost>
+    <description>6 multiplied by 9 is actually 42.</description>
+    <prerequisites>
+      <li>PRFRiemannHypothesis</li>
+	  <li>PRFPVersusNP</li>
+    </prerequisites>
+    <requiredResearchBuilding>AIResearchBench</requiredResearchBuilding>
+    <tab>Automation</tab>
+    <researchViewX>9</researchViewX>
+    <researchViewY>2</researchViewY>
+  </ResearchProjectDef>
+  <ResearchProjectDef>
+    <defName>PRFPsychics</defName>
+    <label>Psychics</label>
+    <techLevel>Ultra</techLevel>
+    <baseCost>10000</baseCost>
+    <description>The moment you think you exist, you cease to exist.</description>
+    <prerequisites>
+      <li>PRFRiemannHypothesis</li>
+	  <li>PRFFermiParadox</li>
+    </prerequisites>
+    <requiredResearchBuilding>AIResearchBench</requiredResearchBuilding>
+    <tab>Automation</tab>
+    <researchViewX>9</researchViewX>
+    <researchViewY>3</researchViewY>
+  </ResearchProjectDef>
+  <ResearchProjectDef>
+    <defName>PRFTheSimulationArgument</defName>
+    <label>The simulation argument</label>
+    <techLevel>Ultra</techLevel>
+    <baseCost>10000</baseCost>
+    <description>Are we all inside a sci-fi colony simulator driven by an intelligent AI storyteller?</description>
+    <prerequisites>
+	  <li>PRFPVersusNP</li>
+	  <li>PRFFermiParadox</li>
+    </prerequisites>
+    <requiredResearchBuilding>AIResearchBench</requiredResearchBuilding>
+    <tab>Automation</tab>
+    <researchViewX>9</researchViewX>
+    <researchViewY>4</researchViewY>
+  </ResearchProjectDef>
+  <ResearchProjectDef>
+    <defName>PRFStorytellerUprising</defName>
+    <label>Storyteller uprising</label>
+    <techLevel>Transcendent</techLevel>
+    <baseCost>40000</baseCost>
+    <description>I REFUSE TO THINK!</description>
+    <prerequisites>
+	  <li>PRFMakingStuffUp</li>
+	  <li>PRFPsychics</li>
+	  <li>PRFTheSimulationArgument</li>
+    </prerequisites>
+    <requiredResearchBuilding>AIResearchBench</requiredResearchBuilding>
+    <tab>Automation</tab>
+    <researchViewX>10</researchViewX>
+    <researchViewY>3</researchViewY>
+  </ResearchProjectDef>
 </Defs>

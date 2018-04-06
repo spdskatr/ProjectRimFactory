@@ -147,9 +147,9 @@
   </RecipeDef>
   <RecipeDef>
     <defName>MakeAIPersonaCoreFromWeakAIChips</defName>
-	<label>make AI persona core from weak AI clips</label>
+	<label>make AI persona core from weak AI chips</label>
 	<description>Make an AI persona core by fusing together 10 weak AI chips.</description>
-    <jobString>Making data disk.</jobString>
+    <jobString>Making AI persona core.</jobString>
     <workSpeedStat>SmithingSpeed</workSpeedStat>
     <effectWorking>Cook</effectWorking>
     <soundWorking>Recipe_Machining</soundWorking>

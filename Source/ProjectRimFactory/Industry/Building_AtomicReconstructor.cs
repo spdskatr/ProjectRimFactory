@@ -52,7 +52,7 @@ namespace ProjectRimFactory.Industry
             {
                 if (ThingToGenerate == null)
                     return 0;
-                return ItemBaseCost / TotalWorkRequired;
+                return ItemBaseCost / (TotalWorkRequired * speedFactor);
             }
         }
 

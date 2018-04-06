@@ -37,7 +37,7 @@
     <label>paperclip power generator: self-improvement</label>
     <techLevel>Spacer</techLevel>
     <baseCost>2250</baseCost>
-    <description>Paperclip generator slowly produces more power per paperclip (up to 500%) unless flicked or out of fuel.</description>
+    <description>Paperclip power generator slowly produces more power per paperclip (up to 500%) unless flicked or out of fuel.</description>
     <prerequisites>
       <li>PRFGoldbachConjecture</li>
       <li>PaperclipProduction</li>
@@ -53,7 +53,7 @@
     <label>paperclip power generator: kugelblitz</label>
     <techLevel>Spacer</techLevel>
     <baseCost>5000</baseCost>
-    <description>Paperclip generator maximum efficiency increased up to 2500%.</description>
+    <description>Paperclip power generator maximum efficiency increased up to 2500%.</description>
     <prerequisites>
       <li>PaperclipGeneratorSelfImprovement</li>
     </prerequisites>
@@ -68,7 +68,7 @@
     <label>paperclip power generator: quantum foam manipulation</label>
     <techLevel>Spacer</techLevel>
     <baseCost>10000</baseCost>
-    <description>Paperclip generator maximum efficiency increased up to 10000%.</description>
+    <description>Paperclip power generator maximum efficiency increased up to 10000%.</description>
     <prerequisites>
       <li>PaperclipGeneratorKugelblitz</li>
     </prerequisites>
