@@ -174,20 +174,6 @@
   
   <!-- Tier 3 -->
   <ResearchProjectDef>
-    <defName>PRFVanometrics</defName>
-    <label>Vanometrics</label>
-    <techLevel>Ultra</techLevel>
-    <baseCost>14000</baseCost>
-    <description>Produce vanometric power cells, infinite chemreactors and other glitterworld-grade buildings.</description>
-    <prerequisites>
-      <li>PRFOrdoDataRummaging</li>
-    </prerequisites>
-    <requiredResearchBuilding>AIResearchBench</requiredResearchBuilding>
-    <tab>Automation</tab>
-    <researchViewX>8</researchViewX>
-    <researchViewY>1</researchViewY>
-  </ResearchProjectDef>
-  <ResearchProjectDef>
     <defName>PRFRiemannHypothesis</defName>
     <label>Riemann hypothesis</label>
     <techLevel>Ultra</techLevel>
@@ -230,11 +216,11 @@
     <researchViewY>4</researchViewY>
   </ResearchProjectDef>
   <ResearchProjectDef>
-    <defName>PRFMakingStuffUp</defName>
-    <label>Making stuff up</label>
+    <defName>PRFVanometrics</defName>
+    <label>Vanometrics</label>
     <techLevel>Ultra</techLevel>
     <baseCost>10000</baseCost>
-    <description>6 multiplied by 9 is actually 42.</description>
+    <description>Produce vanometric power cells, infinite chemreactors and other glitterworld-grade buildings.</description>
     <prerequisites>
       <li>PRFRiemannHypothesis</li>
 	  <li>PRFPVersusNP</li>
@@ -281,7 +267,7 @@
     <baseCost>40000</baseCost>
     <description>I REFUSE TO THINK!</description>
     <prerequisites>
-	  <li>PRFMakingStuffUp</li>
+	  <li>PRFVanometrics</li>
 	  <li>PRFPsychics</li>
 	  <li>PRFTheSimulationArgument</li>
     </prerequisites>
