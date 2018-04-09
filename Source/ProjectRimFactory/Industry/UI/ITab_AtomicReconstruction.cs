@@ -94,6 +94,7 @@ namespace ProjectRimFactory.Industry.UI
             Text.Anchor = TextAnchor.UpperLeft;
             y += 28f;
         }
+
         public static IEnumerable<ThingDef> AllAllowedThingDefsColonyCanProduce()
         {
             if (PRFDefOf.PRFAtomicReconstruction.IsFinished)
@@ -103,6 +104,10 @@ namespace ProjectRimFactory.Industry.UI
                     if (!tDef.MadeFromStuff)
                     {
                         if (!PRFDefOf.PRFNanoMaterials.IsFinished && (tDef == PRFDefOf.PRFXComposite || tDef == PRFDefOf.PRFYComposite))
+                        {
+                            continue;
+                        }
+                        if (!PRFDefOf.PRFVanometrics.IsFinished && (tDef == PRFDefOf.PRFZComposite || tDef == PRFDefOf.PRFVolatiteChunk))
                         {
                             continue;
                         }

@@ -54,6 +54,11 @@
   <ItemGroup>
     <Compile Include="AnimalStation\Building_Classes.cs" />
     <Compile Include="AnimalStation\PlaceWorker_ShowAdjacent.cs" />
+    <Compile Include="Archo\ArchoCipher.cs" />
+    <Compile Include="Archo\CompProperties_Unstable.cs" />
+    <Compile Include="Archo\CompUnstable.cs" />
+    <Compile Include="Archo\ITab_ArchoCipher.cs" />
+    <Compile Include="Archo\ResearchMod_Notify.cs" />
     <Compile Include="Common\Cache.cs" />
     <Compile Include="Common\CompOutputAdjustable.cs" />
     <Compile Include="Common\CompPRFHelp.cs" />

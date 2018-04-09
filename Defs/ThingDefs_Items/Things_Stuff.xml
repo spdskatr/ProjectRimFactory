@@ -70,8 +70,8 @@
     <statBases>
       <MarketValue>80</MarketValue>
       <Mass>1</Mass>
-      <SharpDamageMultiplier>0.5</SharpDamageMultiplier>
-      <BluntDamageMultiplier>1.1</BluntDamageMultiplier>
+      <SharpDamageMultiplier>4.0</SharpDamageMultiplier>
+      <BluntDamageMultiplier>4.0</BluntDamageMultiplier>
     </statBases>
     <thingCategories>
       <li>ResourcesRaw</li>
@@ -97,5 +97,95 @@
         <MeleeWeapon_CooldownMultiplier>0.4</MeleeWeapon_CooldownMultiplier>
       </statFactors>
     </stuffProps>
+  </ThingDef>
+  <ThingDef ParentName="PRFResourceBase">
+    <defName>PRFZComposite</defName>
+    <label>Z-Composite</label>
+    <description>An exotic material that can posess virtually any emergent property under the right conditions. Functions as a wood, metal, stone, or fabric. It is rigid yet easy to bend, sharp yet easy to mold.</description>
+    <graphicData>
+      <texPath>Common/Composite</texPath>
+      <graphicClass>Graphic_StackCount</graphicClass>
+	  <color>(112,48,160)</color>
+    </graphicData>
+    <resourceReadoutPriority>Middle</resourceReadoutPriority>
+    <soundInteract>Metal_Drop</soundInteract>
+    <soundDrop>Metal_Drop</soundDrop>
+    <useHitPoints>false</useHitPoints>
+    <statBases>
+      <MarketValue>400</MarketValue>
+      <Mass>1</Mass>
+      <SharpDamageMultiplier>15.0</SharpDamageMultiplier>
+      <BluntDamageMultiplier>15.0</BluntDamageMultiplier>
+    </statBases>
+    <thingCategories>
+      <li>ResourcesRaw</li>
+    </thingCategories>
+    <stackLimit>75</stackLimit>
+    <stuffProps>
+      <categories>
+        <li>Metallic</li>
+		<li>Stony</li>
+		<li>Woody</li>
+		<li>Fabric</li>
+      </categories>
+      <color>(112,48,160)</color>
+      <commonality>0</commonality>
+      <constructEffect>ConstructMetal</constructEffect>
+      <soundImpactStuff>BulletImpactMetal</soundImpactStuff>
+      <soundMeleeHitSharp>MeleeHit_Metal_Sharp</soundMeleeHitSharp>
+      <soundMeleeHitBlunt>MeleeHit_Metal_Blunt</soundMeleeHitBlunt>
+      <statOffsets>
+        <Beauty>24</Beauty>
+        <ArmorRating_Blunt>0.1</ArmorRating_Blunt>
+        <ArmorRating_Sharp>0.1</ArmorRating_Sharp>
+        <ArmorRating_Heat>0.1</ArmorRating_Heat>
+		<ArmorRating_Electric>0.1</ArmorRating_Electric>
+      </statOffsets>
+      <statFactors>
+        <MaxHitPoints>40</MaxHitPoints>
+        <Flammability>0</Flammability>
+        <WorkToMake>0.1</WorkToMake>
+        <WorkToBuild>0.1</WorkToBuild>
+        <MeleeWeapon_CooldownMultiplier>0.2</MeleeWeapon_CooldownMultiplier>
+        <DoorOpenSpeed>2.0</DoorOpenSpeed>
+        <Beauty>10</Beauty>
+        <ArmorRating_Blunt>8.0</ArmorRating_Blunt>
+        <ArmorRating_Sharp>8.0</ArmorRating_Sharp>
+        <ArmorRating_Heat>8.0</ArmorRating_Heat>
+        <ArmorRating_Electric>8.0</ArmorRating_Electric>
+        <Insulation_Cold>3.0</Insulation_Cold>
+        <Insulation_Heat>3.0</Insulation_Heat>
+      </statFactors>
+    </stuffProps>
+  </ThingDef>
+  <ThingDef ParentName="PRFResourceBase">
+    <defName>PRFVolatiteChunk</defName>
+    <label>volatite chunk</label>
+    <description>This item cannot be used as a material. It is used in the production of vanometrics. It is so volatile that it disintegrates in 24 hours.</description>
+    <graphicData>
+      <texPath>Things/Item/Chunk/ChunkStone</texPath>
+      <graphicClass>Graphic_Random</graphicClass>
+      <flipExtraRotation>80</flipExtraRotation>
+	  <color>(255,0,0)</color>
+    </graphicData>
+    <resourceReadoutPriority>Uncounted</resourceReadoutPriority>
+    <soundInteract>Metal_Drop</soundInteract>
+    <soundDrop>Metal_Drop</soundDrop>
+    <statBases>
+      <MarketValue>20</MarketValue>
+      <MaxHitPoints>50</MaxHitPoints>
+      <Mass>20</Mass>
+    </statBases>
+    <thingCategories>
+      <li>ResourcesRaw</li>
+    </thingCategories>
+    <stackLimit>1</stackLimit>
+	<drawGUIOverlay>false</drawGUIOverlay>
+	<tradeability>Never</tradeability>
+	<comps>
+	  <li Class="ProjectRimFactory.Archo.CompProperties_Unstable">
+	    <ticksToDisintegrate>60000</ticksToDisintegrate>
+	  </li>
+	</comps>
   </ThingDef>
 </Defs>

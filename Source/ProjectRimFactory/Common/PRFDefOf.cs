@@ -14,9 +14,12 @@ namespace ProjectRimFactory.Common
         public static ResearchProjectDef PaperclipGeneratorKugelblitz;
         public static ResearchProjectDef PaperclipGeneratorQuantumFoamManipulation;
         public static ResearchProjectDef PRFOrdoDataRummaging;
+        public static ResearchProjectDef PRFVanometrics;
 
         public static ThingDef Paperclip;
         public static ThingDef PRFXComposite;
         public static ThingDef PRFYComposite;
+        public static ThingDef PRFZComposite;
+        public static ThingDef PRFVolatiteChunk;
     }
 }
