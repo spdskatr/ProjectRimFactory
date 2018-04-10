@@ -161,7 +161,7 @@
   <ThingDef ParentName="PRFResourceBase">
     <defName>PRFVolatiteChunk</defName>
     <label>volatite chunk</label>
-    <description>This item cannot be used as a material. It is used in the production of vanometrics. It is so volatile that it disintegrates in 24 hours.</description>
+    <description>This item cannot be used as a material. It is used in the production of vanometrics. It is so volatile that it explodes violently in 24 hours.</description>
     <graphicData>
       <texPath>Things/Item/Chunk/ChunkStone</texPath>
       <graphicClass>Graphic_Random</graphicClass>
@@ -172,7 +172,7 @@
     <soundInteract>Metal_Drop</soundInteract>
     <soundDrop>Metal_Drop</soundDrop>
     <statBases>
-      <MarketValue>20</MarketValue>
+      <MarketValue>100</MarketValue>
       <MaxHitPoints>50</MaxHitPoints>
       <Mass>20</Mass>
     </statBases>
@@ -182,6 +182,7 @@
     <stackLimit>1</stackLimit>
 	<drawGUIOverlay>false</drawGUIOverlay>
 	<tradeability>Never</tradeability>
+    <tickerType>Normal</tickerType>
 	<comps>
 	  <li Class="ProjectRimFactory.Archo.CompProperties_Unstable">
 	    <ticksToDisintegrate>60000</ticksToDisintegrate>
