@@ -177,7 +177,7 @@
       <Mass>20</Mass>
     </statBases>
     <thingCategories>
-      <li>ResourcesRaw</li>
+      <li>StoneChunks</li>
     </thingCategories>
     <stackLimit>1</stackLimit>
 	<drawGUIOverlay>false</drawGUIOverlay>

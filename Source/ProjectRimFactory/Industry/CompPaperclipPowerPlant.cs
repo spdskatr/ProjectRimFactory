@@ -12,7 +12,7 @@ namespace ProjectRimFactory.Industry
     [StaticConstructorOnStartup]
     public class CompPaperclipPowerPlant : CompPowerPlant
     {
-        static readonly Texture2D SetTargetFuelLevelCommand = ContentFinder<Texture2D>.Get("UI/Commands/SetTargetFuelLevel", true);
+        public static readonly Texture2D SetTargetFuelLevelCommand = ContentFinder<Texture2D>.Get("UI/Commands/SetTargetFuelLevel", true);
 
         public int fuelPerSecond = 1;
         public int currentPowerModifierPct = 100;

@@ -31,7 +31,7 @@
 	  <Crafting>8</Crafting>
 	</skillRequirements>
     <workSkill>Crafting</workSkill>
-	<recipeUsers><li>TableMachining</li></recipeUsers>
+	<recipeUsers><li>TableMachining</li><li>TableRoboticMachining</li></recipeUsers>
 	<researchPrerequisite>MagneticTape</researchPrerequisite>
   </RecipeDef>
   <RecipeDef>

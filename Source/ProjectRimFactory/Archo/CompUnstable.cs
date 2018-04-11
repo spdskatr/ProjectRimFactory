@@ -35,5 +35,9 @@ namespace ProjectRimFactory.Archo
             base.Initialize(props);
             ticksLeft = Props.ticksToDisintegrate;
         }
+        public override void PostExposeData()
+        {
+            Scribe_Values.Look(ref ticksLeft, "ticksLeft");
+        }
     }
 }

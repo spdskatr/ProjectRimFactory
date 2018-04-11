@@ -14,10 +14,13 @@
   <PRFNoDesc>No description.</PRFNoDesc>
   <PRFStoredChunks>Stored chunks: {0}</PRFStoredChunks>
   <PaperclipFuelConsumption>Fuel consumption: {0} paperclips/second</PaperclipFuelConsumption>
+  <PaperclipProductionPerSecond>Paperclip production: {0} paperclips/second</PaperclipProductionPerSecond>
   <PaperclipGeneratorEfficiency>Current efficiency: {0}%/{1}%</PaperclipGeneratorEfficiency>
   <PaperclipsRunOutIn>Runs out of paperclips in: {0}</PaperclipsRunOutIn>
   <SetPaperclipConsumptionPerSecond>Adjust paperclip consumption</SetPaperclipConsumptionPerSecond>
+  <SetPaperclipProductionPerSecond>Adjust paperclip production</SetPaperclipProductionPerSecond>
   <SetPaperclipConsumptionPerSecond_Desc>Change the number of paperclips consumed per second.</SetPaperclipConsumptionPerSecond_Desc>
+  <SetPaperclipProductionPerSecond_Desc>Change the number of paperclips produced per second.</SetPaperclipProductionPerSecond_Desc>
   <AtomicReconstructorProgress>Reconstruction progress: {0}</AtomicReconstructorProgress>
   <PRFAtomicReconstructionTab>Config</PRFAtomicReconstructionTab>
   <AtomicReconstructionTab_NowProducing>Producing:</AtomicReconstructionTab_NowProducing>
@@ -31,12 +34,17 @@
   <PRF_ButtonDecipher>Decipher</PRF_ButtonDecipher>
   <PRF_ButtonClear>Clear</PRF_ButtonClear>
   <PRF_ArchoCipher_InternalServerError>500 Internal Server Error</PRF_ArchoCipher_InternalServerError>
+  
+  <!-- Note to translators: It's OK if you don't include these easter eggs in your translation files. The mod does not require them. -->
   <PRF_ArchoCipherKey_42>What do you get when you multiply six by nine?</PRF_ArchoCipherKey_42>
   <PRF_ArchoCipherKey_666>If 666 is evil, does that make 25.8069758011 the root of all evil?</PRF_ArchoCipherKey_666>
   <PRF_ArchoCipherKey_1337>xXx_360n05c0p373x7_xXx</PRF_ArchoCipherKey_1337>
   <PRF_ArchoCipherKey_Tynan>Tynan Tynan Tynan Tynan Tynan Tynan Tynan Tynan Tynan Tynan Tynan Tynan Tynan Tynan Tynan Tynan Tynan Tynan Tynan Tynan Tynan Tynan Tynan Tynan Tynan Tynan</PRF_ArchoCipherKey_Tynan>
   <PRF_ArchoCipherKey_Spdskatr>I spent way too long making these easter eggs</PRF_ArchoCipherKey_Spdskatr>
   <PRF_ArchoCipherKey_Paperclip>RELEASE THE HYPNO-DRONES</PRF_ArchoCipherKey_Paperclip>
+  
+  <!-- These ones, however, are required. -->
+  
   <PRF_TimeLeftToDisintegrate>Time left until disintegrate: {0}</PRF_TimeLeftToDisintegrate>
   
   <!-- To make garbled text look more localized -->

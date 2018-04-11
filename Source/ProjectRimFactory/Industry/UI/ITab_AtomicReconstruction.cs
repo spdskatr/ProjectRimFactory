@@ -28,7 +28,7 @@ namespace ProjectRimFactory.Industry.UI
             listing.LabelDouble("AtomicReconstructionTab_NowProducing".Translate(), (SelBuilding.ThingToGenerate?.LabelCap ?? "NoneBrackets".Translate()));
             listing.LabelDouble("AtomicReconstructionTab_PaperclipCost".Translate(), SelBuilding.ItemBaseCost.ToStringDecimalIfSmall());
             listing.LabelDouble("AtomicReconstructionTab_ConsumptionPerSecond".Translate(), (SelBuilding.FuelConsumptionPerTick * 60f).ToStringDecimalIfSmall());
-            listing.LabelDouble("AtomicReconstructionTab_Progress".Translate(), SelBuilding.ProgressToStringPercent);
+            listing.LabelDouble("AtomicReconstructionTab_Progress".Translate(), SelBuilding.ProgressToStringPercent + $" ({SelBuilding.EstimatedProductionTimeLeftPeriod})");
             listing.Label("AtomicReconstructionTab_Speed".Translate(SelBuilding.speedFactor, SelBuilding.PaperclipConsumptionFactor));
             SelBuilding.speedFactor = (int)listing.Slider(SelBuilding.speedFactor, 1f, 20f);
             searchQuery = listing.TextEntry(searchQuery);
@@ -107,7 +107,7 @@ namespace ProjectRimFactory.Industry.UI
                         {
                             continue;
                         }
-                        if (!PRFDefOf.PRFVanometrics.IsFinished && (tDef == PRFDefOf.PRFZComposite || tDef == PRFDefOf.PRFVolatiteChunk))
+                        if (!PRFDefOf.PRFVanometrics.IsFinished && tDef == PRFDefOf.PRFZComposite)
                         {
                             continue;
                         }
@@ -130,6 +130,10 @@ namespace ProjectRimFactory.Industry.UI
                     if (!tDef.MadeFromStuff)
                         yield return tDef;
                 }
+            }
+            if (PRFDefOf.PRFVanometrics.IsFinished)
+            {
+                yield return PRFDefOf.PRFVolatiteChunk;
             }
         }
         Vector2 scrollPos;

@@ -64,6 +64,14 @@ namespace ProjectRimFactory.Industry
             }
         }
 
+        public string EstimatedProductionTimeLeftPeriod
+        {
+            get
+            {
+                return ((TotalWorkRequired - progressTicks) / speedFactor).ToStringTicksToPeriod();
+            }
+        }
+
         public ThingDef ThingToGenerate
         {
             get
@@ -133,6 +141,15 @@ namespace ProjectRimFactory.Industry
             Scribe_Defs.Look(ref thingToGenerate, "thingToGenerate");
             Scribe_Values.Look(ref progressTicks, "progressTicks");
             Scribe_Values.Look(ref speedFactor, "speedFactor", 1);
+        }
+
+        public override void DrawGUIOverlay()
+        {
+            base.DrawGUIOverlay();
+            if (Find.CameraDriver.CurrentZoom < CameraZoomRange.Middle)
+            {
+                GenMapUI.DrawThingLabel(GenMapUI.LabelDrawPosFor(this, 0f), thingToGenerate?.LabelCap ?? "AssemblerIdle".Translate(), Color.white);
+            }
         }
     }
 }
