@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<Defs>
+<Defs InsertionHook="RTFuse">
   <ThingDef ParentName="PRFBuildingBase">
     <defName>PRF_DeepQuarry</defName>
     <label>deep quarry</label>
@@ -196,7 +196,7 @@
 	  <li><compClass>ProjectRimFactory.Common.CompPRFHelp</compClass></li>
     </comps>
     <terrainAffordanceNeeded>Heavy</terrainAffordanceNeeded>
-    <designationCategory>Automation</designationCategory>
+    <designationCategory>Power</designationCategory>
     <staticSunShadowHeight>0.5</staticSunShadowHeight>
     <designationHotKey>Misc3</designationHotKey>
     <constructEffect>ConstructMetal</constructEffect>
@@ -254,5 +254,265 @@
 	  <li>ProjectRimFactory.Industry.UI.ITab_AtomicReconstruction</li>
 	</inspectorTabs>
     <stuffCategories />
+  </ThingDef>
+  
+  <ThingDef ParentName="PRFBuildingBase">
+    <defName>Battery10k</defName>
+    <label>10k battery</label>
+    <thingClass>Building_Battery</thingClass>
+    <graphicData>
+      <texPath>Industry/Battery/Battery10k</texPath>
+      <graphicClass>Graphic_Multi</graphicClass>
+      <drawSize>(2,3)</drawSize>
+      <damageData>
+        <cornerTL>Damage/Corner</cornerTL>
+        <cornerTR>Damage/Corner</cornerTR>
+        <cornerBL>Damage/Corner</cornerBL>
+        <cornerBR>Damage/Corner</cornerBR>
+      </damageData>
+    </graphicData>
+    <altitudeLayer>Building</altitudeLayer>
+    <passability>PassThroughOnly</passability>
+    <pathCost>70</pathCost>
+    <blockWind>true</blockWind>
+    <castEdgeShadows>true</castEdgeShadows>
+    <fillPercent>0.40</fillPercent>
+    <tickerType>Normal</tickerType>
+    <minifiedDef>MinifiedFurniture</minifiedDef>
+    <statBases>
+      <MaxHitPoints>100</MaxHitPoints>
+      <WorkToBuild>800</WorkToBuild>
+      <Mass>40</Mass>
+      <Flammability>1.0</Flammability>
+      <Beauty>-40</Beauty>
+    </statBases>
+    <description>A battery that can store 10000Wd of power.</description>
+    <size>(1,2)</size>
+    <costList>
+      <Steel>200</Steel>
+      <Plasteel>20</Plasteel>
+      <Component>6</Component>
+    </costList>
+    <comps>
+      <li Class="CompProperties_Battery">
+        <storedEnergyMax>10000</storedEnergyMax>
+        <efficiency>0.5</efficiency>
+        <startElectricalFires>true</startElectricalFires>
+        <transmitsPower>true</transmitsPower>
+      </li>
+      <li Class="CompProperties_Breakdownable"/>
+    </comps>
+    <terrainAffordanceNeeded>Light</terrainAffordanceNeeded>
+    <designationCategory>Power</designationCategory>
+    <staticSunShadowHeight>0.5</staticSunShadowHeight>
+    <constructEffect>ConstructMetal</constructEffect>
+    <researchPrerequisites>
+      <li>AutomationBasics</li>
+    </researchPrerequisites>
+  </ThingDef>
+  
+  <ThingDef ParentName="PRFBuildingBase">
+    <defName>Battery100k</defName>
+    <label>100k battery</label>
+    <thingClass>Building_Battery</thingClass>
+    <graphicData>
+      <texPath>Industry/Battery/Battery100k</texPath>
+      <graphicClass>Graphic_Multi</graphicClass>
+      <drawSize>(2,3)</drawSize>
+      <damageData>
+        <cornerTL>Damage/Corner</cornerTL>
+        <cornerTR>Damage/Corner</cornerTR>
+        <cornerBL>Damage/Corner</cornerBL>
+        <cornerBR>Damage/Corner</cornerBR>
+      </damageData>
+    </graphicData>
+    <altitudeLayer>Building</altitudeLayer>
+    <passability>PassThroughOnly</passability>
+    <pathCost>70</pathCost>
+    <blockWind>true</blockWind>
+    <castEdgeShadows>true</castEdgeShadows>
+    <fillPercent>0.40</fillPercent>
+    <tickerType>Normal</tickerType>
+    <minifiedDef>MinifiedFurniture</minifiedDef>
+    <statBases>
+      <MaxHitPoints>100</MaxHitPoints>
+      <WorkToBuild>1000</WorkToBuild>
+      <Mass>40</Mass>
+      <Flammability>1.0</Flammability>
+      <Beauty>-40</Beauty>
+    </statBases>
+    <description>A battery that can store 100000Wd of power. Has 100% efficiency.</description>
+    <size>(1,2)</size>
+    <costList>
+      <Steel>500</Steel>
+      <Plasteel>60</Plasteel>
+      <Component>12</Component>
+    </costList>
+    <comps>
+      <li Class="CompProperties_Battery">
+        <storedEnergyMax>100000</storedEnergyMax>
+        <efficiency>1</efficiency>
+        <startElectricalFires>true</startElectricalFires>
+        <transmitsPower>true</transmitsPower>
+      </li>
+      <li Class="CompProperties_Breakdownable"/>
+    </comps>
+    <terrainAffordanceNeeded>Light</terrainAffordanceNeeded>
+    <designationCategory>Power</designationCategory>
+    <staticSunShadowHeight>0.5</staticSunShadowHeight>
+    <constructEffect>ConstructMetal</constructEffect>
+    <researchPrerequisites>
+      <li>PRFGoldbachConjecture</li>
+    </researchPrerequisites>
+  </ThingDef>
+  
+  <ThingDef ParentName="PRFBuildingBase">
+    <defName>PRFMegaCapacitor</defName>
+    <label>Mega-Capacitor</label>
+    <thingClass>ProjectRimFactory.Industry.Building_CustomBattery</thingClass>
+    <graphicData>
+      <texPath>Industry/Battery/MegaCapacitor</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <drawSize>(2,2)</drawSize>
+    </graphicData>
+    <altitudeLayer>Building</altitudeLayer>
+    <passability>PassThroughOnly</passability>
+    <pathCost>70</pathCost>
+    <blockWind>true</blockWind>
+    <castEdgeShadows>true</castEdgeShadows>
+	<rotatable>false</rotatable>
+    <fillPercent>0.40</fillPercent>
+    <tickerType>Normal</tickerType>
+    <minifiedDef>MinifiedFurniture</minifiedDef>
+    <statBases>
+      <MaxHitPoints>100</MaxHitPoints>
+      <WorkToBuild>1000</WorkToBuild>
+      <Mass>40</Mass>
+      <Flammability>1.0</Flammability>
+      <Beauty>-40</Beauty>
+    </statBases>
+    <description>A battery that can store 1000000Wd of power. Has 100% efficiency. It is also waterproof.</description>
+    <size>(2,2)</size>
+    <costList>
+	  <PRFMachineFrame>1</PRFMachineFrame>
+      <Steel>800</Steel>
+      <Plasteel>200</Plasteel>
+      <Component>24</Component>
+    </costList>
+    <comps>
+      <li Class="CompProperties_Battery">
+        <storedEnergyMax>1000000</storedEnergyMax>
+        <efficiency>1</efficiency>
+		<shortCircuitInRain>false</shortCircuitInRain>
+        <transmitsPower>true</transmitsPower>
+      </li>
+    </comps>
+    <terrainAffordanceNeeded>Light</terrainAffordanceNeeded>
+    <designationCategory>Power</designationCategory>
+    <staticSunShadowHeight>0.3</staticSunShadowHeight>
+    <constructEffect>ConstructMetal</constructEffect>
+    <researchPrerequisites>
+      <li>PRFOrdoDataRummaging</li>
+    </researchPrerequisites>
+  </ThingDef>
+  
+  <ThingDef ParentName="PRFBuildingBase">
+    <defName>PRFHexCapacitor</defName>
+    <label>Hex-Capacitor</label>
+    <thingClass>ProjectRimFactory.Archo.Things.Building_HexCapacitor</thingClass>
+    <graphicData>
+      <texPath>Archo/HexCapacitor</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <drawSize>(2,2)</drawSize>
+    </graphicData>
+    <altitudeLayer>Building</altitudeLayer>
+    <passability>PassThroughOnly</passability>
+    <pathCost>70</pathCost>
+    <blockWind>true</blockWind>
+    <castEdgeShadows>true</castEdgeShadows>
+	<rotatable>false</rotatable>
+    <fillPercent>0.40</fillPercent>
+    <tickerType>Normal</tickerType>
+    <minifiedDef>MinifiedFurniture</minifiedDef>
+	<drawGUIOverlay>true</drawGUIOverlay>
+    <statBases>
+      <MaxHitPoints>100</MaxHitPoints>
+      <WorkToBuild>4000</WorkToBuild>
+      <Mass>40</Mass>
+      <Flammability>1.0</Flammability>
+      <Beauty>-40</Beauty>
+    </statBases>
+    <description>A battery that uses hex-cells to store 16 million watt days of power. Has 100% efficiency. It is also waterproof.</description>
+    <size>(2,2)</size>
+    <costList>
+	  <PRFMachineFrame>1</PRFMachineFrame>
+      <Steel>1200</Steel>
+      <Plasteel>300</Plasteel>
+	  <PRFZComposite>40</PRFZComposite>
+	  <PRFVolatiteChunk>1</PRFVolatiteChunk>
+      <Component>50</Component>
+    </costList>
+    <comps>
+      <li Class="CompProperties_Battery">
+        <storedEnergyMax>16000000</storedEnergyMax>
+        <efficiency>1</efficiency>
+		<shortCircuitInRain>false</shortCircuitInRain>
+        <transmitsPower>true</transmitsPower>
+      </li>
+    </comps>
+    <terrainAffordanceNeeded>Light</terrainAffordanceNeeded>
+    <designationCategory>Power</designationCategory>
+    <staticSunShadowHeight>0.3</staticSunShadowHeight>
+    <constructEffect>ConstructMetal</constructEffect>
+    <researchPrerequisites>
+      <li>PRFVanometrics</li>
+    </researchPrerequisites>
+  </ThingDef>
+  
+  <ThingDef ParentName="PRFBuildingBase">
+    <defName>PRFPaperclipSpawner</defName>
+    <label>paperclip spawner</label>
+    <thingClass>ProjectRimFactory.Archo.Things.Building_PaperclipSpawner</thingClass>
+    <graphicData>
+      <texPath>Archo/PaperclipverseSimulator</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+	  <drawSize>(2, 2)</drawSize>
+    </graphicData>
+	<size>(2, 2)</size>
+    <altitudeLayer>Building</altitudeLayer>
+    <passability>Impassable</passability>
+    <fillPercent>0.5</fillPercent>
+    <castEdgeShadows>true</castEdgeShadows>
+    <statBases>
+      <WorkToBuild>3000</WorkToBuild>
+      <MaxHitPoints>100</MaxHitPoints>
+      <Flammability>1.0</Flammability>
+    </statBases>
+    <description>public override void Tick()\n{\n    if (this.IsHashIntervalTick(60) &amp;&amp; powerComp.PowerOn) // Spawns one batch of paperclips per second, if powered\n    {\n        Thing result = ThingMaker.MakeThing(PRFDefOf.Paperclip) // Spawns 10000 paperclips per batch\n        result.stackCount = 10000;\n        GenPlace.TryPlaceThing(result, outputComp.CurrentCell, Map, ThingPlaceMode.Near);\n    }\n}</description>
+    <costList>
+	  <PRFMachineFrameLarge>1</PRFMachineFrameLarge>
+	  <AIPersonaCore>4</AIPersonaCore>
+	  <PRFWeakAIChip>2</PRFWeakAIChip>
+      <Steel>200</Steel>
+	  <Plasteel>200</Plasteel>
+      <Component>3</Component>
+    </costList>
+    <comps>
+      <li Class="CompProperties_Power">
+        <compClass>CompPowerTrader</compClass>
+        <startElectricalFires>true</startElectricalFires>
+        <basePowerConsumption>100000</basePowerConsumption>
+      </li>
+	  <li Class="CompProperties_Flickable" />
+	  <li><compClass>ProjectRimFactory.Common.CompOutputAdjustable</compClass></li>
+    </comps>
+    <tickerType>Normal</tickerType>
+    <rotatable>false</rotatable>
+    <designationCategory>Automation</designationCategory>
+    <staticSunShadowHeight>0.3</staticSunShadowHeight>
+    <constructEffect>ConstructMetal</constructEffect>
+    <researchPrerequisites>
+      <li>PRFSimulationHypothesis</li>
+    </researchPrerequisites>
   </ThingDef>
 </Defs>

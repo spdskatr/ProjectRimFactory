@@ -55,15 +55,17 @@
     <Compile Include="AnimalStation\Building_Classes.cs" />
     <Compile Include="AnimalStation\PlaceWorker_ShowAdjacent.cs" />
     <Compile Include="Archo\ArchoCipher.cs" />
+    <Compile Include="Archo\Things\Building_HexCapacitor.cs" />
     <Compile Include="Archo\CompProperties_Unstable.cs" />
     <Compile Include="Archo\CompUnstable.cs" />
     <Compile Include="Archo\ITab_ArchoCipher.cs" />
     <Compile Include="Archo\ResearchMod_Notify.cs" />
-    <Compile Include="Archo\Things\Building_PaperclipverseSimulator.cs" />
+    <Compile Include="Archo\Things\Building_PaperclipSpawner.cs" />
     <Compile Include="Archo\WorldComponent_NotificatonManager.cs" />
     <Compile Include="Common\Cache.cs" />
     <Compile Include="Common\CompOutputAdjustable.cs" />
     <Compile Include="Common\CompPRFHelp.cs" />
+    <Compile Include="Common\PatchOperationRTFuseInsertionHook.cs" />
     <Compile Include="Common\PathGridPatch.cs" />
     <Compile Include="Common\PRFDefOf.cs" />
     <Compile Include="Common\ProjectRimFactory_ModComponent.cs" />
@@ -77,6 +79,7 @@
     <Compile Include="CultivatorTools\SquareCellIterator.cs" />
     <Compile Include="CultivatorTools\Utilities.cs" />
     <Compile Include="Industry\Building_AtomicReconstructor.cs" />
+    <Compile Include="Industry\Building_CustomBattery.cs" />
     <Compile Include="Industry\Building_DeepQuarry.cs" />
     <Compile Include="Industry\Building_FuelingMachine.cs" />
     <Compile Include="Industry\Building_RepairingMachine.cs" />

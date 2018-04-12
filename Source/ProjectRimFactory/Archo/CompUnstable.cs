@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using Verse;
 using RimWorld;
+using RimWorld.Planet;
 
 namespace ProjectRimFactory.Archo
 {
@@ -23,6 +24,7 @@ namespace ProjectRimFactory.Archo
             ticksLeft--;
             if (ticksLeft <= 0)
             {
+                Messages.Message("PRF_DisintegrationMessage".Translate(parent.LabelCap), new GlobalTargetInfo(parent.Position, parent.Map), MessageTypeDefOf.NegativeEvent);
                 parent.Destroy();
             }
         }

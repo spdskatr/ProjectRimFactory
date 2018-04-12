@@ -33,9 +33,9 @@
   <PRF_InsertCiphertext>Ciphertext:</PRF_InsertCiphertext>
   <PRF_ButtonDecipher>Decipher</PRF_ButtonDecipher>
   <PRF_ButtonClear>Clear</PRF_ButtonClear>
-  <PRF_ArchoCipher_InternalServerError>500 Internal Server Error</PRF_ArchoCipher_InternalServerError>
   
   <!-- Note to translators: It's OK if you don't include these easter eggs in your translation files. The mod does not require them. -->
+  <PRF_ArchoCipher_InternalServerError>500 Internal Server Error</PRF_ArchoCipher_InternalServerError>
   <PRF_ArchoCipherKey_42>What do you get when you multiply six by nine?</PRF_ArchoCipherKey_42>
   <PRF_ArchoCipherKey_666>If 666 is evil, does that make 25.8069758011 the root of all evil?</PRF_ArchoCipherKey_666>
   <PRF_ArchoCipherKey_1337>xXx_360n05c0p373x7_xXx</PRF_ArchoCipherKey_1337>
@@ -44,8 +44,14 @@
   <PRF_ArchoCipherKey_Paperclip>RELEASE THE HYPNO-DRONES</PRF_ArchoCipherKey_Paperclip>
   
   <!-- These ones, however, are required. -->
+  <PRF_ArchoCipherKey_k3RcfEAkSjPYMgrZTHtT>A</PRF_ArchoCipherKey_k3RcfEAkSjPYMgrZTHtT>
+  <PRF_ArchoCipherKey_9jXshOJgecfMH1C9u6Sq>B</PRF_ArchoCipherKey_9jXshOJgecfMH1C9u6Sq>
+  <PRF_ArchoCipherKey_2OhMER2M2IJs9zJu3Hdl>C</PRF_ArchoCipherKey_2OhMER2M2IJs9zJu3Hdl>
+  <PRF_ArchoCipherKey_VV7QQ8gUnUe98Grl2AeG>D</PRF_ArchoCipherKey_VV7QQ8gUnUe98Grl2AeG>
+  <PRF_ArchoCipherKey_MxdLImCHhH5cSgLWGGw5>E</PRF_ArchoCipherKey_MxdLImCHhH5cSgLWGGw5>
   
   <PRF_TimeLeftToDisintegrate>Time left until disintegrate: {0}</PRF_TimeLeftToDisintegrate>
+  <PRF_DisintegrationMessage>{0} has disintegrated.</PRF_DisintegrationMessage>
   
   <!-- To make garbled text look more localized -->
   <PRF_GibberishAlphabet> !"#$%&amp;'()*+,-./0123456789:;&lt;=&gt;?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\]^_`abcdefghijklmnopqrstuvwxyz{|}~</PRF_GibberishAlphabet>

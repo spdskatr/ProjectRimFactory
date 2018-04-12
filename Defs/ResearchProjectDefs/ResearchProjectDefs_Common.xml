@@ -21,7 +21,7 @@
     <label>Machine learning</label>
     <techLevel>Industrial</techLevel>
     <baseCost>2000</baseCost>
-    <description>Teach machines how to improve their abilities by themselves.</description>
+    <description>Teach machines how to improve their abilities by themselves. Unlocks the AI research bench.</description>
     <prerequisites>
       <li>AutomationBasics</li>
     </prerequisites>
@@ -224,7 +224,7 @@
     <label>Psychics</label>
     <techLevel>Ultra</techLevel>
     <baseCost>10000</baseCost>
-    <description>Unlocks the production of psychic items, as well as the psychic inspiration module.</description>
+    <description>Unlocks the production of psychic items.</description>
     <prerequisites>
       <li>PRFRiemannHypothesis</li>
 	  <li>PRFFermiParadox</li>
@@ -235,8 +235,8 @@
     <researchViewY>3</researchViewY>
   </ResearchProjectDef>
   <ResearchProjectDef>
-    <defName>PRFTheSimulationHypothesis</defName>
-    <label>The simulation hypothesis</label>
+    <defName>PRFSimulationHypothesis</defName>
+    <label>Simulation hypothesis</label>
     <techLevel>Ultra</techLevel>
     <baseCost>10000</baseCost>
     <description>Are we all inside a sci-fi colony simulator driven by an intelligent AI storyteller? Unlocks the Paperclipverse simulator.</description>
@@ -258,7 +258,7 @@
     <prerequisites>
 	  <li>PRFVanometrics</li>
 	  <li>PRFPsychics</li>
-	  <li>PRFTheSimulationHypothesis</li>
+	  <li>PRFSimulationHypothesis</li>
     </prerequisites>
     <requiredResearchBuilding>AIResearchBench</requiredResearchBuilding>
     <tab>Automation</tab>
