@@ -73,6 +73,7 @@ namespace ProjectRimFactory.Storage
             for (int i = 0; i < things.Count; i++)
             {
                 Thing item = things[i];
+                if (item == newItem) continue;
                 if (item.def.category == ThingCategory.Item && item.CanStackWith(newItem))
                 {
                     item.TryAbsorbStack(newItem, true);
@@ -182,6 +183,25 @@ namespace ProjectRimFactory.Storage
                 else
                 {
                     ports[i].Notify_NeedRefresh();
+                }
+            }
+        }
+
+        public void ReorganizeItems()
+        {
+            for (int i = items.Count - 1; i >= 1; i--)
+            {
+                Thing item = items[i];
+                for (int j = 0; j < i; j++)
+                {
+                    if (items[j].CanStackWith(item))
+                    {
+                        items[j].TryAbsorbStack(item, true);
+                    }
+                    if (item.Destroyed)
+                    {
+                        break;
+                    }
                 }
             }
         }

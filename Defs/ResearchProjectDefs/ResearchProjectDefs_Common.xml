@@ -24,6 +24,9 @@
     <description>Teach machines how to improve their abilities by themselves. Unlocks the AI research bench.</description>
     <prerequisites>
       <li>AutomationBasics</li>
+	  <li>AutomaticFarming</li>
+	  <li>MagneticTape</li>
+	  <li>PRFStorageIO</li>
     </prerequisites>
     <requiredResearchBuilding>HiTechResearchBench</requiredResearchBuilding>
 	<requiredResearchFacilities><li>MultiAnalyzer</li></requiredResearchFacilities>

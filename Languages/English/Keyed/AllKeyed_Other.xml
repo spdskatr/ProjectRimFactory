@@ -52,6 +52,19 @@
   
   <PRF_TimeLeftToDisintegrate>Time left until disintegrate: {0}</PRF_TimeLeftToDisintegrate>
   <PRF_DisintegrationMessage>{0} has disintegrated.</PRF_DisintegrationMessage>
+  <PRFPaperclipBankTab>Bank</PRFPaperclipBankTab>
+  <PaperclipsInBank>Paperclips in bank: {0}</PaperclipsInBank>
+  <PaperclipsInStorageUnit>Paperclips in storage unit: {0}</PaperclipsInStorageUnit>
+  <PRFDepositWithdraw>Deposit/Withdraw</PRFDepositWithdraw>
+  <PRFDepositWithdrawMode>Mode:</PRFDepositWithdrawMode>
+  <PRFDeposit>Deposit</PRFDeposit>
+  <PRFWithdraw>Withdraw</PRFWithdraw>
+  <PRFAmount>Amount</PRFAmount>
+  <PRFNotEnoughPaperclips>Not enough paperclips.</PRFNotEnoughPaperclips>
+  <PRFInputInvalid>Invalid input.</PRFInputInvalid>
+  <PRFNoBoundStorageUnit>No bound storage unit.</PRFNoBoundStorageUnit>
+  <SuccessfullyDepositedPaperclips>Successfully deposited {0} paperclips.</SuccessfullyDepositedPaperclips>
+  <SuccessfullyWithdrawnPaperclips>Succesfully withdrawn {0} paperclips.</SuccessfullyWithdrawnPaperclips>
   
   <!-- To make garbled text look more localized -->
   <PRF_GibberishAlphabet> !"#$%&amp;'()*+,-./0123456789:;&lt;=&gt;?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\]^_`abcdefghijklmnopqrstuvwxyz{|}~</PRF_GibberishAlphabet>

@@ -34,7 +34,7 @@ namespace ProjectRimFactory.Storage.UI
         protected override void FillTab()
         {
             Rect rect = new Rect(0f, 0f, size.x, size.y).ContractedBy(10f);
-            Listing_Standard listing = new Listing_Standard();
+            Listing_Standard listing = new Listing_Standard(GameFont.Small);
             listing.Begin(rect);
             listing.Label(SelBuilding.LabelCap);
             if (listing.ButtonTextLabeled("PRFIOMode".Translate(), SelBuilding.IOMode.ToString()))

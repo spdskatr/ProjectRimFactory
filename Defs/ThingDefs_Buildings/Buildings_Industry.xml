@@ -247,7 +247,7 @@
 	  <li><compClass>ProjectRimFactory.Common.CompPRFHelp</compClass></li>
 	</comps>
 	<researchPrerequisites>
-	  <li>SelfCorrectingAssemblers</li>
+	  <li>PRFAtomicReconstruction</li>
 	</researchPrerequisites>
     <rotatable>false</rotatable>
 	<inspectorTabs>
@@ -470,9 +470,9 @@
   </ThingDef>
   
   <ThingDef ParentName="PRFBuildingBase">
-    <defName>PRFPaperclipSpawner</defName>
-    <label>paperclip spawner</label>
-    <thingClass>ProjectRimFactory.Archo.Things.Building_PaperclipSpawner</thingClass>
+    <defName>PRFPaperclipBank</defName>
+    <label>paperclip bank</label>
+    <thingClass>ProjectRimFactory.Industry.Building_PaperclipBank</thingClass>
     <graphicData>
       <texPath>Archo/PaperclipverseSimulator</texPath>
       <graphicClass>Graphic_Single</graphicClass>
@@ -488,31 +488,23 @@
       <MaxHitPoints>100</MaxHitPoints>
       <Flammability>1.0</Flammability>
     </statBases>
-    <description>public override void Tick()\n{\n    if (this.IsHashIntervalTick(60) &amp;&amp; powerComp.PowerOn) // Spawns one batch of paperclips per second, if powered\n    {\n        Thing result = ThingMaker.MakeThing(PRFDefOf.Paperclip) // Spawns 10000 paperclips per batch\n        result.stackCount = 10000;\n        GenPlace.TryPlaceThing(result, outputComp.CurrentCell, Map, ThingPlaceMode.Near);\n    }\n}</description>
+    <description>AI-powered bank that stores your paperclips and gives you 5% interest exponentially per day.</description>
     <costList>
-	  <PRFMachineFrameLarge>1</PRFMachineFrameLarge>
-	  <AIPersonaCore>4</AIPersonaCore>
-	  <PRFWeakAIChip>2</PRFWeakAIChip>
+	  <PRFMachineFrame>1</PRFMachineFrame>
+	  <PRFWeakAIChip>1</PRFWeakAIChip>
       <Steel>200</Steel>
-	  <Plasteel>200</Plasteel>
+	  <Plasteel>50</Plasteel>
       <Component>3</Component>
     </costList>
-    <comps>
-      <li Class="CompProperties_Power">
-        <compClass>CompPowerTrader</compClass>
-        <startElectricalFires>true</startElectricalFires>
-        <basePowerConsumption>100000</basePowerConsumption>
-      </li>
-	  <li Class="CompProperties_Flickable" />
-	  <li><compClass>ProjectRimFactory.Common.CompOutputAdjustable</compClass></li>
-    </comps>
-    <tickerType>Normal</tickerType>
     <rotatable>false</rotatable>
     <designationCategory>Automation</designationCategory>
     <staticSunShadowHeight>0.3</staticSunShadowHeight>
     <constructEffect>ConstructMetal</constructEffect>
     <researchPrerequisites>
-      <li>PRFSimulationHypothesis</li>
+      <li>PaperclipProduction</li>
     </researchPrerequisites>
+	<inspectorTabs>
+	  <li>ProjectRimFactory.Industry.UI.ITab_PaperclipBank</li>
+	</inspectorTabs>
   </ThingDef>
 </Defs>

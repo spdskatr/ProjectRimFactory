@@ -22,7 +22,7 @@ namespace ProjectRimFactory.Industry.UI
         protected override void FillTab()
         {
             Rect rect = new Rect(0f, 0f, size.x, size.y).ContractedBy(10f);
-            Listing_Standard listing = new Listing_Standard();
+            Listing_Standard listing = new Listing_Standard(GameFont.Small);
             listing.Begin(rect);
             listing.Label(SelThing.LabelCapNoCount);
             listing.LabelDouble("AtomicReconstructionTab_NowProducing".Translate(), (SelBuilding.ThingToGenerate?.LabelCap ?? "NoneBrackets".Translate()));

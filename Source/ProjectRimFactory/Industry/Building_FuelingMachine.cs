@@ -22,7 +22,7 @@ namespace ProjectRimFactory.Industry
                     if (item != null)
                     {
                         CompRefuelable refuelableComp = FuelableCell.GetFirstBuilding(Map)?.GetComp<CompRefuelable>();
-                        if (refuelableComp != null && refuelableComp.Fuel < refuelableComp.TargetFuelLevel && refuelableComp.Props.fuelFilter.Allows(item))
+                        if (refuelableComp != null && refuelableComp.Fuel + 1 < refuelableComp.TargetFuelLevel && refuelableComp.Props.fuelFilter.Allows(item))
                         {
                             int num = Mathf.Min(item.stackCount, Mathf.CeilToInt(refuelableComp.TargetFuelLevel - refuelableComp.Fuel));
                             refuelableComp.Refuel(num);
