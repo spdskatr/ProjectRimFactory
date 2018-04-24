@@ -9,7 +9,7 @@ using Verse;
 
 namespace ProjectRimFactory.Industry
 {
-    public class Building_PaperclipBank : Building
+    public class Building_PaperclipDuplicator : Building
     {
         long paperclipCount;
         int lastTick = Find.TickManager.TicksGame;
@@ -67,6 +67,21 @@ namespace ProjectRimFactory.Industry
                 builder.AppendLine("PRFNoBoundStorageUnit".Translate());
             }
             return builder.ToString().TrimEndNewlines();
+        }
+        public override IEnumerable<Gizmo> GetGizmos()
+        {
+            foreach (Gizmo g in base.GetGizmos())
+            {
+                yield return g;
+            }
+            if (Prefs.DevMode)
+            {
+                yield return new Command_Action()
+                {
+                    defaultLabel = "DEBUG: Double paperclip amount",
+                    action = () => PaperclipsActual *= 2
+                };
+            }
         }
         public override void ExposeData()
         {

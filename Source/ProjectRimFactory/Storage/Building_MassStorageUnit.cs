@@ -47,6 +47,14 @@ namespace ProjectRimFactory.Storage
                 defaultLabel = "PRFRenameMassStorageUnitLabel".Translate(),
                 defaultDesc = "PRFRenameMassStorageUnitDesc".Translate()
             };
+            if (Prefs.DevMode)
+            {
+                yield return new Command_Action()
+                {
+                    defaultLabel = "DEBUG: Sort",
+                    action = ReorganizeItems
+                };
+            }
         }
 
         public override void Notify_ReceivedThing(Thing newItem)
@@ -85,7 +93,8 @@ namespace ProjectRimFactory.Storage
             }
             if (!newItem.Destroyed)
             {
-                items.Add(newItem);
+                if (!items.Contains(newItem))
+                    items.Add(newItem);
                 if (CanStoreMoreItems)
                 {
                     newItem.Position = Position;

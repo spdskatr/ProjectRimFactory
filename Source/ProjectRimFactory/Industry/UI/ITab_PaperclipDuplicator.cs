@@ -10,14 +10,14 @@ using Verse;
 
 namespace ProjectRimFactory.Industry.UI
 {
-    public class ITab_PaperclipBank : ITab
+    public class ITab_PaperclipDuplicator : ITab
     {
-        public ITab_PaperclipBank()
+        public ITab_PaperclipDuplicator()
         {
             size = new Vector2(400f, 400f);
             labelKey = "PRFPaperclipBankTab";
         }
-        public Building_PaperclipBank SelBuilding => (Building_PaperclipBank)SelThing;
+        public Building_PaperclipDuplicator SelBuilding => (Building_PaperclipDuplicator)SelThing;
         protected override void FillTab()
         {
             Rect rect = new Rect(0f, 0f, size.x, size.y).ContractedBy(10f);

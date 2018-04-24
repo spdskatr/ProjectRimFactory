@@ -470,9 +470,9 @@
   </ThingDef>
   
   <ThingDef ParentName="PRFBuildingBase">
-    <defName>PRFPaperclipBank</defName>
-    <label>paperclip bank</label>
-    <thingClass>ProjectRimFactory.Industry.Building_PaperclipBank</thingClass>
+    <defName>PRFPaperclipDuplicator</defName>
+    <label>paperclip duplicator</label>
+    <thingClass>ProjectRimFactory.Industry.Building_PaperclipDuplicator</thingClass>
     <graphicData>
       <texPath>Archo/PaperclipverseSimulator</texPath>
       <graphicClass>Graphic_Single</graphicClass>
@@ -480,7 +480,7 @@
     </graphicData>
 	<size>(2, 2)</size>
     <altitudeLayer>Building</altitudeLayer>
-    <passability>Impassable</passability>
+    <passability>PassThroughOnly</passability>
     <fillPercent>0.5</fillPercent>
     <castEdgeShadows>true</castEdgeShadows>
     <statBases>
@@ -488,7 +488,7 @@
       <MaxHitPoints>100</MaxHitPoints>
       <Flammability>1.0</Flammability>
     </statBases>
-    <description>AI-powered bank that stores your paperclips and gives you 5% interest exponentially per day.</description>
+    <description>Uses topological anomalies to duplicate paperclips. Produces roughly 5% more paperclips per day. Any attempts to tamper with the paperclip duplicator will destroy all stored paperclips.</description>
     <costList>
 	  <PRFMachineFrame>1</PRFMachineFrame>
 	  <PRFWeakAIChip>1</PRFWeakAIChip>
@@ -504,7 +504,7 @@
       <li>PaperclipProduction</li>
     </researchPrerequisites>
 	<inspectorTabs>
-	  <li>ProjectRimFactory.Industry.UI.ITab_PaperclipBank</li>
+	  <li>ProjectRimFactory.Industry.UI.ITab_PaperclipDuplicator</li>
 	</inspectorTabs>
   </ThingDef>
 </Defs>
