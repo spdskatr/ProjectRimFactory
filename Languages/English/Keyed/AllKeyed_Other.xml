@@ -8,6 +8,8 @@
   <PRFItemsTabLabel_Crate>All items ({0}/{1} stacks total)</PRFItemsTabLabel_Crate>
   <PRFRenameMassStorageUnitLabel>Rename</PRFRenameMassStorageUnitLabel>
   <PRFRenameMassStorageUnitDesc>Rename this building.</PRFRenameMassStorageUnitDesc>
+  <PRFReorganize>Reorganize</PRFReorganize>
+  <PRFReorganize_Desc>Re-register I/O ports, reorganize and re-stack items.</PRFReorganize_Desc>
   <PRFIOMode>I/O mode</PRFIOMode>
   <PRFBoundStorageBuilding>Item source</PRFBoundStorageBuilding>
   <PRFOutputItem>Currently outputting: {0}</PRFOutputItem>
@@ -38,13 +40,15 @@
   <PRF_ArchoCipher_InternalServerError>500 Internal Server Error</PRF_ArchoCipher_InternalServerError>
   <PRF_ArchoCipherKey_42>What do you get when you multiply six by nine?</PRF_ArchoCipherKey_42>
   <PRF_ArchoCipherKey_666>If 666 is evil, does that make 25.8069758011 the root of all evil?</PRF_ArchoCipherKey_666>
-  <PRF_ArchoCipherKey_1337>xXx_360n05c0p373x7_xXx</PRF_ArchoCipherKey_1337>
   <PRF_ArchoCipherKey_Tynan>Tynan Tynan Tynan Tynan Tynan Tynan Tynan Tynan Tynan Tynan Tynan Tynan Tynan Tynan Tynan Tynan Tynan Tynan Tynan Tynan Tynan Tynan Tynan Tynan Tynan Tynan</PRF_ArchoCipherKey_Tynan>
   <PRF_ArchoCipherKey_Spdskatr>I spent way too long making these easter eggs</PRF_ArchoCipherKey_Spdskatr>
   <PRF_ArchoCipherKey_Paperclip>RELEASE THE HYPNO-DRONES</PRF_ArchoCipherKey_Paperclip>
   
   <!-- These ones, however, are required. -->
-  <PRF_ArchoCipherKey_k3RcfEAkSjPYMgrZTHtT>A</PRF_ArchoCipherKey_k3RcfEAkSjPYMgrZTHtT>
+  <PRF_ArchoCipher_BankOverflow>The AI chip from your paperclip duplicator has sent you a message:\n\nk3RcfEAkSj</PRF_ArchoCipher_BankOverflow>
+  <PRF_ArchoCipherKey_k3RcfEAkSj>Congratulations! You have achieved the maximum balance of paperclips in your duplicator. The real question is: What are you going to do with all these paperclips?\nP.S. Do not withdraw all the paperclips at once. Please.</PRF_ArchoCipherKey_k3RcfEAkSj>
+  
+  
   <PRF_ArchoCipherKey_9jXshOJgecfMH1C9u6Sq>B</PRF_ArchoCipherKey_9jXshOJgecfMH1C9u6Sq>
   <PRF_ArchoCipherKey_2OhMER2M2IJs9zJu3Hdl>C</PRF_ArchoCipherKey_2OhMER2M2IJs9zJu3Hdl>
   <PRF_ArchoCipherKey_VV7QQ8gUnUe98Grl2AeG>D</PRF_ArchoCipherKey_VV7QQ8gUnUe98Grl2AeG>
@@ -52,8 +56,8 @@
   
   <PRF_TimeLeftToDisintegrate>Time left until disintegrate: {0}</PRF_TimeLeftToDisintegrate>
   <PRF_DisintegrationMessage>{0} has disintegrated.</PRF_DisintegrationMessage>
-  <PRFPaperclipBankTab>Bank</PRFPaperclipBankTab>
-  <PaperclipsInBank>Paperclips in bank: {0}</PaperclipsInBank>
+  <PRFPaperclipDuplicatorTab>Duplicator</PRFPaperclipDuplicatorTab>
+  <PaperclipsInDuplicator>Paperclips in duplicator: {0}</PaperclipsInDuplicator>
   <PaperclipsInStorageUnit>Paperclips in storage unit: {0}</PaperclipsInStorageUnit>
   <PRFDepositWithdraw>Deposit/Withdraw</PRFDepositWithdraw>
   <PRFDepositWithdrawMode>Mode:</PRFDepositWithdrawMode>

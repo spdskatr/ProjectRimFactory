@@ -18,6 +18,7 @@ namespace ProjectRimFactory.Storage.UI
         public Building_MassStorageUnit SelBuilding => (Building_MassStorageUnit)SelThing;
         protected override void FillTab()
         {
+            Text.Font = GameFont.Small;
             Rect rect = new Rect(0f, 0f, size.x, size.y).ContractedBy(10f);
             Widgets.Label(new Rect(rect.x, rect.y, rect.width, 25f), SelBuilding.GetITabString());
             searchQuery = Widgets.TextArea(new Rect(rect.x, rect.y + 25f, rect.width, 25f), searchQuery ?? string.Empty, false);

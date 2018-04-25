@@ -7,6 +7,7 @@ using RimWorld;
 using ProjectRimFactory.Storage.Editables;
 using UnityEngine;
 using ProjectRimFactory.Storage.UI;
+using System.Collections;
 
 namespace ProjectRimFactory.Storage
 {
@@ -47,14 +48,13 @@ namespace ProjectRimFactory.Storage
                 defaultLabel = "PRFRenameMassStorageUnitLabel".Translate(),
                 defaultDesc = "PRFRenameMassStorageUnitDesc".Translate()
             };
-            if (Prefs.DevMode)
+            yield return new Command_Action
             {
-                yield return new Command_Action()
-                {
-                    defaultLabel = "DEBUG: Sort",
-                    action = ReorganizeItems
-                };
-            }
+                icon = TexUI.RotRightTex,
+                action = () => RefreshStorage(),
+                defaultLabel = "PRFReorganize".Translate(),
+                defaultDesc = "PRFReorganize_Desc".Translate()
+            };
         }
 
         public override void Notify_ReceivedThing(Thing newItem)
@@ -192,25 +192,6 @@ namespace ProjectRimFactory.Storage
                 else
                 {
                     ports[i].Notify_NeedRefresh();
-                }
-            }
-        }
-
-        public void ReorganizeItems()
-        {
-            for (int i = items.Count - 1; i >= 1; i--)
-            {
-                Thing item = items[i];
-                for (int j = 0; j < i; j++)
-                {
-                    if (items[j].CanStackWith(item))
-                    {
-                        items[j].TryAbsorbStack(item, true);
-                    }
-                    if (item.Destroyed)
-                    {
-                        break;
-                    }
                 }
             }
         }

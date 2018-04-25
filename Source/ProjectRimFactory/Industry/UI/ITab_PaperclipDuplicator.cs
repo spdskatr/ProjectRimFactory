@@ -14,8 +14,8 @@ namespace ProjectRimFactory.Industry.UI
     {
         public ITab_PaperclipDuplicator()
         {
-            size = new Vector2(400f, 400f);
-            labelKey = "PRFPaperclipBankTab";
+            size = new Vector2(400f, 250f);
+            labelKey = "PRFPaperclipDuplicatorTab";
         }
         public Building_PaperclipDuplicator SelBuilding => (Building_PaperclipDuplicator)SelThing;
         protected override void FillTab()

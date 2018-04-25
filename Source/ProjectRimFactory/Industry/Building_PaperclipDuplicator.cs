@@ -21,7 +21,12 @@ namespace ProjectRimFactory.Industry
         {
             get
             {
-                return (long)(paperclipCount * Math.Pow(1.05, (Find.TickManager.TicksGame - lastTick).TicksToDays()));
+                long result = (long)(paperclipCount * Math.Pow(1.05, (Find.TickManager.TicksGame - lastTick).TicksToDays()));
+                if (result == long.MaxValue)
+                {
+                    Find.WindowStack.Add(new Dialog_MessageBox("PRF_ArchoCipher_BankOverflow".Translate()));
+                }
+                return result;
             }
             set
             {
@@ -57,7 +62,7 @@ namespace ProjectRimFactory.Industry
             {
                 builder.AppendLine(str);
             }
-            builder.AppendLine("PaperclipsInBank".Translate(PaperclipsActual));
+            builder.AppendLine("PaperclipsInDuplicator".Translate(PaperclipsActual));
             if (boundStorageUnit != null)
             {
                 builder.AppendLine("PaperclipsInStorageUnit".Translate(boundStorageUnit.StoredItems.Where(t => t.def == PRFDefOf.Paperclip).Sum(t => t.stackCount)));

@@ -15,7 +15,7 @@ namespace ProjectRimFactory.Archo
             {
                 return "PRF_ArchoCipher_InternalServerError".Translate();
             }
-            string key = "PRF_ArchoCipherKey_" + str;
+            string key = "PRF_ArchoCipherKey_" + str.Replace(' ', '_');
             if (Translator.TryTranslate(key, out string result))
             {
                 return result;

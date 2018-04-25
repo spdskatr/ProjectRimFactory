@@ -496,6 +496,9 @@
 	  <Plasteel>50</Plasteel>
       <Component>3</Component>
     </costList>
+    <comps>
+	  <li><compClass>ProjectRimFactory.Common.CompPRFHelp</compClass></li>
+    </comps>
     <rotatable>false</rotatable>
     <designationCategory>Automation</designationCategory>
     <staticSunShadowHeight>0.3</staticSunShadowHeight>
