@@ -21,5 +21,7 @@ namespace ProjectRimFactory.Common
         public static ThingDef PRFYComposite;
         public static ThingDef PRFZComposite;
         public static ThingDef PRFVolatiteChunk;
+
+        public static ThingDef PRFDrone;
     }
 }
