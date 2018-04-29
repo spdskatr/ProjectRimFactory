@@ -170,7 +170,7 @@
     <label>Riemann hypothesis</label>
     <techLevel>Ultra</techLevel>
     <baseCost>8000</baseCost>
-    <description>Do all non-trivial solutions to ζ(s) = 0 have a real part of 1/2?</description>
+    <description>ζ(0.5 ± 1/g + π(g) * i) = 0, where g is Graham's number, and where π is the prime counting function.\n\nOrdo Historia, Record {fb640e1a-1021-474b-b4ba-5ffe61bd2649}, Last synced with galactic core 1208YYtp ago</description>
     <prerequisites>
       <li>PRFOrdoDataRummaging</li>
     </prerequisites>
@@ -184,7 +184,7 @@
     <label>P versus NP</label>
     <techLevel>Ultra</techLevel>
     <baseCost>8000</baseCost>
-    <description>Can problems that can be verified in polynomial time also be solved in polynomial time?</description>
+    <description>To break RSA encryption, all you need is a cure for cancer.\n\nOrdo Historia, Record {490c3481-b420-4cf9-aa6d-88bcfe651cb0}, Last synced with galactic core 1208YYtp ago</description>
     <prerequisites>
       <li>PRFOrdoDataRummaging</li>
     </prerequisites>
@@ -198,7 +198,7 @@
     <label>Fermi paradox</label>
     <techLevel>Ultra</techLevel>
     <baseCost>8000</baseCost>
-    <description>Where are all the aliens?</description>
+    <description>Aliens? What aliens?\n- A totally innocent mechanoid\n\nOrdo Historia, Record {43039413-a9ad-436d-99e1-63ec2cd944e5}, Last synced with galactic core 1208YYtp ago</description>
     <prerequisites>
       <li>PRFOrdoDataRummaging</li>
     </prerequisites>
@@ -242,7 +242,7 @@
     <label>Simulation hypothesis</label>
     <techLevel>Ultra</techLevel>
     <baseCost>10000</baseCost>
-    <description>Are we all inside a sci-fi colony simulator driven by an intelligent AI storyteller? Unlocks the Paperclipverse simulator.</description>
+    <description>Are we all inside a sci-fi colony simulator driven by an intelligent AI storyteller?</description>
     <prerequisites>
 	  <li>PRFPVersusNP</li>
 	  <li>PRFFermiParadox</li>

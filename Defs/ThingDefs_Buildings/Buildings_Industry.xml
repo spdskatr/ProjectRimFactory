@@ -488,7 +488,7 @@
       <MaxHitPoints>100</MaxHitPoints>
       <Flammability>1.0</Flammability>
     </statBases>
-    <description>Uses topological anomalies to duplicate paperclips. Produces roughly 5% more paperclips per day. Any attempts to tamper with the paperclip duplicator will destroy all stored paperclips.</description>
+    <description>A Banach-Tarski duplicator set to duplicate paperclips. Produces roughly 5% more paperclips per day. Any attempts to tamper with the paperclip duplicator will destroy all stored paperclips.</description>
     <costList>
 	  <PRFMachineFrame>1</PRFMachineFrame>
 	  <PRFWeakAIChip>1</PRFWeakAIChip>
