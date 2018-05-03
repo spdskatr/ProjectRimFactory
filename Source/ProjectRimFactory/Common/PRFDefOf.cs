@@ -6,6 +6,10 @@ namespace ProjectRimFactory.Common
     [DefOf]
     public class PRFDefOf
     {
+        public static JobDef PRFDrone_ReturnToStation;
+
+        public static PawnKindDef PRFDroneKind;
+
         public static ResearchProjectDef PRFAtomicReconstruction;
         public static ResearchProjectDef PRFNanoMaterials;
         public static ResearchProjectDef PRFEdiblesSynthesis;
@@ -21,7 +25,7 @@ namespace ProjectRimFactory.Common
         public static ThingDef PRFYComposite;
         public static ThingDef PRFZComposite;
         public static ThingDef PRFVolatiteChunk;
-
         public static ThingDef PRFDrone;
+
     }
 }

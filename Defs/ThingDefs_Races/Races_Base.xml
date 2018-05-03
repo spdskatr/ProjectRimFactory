@@ -44,39 +44,33 @@
     <race>
       <thinkTreeMain>Animal</thinkTreeMain>
       <thinkTreeConstant>AnimalConstant</thinkTreeConstant>
-      <hasGenders>true</hasGenders>
       <nameGenerator>NamerAnimalGenericMale</nameGenerator>
       <nameGeneratorFemale>NamerAnimalGenericFemale</nameGeneratorFemale>
       <manhunterOnDamageChance>0.0125</manhunterOnDamageChance>
       <manhunterOnTameFailChance>0.003</manhunterOnTameFailChance>
       <nameOnNuzzleChance>0.5</nameOnNuzzleChance>
-      <hediffGiverSets>
-        <li>OrganicStandard</li>
-      </hediffGiverSets>
-    </race>
-    <recipes>
-			<li>ExciseCarcinoma</li>
-      <li>AdministerMechSerumHealer</li>
-      <li>RemoveBodyPart</li>
-      <li>Euthanize</li>
-      <li>Anesthetize</li>
-    </recipes>
-    
-    
-    <soundImpactDefault>BulletImpactMetal</soundImpactDefault>
-    
-    <race>
-      <fleshType>PRFDrone</fleshType>
+      <fleshType>Mechanoid</fleshType>
       <needsRest>false</needsRest>
       <hasGenders>false</hasGenders>
       <foodType>None</foodType>
     </race>
+    <soundImpactDefault>BulletImpactMetal</soundImpactDefault>
+    
   </ThingDef>
   
   <ThingDef ParentName="PRFDroneBase">
     <defName>PRFDrone</defName>
     <label>drone</label>
     <description>A small, low-flying drone.</description>
+    <thingClass>ProjectRimFactory.Drones.Pawn_Drone</thingClass>
+    <graphicData>
+		<texPath>Common/DroneModule</texPath>
+		<graphicClass>Graphic_Single</graphicClass>
+		<drawSize>1</drawSize>
+		<shadowData>
+		    <volume>(0.4, 0.4, 0.4)</volume>
+		</shadowData>
+    </graphicData>
     <statBases>
       <MoveSpeed>6.6</MoveSpeed>
       <ArmorRating_Blunt>0.1</ArmorRating_Blunt>
@@ -97,17 +91,17 @@
     </tools>
     <race>
       <intelligence>ToolUser</intelligence>
-      <thinkTreeMain>Mechanoid</thinkTreeMain>
-      <body>Scyther</body>
+      <thinkTreeMain>PRFDrone</thinkTreeMain>
+      <body>PRFDrone</body>
       <baseBodySize>1.0</baseBodySize>
       <baseHealthScale>0.8</baseHealthScale>
       <lifeStageAges>
         <li>
           <def>MechanoidFullyFormed</def>
           <minAge>0</minAge>
-          <soundWounded>Pawn_Mech_Scyther_Wounded</soundWounded>
-          <soundDeath>Pawn_Mech_Scyther_Death</soundDeath>
-          <soundCall>Pawn_Mech_Scyther_Call</soundCall>
+          <soundWounded>Pawn_Melee_MechanoidSlash_HitBuilding</soundWounded>
+          <!--soundDeath>Pawn_Mech_Scyther_Death</soundDeath-->
+          <!--soundCall>Pawn_Mech_Scyther_Call</soundCall-->
         </li>
       </lifeStageAges>
       <soundCallIntervalRange>
@@ -118,10 +112,6 @@
       <soundMeleeHitBuilding>Pawn_Melee_MechanoidSlash_HitBuilding</soundMeleeHitBuilding>
       <soundMeleeMiss>Pawn_Melee_MechanoidSlash_Miss</soundMeleeMiss>
     </race>
-    <recipes>
-      <li>RemoveMechanoidBodyPart</li>
-      <li>ShutDownMechanoid</li>
-    </recipes>
     <butcherProducts>
       <Steel>40</Steel>
       <Plasteel>25</Plasteel>
@@ -130,30 +120,24 @@
   </ThingDef>
   
   <PawnKindDef>
-		<defName>PRFDrone</defName>
+		<defName>PRFDroneKind</defName>
 		<label>drone</label>
 		<race>PRFDrone</race>
 		<combatPower>160</combatPower>
-		<defaultFactionType>Mechanoid</defaultFactionType>
+		<defaultFactionType>PlayerColony</defaultFactionType>
 		<aiAvoidCover>true</aiAvoidCover>
+        <isFighter>false</isFighter>
 		<lifeStages>
 			<li>
 				<bodyGraphicData>
-					<texPath>Things/Pawn/Mechanoid/Scyther</texPath>
-					<graphicClass>Graphic_Multi</graphicClass>
-					<drawSize>1.5</drawSize>
+					<texPath>Common/DroneModule</texPath>
+					<graphicClass>Graphic_Single</graphicClass>
+					<drawSize>1</drawSize>
 					<shadowData>
-						<volume>(0.4, 0.8, 0.4)</volume>
+						<volume>(0.4, 0.4, 0.4)</volume>
 					</shadowData>
 				</bodyGraphicData>
 			</li>
 		</lifeStages>
-		<weaponMoney>
-			<min>5000</min>
-			<max>5000</max>
-		</weaponMoney>
-		<weaponTags>
-			<li>MechanoidGunMedium</li>
-		</weaponTags>
-	</PawnKindDef>
+  </PawnKindDef>
 </Defs>

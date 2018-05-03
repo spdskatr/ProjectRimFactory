@@ -502,7 +502,6 @@
     <rotatable>false</rotatable>
     <designationCategory>Automation</designationCategory>
     <staticSunShadowHeight>0.3</staticSunShadowHeight>
-    <constructEffect>ConstructMetal</constructEffect>
     <researchPrerequisites>
       <li>PaperclipProduction</li>
     </researchPrerequisites>

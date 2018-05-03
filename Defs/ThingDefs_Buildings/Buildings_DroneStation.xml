@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+  <ThingDef ParentName="PRFBuildingBase">
+    <defName>PRFDroneStation</defName>
+    <label>drone station</label>
+    <thingClass>ProjectRimFactory.Drones.Building_DeepDrillDroneStation</thingClass>
+    <graphicData>
+      <texPath>Drones/DroneBase_2x2</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <shaderType>CutoutComplex</shaderType>
+	  <drawSize>(2, 2)</drawSize>
+    </graphicData>
+	<size>(2, 2)</size>
+    <altitudeLayer>Building</altitudeLayer>
+    <passability>PassThroughOnly</passability>
+    <fillPercent>0.5</fillPercent>
+    <castEdgeShadows>true</castEdgeShadows>
+    <tickerType>Normal</tickerType>
+    <statBases>
+      <WorkToBuild>3000</WorkToBuild>
+      <MaxHitPoints>100</MaxHitPoints>
+      <Flammability>1.0</Flammability>
+    </statBases>
+    <description>A station that holds 4 drones.</description>
+    <stuffCategories>
+      <li>Metallic</li>
+    </stuffCategories>
+    <costStuffCount>50</costStuffCount>
+    <costList>
+	  <PRFMachineFrame>1</PRFMachineFrame>
+	  <PRFWeakAIChip>3</PRFWeakAIChip>
+      <PRFDroneModule>4</PRFDroneModule>
+    </costList>
+    <comps>
+	  <li><compClass>ProjectRimFactory.Common.CompPRFHelp</compClass></li>
+    </comps>
+    <rotatable>false</rotatable>
+    <designationCategory>Automation</designationCategory>
+    <staticSunShadowHeight>0.3</staticSunShadowHeight>
+    <researchPrerequisites>
+      <li>PRFOrdoDataRummaging</li>
+    </researchPrerequisites>
+  </ThingDef>
+</Defs>

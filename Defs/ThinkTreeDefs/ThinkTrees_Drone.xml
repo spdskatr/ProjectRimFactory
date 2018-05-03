@@ -2,7 +2,7 @@
 <Defs>
 
 	<ThinkTreeDef>
-		<defName>Drone</defName>
+		<defName>PRFDrone</defName>
 		<thinkRoot Class="ThinkNode_Priority">
       <subNodes>
         <!-- Keep lying down if we have to -->
@@ -82,11 +82,8 @@
         <li Class="ThinkNode_Subtree">
           <treeDef>SatisfyBasicNeeds</treeDef>
         </li>
-
-        <!-- Insertion hook for modders -->
-        <li Class="ThinkNode_SubtreesByTag">
-          <insertTag>Animal_PreWander</insertTag>
-        </li>
+        
+        <li Class="ProjectRimFactory.Drones.AI.JobGiver_DroneMain" />
         
         <!-- Tame animal: wander colony -->
         <li Class="ThinkNode_ConditionalOfPlayerFaction">
@@ -109,13 +106,6 @@
         <!-- Of neutral faction: rest and then exit the map -->
         <li Class="ThinkNode_ConditionalNeutralFaction">
           <subNodes>
-            <li Class="ThinkNode_Tagger">
-              <tagToGive>RestingForMedicalReasons</tagToGive>
-              <subNodes>
-                <li Class="JobGiver_PatientGoToBed" />
-              </subNodes>
-            </li>
-            
             <li Class="ThinkNode_Tagger">
               <tagToGive>Misc</tagToGive>
               <subNodes>

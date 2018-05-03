@@ -2,7 +2,7 @@
 <Defs>
 
   <BodyDef>
-    <defName>Drone</defName>
+    <defName>PRFDrone</defName>
     <label>drone</label>
     <corePart>
       <def>MechanicalThorax</def>

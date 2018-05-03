@@ -3,6 +3,7 @@
   <FleshTypeDef>
     <defName>PRFDrone</defName>
     <requiresBedForSurgery>false</requiresBedForSurgery>
+    <corpseCategory>CorpsesMechanoid</corpseCategory>
     <wounds>
       <li>
         <texture>Things/Pawn/Wounds/WoundMechA</texture>
