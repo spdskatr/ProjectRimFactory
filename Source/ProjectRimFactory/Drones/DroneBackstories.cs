@@ -8,6 +8,7 @@ using Verse;
 
 namespace ProjectRimFactory.Drones
 {
+    [StaticConstructorOnStartup]
     public static class DroneBackstories
     {
         public static FieldInfo nameField = typeof(Backstory).GetField("title", BindingFlags.Instance | BindingFlags.NonPublic);
@@ -15,22 +16,27 @@ namespace ProjectRimFactory.Drones
         public static Backstory adulthood;
         static DroneBackstories()
         {
-            childhood = new Backstory()
+            LongEventHandler.ExecuteWhenFinished(() =>
             {
-                identifier = "PRFNoneBracketsC",
-                workDisables = WorkTags.Social,
-                slot = BackstorySlot.Childhood,
-                baseDesc = "NoneBrackets".Translate()
-            };
-            nameField.SetValue(childhood, "NoneBrackets".Translate());
-            adulthood = new Backstory()
-            {
-                identifier = "PRFNoneBracketsA",
-                workDisables = WorkTags.Social,
-                slot = BackstorySlot.Adulthood,
-                baseDesc = "NoneBrackets".Translate()
-            };
-            nameField.SetValue(childhood, "NoneBrackets".Translate());
+                childhood = new Backstory()
+                {
+                    identifier = "PRFNoneBracketsC",
+                    workDisables = WorkTags.Social,
+                    slot = BackstorySlot.Childhood,
+                    baseDesc = "NoneBrackets".Translate()
+                };
+                nameField.SetValue(childhood, "NoneBrackets".Translate());
+                BackstoryDatabase.AddBackstory(childhood);
+                adulthood = new Backstory()
+                {
+                    identifier = "PRFNoneBracketsA",
+                    workDisables = WorkTags.Social,
+                    slot = BackstorySlot.Adulthood,
+                    baseDesc = "NoneBrackets".Translate()
+                };
+                nameField.SetValue(childhood, "NoneBrackets".Translate());
+                BackstoryDatabase.AddBackstory(adulthood);
+            });
         }
     }
 }

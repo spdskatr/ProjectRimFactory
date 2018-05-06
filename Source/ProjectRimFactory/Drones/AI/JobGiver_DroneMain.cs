@@ -15,7 +15,7 @@ namespace ProjectRimFactory.Drones.AI
         {
             Pawn_Drone drone = (Pawn_Drone)pawn;
             Job job = drone.setJob;
-            if (job != null && !drone.jobStarted && job.targetA.Thing.TryGetComp<CompDeepDrill>().CanDrillNow())
+            if (job != null && !drone.jobStarted)
             {
                 drone.jobStarted = true;
                 return job;

@@ -40,5 +40,11 @@
     <researchPrerequisites>
       <li>PRFOrdoDataRummaging</li>
     </researchPrerequisites>
+    <modExtensions>
+      <li Class="ProjectRimFactory.Drones.DefModExtension_DroneStation">
+        <maxNumDrones>4</maxNumDrones>
+        <displayDormantDrones>true</displayDormantDrones>
+      </li>
+    </modExtensions>
   </ThingDef>
 </Defs>

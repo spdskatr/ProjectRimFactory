@@ -46,5 +46,10 @@ namespace ProjectRimFactory.Drones
                 }
             }
         }
+
+        public override void Kill(DamageInfo? dinfo, Hediff exactCulprit = null)
+        {
+            base.Kill(dinfo, exactCulprit);
+        }
     }
 }

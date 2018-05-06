@@ -2,6 +2,66 @@
 <Defs>
   <!--================================================================== Cultivator -->
   <ThingDef ParentName="PRFBuildingBase">
+    <defName>CultivatorTools_DroneCultivator</defName>
+    <label>drone cultivator</label>
+    <thingClass>ProjectRimFactory.CultivatorTools.Building_SmallCultivator</thingClass>
+    <graphicData>
+      <texPath>Cultivator</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <damageData>
+        <rect>(0.05,0.1,0.9,0.9)</rect>
+        <cornerTL>Damage/Corner</cornerTL>
+        <cornerTR>Damage/Corner</cornerTR>
+      </damageData>
+    </graphicData>
+    <altitudeLayer>Building</altitudeLayer>
+    <passability>PassThroughOnly</passability>
+    <fillPercent>0.5</fillPercent>
+    <pathCost>70</pathCost>
+    <castEdgeShadows>true</castEdgeShadows>
+    <statBases>
+      <WorkToBuild>450</WorkToBuild>
+      <MaxHitPoints>100</MaxHitPoints>
+      <Flammability>1.0</Flammability>
+    </statBases>
+    <description>A building that can autonomously plant and harvest crops in a 11 cell square around it. Will not be affected by any stat modifiers.</description>
+    <costList>
+	  <PRFMachineFrameSmall>1</PRFMachineFrameSmall>
+      <PRFDroneModule>2</PRFDroneModule>
+      <Steel>30</Steel>
+      <Plasteel>20</Plasteel>
+      <Component>3</Component>
+    </costList>
+    <comps>
+      <li Class="CompProperties_Power">
+        <compClass>CompPowerTrader</compClass>
+		<shortCircuitInRain>false</shortCircuitInRain>
+        <basePowerConsumption>500</basePowerConsumption>
+      </li>
+      <li><compClass>ProjectRimFactory.Common.CompPRFHelp</compClass></li>
+    </comps>
+    <tickerType>Normal</tickerType>
+    <rotatable>true</rotatable>
+    <designationCategory>Automation</designationCategory>
+    <staticSunShadowHeight>0.3</staticSunShadowHeight>
+    <constructEffect>ConstructMetal</constructEffect>
+    <modExtensions>
+      <li Class="ProjectRimFactory.CultivatorTools.CultivatorDefModExtension">
+		<squareAreaRadius>5</squareAreaRadius>
+      </li>
+      <li Class="ProjectRimFactory.Drones.DefModExtension_DroneStation">
+        <maxNumDrones>2</maxNumDrones>
+        <displayDormantDrones>true</displayDormantDrones>
+      </li>
+    </modExtensions>
+    <researchPrerequisites>
+      <li>AutomaticFarming</li>
+    </researchPrerequisites>
+  	<placeWorkers>
+	    <li>ProjectRimFactory.CultivatorTools.PlaceWorker_HighlightPlaceableCells</li>
+  	</placeWorkers>
+  </ThingDef>
+  <ThingDef ParentName="PRFBuildingBase">
     <defName>CultivatorTools_Cultivator</defName>
     <label>cultivator</label>
     <thingClass>ProjectRimFactory.CultivatorTools.Building_Cultivator</thingClass>
