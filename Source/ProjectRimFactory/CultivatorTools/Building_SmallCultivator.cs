@@ -58,10 +58,12 @@ namespace ProjectRimFactory.CultivatorTools
                     plantDef.CanEverPlantAt(cell, Map))
                 {
                     Thing blocker = GenPlant.AdjacentSowBlocker(plantDef, cell, Map);
+                    // Get rid of blockers
                     if (blocker != null && blocker is Plant && !Map.reservationManager.IsReservedByAnyoneOf(blocker, Faction))
                     {
                         return new Job(JobDefOf.CutPlant, blocker);
                     }
+                    // Sow
                     return new Job(JobDefOf.Sow, cell)
                     {
                         plantDefToSow = plantToGrowSettable.GetPlantDefToGrow()
@@ -75,6 +77,7 @@ namespace ProjectRimFactory.CultivatorTools
         {
             if (p.def == plantToGrowSettable.GetPlantDefToGrow())
             {
+                // Harvest if fully grown
                 if (p.Growth + 0.001f >= 1.00f)
                 {
                     return new Job(JobDefOf.Harvest, p);
@@ -82,6 +85,7 @@ namespace ProjectRimFactory.CultivatorTools
             }
             else
             {
+                // Cut if foreign plant
                 return new Job(JobDefOf.CutPlant, p);
             }
             return null;

@@ -17,9 +17,6 @@
     <castEdgeShadows>true</castEdgeShadows>
 	<size>(3,3)</size>
 	<minifiedDef>MinifiedFurniture</minifiedDef>
-	<stuffCategories>
-	  <li>Metallic</li>
-	</stuffCategories>
     <tickerType>Normal</tickerType>
     <rotatable>true</rotatable>
     <neverMultiSelect>true</neverMultiSelect>
@@ -42,15 +39,13 @@
     <thingClass>ProjectRimFactory.SAL3.Things.Assemblers.Special.Building_Assembler_Learning</thingClass>
     <graphicData>
       <texPath>SAL3/smart_assembler</texPath>
-	  <shaderType>CutoutComplex</shaderType>
     </graphicData>
-    <costStuffCount>100</costStuffCount>
 	<costList>
       <PRFRoboticArm>2</PRFRoboticArm>
       <PRFWeakAIChip>1</PRFWeakAIChip>
       <PRFMachineFrameLarge>1</PRFMachineFrameLarge>
 	  <Plasteel>10</Plasteel>
-      <Steel>50</Steel>
+      <Steel>150</Steel>
       <Component>2</Component>
     </costList>
     <description>An auto-crafter controlled by a computer. Slowly gets better at recipes the more it completes them. However, it also gets a bit worse over time.</description>
@@ -77,13 +72,11 @@
     <thingClass>ProjectRimFactory.SAL3.Things.Assemblers.Building_SmartAssembler</thingClass>
     <graphicData>
       <texPath>SAL3/smart_assembler</texPath>
-	  <shaderType>CutoutComplex</shaderType>
     </graphicData>
-    <costStuffCount>100</costStuffCount>
 	<costList>
       <PRFRoboticArm>2</PRFRoboticArm>
       <PRFMachineFrameLarge>1</PRFMachineFrameLarge>
-      <Steel>20</Steel>
+      <Steel>120</Steel>
       <Plasteel>10</Plasteel>
     </costList>
     <description>An auto-crafter controlled by a computer. Reads recipe instructions from a recipe database.</description>
@@ -110,7 +103,6 @@
     <thingClass>ProjectRimFactory.SAL3.Things.Assemblers.Building_SimpleAssembler</thingClass>
     <graphicData>
       <texPath>SAL3/AutoCooker</texPath>
-	  <shaderType>CutoutComplex</shaderType>
     </graphicData>
     <statBases>
       <WorkToBuild>2000</WorkToBuild>

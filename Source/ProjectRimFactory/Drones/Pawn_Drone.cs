@@ -47,9 +47,24 @@ namespace ProjectRimFactory.Drones
             }
         }
 
+        public override void DeSpawn()
+        {
+            base.DeSpawn();
+            station.dronesLeft++;
+        }
+
         public override void Kill(DamageInfo? dinfo, Hediff exactCulprit = null)
         {
             base.Kill(dinfo, exactCulprit);
+            Corpse?.Destroy();
+        }
+
+        public override void ExposeData()
+        {
+            base.ExposeData();
+            Scribe_References.Look(ref setJob, "setJob");
+            Scribe_Values.Look(ref jobStarted, "jobStarted");
+            Scribe_References.Look(ref station, "station");
         }
     }
 }

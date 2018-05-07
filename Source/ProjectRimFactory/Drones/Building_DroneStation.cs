@@ -14,11 +14,16 @@ namespace ProjectRimFactory.Drones
     {
         public int dronesLeft;
         DefModExtension_DroneStation extension;
+        public override void PostMake()
+        {
+            base.PostMake();
+            extension = def.GetModExtension<DefModExtension_DroneStation>();
+            dronesLeft = extension.maxNumDrones;
+        }
         public override void SpawnSetup(Map map, bool respawningAfterLoad)
         {
             base.SpawnSetup(map, respawningAfterLoad);
             extension = def.GetModExtension<DefModExtension_DroneStation>();
-            dronesLeft = extension.maxNumDrones;
         }
         public override void Draw()
         {
@@ -46,9 +51,10 @@ namespace ProjectRimFactory.Drones
             {
                 Job job = TryGiveJob();
                 if (job != null)
-                { 
-                    Pawn_Drone drone = MakeDrone(job);
+                {
+                    Pawn_Drone drone = MakeDrone();
                     GenSpawn.Spawn(drone, Position, Map);
+                    drone.jobs.StartJob(job);
                 }
             }
         }
@@ -65,14 +71,18 @@ namespace ProjectRimFactory.Drones
             return builder.ToString();
         }
 
-        protected virtual Pawn_Drone MakeDrone(Job job)
+        protected virtual Pawn_Drone MakeDrone()
         {
             dronesLeft--;
             Pawn_Drone drone = (Pawn_Drone)PawnGenerator.GeneratePawn(PRFDefOf.PRFDroneKind, Faction);
             drone.station = this;
-            drone.setJob = job;
-            Log.Message($"{this} at {Position}: Created drone");
             return drone;
+        }
+
+        public override void ExposeData()
+        {
+            base.ExposeData();
+            Scribe_Values.Look(ref dronesLeft, "dronesLeft");
         }
     }
 }

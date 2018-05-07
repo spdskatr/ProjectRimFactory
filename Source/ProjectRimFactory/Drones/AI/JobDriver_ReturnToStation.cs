@@ -16,7 +16,6 @@ namespace ProjectRimFactory.Drones.AI
             {
                 initAction = () =>
                 {
-                    ((Pawn_Drone)pawn).station.dronesLeft++;
                     pawn.DeSpawn();
                 },
                 defaultCompleteMode = ToilCompleteMode.Instant

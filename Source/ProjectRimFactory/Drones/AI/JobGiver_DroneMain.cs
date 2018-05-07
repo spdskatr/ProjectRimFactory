@@ -14,12 +14,12 @@ namespace ProjectRimFactory.Drones.AI
         protected override Job TryGiveJob(Pawn pawn)
         {
             Pawn_Drone drone = (Pawn_Drone)pawn;
-            Job job = drone.setJob;
-            if (job != null && !drone.jobStarted)
-            {
-                drone.jobStarted = true;
-                return job;
-            }
+            //Job job = drone.setJob;
+            //if (job != null && !drone.jobStarted)
+            //{
+            //    drone.jobStarted = true;
+            //    return job;
+            //}
 
             if (drone.station != null)
             {

@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Defs>
   <ThingDef ParentName="PRFBuildingBase">
-    <defName>PRFDroneStation</defName>
-    <label>drone station</label>
-    <thingClass>ProjectRimFactory.Drones.Building_DeepDrillDroneStation</thingClass>
+    <defName>PRFHaulerDroneStation</defName>
+    <label>hauler drone station</label>
+    <thingClass>ProjectRimFactory.Drones.Building_HaulerDroneStation</thingClass>
     <graphicData>
       <texPath>Drones/DroneBase_2x2</texPath>
       <graphicClass>Graphic_Single</graphicClass>
@@ -21,7 +21,7 @@
       <MaxHitPoints>100</MaxHitPoints>
       <Flammability>1.0</Flammability>
     </statBases>
-    <description>A station that holds 4 drones.</description>
+    <description>A station that holds 4 hauler drones.</description>
     <stuffCategories>
       <li>Metallic</li>
     </stuffCategories>
