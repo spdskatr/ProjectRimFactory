@@ -17,7 +17,7 @@ namespace ProjectRimFactory.Drones
             GenSpawn.Spawn(pawn, Position, Map);
             foreach (Thing t in Map.listerHaulables.ThingsPotentiallyNeedingHauling())
             {
-                if (!Map.reservationManager.IsReservedByAnyoneOf(t, Faction) && HaulAIUtility.PawnCanAutomaticallyHaul(pawn, t, false))
+                if (!Map.reservationManager.IsReservedByAnyoneOf(t, Faction) && HaulAIUtility.PawnCanAutomaticallyHaulFast(pawn, t, false))
                 {
                     result = HaulAIUtility.HaulToStorageJob(pawn, t);
                     if (result != null)

@@ -10,8 +10,6 @@ namespace ProjectRimFactory.Drones
 {
     public class Pawn_Drone : Pawn
     {
-        public Job setJob;
-        public bool jobStarted;
         public Building_DroneStation station;
 
         public override void SpawnSetup(Map map, bool respawningAfterLoad)
@@ -62,8 +60,6 @@ namespace ProjectRimFactory.Drones
         public override void ExposeData()
         {
             base.ExposeData();
-            Scribe_References.Look(ref setJob, "setJob");
-            Scribe_Values.Look(ref jobStarted, "jobStarted");
             Scribe_References.Look(ref station, "station");
         }
     }
