@@ -13,7 +13,7 @@ namespace ProjectRimFactory.Drones
     public abstract class Building_DroneStation : Building
     {
         public int dronesLeft;
-        DefModExtension_DroneStation extension;
+        protected DefModExtension_DroneStation extension;
         public override void PostMake()
         {
             base.PostMake();
@@ -71,7 +71,7 @@ namespace ProjectRimFactory.Drones
             return builder.ToString();
         }
 
-        protected virtual Pawn_Drone MakeDrone()
+        public virtual Pawn_Drone MakeDrone()
         {
             dronesLeft--;
             Pawn_Drone drone = (Pawn_Drone)PawnGenerator.GeneratePawn(PRFDefOf.PRFDroneKind, Faction);

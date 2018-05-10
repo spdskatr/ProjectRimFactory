@@ -3,7 +3,7 @@
   <!--================================================================== Cultivator -->
   <ThingDef ParentName="PRFBuildingBase">
     <defName>CultivatorTools_DroneCultivator</defName>
-    <label>drone cultivator</label>
+    <label>cultivator</label>
     <thingClass>ProjectRimFactory.CultivatorTools.Building_SmallCultivator</thingClass>
     <graphicData>
       <texPath>Cultivator</texPath>

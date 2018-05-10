@@ -82,6 +82,7 @@
     <Compile Include="Drones\AI\JobDriver_ReturnToStation.cs" />
     <Compile Include="Drones\Building_DeepDrillDroneStation.cs" />
     <Compile Include="Drones\Building_HaulerDroneStation.cs" />
+    <Compile Include="Drones\Building_WorkGiverDroneStation.cs" />
     <Compile Include="Drones\DefModExtension_DroneStation.cs" />
     <Compile Include="Drones\DroneBackstories.cs" />
     <Compile Include="Drones\Pawn_Drone.cs" />

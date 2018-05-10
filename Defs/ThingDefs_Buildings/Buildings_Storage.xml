@@ -130,8 +130,47 @@
     <blockWind>true</blockWind>
     <size>(3,3)</size>
     <costList>
+      <PRFMachineFrameLarge>1</PRFMachineFrameLarge>
       <Steel>200</Steel>
 	  <Gold>20</Gold>
+	  <Uranium>20</Uranium>
+	  <Component>10</Component>
+    </costList>
+    <constructEffect>ConstructMetal</constructEffect>
+    <researchPrerequisites>
+      <li>PRFStorage</li>
+    </researchPrerequisites>
+	<comps>
+	  <li Class="CompProperties_Power">
+	    <compClass>CompPowerTrader</compClass>
+		<basePowerConsumption>0</basePowerConsumption>
+	  </li>
+	</comps>
+    <constructionSkillPrerequisite>8</constructionSkillPrerequisite>
+	<modExtensions>
+	  <li Class="ProjectRimFactory.Storage.Editables.DefModExtension_CanUseStorageIOPorts" />
+	</modExtensions>
+  </ThingDef>
+  <ThingDef ParentName="PRFMassStorageBase">
+    <defName>PRFCargoPlatform</defName>
+    <label>cargo platform</label>
+    <thingClass>ProjectRimFactory.Storage.Building_MassStorageUnitPowered</thingClass>
+    <graphicData>
+      <texPath>Storage/CargoPlatform</texPath>
+      <drawSize>(3,3)</drawSize>
+    </graphicData>
+    <statBases>
+      <MaxHitPoints>300</MaxHitPoints>
+      <WorkToBuild>2500</WorkToBuild>
+      <Flammability>0.1</Flammability>
+    </statBases>
+    <description>&quot;Stores resources.&quot; What a bland description, Tynan! Unlike the original cargo platform, this cargo platform is much smaller and consumes power. When your colony loses power, items will be safely stored inside, but the building will stop compressing the items into the central cell.</description>
+    <canOverlapZones>false</canOverlapZones>
+    <blockWind>true</blockWind>
+    <size>(3,3)</size>
+    <costList>
+      <Steel>300</Steel>
+	  <Gold>50</Gold>
 	  <Uranium>20</Uranium>
 	  <Component>10</Component>
     </costList>
