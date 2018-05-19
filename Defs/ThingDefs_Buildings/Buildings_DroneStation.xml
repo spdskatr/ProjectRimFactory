@@ -97,4 +97,72 @@
       </li>
     </modExtensions>
   </ThingDef>
+  <ThingDef ParentName="PRFBuildingBase">
+    <defName>EverythingDroneStation</defName>
+    <label>everything drone station</label>
+    <thingClass>ProjectRimFactory.Drones.Building_WorkGiverDroneStation</thingClass>
+    <graphicData>
+      <texPath>Drones/DroneBase_2x2</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <shaderType>CutoutComplex</shaderType>
+	  <drawSize>(2, 2)</drawSize>
+    </graphicData>
+	<size>(2, 2)</size>
+    <altitudeLayer>Building</altitudeLayer>
+    <passability>PassThroughOnly</passability>
+    <fillPercent>0.5</fillPercent>
+    <castEdgeShadows>true</castEdgeShadows>
+    <tickerType>Normal</tickerType>
+    <statBases>
+      <WorkToBuild>3000</WorkToBuild>
+      <MaxHitPoints>100</MaxHitPoints>
+      <Flammability>1.0</Flammability>
+    </statBases>
+    <description>A station that holds 4 everything drones. OP and designed to break my mod</description>
+    <stuffCategories>
+      <li>Metallic</li>
+    </stuffCategories>
+    <costStuffCount>50</costStuffCount>
+    <costList>
+	  <PRFMachineFrame>1</PRFMachineFrame>
+	  <PRFWeakAIChip>3</PRFWeakAIChip>
+      <PRFDroneModule>4</PRFDroneModule>
+    </costList>
+    <comps>
+	  <li><compClass>ProjectRimFactory.Common.CompPRFHelp</compClass></li>
+    </comps>
+    <rotatable>false</rotatable>
+    <designationCategory>Automation</designationCategory>
+    <staticSunShadowHeight>0.3</staticSunShadowHeight>
+    <researchPrerequisites>
+      <li>PRFOrdoDataRummaging</li>
+    </researchPrerequisites>
+    <modExtensions>
+      <li Class="ProjectRimFactory.Drones.DefModExtension_DroneStation">
+        <maxNumDrones>4</maxNumDrones>
+        <displayDormantDrones>true</displayDormantDrones>
+        <workTypes>
+          <li>Firefighter</li>
+          <li>Patient</li>
+          <li>Doctor</li>
+          <li>PatientBedRest</li>
+          <li>Flicker</li>
+          <li>Handling</li>
+          <li>Cooking</li>
+          <li>Hunting</li>
+          <li>Construction</li>
+          <li>Growing</li>
+          <li>Mining</li>
+          <li>PlantCutting</li>
+          <li>Smithing</li>
+          <li>Tailoring</li>
+          <li>Art</li>
+          <li>Crafting</li>
+          <li>Hauling</li>
+          <li>Cleaning</li>
+          <li>Research</li>
+        </workTypes>
+      </li>
+    </modExtensions>
+  </ThingDef>
 </Defs>
