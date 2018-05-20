@@ -59,7 +59,7 @@ namespace ProjectRimFactory.CultivatorTools
                 {
                     Thing blocker = GenPlant.AdjacentSowBlocker(plantDef, cell, Map);
                     // Get rid of blockers
-                    if (blocker != null && blocker is Plant && !Map.reservationManager.IsReservedByAnyoneOf(blocker, Faction))
+                    if (blocker != null && blocker is Plant && blocker.def != plantDef && !Map.reservationManager.IsReservedByAnyoneOf(blocker, Faction))
                     {
                         return new Job(JobDefOf.CutPlant, blocker);
                     }

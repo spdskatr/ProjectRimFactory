@@ -70,6 +70,7 @@
   <SuccessfullyWithdrawnPaperclips>Succesfully withdrawn {0} paperclips.</SuccessfullyWithdrawnPaperclips>
   
   <PRFDroneStation_NumberOfDrones>Stored drones: {0}</PRFDroneStation_NumberOfDrones>
+  <PRFDroneName>Drone</PRFDroneName>
   
   <!-- To make garbled text look more localized -->
   <PRF_GibberishAlphabet> !"#$%&amp;'()*+,-./0123456789:;&lt;=&gt;?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\]^_`abcdefghijklmnopqrstuvwxyz{|}~</PRF_GibberishAlphabet>

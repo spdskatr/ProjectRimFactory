@@ -12,6 +12,15 @@ namespace ProjectRimFactory.Drones
     public class Building_WorkGiverDroneStation : Building_DroneStation
     {
         public static readonly MethodInfo TryGiveJobPrioritizedMethod = typeof(JobGiver_Work).GetMethod("GiverTryGiveJobPrioritized", BindingFlags.NonPublic | BindingFlags.Instance);
+
+        public virtual IEnumerable<WorkTypeDef> WorkTypes
+        {
+            get
+            {
+                return extension.workTypes;
+            }
+        }
+
         public override Job TryGiveJob()
         {
             Job result = null;
@@ -20,12 +29,11 @@ namespace ProjectRimFactory.Drones
             pawn.workSettings = new Pawn_WorkSettings(pawn);
             pawn.workSettings.EnableAndInitialize();
             pawn.workSettings.DisableAll();
-            foreach (WorkTypeDef def in extension.workTypes)
+            foreach (WorkTypeDef def in WorkTypes)
             {
                 pawn.workSettings.SetPriority(def, 3);
             }
             result = TryIssueJobPackageDrone(pawn).Job;
-            Log.Message($"ThinkResult.Job: {result?.ToString() ?? "(null)"}");
             pawn.DeSpawn();
             return result;
         }

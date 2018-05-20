@@ -12,6 +12,7 @@ namespace ProjectRimFactory.Drones
     public static class DroneBackstories
     {
         public static FieldInfo nameField = typeof(Backstory).GetField("title", BindingFlags.Instance | BindingFlags.NonPublic);
+        public static FieldInfo nameShortField = typeof(Backstory).GetField("titleShort", BindingFlags.Instance | BindingFlags.NonPublic);
         public static Backstory childhood;
         public static Backstory adulthood;
         static DroneBackstories()
@@ -25,7 +26,8 @@ namespace ProjectRimFactory.Drones
                     slot = BackstorySlot.Childhood,
                     baseDesc = "NoneBrackets".Translate()
                 };
-                nameField.SetValue(childhood, "NoneBrackets".Translate());
+                nameField.SetValue(childhood, "PRFDroneName".Translate());
+                nameShortField.SetValue(childhood, "PRFDroneName".Translate());
                 BackstoryDatabase.AddBackstory(childhood);
                 adulthood = new Backstory()
                 {
@@ -34,7 +36,8 @@ namespace ProjectRimFactory.Drones
                     slot = BackstorySlot.Adulthood,
                     baseDesc = "NoneBrackets".Translate()
                 };
-                nameField.SetValue(childhood, "NoneBrackets".Translate());
+                nameField.SetValue(adulthood, "PRFDroneName".Translate());
+                nameShortField.SetValue(adulthood, "PRFDroneName".Translate());
                 BackstoryDatabase.AddBackstory(adulthood);
             });
         }

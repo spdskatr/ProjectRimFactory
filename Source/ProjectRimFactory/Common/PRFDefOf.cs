@@ -9,6 +9,7 @@ namespace ProjectRimFactory.Common
         public static JobDef PRFDrone_ReturnToStation;
 
         public static PawnKindDef PRFDroneKind;
+        public static PawnKindDef PRFSlavePawn;
 
         public static ResearchProjectDef PRFAtomicReconstruction;
         public static ResearchProjectDef PRFNanoMaterials;

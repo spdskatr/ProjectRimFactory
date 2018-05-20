@@ -29,7 +29,7 @@ namespace ProjectRimFactory.Drones
                 adulthood = DroneBackstories.adulthood
             };
             drafter = new Pawn_DraftController(this);
-            Name = new NameSingle("Drone");
+            Name = new NameSingle("PRFDroneName".Translate());
         }
 
         public override void Tick()

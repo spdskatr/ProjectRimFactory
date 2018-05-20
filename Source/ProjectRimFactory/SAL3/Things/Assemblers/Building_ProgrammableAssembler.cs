@@ -43,8 +43,8 @@ namespace ProjectRimFactory.SAL3.Things.Assemblers
         
         public virtual void DoPawn()
         {
-            Pawn p = PawnGenerator.GeneratePawn(PawnKindDefOf.Slave, Faction);
-            p.Name = new NameTriple(LabelCap, "SAL_Name".Translate(), GetUniqueLoadID());
+            Pawn p = PawnGenerator.GeneratePawn(PRFDefOf.PRFSlavePawn, Faction);
+            p.Name = new NameTriple("...", "SAL_Name".Translate(), "...");
             //Assign skills
             foreach (var s in p.skills.skills)
             {
