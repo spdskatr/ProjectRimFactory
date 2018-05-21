@@ -33,15 +33,19 @@ namespace ProjectRimFactory.Drones
             {
                 pawn.workSettings.SetPriority(def, 3);
             }
-            result = TryIssueJobPackageDrone(pawn).Job;
+            result = TryIssueJobPackageDrone(pawn, true).Job;
+            if (result == null)
+            {
+                result = TryIssueJobPackageDrone(pawn, false).Job;
+            }
             pawn.DeSpawn();
             return result;
         }
         // Method from RimWorld.JobGiver_Work.TryIssueJobPackage(Pawn pawn, JobIssueParams jobParams)
         // I modified the line if (!workGiver.ShouldSkip(pawn))
-        public ThinkResult TryIssueJobPackageDrone(Pawn pawn)
+        public ThinkResult TryIssueJobPackageDrone(Pawn pawn, bool emergency)
         {
-            List<WorkGiver> list = pawn.workSettings.WorkGiversInOrderNormal;
+            List<WorkGiver> list = emergency ? pawn.workSettings.WorkGiversInOrderEmergency : pawn.workSettings.WorkGiversInOrderNormal;
             int num = -999;
             TargetInfo targetInfo = TargetInfo.Invalid;
             WorkGiver_Scanner workGiver_Scanner = null;

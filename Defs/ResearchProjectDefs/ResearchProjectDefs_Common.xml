@@ -198,7 +198,7 @@
     <label>Fermi paradox</label>
     <techLevel>Ultra</techLevel>
     <baseCost>8000</baseCost>
-    <description>Aliens? What aliens?\n- A totally innocent mechanoid\n\nOrdo Historia, Record {43039413-a9ad-436d-99e1-63ec2cd944e5}, First published in the &lt;i&gt;Euterpe Musings&lt;/i&gt; (4256CE).\n\n Last synced with galactic core 1208YYtp ago</description>
+    <description>Aliens? What aliens?\n- A totally innocent mechanoid\n\nOrdo Historia, Record {43039413-a9ad-436d-99e1-63ec2cd944e5}, First published in the &lt;i&gt;Euterpe Musings&lt;/i&gt; (4256CE).\n\nLast synced with galactic core 1208YYtp ago</description>
     <prerequisites>
       <li>PRFOrdoDataRummaging</li>
     </prerequisites>
@@ -257,7 +257,7 @@
     <label>theory of everything</label>
     <techLevel>Transcendent</techLevel>
     <baseCost>40000</baseCost>
-    <description>The fundamental laws of the universe are how they are because of Assembly_CSharp.dll. Your AI research bench tells you that observing the code, although possible through archotechnology, is highly dangerous. Do you risk it? Or are you going to check the Steam Workshop page for answers first?</description>
+    <description>Figure out how this simulation really works by hacking into it.</description>
     <prerequisites>
 	  <li>PRFVanometrics</li>
 	  <li>PRFPsychics</li>
