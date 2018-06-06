@@ -1,6 +1,8 @@
 # PROJECT RIMFACTORY TO-DO LIST
 ---
-+ Credit Chicken Plucker
+- Quantum computer texture
+- Re-design I/O Ports
+- Finish Help system
 
 # Other goals moving forward
 ---

@@ -47,6 +47,7 @@
       <li Class="CompProperties_AffectedByFacilities">
         <linkableFacilities>
           <li>PRFQuantumComputer</li>
+          <li>MultiAnalyzer</li>
         </linkableFacilities>
       </li>
     </comps>
@@ -70,7 +71,7 @@
   <ThingDef ParentName="BuildingBase">
     <defName>PRFQuantumComputer</defName>
     <label>quantum computer</label>
-    <description>Increases research speed by 75%. Needs to be placed near AI research bench. One research bench can be linked to only one quantum computer.</description>
+    <description>Required for tier 3 automation research - increases research speed by 75%. Needs to be placed near AI research bench. One research bench can be linked to only one quantum computer.</description>
     <graphicData>
       <texPath>Things/Building/Misc/MultiAnalyzer</texPath>
       <graphicClass>Graphic_Single</graphicClass>

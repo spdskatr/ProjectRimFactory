@@ -48,7 +48,10 @@ namespace ProjectRimFactory.Drones
         public override void DeSpawn()
         {
             base.DeSpawn();
-            station.dronesLeft++;
+            if (station != null)
+            {
+                station.Notify_DroneMayBeLost(this);
+            }
         }
 
         public override void Kill(DamageInfo? dinfo, Hediff exactCulprit = null)

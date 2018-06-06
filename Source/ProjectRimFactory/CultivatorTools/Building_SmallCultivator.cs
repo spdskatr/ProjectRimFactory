@@ -11,7 +11,7 @@ using Verse.AI;
 
 namespace ProjectRimFactory.CultivatorTools
 {
-    public class Building_SmallCultivator : Building_DroneStation
+    public class Building_DroneCultivator : Building_DroneStation
     {
         List<IntVec3> cachedCoverageCells;
         public override Job TryGiveJob()
@@ -55,7 +55,8 @@ namespace ProjectRimFactory.CultivatorTools
                 if (!plantFound &&
                     plantDef != null && 
                     plantToGrowSettable.CanPlantRightNow() &&
-                    plantDef.CanEverPlantAt(cell, Map))
+                    plantDef.CanEverPlantAt(cell, Map) &&
+                    GenPlant.GrowthSeasonNow(cell, Map))
                 {
                     Thing blocker = GenPlant.AdjacentSowBlocker(plantDef, cell, Map);
                     // Get rid of blockers

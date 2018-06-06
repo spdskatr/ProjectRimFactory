@@ -7,6 +7,7 @@ namespace ProjectRimFactory.Common
     public class PRFDefOf
     {
         public static JobDef PRFDrone_ReturnToStation;
+        public static JobDef PRFDrone_SelfTerminate;
 
         public static PawnKindDef PRFDroneKind;
         public static PawnKindDef PRFSlavePawn;

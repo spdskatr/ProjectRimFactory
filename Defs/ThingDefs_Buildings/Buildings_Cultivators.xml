@@ -4,7 +4,7 @@
   <ThingDef ParentName="PRFBuildingBase">
     <defName>CultivatorTools_DroneCultivator</defName>
     <label>cultivator</label>
-    <thingClass>ProjectRimFactory.CultivatorTools.Building_SmallCultivator</thingClass>
+    <thingClass>ProjectRimFactory.CultivatorTools.Building_DroneCultivator</thingClass>
     <graphicData>
       <texPath>Cultivator</texPath>
       <graphicClass>Graphic_Single</graphicClass>
@@ -64,7 +64,7 @@
   <ThingDef ParentName="PRFBuildingBase">
     <defName>CultivatorTools_CultivatorWithLamp</defName>
     <label>cultivator (with sun lamp)</label>
-    <thingClass>ProjectRimFactory.CultivatorTools.Building_SmallCultivator</thingClass>
+    <thingClass>ProjectRimFactory.CultivatorTools.Building_DroneCultivator</thingClass>
     <graphicData>
       <texPath>CultivatorWithSunLamp</texPath>
       <graphicClass>Graphic_Multi</graphicClass>

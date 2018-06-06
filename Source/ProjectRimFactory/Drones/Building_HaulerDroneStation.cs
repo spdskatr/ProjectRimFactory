@@ -26,7 +26,7 @@ namespace ProjectRimFactory.Drones
                     }
                 }
             }
-            pawn.DeSpawn();
+            pawn.Destroy();
             return result;
         }
     }

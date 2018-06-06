@@ -11,8 +11,6 @@ namespace ProjectRimFactory.Drones
 {
     public class Building_WorkGiverDroneStation : Building_DroneStation
     {
-        public static readonly MethodInfo TryGiveJobPrioritizedMethod = typeof(JobGiver_Work).GetMethod("GiverTryGiveJobPrioritized", BindingFlags.NonPublic | BindingFlags.Instance);
-
         public virtual IEnumerable<WorkTypeDef> WorkTypes
         {
             get
@@ -38,11 +36,12 @@ namespace ProjectRimFactory.Drones
             {
                 result = TryIssueJobPackageDrone(pawn, false).Job;
             }
-            pawn.DeSpawn();
+            pawn.Destroy();
             return result;
         }
         // Method from RimWorld.JobGiver_Work.TryIssueJobPackage(Pawn pawn, JobIssueParams jobParams)
         // I modified the line if (!workGiver.ShouldSkip(pawn))
+#pragma warning disable
         public ThinkResult TryIssueJobPackageDrone(Pawn pawn, bool emergency)
         {
             List<WorkGiver> list = emergency ? pawn.workSettings.WorkGiversInOrderEmergency : pawn.workSettings.WorkGiversInOrderNormal;
@@ -219,5 +218,6 @@ namespace ProjectRimFactory.Drones
             }
             return ThinkResult.NoJob;
         }
+#pragma warning restore
     }
 }

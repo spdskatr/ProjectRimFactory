@@ -14,6 +14,7 @@ namespace ProjectRimFactory.Drones
     {
         public int dronesLeft;
         protected DefModExtension_DroneStation extension;
+        protected List<Pawn_Drone> spawnedDrones = new List<Pawn_Drone>();
         public override void PostMake()
         {
             base.PostMake();
@@ -31,6 +32,16 @@ namespace ProjectRimFactory.Drones
             if (extension.displayDormantDrones)
             {
                 DrawDormantDrones();
+            }
+        }
+
+        public override void DeSpawn()
+        {
+            base.DeSpawn();
+            List<Pawn_Drone> drones = spawnedDrones.ToList();
+            for (int i = 0; i < drones.Count; i++)
+            {
+                drones[i].Destroy();
             }
         }
 
@@ -59,6 +70,15 @@ namespace ProjectRimFactory.Drones
             }
         }
 
+        public void Notify_DroneMayBeLost(Pawn_Drone drone)
+        {
+            if (spawnedDrones.Contains(drone))
+            {
+                spawnedDrones.Remove(drone);
+                dronesLeft++;
+            }
+        }
+
         public override string GetInspectString()
         {
             StringBuilder builder = new StringBuilder();
@@ -76,6 +96,7 @@ namespace ProjectRimFactory.Drones
             dronesLeft--;
             Pawn_Drone drone = (Pawn_Drone)PawnGenerator.GeneratePawn(PRFDefOf.PRFDroneKind, Faction);
             drone.station = this;
+            spawnedDrones.Add(drone);
             return drone;
         }
 

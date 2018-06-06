@@ -51,7 +51,11 @@ namespace ProjectRimFactory.Storage
             yield return new Command_Action
             {
                 icon = TexUI.RotRightTex,
-                action = () => RefreshStorage(),
+                action = () =>
+                {
+                    RefreshStorage();
+                    Messages.Message("PRFReorganize_Message".Translate(), MessageTypeDefOf.NeutralEvent);
+                },
                 defaultLabel = "PRFReorganize".Translate(),
                 defaultDesc = "PRFReorganize_Desc".Translate()
             };
