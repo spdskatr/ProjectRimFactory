@@ -18,7 +18,7 @@ namespace ProjectRimFactory.Drones
             skills = new Pawn_SkillTracker(this);
             foreach (SkillRecord record in skills.skills)
             {
-                record.levelInt = 10;
+                record.levelInt = 21;
                 record.passion = Passion.None;
             }
             story = new Pawn_StoryTracker(this)

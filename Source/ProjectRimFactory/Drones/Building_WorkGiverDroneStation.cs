@@ -9,7 +9,7 @@ using Verse.AI;
 
 namespace ProjectRimFactory.Drones
 {
-    public class Building_WorkGiverDroneStation : Building_DroneStation
+    public abstract class Building_WorkGiverDroneStation : Building_DroneStation
     {
         public virtual IEnumerable<WorkTypeDef> WorkTypes
         {
@@ -37,6 +37,7 @@ namespace ProjectRimFactory.Drones
                 result = TryIssueJobPackageDrone(pawn, false).Job;
             }
             pawn.Destroy();
+            Notify_DroneGained();
             return result;
         }
         // Method from RimWorld.JobGiver_Work.TryIssueJobPackage(Pawn pawn, JobIssueParams jobParams)

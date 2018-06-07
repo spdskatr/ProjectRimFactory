@@ -17,6 +17,7 @@ namespace ProjectRimFactory.Drones.AI
                 initAction = () =>
                 {
                     pawn.Destroy();
+                    ((Pawn_Drone)pawn).station.Notify_DroneGained();
                 },
                 defaultCompleteMode = ToilCompleteMode.Instant
             };

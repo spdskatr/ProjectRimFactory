@@ -13,7 +13,19 @@ namespace ProjectRimFactory.CultivatorTools
 {
     public class Building_DroneCultivator : Building_DroneStation
     {
+        int dronesLeft;
         List<IntVec3> cachedCoverageCells;
+
+        public override int DronesLeft { get => dronesLeft; }
+        public override void Notify_DroneLost()
+        {
+            dronesLeft--;
+        }
+        public override void Notify_DroneGained()
+        {
+            dronesLeft++;
+        }
+
         public override Job TryGiveJob()
         {
             for (int i = 0; i < cachedCoverageCells.Count; i++)
@@ -92,6 +104,12 @@ namespace ProjectRimFactory.CultivatorTools
             return null;
         }
 
+        public override void PostMake()
+        {
+            base.PostMake();
+            dronesLeft = extension.maxNumDrones;
+        }
+
         public override void SpawnSetup(Map map, bool respawningAfterLoad)
         {
             base.SpawnSetup(map, respawningAfterLoad);
@@ -140,6 +158,12 @@ namespace ProjectRimFactory.CultivatorTools
         {
             base.DrawExtraSelectionOverlays();
             GenDraw.DrawFieldEdges(cachedCoverageCells);
+        }
+
+        public override void ExposeData()
+        {
+            base.ExposeData();
+            Scribe_Values.Look(ref dronesLeft, "dronesLeft");
         }
     }
 }

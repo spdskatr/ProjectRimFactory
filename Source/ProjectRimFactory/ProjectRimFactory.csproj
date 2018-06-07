@@ -81,8 +81,7 @@
     <Compile Include="CultivatorTools\Utilities.cs" />
     <Compile Include="Drones\AI\JobDriver_ReturnToStation.cs" />
     <Compile Include="Drones\AI\JobDriver_SelfTerminate.cs" />
-    <Compile Include="Drones\Building_DeepDrillDroneStation.cs" />
-    <Compile Include="Drones\Building_HaulerDroneStation.cs" />
+    <Compile Include="Drones\Building_DroneStationRefuelable.cs" />
     <Compile Include="Drones\Building_WorkGiverDroneStation.cs" />
     <Compile Include="Drones\DefModExtension_DroneStation.cs" />
     <Compile Include="Drones\DroneBackstories.cs" />

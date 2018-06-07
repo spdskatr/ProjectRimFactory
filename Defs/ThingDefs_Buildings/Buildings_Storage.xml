@@ -5,7 +5,7 @@
 	<graphicData>
       <graphicClass>Graphic_Single</graphicClass>
 	</graphicData>
-    <altitudeLayer>LayingPawn</altitudeLayer>
+    <altitudeLayer>Gas</altitudeLayer>
     <passability>PassThroughOnly</passability>
     <pathCost>150</pathCost>
     <blockWind>true</blockWind>
@@ -169,6 +169,7 @@
     <canOverlapZones>false</canOverlapZones>
     <blockWind>true</blockWind>
     <size>(3,3)</size>
+    <pathCost>0</pathCost>
     <costList>
       <Steel>300</Steel>
 	  <Gold>50</Gold>

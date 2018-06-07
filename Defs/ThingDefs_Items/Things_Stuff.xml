@@ -159,9 +159,67 @@
     </stuffProps>
   </ThingDef>
   <ThingDef ParentName="PRFResourceBase">
+    <defName>PRFIndestructium</defName>
+    <label>Indestructium</label>
+    <description>Compressed exotic matter held together by the strong force.</description>
+    <graphicData>
+      <texPath>Common/Composite</texPath>
+      <graphicClass>Graphic_StackCount</graphicClass>
+	  <color>(50, 50, 50)</color>
+    </graphicData>
+    <resourceReadoutPriority>Middle</resourceReadoutPriority>
+    <soundInteract>Metal_Drop</soundInteract>
+    <soundDrop>Metal_Drop</soundDrop>
+    <useHitPoints>false</useHitPoints>
+    <statBases>
+      <MarketValue>80000</MarketValue>
+      <Mass>100</Mass>
+      <SharpDamageMultiplier>100.0</SharpDamageMultiplier>
+      <BluntDamageMultiplier>100.0</BluntDamageMultiplier>
+    </statBases>
+    <thingCategories>
+      <li>ResourcesRaw</li>
+    </thingCategories>
+    <stackLimit>75</stackLimit>
+    <stuffProps>
+      <categories>
+        <li>Metallic</li>
+		<li>Stony</li>
+      </categories>
+      <color>(112,48,160)</color>
+      <commonality>0</commonality>
+      <constructEffect>ConstructMetal</constructEffect>
+      <soundImpactStuff>BulletImpactMetal</soundImpactStuff>
+      <soundMeleeHitSharp>MeleeHit_Metal_Sharp</soundMeleeHitSharp>
+      <soundMeleeHitBlunt>MeleeHit_Metal_Blunt</soundMeleeHitBlunt>
+      <statOffsets>
+        <Beauty>2</Beauty>
+        <ArmorRating_Blunt>0.1</ArmorRating_Blunt>
+        <ArmorRating_Sharp>0.1</ArmorRating_Sharp>
+        <ArmorRating_Heat>0.1</ArmorRating_Heat>
+		<ArmorRating_Electric>0.1</ArmorRating_Electric>
+      </statOffsets>
+      <statFactors>
+        <MaxHitPoints>10000</MaxHitPoints>
+        <Flammability>0</Flammability>
+        <WorkToMake>20</WorkToMake>
+        <WorkToBuild>20</WorkToBuild>
+        <Mass>10</Mass>
+        <MeleeWeapon_CooldownMultiplier>10</MeleeWeapon_CooldownMultiplier>
+        <DoorOpenSpeed>0.2</DoorOpenSpeed>
+        <ArmorRating_Blunt>80.0</ArmorRating_Blunt>
+        <ArmorRating_Sharp>80.0</ArmorRating_Sharp>
+        <ArmorRating_Heat>80.0</ArmorRating_Heat>
+        <ArmorRating_Electric>80.0</ArmorRating_Electric>
+        <Insulation_Cold>3.0</Insulation_Cold>
+        <Insulation_Heat>3.0</Insulation_Heat>
+      </statFactors>
+    </stuffProps>
+  </ThingDef>
+  <ThingDef ParentName="PRFResourceBase">
     <defName>PRFVolatiteChunk</defName>
     <label>volatite chunk</label>
-    <description>This item cannot be used as a material. It is used in the production of vanometrics. It is so volatile that it explodes violently in 24 hours.</description>
+    <description>This item cannot be used as a material. It is used in the production of vanometrics. It is so volatile that it disintegrates in 24 hours.</description>
     <graphicData>
       <texPath>Things/Item/Chunk/ChunkStone</texPath>
       <graphicClass>Graphic_Random</graphicClass>

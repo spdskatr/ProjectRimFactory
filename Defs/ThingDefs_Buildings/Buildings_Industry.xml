@@ -19,7 +19,7 @@
       <MaxHitPoints>100</MaxHitPoints>
       <Flammability>1.0</Flammability>
     </statBases>
-    <description>An automated quarry that continuously extracts resources from the ground, including rock chunks, materials and resources. Produces a random resource roughly once every 6 hours.</description>
+    <description>An automated quarry that continuously extracts resources from the ground, including rock chunks, materials and components. Produces a random resource roughly once every 6 hours.</description>
     <costList>
       <Steel>100</Steel>
       <Component>3</Component>

@@ -12,14 +12,19 @@ namespace ProjectRimFactory.Drones
 {
     public abstract class Building_DroneStation : Building
     {
-        public int dronesLeft;
         protected DefModExtension_DroneStation extension;
         protected List<Pawn_Drone> spawnedDrones = new List<Pawn_Drone>();
+
+        public abstract int DronesLeft { get; }
+        // Used for destroyed pawns
+        public abstract void Notify_DroneLost();
+        // Used to negate imaginary pawns despawned in WorkGiverDroneStations and JobDriver_ReturnToStation
+        public abstract void Notify_DroneGained();
+
         public override void PostMake()
         {
             base.PostMake();
             extension = def.GetModExtension<DefModExtension_DroneStation>();
-            dronesLeft = extension.maxNumDrones;
         }
         public override void SpawnSetup(Map map, bool respawningAfterLoad)
         {
@@ -47,7 +52,7 @@ namespace ProjectRimFactory.Drones
 
         public virtual void DrawDormantDrones()
         {
-            foreach (IntVec3 cell in GenAdj.CellsOccupiedBy(this).Take(dronesLeft))
+            foreach (IntVec3 cell in GenAdj.CellsOccupiedBy(this).Take(DronesLeft))
             {
                 PRFDefOf.PRFDrone.graphic.DrawFromDef(cell.ToVector3ShiftedWithAltitude(AltitudeLayer.LayingPawn), default(Rot4), PRFDefOf.PRFDrone);
             }
@@ -58,11 +63,12 @@ namespace ProjectRimFactory.Drones
         public override void Tick()
         {
             base.Tick();
-            if (dronesLeft > 0 && this.IsHashIntervalTick(60) && GetComp<CompPowerTrader>()?.PowerOn != false)
+            if (DronesLeft > 0 && this.IsHashIntervalTick(60) && GetComp<CompPowerTrader>()?.PowerOn != false)
             {
                 Job job = TryGiveJob();
                 if (job != null)
                 {
+                    job.playerForced = true;
                     Pawn_Drone drone = MakeDrone();
                     GenSpawn.Spawn(drone, Position, Map);
                     drone.jobs.StartJob(job);
@@ -75,7 +81,7 @@ namespace ProjectRimFactory.Drones
             if (spawnedDrones.Contains(drone))
             {
                 spawnedDrones.Remove(drone);
-                dronesLeft++;
+                Notify_DroneLost();
             }
         }
 
@@ -87,13 +93,12 @@ namespace ProjectRimFactory.Drones
             {
                 builder.AppendLine(str);
             }
-            builder.Append("PRFDroneStation_NumberOfDrones".Translate(dronesLeft));
+            builder.Append("PRFDroneStation_NumberOfDrones".Translate(DronesLeft));
             return builder.ToString();
         }
 
         public virtual Pawn_Drone MakeDrone()
         {
-            dronesLeft--;
             Pawn_Drone drone = (Pawn_Drone)PawnGenerator.GeneratePawn(PRFDefOf.PRFDroneKind, Faction);
             drone.station = this;
             spawnedDrones.Add(drone);
@@ -103,7 +108,6 @@ namespace ProjectRimFactory.Drones
         public override void ExposeData()
         {
             base.ExposeData();
-            Scribe_Values.Look(ref dronesLeft, "dronesLeft");
         }
     }
 }

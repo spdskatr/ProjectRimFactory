@@ -88,6 +88,10 @@ namespace ProjectRimFactory.Industry.UI
                         }
                         else
                         {
+                            for (int i = 0; i < selectedThings.Count; i++)
+                            {
+                                SelBuilding.boundStorageUnit.Notify_ReceivedThing(selectedThings[i]);
+                            }
                             Messages.Message("PRFNotEnoughPaperclips".Translate(), MessageTypeDefOf.RejectInput);
                         }
                     }

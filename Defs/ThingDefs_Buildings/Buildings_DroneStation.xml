@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Defs>
-  <ThingDef ParentName="PRFBuildingBase">
-    <defName>PRFHaulerDroneStation</defName>
-    <label>hauler drone station</label>
-    <thingClass>ProjectRimFactory.Drones.Building_HaulerDroneStation</thingClass>
+  <ThingDef ParentName="PRFBuildingBase" Name="PRFDroneStationBase" Abstract="True">
+    <thingClass>ProjectRimFactory.Drones.Building_DroneStationRefuelable</thingClass>
     <graphicData>
       <texPath>Drones/DroneBase_2x2</texPath>
       <graphicClass>Graphic_Single</graphicClass>
@@ -21,18 +19,21 @@
       <MaxHitPoints>100</MaxHitPoints>
       <Flammability>1.0</Flammability>
     </statBases>
-    <description>A station that holds 4 hauler drones.</description>
-    <stuffCategories>
-      <li>Metallic</li>
-    </stuffCategories>
-    <costStuffCount>50</costStuffCount>
-    <costList>
-	  <PRFMachineFrame>1</PRFMachineFrame>
-	  <PRFWeakAIChip>3</PRFWeakAIChip>
-      <PRFDroneModule>4</PRFDroneModule>
-    </costList>
     <comps>
 	  <li><compClass>ProjectRimFactory.Common.CompPRFHelp</compClass></li>
+      <li Class="CompProperties_Refuelable">
+        <fuelConsumptionRate>0</fuelConsumptionRate>
+        <fuelCapacity>20</fuelCapacity>
+        <fuelConsumptionPerTickInRain>0</fuelConsumptionPerTickInRain>
+        <fuelFilter>
+          <thingDefs>
+            <li>PRFDroneModule</li>
+          </thingDefs>
+        </fuelFilter>
+        <targetFuelLevelConfigurable>true</targetFuelLevelConfigurable>
+        <initialConfigurableTargetFuelLevel>20</initialConfigurableTargetFuelLevel>
+        <drawOutOfFuelOverlay>false</drawOutOfFuelOverlay>
+      </li>
     </comps>
     <rotatable>false</rotatable>
     <designationCategory>Automation</designationCategory>
@@ -42,33 +43,14 @@
     </researchPrerequisites>
     <modExtensions>
       <li Class="ProjectRimFactory.Drones.DefModExtension_DroneStation">
-        <maxNumDrones>4</maxNumDrones>
         <displayDormantDrones>true</displayDormantDrones>
       </li>
     </modExtensions>
   </ThingDef>
-  <ThingDef ParentName="PRFBuildingBase">
-    <defName>PRFHaulerDroneStationTest</defName>
-    <label>hauler drone station</label>
-    <thingClass>ProjectRimFactory.Drones.Building_WorkGiverDroneStation</thingClass>
-    <graphicData>
-      <texPath>Drones/DroneBase_2x2</texPath>
-      <graphicClass>Graphic_Single</graphicClass>
-      <shaderType>CutoutComplex</shaderType>
-	  <drawSize>(2, 2)</drawSize>
-    </graphicData>
-	<size>(2, 2)</size>
-    <altitudeLayer>Building</altitudeLayer>
-    <passability>PassThroughOnly</passability>
-    <fillPercent>0.5</fillPercent>
-    <castEdgeShadows>true</castEdgeShadows>
-    <tickerType>Normal</tickerType>
-    <statBases>
-      <WorkToBuild>3000</WorkToBuild>
-      <MaxHitPoints>100</MaxHitPoints>
-      <Flammability>1.0</Flammability>
-    </statBases>
-    <description>A station that holds 4 hauler drones.</description>
+  <ThingDef ParentName="PRFDroneStationBase">
+    <defName>CaretakerDroneStation</defName>
+    <label>caretaker drone station</label>
+    <description>A station that holds up to 20 drones, capable of hauling and cleaning.</description>
     <stuffCategories>
       <li>Metallic</li>
     </stuffCategories>
@@ -76,31 +58,46 @@
     <costList>
 	  <PRFMachineFrame>1</PRFMachineFrame>
 	  <PRFWeakAIChip>3</PRFWeakAIChip>
-      <PRFDroneModule>4</PRFDroneModule>
     </costList>
-    <comps>
-	  <li><compClass>ProjectRimFactory.Common.CompPRFHelp</compClass></li>
-    </comps>
-    <rotatable>false</rotatable>
-    <designationCategory>Automation</designationCategory>
-    <staticSunShadowHeight>0.3</staticSunShadowHeight>
-    <researchPrerequisites>
-      <li>PRFOrdoDataRummaging</li>
-    </researchPrerequisites>
     <modExtensions>
       <li Class="ProjectRimFactory.Drones.DefModExtension_DroneStation">
-        <maxNumDrones>4</maxNumDrones>
-        <displayDormantDrones>true</displayDormantDrones>
         <workTypes>
           <li>Hauling</li>
+          <li>Cleaning</li>
         </workTypes>
       </li>
     </modExtensions>
   </ThingDef>
-  <ThingDef ParentName="PRFBuildingBase">
+  <ThingDef ParentName="PRFDroneStationBase">
     <defName>MostThingsDroneStation</defName>
     <label>most things drone station</label>
-    <thingClass>ProjectRimFactory.Drones.Building_WorkGiverDroneStation</thingClass>
+    <description>A station that holds up to 20 drones.</description>
+    <stuffCategories>
+      <li>Metallic</li>
+    </stuffCategories>
+    <costStuffCount>50</costStuffCount>
+    <costList>
+	  <PRFMachineFrame>1</PRFMachineFrame>
+	  <PRFWeakAIChip>3</PRFWeakAIChip>
+    </costList>
+    <modExtensions>
+      <li Class="ProjectRimFactory.Drones.DefModExtension_DroneStation">
+        <workTypes>
+          <li>Firefighter</li>
+          <li>Flicker</li>
+          <li>Construction</li>
+          <li>Growing</li>
+          <li>Mining</li>
+          <li>PlantCutting</li>
+          <li>Hauling</li>
+          <li>Cleaning</li>
+        </workTypes>
+      </li>
+    </modExtensions>
+  </ThingDef>
+    <defName>MostThingsDroneStation</defName>
+    <label>most things drone station</label>
+    <thingClass>ProjectRimFactory.Drones.Building_DroneStationRefuelable</thingClass>
     <graphicData>
       <texPath>Drones/DroneBase_2x2</texPath>
       <graphicClass>Graphic_Single</graphicClass>
@@ -118,7 +115,7 @@
       <MaxHitPoints>100</MaxHitPoints>
       <Flammability>1.0</Flammability>
     </statBases>
-    <description>A station that holds 4 most things drones. These will probably be removed in the release.</description>
+    <description>A station that holds up to 20 most things drones. These will probably be removed in the release.</description>
     <stuffCategories>
       <li>Metallic</li>
     </stuffCategories>
@@ -126,10 +123,22 @@
     <costList>
 	  <PRFMachineFrame>1</PRFMachineFrame>
 	  <PRFWeakAIChip>3</PRFWeakAIChip>
-      <PRFDroneModule>4</PRFDroneModule>
     </costList>
     <comps>
 	  <li><compClass>ProjectRimFactory.Common.CompPRFHelp</compClass></li>
+      <li Class="CompProperties_Refuelable">
+        <fuelConsumptionRate>0</fuelConsumptionRate>
+        <fuelCapacity>20</fuelCapacity>
+        <fuelConsumptionPerTickInRain>0</fuelConsumptionPerTickInRain>
+        <fuelFilter>
+          <thingDefs>
+            <li>PRFDroneModule</li>
+          </thingDefs>
+        </fuelFilter>
+        <targetFuelLevelConfigurable>true</targetFuelLevelConfigurable>
+        <initialConfigurableTargetFuelLevel>20</initialConfigurableTargetFuelLevel>
+        <drawOutOfFuelOverlay>false</drawOutOfFuelOverlay>
+      </li>
     </comps>
     <rotatable>false</rotatable>
     <designationCategory>Automation</designationCategory>
@@ -139,7 +148,6 @@
     </researchPrerequisites>
     <modExtensions>
       <li Class="ProjectRimFactory.Drones.DefModExtension_DroneStation">
-        <maxNumDrones>4</maxNumDrones>
         <displayDormantDrones>true</displayDormantDrones>
         <workTypes>
           <li>Firefighter</li>
@@ -154,28 +162,10 @@
       </li>
     </modExtensions>
   </ThingDef>
-  <ThingDef ParentName="PRFBuildingBase">
+  <ThingDef ParentName="PRFDroneStationBase">
     <defName>EverythingDroneStation</defName>
     <label>everything drone station</label>
-    <thingClass>ProjectRimFactory.Drones.Building_WorkGiverDroneStation</thingClass>
-    <graphicData>
-      <texPath>Drones/DroneBase_2x2</texPath>
-      <graphicClass>Graphic_Single</graphicClass>
-      <shaderType>CutoutComplex</shaderType>
-	  <drawSize>(2, 2)</drawSize>
-    </graphicData>
-	<size>(2, 2)</size>
-    <altitudeLayer>Building</altitudeLayer>
-    <passability>PassThroughOnly</passability>
-    <fillPercent>0.5</fillPercent>
-    <castEdgeShadows>true</castEdgeShadows>
-    <tickerType>Normal</tickerType>
-    <statBases>
-      <WorkToBuild>3000</WorkToBuild>
-      <MaxHitPoints>100</MaxHitPoints>
-      <Flammability>1.0</Flammability>
-    </statBases>
-    <description>A station that holds 4 everything drones. OP and designed to break my mod. These will probably be removed in the release.</description>
+    <description>A station that holds up to 20 everything drones. OP and designed to break my mod. These will probably be removed in the release.</description>
     <stuffCategories>
       <li>Metallic</li>
     </stuffCategories>
@@ -183,20 +173,9 @@
     <costList>
 	  <PRFMachineFrame>1</PRFMachineFrame>
 	  <PRFWeakAIChip>3</PRFWeakAIChip>
-      <PRFDroneModule>4</PRFDroneModule>
     </costList>
-    <comps>
-	  <li><compClass>ProjectRimFactory.Common.CompPRFHelp</compClass></li>
-    </comps>
-    <rotatable>false</rotatable>
-    <designationCategory>Automation</designationCategory>
-    <staticSunShadowHeight>0.3</staticSunShadowHeight>
-    <researchPrerequisites>
-      <li>PRFOrdoDataRummaging</li>
-    </researchPrerequisites>
     <modExtensions>
       <li Class="ProjectRimFactory.Drones.DefModExtension_DroneStation">
-        <maxNumDrones>4</maxNumDrones>
         <displayDormantDrones>true</displayDormantDrones>
         <workTypes>
           <li>Firefighter</li>

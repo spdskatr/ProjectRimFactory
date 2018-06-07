@@ -68,10 +68,6 @@ namespace ProjectRimFactory.Storage
             {
                 RegisterNewItem(newItem);
             }
-            if (newItem.def.drawGUIOverlay)
-            {
-                Map.listerThings.ThingsInGroup(ThingRequestGroup.HasGUIOverlay).Remove(newItem);
-            }
         }
 
         public virtual string GetITabString()
@@ -143,14 +139,6 @@ namespace ProjectRimFactory.Storage
         {
             base.Notify_LostThing(newItem);
             items.Remove(newItem);
-            if (newItem.Spawned)
-            {
-                List<Thing> list = Map.listerThings.ThingsInGroup(ThingRequestGroup.HasGUIOverlay);
-                if (!list.Contains(newItem))
-                {
-                    list.Add(newItem);
-                }
-            }
             RefreshStorage();
         }
 
@@ -177,11 +165,8 @@ namespace ProjectRimFactory.Storage
                         }
                         else
                         {
-                            items.Add(item);
-                        }
-                        if (item.def.drawGUIOverlay)
-                        {
-                            Map.listerThings.ThingsInGroup(ThingRequestGroup.HasGUIOverlay).Remove(item);
+                            if (!items.Contains(item))
+                                items.Add(item);
                         }
                     }
                 }
