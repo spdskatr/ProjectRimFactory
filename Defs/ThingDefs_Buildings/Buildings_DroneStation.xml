@@ -112,7 +112,7 @@
     </stuffCategories>
     <thingClass>ProjectRimFactory.Drones.Building_DroneStationSpecialGraphics</thingClass>
     <graphicData>
-      <texPath>Drones/DroneStationGrowing</texPath>
+      <texPath>Drones/DroneStationGrower</texPath>
       <graphicClass>Graphic_Single</graphicClass>
       <shaderType>CutoutComplex</shaderType>
 	  <drawSize>(3, 3)</drawSize>
