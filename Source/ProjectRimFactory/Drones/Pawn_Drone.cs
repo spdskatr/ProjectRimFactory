@@ -18,7 +18,7 @@ namespace ProjectRimFactory.Drones
             skills = new Pawn_SkillTracker(this);
             foreach (SkillRecord record in skills.skills)
             {
-                record.levelInt = 21;
+                record.levelInt = 20;
                 record.passion = Passion.None;
             }
             story = new Pawn_StoryTracker(this)
@@ -35,12 +35,15 @@ namespace ProjectRimFactory.Drones
         public override void Tick()
         {
             base.Tick();
-            foreach (SkillRecord sr in skills.skills)
+            if (this.IsHashIntervalTick(250))
             {
-                if (sr.xpSinceLastLevel > 1f)
+                foreach (SkillRecord sr in skills.skills)
                 {
-                    sr.xpSinceMidnight = 1f;
-                    sr.xpSinceLastLevel = 1f;
+                    if (sr.xpSinceLastLevel > 1f)
+                    {
+                        sr.xpSinceMidnight = 1f;
+                        sr.xpSinceLastLevel = 1f;
+                    }
                 }
             }
         }
