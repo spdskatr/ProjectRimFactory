@@ -6,7 +6,7 @@
     <thingClass>ProjectRimFactory.SAL3.Things.Building_SmartHopper</thingClass>
     <graphicData>
       <texPath>Things/Building/Production/Hopper</texPath>
-      <graphicClass>Graphic_Single</graphicClass>
+      <graphicClass>Graphic_Multi</graphicClass>
       <damageData>
         <rect>(0.05,0.1,0.9,0.9)</rect>
         <cornerTL>Damage/Corner</cornerTL>
@@ -42,16 +42,17 @@
       <WorkToBuild>450</WorkToBuild>
       <MaxHitPoints>100</MaxHitPoints>
       <Flammability>1.0</Flammability>
+      <Mass>30</Mass>
     </statBases>
     <description>A hopper that can take items from nearby stockpiles and can be programmed to take a certain amount of one item. It has a range of 5 tiles. Unfortunately, it does not work as a hopper for the nurient paste dispenser.</description>
     <costList>
       <Steel>20</Steel>
-      <Component>3</Component>
+      <ComponentIndustrial>3</ComponentIndustrial>
     </costList>
     <comps>
       <li Class="CompProperties_Power">
         <compClass>CompPowerTrader</compClass>
-        <startElectricalFires>true</startElectricalFires>
+        
         <basePowerConsumption>200</basePowerConsumption>
       </li>
 	  <li Class="CompProperties_Flickable" />
@@ -64,7 +65,8 @@
     <staticSunShadowHeight>0.3</staticSunShadowHeight>
     <surfaceType>Item</surfaceType>
     <constructEffect>ConstructMetal</constructEffect>
-	<minifiedDef>MinifiedFurniture</minifiedDef>
+	<minifiedDef>MinifiedThing</minifiedDef>
+    <thingCategories><li>Buildings</li></thingCategories>
     <specialDisplayRadius>5</specialDisplayRadius><!--A.K.A. Search radius-->
     <researchPrerequisites>
       <li>AutomationBasics</li>

@@ -17,5 +17,10 @@ namespace ProjectRimFactory.SAL3.Things.Assemblers
         public bool CurrentlyUsableForBills() => false;
 
         public abstract IEnumerable<RecipeDef> GetAllRecipes();
+
+        public bool UsableForBillsAfterFueling()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

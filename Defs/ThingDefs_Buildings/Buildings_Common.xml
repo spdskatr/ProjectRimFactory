@@ -13,7 +13,7 @@
     <costStuffCount>150</costStuffCount>
     <costList>
       <Steel>100</Steel>
-      <Component>10</Component>
+      <ComponentIndustrial>10</ComponentIndustrial>
 	  <PRFWeakAIChip>1</PRFWeakAIChip>
     </costList>
     <graphicData>
@@ -41,7 +41,7 @@
       <li Class="CompProperties_Power">
         <compClass>CompPowerTrader</compClass>
         <basePowerConsumption>250</basePowerConsumption>
-        <startElectricalFires>true</startElectricalFires>
+        
       </li>
       <li Class="CompProperties_Flickable"/>
       <li Class="CompProperties_AffectedByFacilities">
@@ -88,7 +88,8 @@
     <castEdgeShadows>true</castEdgeShadows>
     <fillPercent>0.5</fillPercent>
     <designationCategory>Automation</designationCategory>
-    <minifiedDef>MinifiedFurniture</minifiedDef>
+    <minifiedDef>MinifiedThing</minifiedDef>
+    <thingCategories><li>Buildings</li></thingCategories>
     <canOverlapZones>false</canOverlapZones>
     <statBases>
       <MaxHitPoints>200</MaxHitPoints>
@@ -104,7 +105,7 @@
     <comps>
       <li Class="CompProperties_Power">
         <compClass>CompPowerTrader</compClass>
-        <startElectricalFires>true</startElectricalFires>
+        
         <basePowerConsumption>350</basePowerConsumption>
       </li>
       <li Class="CompProperties_Flickable"/>
@@ -140,7 +141,7 @@
     <costList>
       <PRFRoboticArm>1</PRFRoboticArm>
       <Steel>200</Steel>
-      <Component>5</Component>
+      <ComponentIndustrial>5</ComponentIndustrial>
     </costList>
     <altitudeLayer>Building</altitudeLayer>
     <fillPercent>0.5</fillPercent>
@@ -163,7 +164,7 @@
     <comps>
       <li Class="CompProperties_Power">
         <compClass>CompPowerTrader</compClass>
-        <startElectricalFires>true</startElectricalFires>
+        
         <basePowerConsumption>400</basePowerConsumption>
       </li>
       <li Class="CompProperties_Flickable"/>

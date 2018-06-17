@@ -31,7 +31,7 @@
 	  <color>(112,173,71)</color>
       <commonality>0</commonality>
       <constructEffect>ConstructMetal</constructEffect>
-      <soundImpactStuff>BulletImpactMetal</soundImpactStuff>
+      <soundImpactStuff>BulletImpact_Metal</soundImpactStuff>
       <soundMeleeHitSharp>MeleeHit_Metal_Sharp</soundMeleeHitSharp>
       <soundMeleeHitBlunt>MeleeHit_Metal_Blunt</soundMeleeHitBlunt>
       <statOffsets>
@@ -48,7 +48,6 @@
         <ArmorRating_Blunt>1.6</ArmorRating_Blunt>
         <ArmorRating_Sharp>4.0</ArmorRating_Sharp>
         <ArmorRating_Heat>2.0</ArmorRating_Heat>
-        <ArmorRating_Electric>0</ArmorRating_Electric>
         <Insulation_Cold>1.1</Insulation_Cold>
         <Insulation_Heat>1.1</Insulation_Heat>
       </statFactors>
@@ -85,7 +84,7 @@
       <color>(46,117,182)</color>
       <commonality>0</commonality>
       <constructEffect>ConstructMetal</constructEffect>
-      <soundImpactStuff>BulletImpactMetal</soundImpactStuff>
+      <soundImpactStuff>BulletImpact_Metal</soundImpactStuff>
       <soundMeleeHitSharp>MeleeHit_Metal_Sharp</soundMeleeHitSharp>
       <soundMeleeHitBlunt>MeleeHit_Metal_Blunt</soundMeleeHitBlunt>
       <statFactors>
@@ -131,7 +130,7 @@
       <color>(112,48,160)</color>
       <commonality>0</commonality>
       <constructEffect>ConstructMetal</constructEffect>
-      <soundImpactStuff>BulletImpactMetal</soundImpactStuff>
+      <soundImpactStuff>BulletImpact_Metal</soundImpactStuff>
       <soundMeleeHitSharp>MeleeHit_Metal_Sharp</soundMeleeHitSharp>
       <soundMeleeHitBlunt>MeleeHit_Metal_Blunt</soundMeleeHitBlunt>
       <statOffsets>
@@ -139,7 +138,7 @@
         <ArmorRating_Blunt>0.1</ArmorRating_Blunt>
         <ArmorRating_Sharp>0.1</ArmorRating_Sharp>
         <ArmorRating_Heat>0.1</ArmorRating_Heat>
-		<ArmorRating_Electric>0.1</ArmorRating_Electric>
+		
       </statOffsets>
       <statFactors>
         <MaxHitPoints>40</MaxHitPoints>
@@ -152,13 +151,12 @@
         <ArmorRating_Blunt>8.0</ArmorRating_Blunt>
         <ArmorRating_Sharp>8.0</ArmorRating_Sharp>
         <ArmorRating_Heat>8.0</ArmorRating_Heat>
-        <ArmorRating_Electric>8.0</ArmorRating_Electric>
         <Insulation_Cold>3.0</Insulation_Cold>
         <Insulation_Heat>3.0</Insulation_Heat>
       </statFactors>
     </stuffProps>
   </ThingDef>
-  <ThingDef ParentName="PRFResourceBase">
+  <!--ThingDef ParentName="PRFResourceBase">
     <defName>PRFIndestructium</defName>
     <label>Indestructium</label>
     <description>Compressed exotic matter held together by the strong force.</description>
@@ -189,7 +187,7 @@
       <color>(112,48,160)</color>
       <commonality>0</commonality>
       <constructEffect>ConstructMetal</constructEffect>
-      <soundImpactStuff>BulletImpactMetal</soundImpactStuff>
+      <soundImpactStuff>BulletImpact_Metal</soundImpactStuff>
       <soundMeleeHitSharp>MeleeHit_Metal_Sharp</soundMeleeHitSharp>
       <soundMeleeHitBlunt>MeleeHit_Metal_Blunt</soundMeleeHitBlunt>
       <statOffsets>
@@ -197,7 +195,7 @@
         <ArmorRating_Blunt>0.1</ArmorRating_Blunt>
         <ArmorRating_Sharp>0.1</ArmorRating_Sharp>
         <ArmorRating_Heat>0.1</ArmorRating_Heat>
-		<ArmorRating_Electric>0.1</ArmorRating_Electric>
+		
       </statOffsets>
       <statFactors>
         <MaxHitPoints>10000</MaxHitPoints>
@@ -210,12 +208,11 @@
         <ArmorRating_Blunt>80.0</ArmorRating_Blunt>
         <ArmorRating_Sharp>80.0</ArmorRating_Sharp>
         <ArmorRating_Heat>80.0</ArmorRating_Heat>
-        <ArmorRating_Electric>80.0</ArmorRating_Electric>
         <Insulation_Cold>3.0</Insulation_Cold>
         <Insulation_Heat>3.0</Insulation_Heat>
       </statFactors>
     </stuffProps>
-  </ThingDef>
+  </ThingDef-->
   <ThingDef ParentName="PRFResourceBase">
     <defName>PRFVolatiteChunk</defName>
     <label>volatite chunk</label>
@@ -239,7 +236,7 @@
     </thingCategories>
     <stackLimit>1</stackLimit>
 	<drawGUIOverlay>false</drawGUIOverlay>
-	<tradeability>Never</tradeability>
+	<tradeability>None</tradeability>
     <tickerType>Normal</tickerType>
 	<comps>
 	  <li Class="ProjectRimFactory.Archo.CompProperties_Unstable">

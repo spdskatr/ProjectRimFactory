@@ -2,57 +2,32 @@
 <Defs>
 
   <BodyPartDef>
-    <defName>PRFLeftPropeller</defName>
-    <label>left propeller</label>
+    <defName>PRFPropeller</defName>
+    <label>propeller</label>
     <hitPoints>30</hitPoints>
-    <oldInjuryBaseChance>0</oldInjuryBaseChance>
+    <permanentInjuryBaseChance>0</permanentInjuryBaseChance>
     <skinCovered>false</skinCovered>
-    <isSolid>true</isSolid>
-    <isAlive>false</isAlive>
+    <solid>true</solid>
+    <alive>false</alive>
     <tags>
       <li>MovingLimbCore</li>
     </tags>
+    <bleedRate>0</bleedRate>
   </BodyPartDef>
 
   <BodyPartDef>
-    <defName>PRFLeftPropellerBlade</defName>
-    <label>left propeller blade</label>
+    <defName>PRFPropellerBlade</defName>
+    <label>propeller blade</label>
     <hitPoints>20</hitPoints>
     <frostbiteVulnerability>2</frostbiteVulnerability>
-    <oldInjuryBaseChance>0</oldInjuryBaseChance>
+    <permanentInjuryBaseChance>0</permanentInjuryBaseChance>
     <skinCovered>false</skinCovered>
-    <isSolid>true</isSolid>
-    <isAlive>false</isAlive>
+    <solid>true</solid>
+    <alive>false</alive>
     <tags>
       <li>MovingLimbSegment</li>
     </tags>
-  </BodyPartDef>
-
-  <BodyPartDef>
-    <defName>PRFRightPropeller</defName>
-    <label>right propeller</label>
-    <hitPoints>30</hitPoints>
-    <oldInjuryBaseChance>0</oldInjuryBaseChance>
-    <skinCovered>false</skinCovered>
-    <isSolid>true</isSolid>
-    <isAlive>false</isAlive>
-    <tags>
-      <li>MovingLimbCore</li>
-    </tags>
-  </BodyPartDef>
-
-  <BodyPartDef>
-    <defName>PRFRightPropellerBlade</defName>
-    <label>right propeller blade</label>
-    <hitPoints>20</hitPoints>
-    <frostbiteVulnerability>2</frostbiteVulnerability>
-    <oldInjuryBaseChance>0</oldInjuryBaseChance>
-    <skinCovered>false</skinCovered>
-    <isSolid>true</isSolid>
-    <isAlive>false</isAlive>
-    <tags>
-      <li>MovingLimbSegment</li>
-    </tags>
+    <bleedRate>0</bleedRate>
   </BodyPartDef>
 
 </Defs>

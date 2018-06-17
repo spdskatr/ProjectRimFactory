@@ -4,6 +4,7 @@
     <statBases>
       <MaxHitPoints>100</MaxHitPoints>
       <Flammability>1.0</Flammability>
+      <Mass>70</Mass>
 	</statBases>
 	<graphicData>
       <graphicClass>Graphic_Single</graphicClass>
@@ -16,7 +17,8 @@
     <canOverlapZones>false</canOverlapZones>
     <castEdgeShadows>true</castEdgeShadows>
 	<size>(3,3)</size>
-	<minifiedDef>MinifiedFurniture</minifiedDef>
+	<minifiedDef>MinifiedThing</minifiedDef>
+    <thingCategories><li>Buildings</li></thingCategories>
     <tickerType>Normal</tickerType>
     <rotatable>true</rotatable>
     <neverMultiSelect>true</neverMultiSelect>
@@ -46,13 +48,12 @@
       <PRFMachineFrameLarge>1</PRFMachineFrameLarge>
 	  <Plasteel>10</Plasteel>
       <Steel>150</Steel>
-      <Component>2</Component>
+      <ComponentIndustrial>2</ComponentIndustrial>
     </costList>
     <description>An auto-crafter controlled by a computer. Slowly gets better at recipes the more it completes them. However, it also gets a bit worse over time.</description>
     <statBases>
       <WorkToBuild>3000</WorkToBuild>
 	  <MarketValue>1250</MarketValue>
-	  <Mass>70</Mass>
     </statBases>
 	<comps>
 	  <li Class="CompProperties_Power">
@@ -83,7 +84,6 @@
     <statBases>
       <WorkToBuild>2500</WorkToBuild>
 	  <MarketValue>1000</MarketValue>
-	  <Mass>70</Mass>
     </statBases>
 	<comps>
 	  <li Class="CompProperties_Power">
@@ -107,7 +107,6 @@
     <statBases>
       <WorkToBuild>2000</WorkToBuild>
 	  <MarketValue>700</MarketValue>
-	  <Mass>50</Mass>
     </statBases>
     <description>A machine that can cook meals all by itself. Just look at it go!</description>
     <costStuffCount>100</costStuffCount>
@@ -158,12 +157,13 @@
       <Flammability>1.0</Flammability>
 	  <Mass>25</Mass>
     </statBases>
-	<minifiedDef>MinifiedFurniture</minifiedDef>
+	<minifiedDef>MinifiedThing</minifiedDef>
+    <thingCategories><li>Buildings</li></thingCategories>
     <description>Stores recipes for use by smart assemblers, and imports recipes from adjacent work tables. I wonder what all the buttons do...</description>
     <costList>
       <PRFMachineFrameSmall>1</PRFMachineFrameSmall>
       <Steel>20</Steel>
-	  <Component>1</Component>
+	  <ComponentIndustrial>1</ComponentIndustrial>
 	  <RimFactory_Data_Disk>1</RimFactory_Data_Disk>
     </costList>
     <tickerType>Normal</tickerType>

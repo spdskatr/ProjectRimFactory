@@ -7,7 +7,8 @@
 		<designationCategory>Power</designationCategory>
 		<category>Building</category>
 		<thingClass>Building</thingClass>
-		<minifiedDef>MinifiedFurniture</minifiedDef>
+		<minifiedDef>MinifiedThing</minifiedDef>
+        <thingCategories><li>Buildings</li></thingCategories>
 		<graphicData>
 			<texPath>RT_Buildings/Building_RTCircuitBreaker</texPath>
 			<graphicClass>Graphic_Multi</graphicClass>
@@ -19,8 +20,8 @@
 		<drawerType>MapMeshAndRealTime</drawerType>
 		<repairEffect>Repair</repairEffect>
 		<constructEffect>ConstructMetal</constructEffect>
-		<soundImpactDefault>BulletImpactMetal</soundImpactDefault>
-		<filthLeaving>BuildingRubble</filthLeaving>
+		<soundImpactDefault>BulletImpact_Metal</soundImpactDefault>
+		<filthLeaving>Filth_RubbleBuilding</filthLeaving>
 		<staticSunShadowHeight>0.5</staticSunShadowHeight>
 		<castEdgeShadows>true</castEdgeShadows>
 		<researchPrerequisites>
@@ -38,6 +39,7 @@
 			<MaxHitPoints>100</MaxHitPoints>
 			<Flammability>1.0</Flammability>
 			<Beauty>-10</Beauty>
+            <Mass>70</Mass>
 		</statBases>
 		<leaveResourcesWhenKilled>True</leaveResourcesWhenKilled>
 		<comps>
@@ -63,7 +65,7 @@
 		<costList>
 			<Steel>400</Steel>
 			<Plasteel>50</Plasteel>
-			<Component>10</Component>
+			<ComponentIndustrial>10</ComponentIndustrial>
 		</costList>
 		<comps>
 			<li Class="RT_Fuse.CompProperties_RTFuse">
@@ -87,7 +89,7 @@
 		<costList>
 			<Steel>800</Steel>
 			<Plasteel>100</Plasteel>
-			<Component>20</Component>
+			<ComponentIndustrial>20</ComponentIndustrial>
 		</costList>
 		<comps>
 			<li Class="RT_Fuse.CompProperties_RTFuse">
@@ -111,7 +113,7 @@
 		<costList>
 			<Steel>1600</Steel>
 			<Plasteel>200</Plasteel>
-			<Component>40</Component>
+			<ComponentIndustrial>40</ComponentIndustrial>
 		</costList>
 		<comps>
 			<li Class="RT_Fuse.CompProperties_RTFuse">
@@ -135,7 +137,7 @@
 		<costList>
 			<Steel>3200</Steel>
 			<Plasteel>400</Plasteel>
-			<Component>80</Component>
+			<ComponentIndustrial>80</ComponentIndustrial>
 		</costList>
 		<comps>
 			<li Class="RT_Fuse.CompProperties_RTFuse">

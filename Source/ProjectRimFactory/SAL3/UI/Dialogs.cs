@@ -17,7 +17,6 @@ namespace ProjectRimFactory.SAL3.UI
         {
             smartHopper = building;
             doCloseX = true;
-            closeOnEscapeKey = true;
             doCloseButton = true;
             closeOnClickedOutside = true;
             absorbInputAroundWindow = true;
@@ -42,8 +41,10 @@ namespace ProjectRimFactory.SAL3.UI
             {
                 smartHopper.minBufferString = smartHopper.min.ToString();
             }
-            Listing_Standard list = new Listing_Standard(GameFont.Small);
-            list.ColumnWidth = rect.width;
+            Listing_Standard list = new Listing_Standard(GameFont.Small)
+            {
+                ColumnWidth = rect.width
+            };
             list.Begin(rect);
             var titleRect = new Rect(0f, 0f, rect.width, TitleLabelHeight);
             Text.Font = GameFont.Medium;

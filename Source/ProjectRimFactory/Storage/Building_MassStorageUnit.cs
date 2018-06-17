@@ -121,7 +121,7 @@ namespace ProjectRimFactory.Storage
             return stringBuilder.ToString();
         }
 
-        public override void DeSpawn()
+        public override void DeSpawn(DestroyMode mode = DestroyMode.Vanish)
         {
             List<Thing> thingsToSplurge = new List<Thing>(Position.GetThingList(Map));
             for (int i = 0; i < thingsToSplurge.Count; i++)

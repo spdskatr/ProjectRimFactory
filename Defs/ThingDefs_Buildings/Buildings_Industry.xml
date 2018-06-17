@@ -22,12 +22,12 @@
     <description>An automated quarry that continuously extracts resources from the ground, including rock chunks, materials and components. Produces a random resource roughly once every 6 hours.</description>
     <costList>
       <Steel>100</Steel>
-      <Component>3</Component>
+      <ComponentIndustrial>3</ComponentIndustrial>
     </costList>
     <comps>
       <li Class="CompProperties_Power">
         <compClass>CompPowerTrader</compClass>
-        <startElectricalFires>true</startElectricalFires>
+        
         <basePowerConsumption>300</basePowerConsumption>
       </li>
 	  <li Class="CompProperties_Flickable" />
@@ -62,7 +62,7 @@
     <costList>
       <PRFMachineFrame>1</PRFMachineFrame>
       <Steel>20</Steel>
-      <Component>2</Component>
+      <ComponentIndustrial>2</ComponentIndustrial>
       <PRFWeakAIChip>2</PRFWeakAIChip>
     </costList>
 	<comps>
@@ -112,9 +112,10 @@
     <costList>
       <PRFMachineFrameSmall>1</PRFMachineFrameSmall>
       <PRFRoboticArm>1</PRFRoboticArm>
-      <Component>2</Component>
+      <ComponentIndustrial>2</ComponentIndustrial>
     </costList>
-	<minifiedDef>MinifiedFurniture</minifiedDef>
+	<minifiedDef>MinifiedThing</minifiedDef>
+    <thingCategories><li>Buildings</li></thingCategories>
     <comps>
       <li Class="CompProperties_Power">
         <compClass>CompPowerTrader</compClass>
@@ -167,7 +168,7 @@
       <Steel>100</Steel>
       <PRFWeakAIChip>1</PRFWeakAIChip>
       <Paperclip>100000</Paperclip>
-      <Component>4</Component>
+      <ComponentIndustrial>4</ComponentIndustrial>
     </costList>
     <comps>
       <li Class="CompProperties_Power">
@@ -219,7 +220,7 @@
       <PRFMachineFrameLarge>1</PRFMachineFrameLarge>
 	  <Plasteel>40</Plasteel>
       <Steel>50</Steel>
-      <Component>2</Component>
+      <ComponentIndustrial>2</ComponentIndustrial>
     </costList>
     <description>Converts paperclips into something more useful.</description>
     <statBases>
@@ -278,7 +279,8 @@
     <castEdgeShadows>true</castEdgeShadows>
     <fillPercent>0.40</fillPercent>
     <tickerType>Normal</tickerType>
-    <minifiedDef>MinifiedFurniture</minifiedDef>
+    <minifiedDef>MinifiedThing</minifiedDef>
+    <thingCategories><li>Buildings</li></thingCategories>
     <statBases>
       <MaxHitPoints>100</MaxHitPoints>
       <WorkToBuild>800</WorkToBuild>
@@ -291,13 +293,13 @@
     <costList>
       <Steel>200</Steel>
       <Plasteel>20</Plasteel>
-      <Component>6</Component>
+      <ComponentIndustrial>6</ComponentIndustrial>
     </costList>
     <comps>
       <li Class="CompProperties_Battery">
         <storedEnergyMax>10000</storedEnergyMax>
         <efficiency>0.5</efficiency>
-        <startElectricalFires>true</startElectricalFires>
+        
         <transmitsPower>true</transmitsPower>
       </li>
       <li Class="CompProperties_Breakdownable"/>
@@ -333,7 +335,8 @@
     <castEdgeShadows>true</castEdgeShadows>
     <fillPercent>0.40</fillPercent>
     <tickerType>Normal</tickerType>
-    <minifiedDef>MinifiedFurniture</minifiedDef>
+    <minifiedDef>MinifiedThing</minifiedDef>
+    <thingCategories><li>Buildings</li></thingCategories>
     <statBases>
       <MaxHitPoints>100</MaxHitPoints>
       <WorkToBuild>1000</WorkToBuild>
@@ -346,13 +349,13 @@
     <costList>
       <Steel>500</Steel>
       <Plasteel>60</Plasteel>
-      <Component>12</Component>
+      <ComponentIndustrial>12</ComponentIndustrial>
     </costList>
     <comps>
       <li Class="CompProperties_Battery">
         <storedEnergyMax>100000</storedEnergyMax>
         <efficiency>1</efficiency>
-        <startElectricalFires>true</startElectricalFires>
+        
         <transmitsPower>true</transmitsPower>
       </li>
       <li Class="CompProperties_Breakdownable"/>
@@ -383,11 +386,12 @@
 	<rotatable>false</rotatable>
     <fillPercent>0.40</fillPercent>
     <tickerType>Normal</tickerType>
-    <minifiedDef>MinifiedFurniture</minifiedDef>
+    <minifiedDef>MinifiedThing</minifiedDef>
+    <thingCategories><li>Buildings</li></thingCategories>
     <statBases>
       <MaxHitPoints>100</MaxHitPoints>
       <WorkToBuild>1000</WorkToBuild>
-      <Mass>40</Mass>
+      <Mass>80</Mass>
       <Flammability>1.0</Flammability>
       <Beauty>-40</Beauty>
     </statBases>
@@ -397,7 +401,7 @@
 	  <PRFMachineFrame>1</PRFMachineFrame>
       <Steel>800</Steel>
       <Plasteel>200</Plasteel>
-      <Component>24</Component>
+      <ComponentIndustrial>24</ComponentIndustrial>
     </costList>
     <comps>
       <li Class="CompProperties_Battery">
@@ -433,12 +437,13 @@
 	<rotatable>false</rotatable>
     <fillPercent>0.40</fillPercent>
     <tickerType>Normal</tickerType>
-    <minifiedDef>MinifiedFurniture</minifiedDef>
+    <minifiedDef>MinifiedThing</minifiedDef>
+    <thingCategories><li>Buildings</li></thingCategories>
 	<drawGUIOverlay>true</drawGUIOverlay>
     <statBases>
       <MaxHitPoints>100</MaxHitPoints>
       <WorkToBuild>4000</WorkToBuild>
-      <Mass>40</Mass>
+      <Mass>100</Mass>
       <Flammability>1.0</Flammability>
       <Beauty>-40</Beauty>
     </statBases>
@@ -450,7 +455,7 @@
       <Plasteel>300</Plasteel>
 	  <PRFZComposite>40</PRFZComposite>
 	  <PRFVolatiteChunk>1</PRFVolatiteChunk>
-      <Component>50</Component>
+      <ComponentIndustrial>50</ComponentIndustrial>
     </costList>
     <comps>
       <li Class="CompProperties_Battery">
@@ -494,7 +499,7 @@
 	  <PRFWeakAIChip>1</PRFWeakAIChip>
       <Steel>200</Steel>
 	  <Plasteel>50</Plasteel>
-      <Component>3</Component>
+      <ComponentIndustrial>3</ComponentIndustrial>
     </costList>
     <comps>
 	  <li><compClass>ProjectRimFactory.Common.CompPRFHelp</compClass></li>

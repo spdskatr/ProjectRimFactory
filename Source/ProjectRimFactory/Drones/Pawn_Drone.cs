@@ -23,7 +23,7 @@ namespace ProjectRimFactory.Drones
             }
             story = new Pawn_StoryTracker(this)
             {
-                bodyType = BodyType.Thin,
+                bodyType = BodyTypeDefOf.Thin,
                 crownType = CrownType.Average,
                 childhood = DroneBackstories.childhood,
                 adulthood = DroneBackstories.adulthood
@@ -48,9 +48,9 @@ namespace ProjectRimFactory.Drones
             }
         }
 
-        public override void DeSpawn()
+        public override void DeSpawn(DestroyMode mode = DestroyMode.Vanish)
         {
-            base.DeSpawn();
+            base.DeSpawn(mode);
             if (station != null)
             {
                 station.Notify_DroneMayBeLost(this);

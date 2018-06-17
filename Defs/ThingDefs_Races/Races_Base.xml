@@ -9,7 +9,7 @@
     <altitudeLayer>Pawn</altitudeLayer>
     <useHitPoints>false</useHitPoints>
     <hasTooltip>true</hasTooltip>
-    <soundImpactDefault>BulletImpactFlesh</soundImpactDefault>
+    <soundImpactDefault>BulletImpact_Flesh</soundImpactDefault>
     <statBases>
       <Mass>70</Mass>
     </statBases>
@@ -18,11 +18,12 @@
       <li>ITab_Pawn_Needs</li>
       <li>ITab_Pawn_Character</li>
       <li>ITab_Pawn_Training</li>
-      <li>ITab_Pawn_Gear</li>
+      <li>ITab_Pawn_Social</li>
       <li>ITab_Pawn_Guest</li>
       <li>ITab_Pawn_Prisoner</li>
-      <li>ITab_Pawn_Social</li>
-      <li>ITab_Pawn_Combat</li>
+      <li>ITab_Pawn_FormingCaravan</li>
+      <li>ITab_Pawn_Gear</li>
+      <li>ITab_Pawn_Log</li>
     </inspectorTabs>
     <comps>
       <li>
@@ -54,7 +55,7 @@
       <hasGenders>false</hasGenders>
       <foodType>None</foodType>
     </race>
-    <soundImpactDefault>BulletImpactMetal</soundImpactDefault>
+    <soundImpactDefault>BulletImpact_Metal</soundImpactDefault>
     
   </ThingDef>
   
@@ -115,7 +116,7 @@
     <butcherProducts>
       <Steel>40</Steel>
       <Plasteel>25</Plasteel>
-      <Component>1</Component>
+      <ComponentIndustrial>1</ComponentIndustrial>
     </butcherProducts>
   </ThingDef>
   

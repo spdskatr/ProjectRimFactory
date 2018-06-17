@@ -180,7 +180,10 @@ namespace ProjectRimFactory.CultivatorTools
             p.PlantCollected();
         }
 
-        public override string GetDescription() => base.GetDescription() + " " +
+        public override string DescriptionDetailed => base.DescriptionDetailed + " " +
+            ((Utilities.SeedsPleaseActive) ? "CultivatorTools_SeedsPleaseActiveDesc".Translate() : "CultivatorTools_SeedsPleaseInactiveDesc".Translate());
+
+        public override string DescriptionFlavor => base.DescriptionFlavor + " " +
             ((Utilities.SeedsPleaseActive) ? "CultivatorTools_SeedsPleaseActiveDesc".Translate() : "CultivatorTools_SeedsPleaseInactiveDesc".Translate());
 
         public override void DrawExtraSelectionOverlays()

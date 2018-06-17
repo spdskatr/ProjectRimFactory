@@ -58,7 +58,7 @@
 	<size>(3, 3)</size>
     <costStuffCount>100</costStuffCount>
     <costList>
-      <Component>10</Component>
+      <ComponentIndustrial>10</ComponentIndustrial>
 	  <PRFWeakAIChip>2</PRFWeakAIChip>
     </costList>
     <modExtensions>
@@ -66,7 +66,7 @@
         <displayDormantDrones>true</displayDormantDrones>
         <workTypes>
           <li>Firefighter</li>
-          <li>Flicker</li>
+          <li>BasicWorker</li>
           <li>Hauling</li>
           <li>Cleaning</li>
         </workTypes>
@@ -90,7 +90,7 @@
 	<size>(3, 3)</size>
     <costStuffCount>100</costStuffCount>
     <costList>
-      <Component>10</Component>
+      <ComponentIndustrial>10</ComponentIndustrial>
 	  <PRFWeakAIChip>2</PRFWeakAIChip>
     </costList>
     <modExtensions>
@@ -120,7 +120,7 @@
 	<size>(3, 3)</size>
     <costStuffCount>100</costStuffCount>
     <costList>
-      <Component>10</Component>
+      <ComponentIndustrial>10</ComponentIndustrial>
 	  <PRFWeakAIChip>2</PRFWeakAIChip>
     </costList>
     <modExtensions>

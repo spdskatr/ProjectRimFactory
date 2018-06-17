@@ -27,19 +27,23 @@
                   <depth>Inside</depth>
                 </li>
                 <li>
-                  <def>LeftSightSensor</def>
+                  <def>SightSensor</def>
+                  <customLabel>left sight sensor</customLabel>
                   <coverage>0.13</coverage>
                 </li>
                 <li>
-                  <def>RightSightSensor</def>
+                  <def>SightSensor</def>
+                  <customLabel>right sight sensor</customLabel>
                   <coverage>0.13</coverage>
                 </li>
                 <li>
-                  <def>LeftHearingSensor</def>
+                  <def>HearingSensor</def>
+                  <customLabel>left hearing sensor</customLabel>
                   <coverage>0.10</coverage>
                 </li>
                 <li>
-                  <def>RightHearingSensor</def>
+                  <def>HearingSensor</def>
+                  <customLabel>right hearing sensor</customLabel>
                   <coverage>0.10</coverage>
                 </li>
                 <li>
@@ -51,11 +55,13 @@
           </parts>
         </li>
         <li>
-          <def>LeftMechanicalShoulder</def>
+          <def>MechanicalShoulder</def>
+          <customLabel>left arm joint</customLabel>
           <coverage>0.17</coverage>
           <parts>
             <li>
-              <def>LeftMechanicalArm</def>
+              <def>MechanicalArm</def>
+              <customLabel>left arm</customLabel>
               <coverage>0.85</coverage>
               <parts>
                 <!--li>
@@ -66,50 +72,23 @@
                   </groups>
                 </li-->
                 <li>
-                  <def>LeftMechanicalHand</def>
+                  <def>MechanicalHand</def>
                   <coverage>0.2</coverage>
                   <height>Bottom</height>
-                  <parts>
-                    <li>
-                      <def>LeftHandMechanicalPinky</def>
-                      <coverage>0.15</coverage>
-                      <groups>
-                        <li>LeftHand</li>
-                      </groups>
-                    </li>
-                    <li>
-                      <def>LeftHandMechanicalMiddleFinger</def>
-                      <coverage>0.15</coverage>
-                      <groups>
-                        <li>LeftHand</li>
-                      </groups>
-                    </li>
-                    <li>
-                      <def>LeftHandMechanicalIndexFinger</def>
-                      <coverage>0.15</coverage>
-                      <groups>
-                        <li>LeftHand</li>
-                      </groups>
-                    </li>
-                    <li>
-                      <def>LeftHandMechanicalThumb</def>
-                      <coverage>0.15</coverage>
-                      <groups>
-                        <li>LeftHand</li>
-                      </groups>
-                    </li>
-                  </parts>
+                  <customLabel>left vice</customLabel>
                 </li>
               </parts>
             </li>
           </parts>
         </li>
         <li>
-          <def>RightMechanicalShoulder</def>
+          <def>MechanicalShoulder</def>
           <coverage>0.17</coverage>
+          <customLabel>right arm joint</customLabel>
           <parts>
             <li>
-              <def>RightMechanicalArm</def>
+              <def>MechanicalArm</def>
+              <customLabel>right arm</customLabel>
               <coverage>0.85</coverage>
               <parts>
                 <!--li>
@@ -120,62 +99,37 @@
                   </groups>
                 </li-->
                 <li>
-                  <def>RightMechanicalHand</def>
+                  <def>MechanicalHand</def>
                   <coverage>0.2</coverage>
                   <height>Bottom</height>
-                  <parts>
-                    <li>
-                      <def>RightHandMechanicalPinky</def>
-                      <coverage>0.15</coverage>
-                      <groups>
-                        <li>RightHand</li>
-                      </groups>
-                    </li>
-                    <li>
-                      <def>RightHandMechanicalMiddleFinger</def>
-                      <coverage>0.15</coverage>
-                      <groups>
-                        <li>RightHand</li>
-                      </groups>
-                    </li>
-                    <li>
-                      <def>RightHandMechanicalIndexFinger</def>
-                      <coverage>0.15</coverage>
-                      <groups>
-                        <li>RightHand</li>
-                      </groups>
-                    </li>
-                    <li>
-                      <def>RightHandMechanicalThumb</def>
-                      <coverage>0.15</coverage>
-                      <groups>
-                        <li>RightHand</li>
-                      </groups>
-                    </li>
-                  </parts>
+                  <customLabel>right vice</customLabel>
                 </li>
               </parts>
             </li>
           </parts>
         </li>
         <li>
-          <def>PRFLeftPropeller</def>
+          <def>PRFPropeller</def>
+          <customLabel>left propeller</customLabel>
           <coverage>0.2</coverage>
           <height>Bottom</height>
           <parts>
             <li>
-              <def>PRFLeftPropellerBlade</def>
+              <def>PRFPropellerBlade</def>
+              <customLabel>left propeller blade</customLabel>
               <coverage>0.2</coverage>
             </li>
           </parts>
         </li>
         <li>
-          <def>PRFRightPropeller</def>
+          <def>PRFPropeller</def>
+          <customLabel>right propeller</customLabel>
           <coverage>0.2</coverage>
           <height>Bottom</height>
           <parts>
             <li>
-              <def>PRFRightPropellerBlade</def>
+              <def>PRFPropellerBlade</def>
+              <customLabel>right propeller blade</customLabel>
               <coverage>0.2</coverage>
             </li>
           </parts>

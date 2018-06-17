@@ -87,7 +87,7 @@ namespace ProjectRimFactory.Storage
             }
         }
 
-        public override void DeSpawn()
+        public override void DeSpawn(DestroyMode mode = DestroyMode.Vanish)
         {
             base.DeSpawn();
             boundStorageUnit?.DeregisterPort(this);

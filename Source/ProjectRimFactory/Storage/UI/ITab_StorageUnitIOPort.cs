@@ -48,7 +48,7 @@ namespace ProjectRimFactory.Storage.UI
             if (listing.ButtonTextLabeled("PRFBoundStorageBuilding".Translate(), SelBuilding.BoundStorageUnit?.LabelCap ?? "NoneBrackets".Translate()))
             {
                 List<FloatMenuOption> list = new List<FloatMenuOption>(
-                    from Building_MassStorageUnit b in Find.VisibleMap.listerBuildings.AllBuildingsColonistOfClass<Building_MassStorageUnit>()
+                    from Building_MassStorageUnit b in Find.CurrentMap.listerBuildings.AllBuildingsColonistOfClass<Building_MassStorageUnit>()
                     where b.def.GetModExtension<DefModExtension_CanUseStorageIOPorts>() != null
                     select new FloatMenuOption(b.LabelCap, () => SelBuilding.BoundStorageUnit = b)
                 );

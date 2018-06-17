@@ -49,9 +49,9 @@
           <categories>
             <li>Root</li>
           </categories>
-          <exceptedThingDefs>
+          <disallowedThingDefs>
             <li>Paperclip</li>
-          </exceptedThingDefs>
+          </disallowedThingDefs>
         </filter>
         <count>1</count>
       </li>
@@ -60,9 +60,9 @@
       <categories>
         <li>Root</li>
       </categories>
-      <exceptedThingDefs>
+      <disallowedThingDefs>
         <li>Paperclip</li>
-      </exceptedThingDefs>
+      </disallowedThingDefs>
     </fixedIngredientFilter>
     <allowMixingIngredients>true</allowMixingIngredients>
     <products> <!-- Products are handled in the Building_PaperclipFactory class -->
@@ -86,9 +86,9 @@
           <categories>
             <li>Root</li>
           </categories>
-          <exceptedThingDefs>
+          <disallowedThingDefs>
             <li>Paperclip</li>
-          </exceptedThingDefs>
+          </disallowedThingDefs>
         </filter>
         <count>10</count>
       </li>
@@ -97,9 +97,9 @@
       <categories>
         <li>Root</li>
       </categories>
-      <exceptedThingDefs>
+      <disallowedThingDefs>
         <li>Paperclip</li>
-      </exceptedThingDefs>
+      </disallowedThingDefs>
     </fixedIngredientFilter>
     <allowMixingIngredients>true</allowMixingIngredients>
     <products> <!-- Products are handled in the Building_PaperclipFactory class -->
@@ -123,9 +123,9 @@
           <categories>
             <li>Root</li>
           </categories>
-          <exceptedThingDefs>
+          <disallowedThingDefs>
             <li>Paperclip</li>
-          </exceptedThingDefs>
+          </disallowedThingDefs>
         </filter>
         <count>75</count>
       </li>
@@ -134,9 +134,9 @@
       <categories>
         <li>Root</li>
       </categories>
-      <exceptedThingDefs>
+      <disallowedThingDefs>
         <li>Paperclip</li>
-      </exceptedThingDefs>
+      </disallowedThingDefs>
     </fixedIngredientFilter>
     <allowMixingIngredients>true</allowMixingIngredients>
     <products> <!-- Products are handled in the Building_PaperclipFactory class -->

@@ -9,9 +9,9 @@ namespace ProjectRimFactory.Industry
 {
     public class PlaceWorker_FuelingMachine : PlaceWorker
     {
-        public override void DrawGhost(ThingDef def, IntVec3 center, Rot4 rot)
+        public override void DrawGhost(ThingDef def, IntVec3 center, Rot4 rot, Color ghostCol)
         {
-            base.DrawGhost(def, center, rot);
+            base.DrawGhost(def, center, rot, ghostCol);
             GenDraw.DrawFieldEdges(new List<IntVec3>() { rot.FacingCell + center }, Color.yellow);
         }
     }

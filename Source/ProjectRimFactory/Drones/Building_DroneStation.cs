@@ -40,7 +40,7 @@ namespace ProjectRimFactory.Drones
             }
         }
 
-        public override void DeSpawn()
+        public override void DeSpawn(DestroyMode mode = DestroyMode.Vanish)
         {
             base.DeSpawn();
             List<Pawn_Drone> drones = spawnedDrones.ToList();

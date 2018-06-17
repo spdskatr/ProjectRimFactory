@@ -104,7 +104,7 @@
         </li>
         
         <!-- Of neutral faction: rest and then exit the map -->
-        <li Class="ThinkNode_ConditionalNeutralFaction">
+        <li Class="ThinkNode_ConditionalNonPlayerNonHostileFaction">
           <subNodes>
             <li Class="ThinkNode_Tagger">
               <tagToGive>Misc</tagToGive>
@@ -154,13 +154,8 @@
 			<subNodes>
         <li Class="ThinkNode_ConditionalCanDoConstantThinkTreeJobNow">
           <subNodes>
-            <!-- Wild animals flee tornados, meteorites, etc. -->
-            <li Class="ThinkNode_ConditionalHasFaction">
-              <invert>true</invert>
-              <subNodes>
-                <li Class="JobGiver_FleeImmediateDanger" />
-              </subNodes>
-            </li>
+            <!-- Flee enemies, tornados, meteorites, etc. -->
+            <li Class="JobGiver_AnimalFlee" />
 
             <!-- Lord directives -->
             <li Class="ThinkNode_Subtree">

@@ -32,7 +32,7 @@
 			<li>Manufactured</li>
 			<li>ResourcesRaw</li>
 			<li>Items</li>
-			<li>Art</li>
+			<li>BuildingsArt</li>
 			<li>Weapons</li>
 			<li>Apparel</li>
 			<li>BodyParts</li>
@@ -134,7 +134,7 @@
       <Steel>200</Steel>
 	  <Gold>20</Gold>
 	  <Uranium>20</Uranium>
-	  <Component>10</Component>
+	  <ComponentIndustrial>10</ComponentIndustrial>
     </costList>
     <constructEffect>ConstructMetal</constructEffect>
     <researchPrerequisites>
@@ -174,7 +174,7 @@
       <Steel>300</Steel>
 	  <Gold>50</Gold>
 	  <Uranium>20</Uranium>
-	  <Component>10</Component>
+	  <ComponentIndustrial>10</ComponentIndustrial>
     </costList>
     <constructEffect>ConstructMetal</constructEffect>
     <researchPrerequisites>

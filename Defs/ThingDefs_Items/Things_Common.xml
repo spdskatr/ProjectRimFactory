@@ -19,7 +19,7 @@
     </statBases>
     <costList>
       <Steel>20</Steel>
-      <Component>2</Component>
+      <ComponentIndustrial>2</ComponentIndustrial>
     </costList>
     <recipeMaker>
       <workSpeedStat>SmithingSpeed</workSpeedStat>
@@ -54,7 +54,7 @@
     </statBases>
     <costList>
       <Steel>10</Steel>
-      <Component>4</Component>
+      <ComponentIndustrial>4</ComponentIndustrial>
     </costList>
     <recipeMaker>
       <workSpeedStat>SmithingSpeed</workSpeedStat>
@@ -94,7 +94,7 @@
     <costList>
       <Steel>40</Steel>
       <Plasteel>10</Plasteel>
-      <Component>3</Component>
+      <ComponentIndustrial>3</ComponentIndustrial>
     </costList>
     <recipeMaker>
       <workSpeedStat>SmithingSpeed</workSpeedStat>
@@ -131,7 +131,7 @@
     <costList>
       <Steel>30</Steel>
       <Plasteel>5</Plasteel>
-      <Component>2</Component>
+      <ComponentIndustrial>2</ComponentIndustrial>
     </costList>
     <recipeMaker>
       <workSpeedStat>SmithingSpeed</workSpeedStat>
@@ -165,7 +165,7 @@
     <costList>
       <Steel>80</Steel>
       <Plasteel>20</Plasteel>
-      <Component>4</Component>
+      <ComponentIndustrial>4</ComponentIndustrial>
     </costList>
     <recipeMaker>
       <workSpeedStat>SmithingSpeed</workSpeedStat>

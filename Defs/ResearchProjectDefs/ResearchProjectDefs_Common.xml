@@ -255,7 +255,7 @@
   <ResearchProjectDef>
     <defName>PRFTheoryOfEverything</defName>
     <label>theory of everything</label>
-    <techLevel>Transcendent</techLevel>
+    <techLevel>Archotech</techLevel>
     <baseCost>40000</baseCost>
     <description>Figure out how this simulation really works by hacking into it.</description>
     <prerequisites>

@@ -55,7 +55,7 @@ namespace ProjectRimFactory.Industry
                 {
                     IntVec3 randomCell = this.OccupiedRect().RandomCell;
                     float radius = Rand.Range(0.5f, 1f) * 3f;
-                    GenExplosion.DoExplosion(randomCell, Map, radius, DamageDefOf.Flame, null, -1, null, null, null, null, 0f, 1, false, null, 0f, 1, 0f, false);
+                    GenExplosion.DoExplosion(randomCell, Map, radius, DamageDefOf.Flame, null);
                     GetComp<CompPowerBattery>().DrawPower(400f);
                 }
             }

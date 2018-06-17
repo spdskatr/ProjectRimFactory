@@ -234,16 +234,16 @@ namespace ProjectRimFactory.SAL3.Things.Assemblers
         {
             foreach (Bill b in AllBillsShouldDoNow)
             {
-                List<ThingAmount> chosen = new List<ThingAmount>();
+                List<ThingCount> chosen = new List<ThingCount>();
                 if (TryFindBestBillIngredientsInSet(AllAccessibleThings.ToList(), b, chosen))
                 {
-                    return new BillReport(b, (from ta in chosen select ta.thing.SplitOff(ta.count)).ToList());
+                    return new BillReport(b, (from ta in chosen select ta.Thing.SplitOff(ta.Count)).ToList());
                 }
             }
             return null;
         }
 
-        bool TryFindBestBillIngredientsInSet(List<Thing> accessibleThings, Bill b, List<ThingAmount> chosen)
+        bool TryFindBestBillIngredientsInSet(List<Thing> accessibleThings, Bill b, List<ThingCount> chosen)
         {
             ReflectionUtility.MakeIngredientsListInProcessingOrder.Invoke(null, new object[] { ReflectionUtility.ingredientsOrdered.GetValue(null), b });
             return (bool)ReflectionUtility.TryFindBestBillIngredientsInSet.Invoke(null, new object[] { accessibleThings, b, chosen });
@@ -256,7 +256,7 @@ namespace ProjectRimFactory.SAL3.Things.Assemblers
                 Log.Error("S.A.L. 3.0 :: Tried to make products when assembler isn't engaged in a bill.");
                 return;
             }
-            IEnumerable<Thing> products = GenRecipe.MakeRecipeProducts(currentBillReport.bill.recipe, buildingPawn, currentBillReport.selected, ProjectSAL_Utilities.CalculateDominantIngredient(currentBillReport.bill.recipe, currentBillReport.selected));
+            IEnumerable<Thing> products = GenRecipe.MakeRecipeProducts(currentBillReport.bill.recipe, buildingPawn, currentBillReport.selected, ProjectSAL_Utilities.CalculateDominantIngredient(currentBillReport.bill.recipe, currentBillReport.selected), this);
             foreach (Thing thing in products)
             {
                 PostProcessRecipeProduct(thing);

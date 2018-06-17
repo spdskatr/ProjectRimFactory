@@ -26,7 +26,7 @@ namespace ProjectRimFactory.Industry.UI
             listing.Label(SelBuilding.LabelCap);
             if (listing.ButtonTextLabeled("PRFBoundStorageBuilding".Translate(), SelBuilding.boundStorageUnit?.LabelCap ?? "NoneBrackets".Translate()))
             {
-                List<FloatMenuOption> list = (from Building_MassStorageUnit b in Find.VisibleMap.listerBuildings.AllBuildingsColonistOfClass<Building_MassStorageUnit>()
+                List<FloatMenuOption> list = (from Building_MassStorageUnit b in Find.CurrentMap.listerBuildings.AllBuildingsColonistOfClass<Building_MassStorageUnit>()
                                               select new FloatMenuOption(b.LabelCap, () => SelBuilding.boundStorageUnit = b)).ToList();
                 if (list.Count == 0)
                 {
