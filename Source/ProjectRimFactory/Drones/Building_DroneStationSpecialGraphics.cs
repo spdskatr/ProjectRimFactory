@@ -11,8 +11,11 @@ namespace ProjectRimFactory.Drones
     {
         public override void DrawDormantDrones()
         {
-            // Instead of drawing drone graphic on all occupied cells, it is only drawn on Position cell
-            PRFDefOf.PRFDrone.graphic.DrawFromDef(Position.ToVector3ShiftedWithAltitude(AltitudeLayer.LayingPawn), default(Rot4), PRFDefOf.PRFDrone);
+            if ((DronesLeft - spawnedDrones.Count) > 0)
+            {
+                // Instead of drawing drone graphic on all occupied cells, it is only drawn on Position cell
+                PRFDefOf.PRFDrone.graphic.DrawFromDef(Position.ToVector3ShiftedWithAltitude(AltitudeLayer.LayingPawn), default(Rot4), PRFDefOf.PRFDrone);
+            }
         }
     }
 }
