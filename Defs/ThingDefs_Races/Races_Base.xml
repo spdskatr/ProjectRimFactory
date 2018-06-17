@@ -93,6 +93,7 @@
     <race>
       <intelligence>ToolUser</intelligence>
       <thinkTreeMain>PRFDrone</thinkTreeMain>
+      <deathActionWorkerClass>DeathActionWorker_SmallExplosion</deathActionWorkerClass>
       <body>PRFDrone</body>
       <baseBodySize>1.0</baseBodySize>
       <baseHealthScale>0.8</baseHealthScale>
