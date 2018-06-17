@@ -63,9 +63,6 @@
     <researchPrerequisites>
 	  <li>PRFMachineLearning</li>
 	</researchPrerequisites>
-    <inspectorTabs>
-      <li>ProjectRimFactory.Archo.ITab_ArchoCipher</li>
-    </inspectorTabs>
   </ThingDef>
   
   <ThingDef ParentName="BuildingBase">
