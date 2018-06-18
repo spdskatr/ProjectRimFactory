@@ -13,7 +13,7 @@ namespace ProjectRimFactory.Common
     {
         public static void Postfix(Thing t, ref bool __result)
         {
-            if (t.Position.GetFirstBuilding(t.Map) is Building_MassStorageUnit)
+            if (t != null && t.Map != null && t.Position.IsValid && t.Position.GetFirstBuilding(t.Map) is Building_MassStorageUnit)
             {
                 __result = false;
             }
