@@ -114,7 +114,7 @@
   </ThingDef>
   <ThingDef ParentName="PRFMassStorageBase">
     <defName>IndustrialStorageUnit</defName>
-    <label>industrial storage unit</label>
+    <label>industrial storage unit (deprecated)</label>
     <thingClass>ProjectRimFactory.Storage.Building_MassStorageUnitPowered</thingClass>
     <graphicData>
       <texPath>Storage/industrial_storage_unit</texPath>

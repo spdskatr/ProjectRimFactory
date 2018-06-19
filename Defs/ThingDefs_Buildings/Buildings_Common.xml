@@ -84,9 +84,9 @@
     <passability>PassThroughOnly</passability>
     <castEdgeShadows>true</castEdgeShadows>
     <fillPercent>0.5</fillPercent>
-    <designationCategory>Automation</designationCategory>
+    <designationCategory>Misc</designationCategory>
     <minifiedDef>MinifiedThing</minifiedDef>
-    <thingCategories><li>Buildings</li></thingCategories>
+    <thingCategories><li>BuildingsMisc</li></thingCategories>
     <canOverlapZones>false</canOverlapZones>
     <statBases>
       <MaxHitPoints>200</MaxHitPoints>

@@ -28,6 +28,7 @@
       <soundWorking>Recipe_Machining</soundWorking>
       <recipeUsers>
         <li>TableRoboticMachining</li>
+        <li>TableMachining</li>
       </recipeUsers>
     </recipeMaker>
     <thingCategories>

@@ -8,7 +8,7 @@
 		<category>Building</category>
 		<thingClass>Building</thingClass>
 		<minifiedDef>MinifiedThing</minifiedDef>
-        <thingCategories><li>Buildings</li></thingCategories>
+        <thingCategories><li>BuildingsPower</li></thingCategories>
 		<graphicData>
 			<texPath>RT_Buildings/Building_RTCircuitBreaker</texPath>
 			<graphicClass>Graphic_Multi</graphicClass>
