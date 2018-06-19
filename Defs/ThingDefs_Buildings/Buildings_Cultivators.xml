@@ -87,6 +87,7 @@
     <description>A building that can autonomously plant and harvest crops in a 11 cell square around it. Has a sun lamp. Will not be affected by any stat modifiers.</description>
     <costList>
 	  <PRFMachineFrameSmall>1</PRFMachineFrameSmall>
+      <PRFDroneModule>2</PRFDroneModule>
       <Steel>65</Steel>
       <Plasteel>20</Plasteel>
       <ComponentIndustrial>3</ComponentIndustrial>
