@@ -157,11 +157,11 @@
     <tab>Automation</tab>
     <researchViewX>7</researchViewX>
     <researchViewY>3</researchViewY>
-	<researchMods>
+	<!--researchMods>
 	  <li Class="ProjectRimFactory.Archo.ResearchMod_Notify">
 	    <text>The AI research bench informs you that it can now decipher the secret code of the archotechs. This may come in handy later...</text>
 	  </li>
-	</researchMods>
+	</researchMods-->
   </ResearchProjectDef>
   
   <!-- Tier 3 -->

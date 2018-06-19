@@ -125,17 +125,17 @@
       <WorkToBuild>2500</WorkToBuild>
       <Flammability>0.1</Flammability>
     </statBases>
-    <description>This device stores items as holograms, allowing it to contain virtually infinite amounts of information inside it. When your colony loses power, items will be safely stored inside, but the building will stop compressing the items into the central cell.</description>
+    <description>This building will be deprecated in the release. Please use the cargo platform.</description>
     <canOverlapZones>false</canOverlapZones>
     <blockWind>true</blockWind>
     <size>(3,3)</size>
-    <costList>
+    <!--costList>
       <PRFMachineFrameLarge>1</PRFMachineFrameLarge>
       <Steel>200</Steel>
 	  <Gold>20</Gold>
 	  <Uranium>20</Uranium>
 	  <ComponentIndustrial>10</ComponentIndustrial>
-    </costList>
+    </costList-->
     <constructEffect>ConstructMetal</constructEffect>
     <researchPrerequisites>
       <li>PRFStorage</li>
