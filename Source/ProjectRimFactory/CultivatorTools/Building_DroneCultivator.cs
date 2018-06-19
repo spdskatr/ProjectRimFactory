@@ -16,7 +16,7 @@ namespace ProjectRimFactory.CultivatorTools
         int dronesLeft;
         List<IntVec3> cachedCoverageCells;
 
-        public override int DronesLeft { get => dronesLeft; }
+        public override int DronesLeft { get => dronesLeft - spawnedDrones.Count; }
         public override void Notify_DroneLost()
         {
             dronesLeft--;

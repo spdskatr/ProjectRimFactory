@@ -72,8 +72,8 @@
     <Compile Include="Common\SaveCompressiblePatch.cs" />
     <Compile Include="Common\SetPositionPatch.cs" />
     <Compile Include="CultivatorTools\Building_Cultivator.cs" />
+    <Compile Include="CultivatorTools\Building_DroneCultivator.cs" />
     <Compile Include="CultivatorTools\Building_RadialCellIterator.cs" />
-    <Compile Include="CultivatorTools\Building_SmallCultivator.cs" />
     <Compile Include="CultivatorTools\Building_Sprinkler.cs" />
     <Compile Include="CultivatorTools\Building_SquareCellIterator.cs" />
     <Compile Include="CultivatorTools\PlaceWorker_HighlightPlaceableCells.cs" />
