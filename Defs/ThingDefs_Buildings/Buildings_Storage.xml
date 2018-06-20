@@ -150,6 +150,7 @@
 	<modExtensions>
 	  <li Class="ProjectRimFactory.Storage.Editables.DefModExtension_CanUseStorageIOPorts" />
 	</modExtensions>
+    <designationCategory />
   </ThingDef>
   <ThingDef ParentName="PRFMassStorageBase">
     <defName>PRFCargoPlatform</defName>

@@ -18,7 +18,7 @@
     <castEdgeShadows>true</castEdgeShadows>
 	<size>(3,3)</size>
 	<minifiedDef>MinifiedThing</minifiedDef>
-    <thingCategories><li>Buildings</li></thingCategories>
+    <thingCategories><li>BuildingsAutomation</li></thingCategories>
     <tickerType>Normal</tickerType>
     <rotatable>true</rotatable>
     <neverMultiSelect>true</neverMultiSelect>
@@ -158,7 +158,7 @@
 	  <Mass>25</Mass>
     </statBases>
 	<minifiedDef>MinifiedThing</minifiedDef>
-    <thingCategories><li>Buildings</li></thingCategories>
+    <thingCategories><li>BuildingsAutomation</li></thingCategories>
     <description>Stores recipes for use by smart assemblers, and imports recipes from adjacent work tables. I wonder what all the buttons do...</description>
     <costList>
       <PRFMachineFrameSmall>1</PRFMachineFrameSmall>

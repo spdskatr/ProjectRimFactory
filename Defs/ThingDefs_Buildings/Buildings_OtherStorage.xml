@@ -65,7 +65,7 @@
     <surfaceType>Item</surfaceType>
     <constructEffect>ConstructMetal</constructEffect>
 	<minifiedDef>MinifiedThing</minifiedDef>
-    <thingCategories><li>Buildings</li></thingCategories>
+    <thingCategories><li>BuildingsAutomation</li></thingCategories>
     <researchPrerequisites>
       <li>PRFStorageIO</li>
     </researchPrerequisites>

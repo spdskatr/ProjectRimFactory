@@ -41,7 +41,7 @@
   <ThingDef ParentName="PRFDroneStationBase">
     <defName>CaretakerDroneStation</defName>
     <label>caretaker drone station</label>
-    <description>A station that holds up to 50 drones, capable of hauling and cleaning, flicking and fighting fires. Typically your colony only needs 1 of these.</description>
+    <description>A station that holds up to 50 drones, capable of hauling and cleaning, flicking and fighting fires. Consumes considerable power. Typically your colony only needs 1 of these.</description>
     <stuffCategories>
       <li>Metallic</li>
     </stuffCategories>
@@ -69,6 +69,13 @@
         </workTypes>
       </li>
     </modExtensions>
+    <comps>
+      <li Class="CompProperties_Power">
+        <compClass>CompPowerTrader</compClass>
+        <shortCircuitInRain>false</shortCircuitInRain>
+        <basePowerConsumption>1000</basePowerConsumption>
+      </li>
+    </comps>
     <researchPrerequisites>
       <li>PRFCaretakerDrones</li>
     </researchPrerequisites>
@@ -76,7 +83,7 @@
   <ThingDef ParentName="PRFDroneStationBase">
     <defName>ConstructionDroneStation</defName>
     <label>construction drone station</label>
-    <description>A station that holds up to 50 drones, capable of mining and construction. Typically your colony only needs 1 of these.</description>
+    <description>A station that holds up to 50 drones, capable of mining and construction. Consumes considerable power. Typically your colony only needs 1 of these.</description>
     <stuffCategories>
       <li>Metallic</li>
     </stuffCategories>
@@ -102,6 +109,13 @@
         </workTypes>
       </li>
     </modExtensions>
+    <comps>
+      <li Class="CompProperties_Power">
+        <compClass>CompPowerTrader</compClass>
+        <shortCircuitInRain>false</shortCircuitInRain>
+        <basePowerConsumption>1500</basePowerConsumption>
+      </li>
+    </comps>
     <researchPrerequisites>
       <li>PRFConstructionDrones</li>
     </researchPrerequisites>
@@ -109,7 +123,7 @@
   <ThingDef ParentName="PRFDroneStationBase">
     <defName>GrowingDroneStation</defName>
     <label>growing drone station</label>
-    <description>A station that holds up to 50 drones, capable of growing and plant cutting. Typically your colony only needs 1 of these.</description>
+    <description>A station that holds up to 50 drones, capable of growing and plant cutting. Consumes considerable power. Typically your colony only needs 1 of these.</description>
     <stuffCategories>
       <li>Metallic</li>
     </stuffCategories>
@@ -135,6 +149,13 @@
         </workTypes>
       </li>
     </modExtensions>
+    <comps>
+      <li Class="CompProperties_Power">
+        <compClass>CompPowerTrader</compClass>
+        <shortCircuitInRain>false</shortCircuitInRain>
+        <basePowerConsumption>1500</basePowerConsumption>
+      </li>
+    </comps>
     <researchPrerequisites>
       <li>PRFGrowingDrones</li>
     </researchPrerequisites>
