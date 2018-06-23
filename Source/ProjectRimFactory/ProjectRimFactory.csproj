@@ -64,6 +64,7 @@
     <Compile Include="Common\Cache.cs" />
     <Compile Include="Common\CompOutputAdjustable.cs" />
     <Compile Include="Common\CompPRFHelp.cs" />
+    <Compile Include="Common\GenSpawnPatch.cs" />
     <Compile Include="Common\PatchOperationRTFuseInsertionHook.cs" />
     <Compile Include="Common\PathGridPatch.cs" />
     <Compile Include="Common\PRFDefOf.cs" />
