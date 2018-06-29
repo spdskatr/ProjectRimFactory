@@ -18,6 +18,12 @@
       <Mass>1</Mass>
       <SharpDamageMultiplier>0.5</SharpDamageMultiplier>
       <BluntDamageMultiplier>1.1</BluntDamageMultiplier>
+      <StuffEffectMultiplierArmor>1.0</StuffEffectMultiplierArmor>
+      <StuffPower_Insulation_Cold>11.0</StuffPower_Insulation_Cold>
+      <StuffPower_Insulation_Heat>11.0</StuffPower_Insulation_Heat>
+      <StuffPower_Armor_Sharp>4.0</StuffPower_Armor_Sharp>
+      <StuffPower_Armor_Blunt>1.6</StuffPower_Armor_Blunt>
+      <StuffPower_Armor_Heat>2.0</StuffPower_Armor_Heat>
     </statBases>
     <thingCategories>
       <li>ResourcesRaw</li>
@@ -45,11 +51,6 @@
         <Flammability>0</Flammability>
         <Beauty>6</Beauty>
         <WorkToMake>1.8</WorkToMake>
-        <ArmorRating_Blunt>1.6</ArmorRating_Blunt>
-        <ArmorRating_Sharp>4.0</ArmorRating_Sharp>
-        <ArmorRating_Heat>2.0</ArmorRating_Heat>
-        <Insulation_Cold>1.1</Insulation_Cold>
-        <Insulation_Heat>1.1</Insulation_Heat>
       </statFactors>
     </stuffProps>
   </ThingDef>
@@ -115,6 +116,12 @@
       <Mass>1</Mass>
       <SharpDamageMultiplier>15.0</SharpDamageMultiplier>
       <BluntDamageMultiplier>15.0</BluntDamageMultiplier>
+      <StuffEffectMultiplierArmor>1.0</StuffEffectMultiplierArmor>
+      <StuffPower_Insulation_Cold>50.0</StuffPower_Insulation_Cold>
+      <StuffPower_Insulation_Heat>50.0</StuffPower_Insulation_Heat>
+      <StuffPower_Armor_Sharp>8.0</StuffPower_Armor_Sharp>
+      <StuffPower_Armor_Blunt>8.0</StuffPower_Armor_Blunt>
+      <StuffPower_Armor_Heat>8.0</StuffPower_Armor_Heat>
     </statBases>
     <thingCategories>
       <li>ResourcesRaw</li>
@@ -138,7 +145,6 @@
         <ArmorRating_Blunt>0.1</ArmorRating_Blunt>
         <ArmorRating_Sharp>0.1</ArmorRating_Sharp>
         <ArmorRating_Heat>0.1</ArmorRating_Heat>
-		
       </statOffsets>
       <statFactors>
         <MaxHitPoints>40</MaxHitPoints>
@@ -148,11 +154,6 @@
         <MeleeWeapon_CooldownMultiplier>0.2</MeleeWeapon_CooldownMultiplier>
         <DoorOpenSpeed>2.0</DoorOpenSpeed>
         <Beauty>10</Beauty>
-        <ArmorRating_Blunt>8.0</ArmorRating_Blunt>
-        <ArmorRating_Sharp>8.0</ArmorRating_Sharp>
-        <ArmorRating_Heat>8.0</ArmorRating_Heat>
-        <Insulation_Cold>3.0</Insulation_Cold>
-        <Insulation_Heat>3.0</Insulation_Heat>
       </statFactors>
     </stuffProps>
   </ThingDef>
