@@ -68,11 +68,12 @@ namespace ProjectRimFactory.Storage
             {
                 RegisterNewItem(newItem);
             }
+            RefreshStorage();
         }
 
-        public virtual string GetITabString()
+        public virtual string GetITabString(int itemsSelected)
         {
-            return "PRFItemsTabLabel".Translate(items.Count);
+            return "PRFItemsTabLabel".Translate(items.Count, itemsSelected);
         }
 
         public virtual void RegisterNewItem(Thing newItem)
@@ -171,18 +172,19 @@ namespace ProjectRimFactory.Storage
                     }
                 }
             }
-            for (int i = 0; i < ports.Count; i++)
-            {
-                if (ports[i] == null)
-                {
-                    ports.RemoveAt(i);
-                    i--;
-                }
-                else
-                {
-                    ports[i].Notify_NeedRefresh();
-                }
-            }
+            // Even though notifying I/O ports that the contents inside the storage unit have changed seems like a good idea, it can cause recursion issues.
+            //for (int i = 0; i < ports.Count; i++)
+            //{
+            //    if (ports[i] == null)
+            //    {
+            //        ports.RemoveAt(i);
+            //        i--;
+            //    }
+            //    else
+            //    {
+            //        ports[i].Notify_NeedRefresh();
+            //    }
+            //}
         }
     }
 }

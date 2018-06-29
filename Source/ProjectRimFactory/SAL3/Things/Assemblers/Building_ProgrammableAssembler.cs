@@ -184,7 +184,7 @@ namespace ProjectRimFactory.SAL3.Things.Assemblers
 
         protected IEnumerable<Thing> AllAccessibleThings => from c in IngredientStackCells
                                                             from t in Map.thingGrid.ThingsListAt(c)
-                                                            where AllowForbidden || !t.IsForbidden(Faction)
+                                                            where (AllowForbidden || !t.IsForbidden(Faction)) && t.def.category == ThingCategory.Item
                                                             select t;
         protected IEnumerable<Bill> AllBillsShouldDoNow => from b in billStack.Bills
                                                            where b.ShouldDoNow()
@@ -253,7 +253,7 @@ namespace ProjectRimFactory.SAL3.Things.Assemblers
         {
             if (currentBillReport == null)
             {
-                Log.Error("S.A.L. 3.0 :: Tried to make products when assembler isn't engaged in a bill.");
+                Log.Error("Project RimFactory :: Tried to make products when assembler isn't engaged in a bill.");
                 return;
             }
             IEnumerable<Thing> products = GenRecipe.MakeRecipeProducts(currentBillReport.bill.recipe, buildingPawn, currentBillReport.selected, ProjectSAL_Utilities.CalculateDominantIngredient(currentBillReport.bill.recipe, currentBillReport.selected), this);

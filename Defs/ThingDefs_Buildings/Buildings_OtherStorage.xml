@@ -19,7 +19,7 @@
     <pathCost>70</pathCost>
     <building>
       <fixedStorageSettings>
-        <priority>Important</priority>
+        <priority>Normal</priority>
         <filter>
           <categories>
             <li>Root</li>
@@ -27,7 +27,7 @@
         </filter>
       </fixedStorageSettings>
       <defaultStorageSettings>
-        <priority>Important</priority>
+        <priority>Normal</priority>
         <filter>
           <categories>
           </categories>
@@ -35,7 +35,7 @@
       </defaultStorageSettings>
     </building>
     <inspectorTabs>
-      <li>ProjectRimFactory.Storage.UI.ITab_StorageUnitIOPort</li>
+      <li>ProjectRimFactory.Storage.UI.ITab_IOPortStorage</li>
     </inspectorTabs>
     <castEdgeShadows>true</castEdgeShadows>
     <statBases>
@@ -44,7 +44,7 @@
       <Flammability>1.0</Flammability>
       <Mass>30</Mass>
     </statBases>
-    <description>A redesigned smart hopper that can pull items remotely from industrial storage units.</description>
+    <description>A redesigned smart hopper that can pull items remotely from cargo platforms.</description>
     <costList>
       <Steel>80</Steel>
       <ComponentIndustrial>4</ComponentIndustrial>

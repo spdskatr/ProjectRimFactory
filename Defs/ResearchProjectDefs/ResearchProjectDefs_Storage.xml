@@ -33,7 +33,7 @@
 	<label>Wireless item transfer</label>
     <researchViewX>2</researchViewX>
     <researchViewY>0</researchViewY>
-	<description>Allows colonists to build machines that can transfer items to and from industrial storage units.</description>
+	<description>Allows colonists to build machines that can transfer items to and from cargo platforms.</description>
     <prerequisites>
       <li>PRFStorage</li>
     </prerequisites>

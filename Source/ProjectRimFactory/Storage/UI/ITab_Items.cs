@@ -20,7 +20,10 @@ namespace ProjectRimFactory.Storage.UI
         {
             Text.Font = GameFont.Small;
             Rect rect = new Rect(0f, 0f, size.x, size.y).ContractedBy(10f);
-            Widgets.Label(new Rect(rect.x, rect.y, rect.width, 25f), SelBuilding.GetITabString());
+            IEnumerable<Thing> selected = from Thing t in SelBuilding.StoredItems
+                                          where string.IsNullOrEmpty(searchQuery) || t.Label.ToLower().Contains(searchQuery.ToLower())
+                                          select t;
+            Widgets.Label(new Rect(rect.x, rect.y, rect.width, 25f), SelBuilding.GetITabString(Math.Min(500, selected.Count())));
             searchQuery = Widgets.TextArea(new Rect(rect.x, rect.y + 25f, rect.width, 25f), searchQuery ?? string.Empty, false);
             Rect position = new Rect(rect);
             GUI.BeginGroup(position);
@@ -29,9 +32,7 @@ namespace ProjectRimFactory.Storage.UI
             Rect viewRect = new Rect(0f, 0f, outRect.width - 16f, scrollViewHeight);
             Widgets.BeginScrollView(outRect, ref scrollPos, viewRect);
             float curY = 0;
-            foreach (Thing thing in (from Thing t in SelBuilding.StoredItems
-                                     where string.IsNullOrEmpty(searchQuery) || t.Label.ToLower().Contains(searchQuery.ToLower())
-                                     select t).Take(500))
+            foreach (Thing thing in selected.Take(500))
             {
                 DrawThingRow(ref curY, viewRect.width, thing);
             }

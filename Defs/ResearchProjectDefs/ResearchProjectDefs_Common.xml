@@ -88,7 +88,7 @@
     <label>Nano-materials</label>
     <techLevel>Spacer</techLevel>
     <baseCost>2500</baseCost>
-    <description>Create new materials by manipulating the molecular structure of paperclips.</description>
+    <description>Allows the atomic reconstructor to create X-Composite an Y-Composite.</description>
     <prerequisites>
       <li>PRFAtomicReconstruction</li>
     </prerequisites>
@@ -212,7 +212,7 @@
     <label>Vanometrics</label>
     <techLevel>Ultra</techLevel>
     <baseCost>10000</baseCost>
-    <description>Produce vanometric power cells, infinite chemreactors and other archotechnology-grade buildings.</description>
+    <description>Produce vanometric power cells, infinite chemreactors and other archotechnology-grade buildings. Also unlocks the production of Z-Composite at the atomic reconstructor.</description>
     <prerequisites>
       <li>PRFRiemannHypothesis</li>
 	  <li>PRFPVersusNP</li>

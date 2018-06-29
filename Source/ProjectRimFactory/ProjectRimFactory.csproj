@@ -117,7 +117,7 @@
     <Compile Include="SAL3\Tools\ProjectSAL_Utilities.cs" />
     <Compile Include="SAL3\Things\Assemblers\Building_ProgrammableAssembler.cs" />
     <Compile Include="SAL3\Tools\Textures.cs" />
-    <Compile Include="SAL3\UI\Dialogs.cs" />
+    <Compile Include="Storage\UI\Dialog_OutputMinMax.cs" />
     <Compile Include="SAL3\UI\ITab_SAL3Bills.cs" />
     <Compile Include="SAL3\Tools\ReflectionUtility.cs" />
     <Compile Include="Storage\Building_Crate.cs" />
@@ -126,10 +126,11 @@
     <Compile Include="Storage\Building_StorageUnitIOPort.cs" />
     <Compile Include="Storage\Editables\DefModExtension_CanUseStorageIOPorts.cs" />
     <Compile Include="Storage\Editables\DefModExtension_Crate.cs" />
+    <Compile Include="Storage\OutputSettings.cs" />
     <Compile Include="Storage\StorageIOMode.cs" />
     <Compile Include="Storage\UI\Dialog_RenameMassStorageUnit.cs" />
+    <Compile Include="Storage\UI\ITab_IOPortStorage.cs" />
     <Compile Include="Storage\UI\ITab_Items.cs" />
-    <Compile Include="Storage\UI\ITab_StorageUnitIOPort.cs" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

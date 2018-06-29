@@ -17,6 +17,11 @@ namespace ProjectRimFactory.Storage
             base.Notify_ReceivedThing(newItem);
             UpdatePowerConsumption();
         }
+        public override void Notify_LostThing(Thing newItem)
+        {
+            base.Notify_LostThing(newItem);
+            UpdatePowerConsumption();
+        }
         public void UpdatePowerConsumption()
         {
             GetComp<CompPowerTrader>().PowerOutput = -10 * StoredItemsCount;

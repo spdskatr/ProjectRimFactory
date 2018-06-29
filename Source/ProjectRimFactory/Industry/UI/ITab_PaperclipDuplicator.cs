@@ -62,70 +62,77 @@ namespace ProjectRimFactory.Industry.UI
         {
             if (SelBuilding.boundStorageUnit != null)
             {
-                if (int.TryParse(amountTextArea, out int result))
+                if (SelBuilding.boundStorageUnit.CanReceiveIO)
                 {
-                    if (deposit)
+                    if (int.TryParse(amountTextArea, out int result))
                     {
-                        List<Thing> selectedThings = new List<Thing>();
-                        int current = 0;
-                        foreach (Thing item in SelBuilding.boundStorageUnit.StoredItems.ToList())
+                        if (deposit)
                         {
-                            if (item.def == PRFDefOf.Paperclip)
+                            List<Thing> selectedThings = new List<Thing>();
+                            int current = 0;
+                            foreach (Thing item in SelBuilding.boundStorageUnit.StoredItems.ToList())
                             {
-                                int num = Math.Min(result - current, item.stackCount);
-                                selectedThings.Add(item.SplitOff(num));
-                                current += num;
+                                if (item.def == PRFDefOf.Paperclip)
+                                {
+                                    int num = Math.Min(result - current, item.stackCount);
+                                    selectedThings.Add(item.SplitOff(num));
+                                    current += num;
+                                }
+                                if (current == result)
+                                {
+                                    break;
+                                }
                             }
                             if (current == result)
                             {
-                                break;
+                                SelBuilding.DepositPaperclips(result);
+                                Messages.Message("SuccessfullyDepositedPaperclips".Translate(result), MessageTypeDefOf.PositiveEvent);
                             }
-                        }
-                        if (current == result)
-                        {
-                            SelBuilding.DepositPaperclips(result);
-                            Messages.Message("SuccessfullyDepositedPaperclips".Translate(result), MessageTypeDefOf.PositiveEvent);
+                            else
+                            {
+                                for (int i = 0; i < selectedThings.Count; i++)
+                                {
+                                    SelBuilding.boundStorageUnit.Notify_ReceivedThing(selectedThings[i]);
+                                }
+                                Messages.Message("PRFNotEnoughPaperclips".Translate(), MessageTypeDefOf.RejectInput);
+                            }
                         }
                         else
                         {
-                            for (int i = 0; i < selectedThings.Count; i++)
+                            if (result < SelBuilding.PaperclipsActual)
                             {
-                                SelBuilding.boundStorageUnit.Notify_ReceivedThing(selectedThings[i]);
+                                List<Thing> output = new List<Thing>();
+                                int current = 0;
+                                while (current < result)
+                                {
+                                    int num = Math.Min(result - current, PRFDefOf.Paperclip.stackLimit);
+                                    Thing paperclip = ThingMaker.MakeThing(PRFDefOf.Paperclip);
+                                    paperclip.stackCount = num;
+                                    output.Add(paperclip);
+                                    current += num;
+                                }
+                                for (int i = 0; i < output.Count; i++)
+                                {
+                                    GenPlace.TryPlaceThing(output[i], SelBuilding.Position, SelBuilding.Map, ThingPlaceMode.Direct);
+                                    SelBuilding.boundStorageUnit.Notify_ReceivedThing(output[i]);
+                                }
+                                SelBuilding.WithdrawPaperclips(result);
+                                Messages.Message("SuccessfullyWithdrawnPaperclips".Translate(result), MessageTypeDefOf.PositiveEvent);
                             }
-                            Messages.Message("PRFNotEnoughPaperclips".Translate(), MessageTypeDefOf.RejectInput);
+                            else
+                            {
+                                Messages.Message("PRFNotEnoughPaperclips".Translate(), MessageTypeDefOf.RejectInput);
+                            }
                         }
                     }
                     else
                     {
-                        if (result < SelBuilding.PaperclipsActual)
-                        {
-                            List<Thing> output = new List<Thing>();
-                            int current = 0;
-                            while (current < result)
-                            {
-                                int num = Math.Min(result - current, PRFDefOf.Paperclip.stackLimit);
-                                Thing paperclip = ThingMaker.MakeThing(PRFDefOf.Paperclip);
-                                paperclip.stackCount = num;
-                                output.Add(paperclip);
-                                current += num;
-                            }
-                            for (int i = 0; i < output.Count; i++)
-                            {
-                                GenPlace.TryPlaceThing(output[i], SelBuilding.Position, SelBuilding.Map, ThingPlaceMode.Direct);
-                                SelBuilding.boundStorageUnit.Notify_ReceivedThing(output[i]);
-                            }
-                            SelBuilding.WithdrawPaperclips(result);
-                            Messages.Message("SuccessfullyWithdrawnPaperclips".Translate(result), MessageTypeDefOf.PositiveEvent);
-                        }
-                        else
-                        {
-                            Messages.Message("PRFNotEnoughPaperclips".Translate(), MessageTypeDefOf.RejectInput);
-                        }
+                        Messages.Message("PRFInputInvalid".Translate(), MessageTypeDefOf.RejectInput);
                     }
                 }
                 else
                 {
-                    Messages.Message("PRFInputInvalid".Translate(), MessageTypeDefOf.RejectInput);
+                    Messages.Message("PRFBoundStorageUnitNotAvailableForIO".Translate(), MessageTypeDefOf.RejectInput);
                 }
             }
             else

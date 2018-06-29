@@ -21,10 +21,22 @@ namespace ProjectRimFactory.Industry
         {
             get
             {
-                long result = (long)(paperclipCount * Math.Pow(1.05, (Find.TickManager.TicksGame - lastTick).TicksToDays()));
-                if (result == long.MaxValue)
+                long result = 0;
+                if (paperclipCount != long.MaxValue)
                 {
-                    Find.WindowStack.Add(new Dialog_MessageBox("PRF_ArchoCipher_BankOverflow".Translate()));
+                    try
+                    {
+                        checked
+                        {
+                            result = (long)(paperclipCount * Math.Pow(1.05, (Find.TickManager.TicksGame - lastTick).TicksToDays()));
+                        }
+                    }
+                    catch (OverflowException)
+                    {
+                        Find.WindowStack.Add(new Dialog_MessageBox("PRF_ArchoCipher_BankOverflow".Translate()));
+                        PaperclipsActual = long.MaxValue;
+                        result = long.MaxValue;
+                    }
                 }
                 return result;
             }
@@ -53,6 +65,10 @@ namespace ProjectRimFactory.Industry
             base.SpawnSetup(map, respawningAfterLoad);
             outputComp = GetComp<CompOutputAdjustable>();
             powerComp = GetComp<CompPowerTrader>();
+        }
+        protected override void ReceiveCompSignal(string signal)
+        {
+            base.ReceiveCompSignal(signal);
         }
         public override string GetInspectString()
         {

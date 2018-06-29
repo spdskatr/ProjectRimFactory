@@ -42,7 +42,7 @@
     <workSpeedStat>SmithingSpeed</workSpeedStat>
     <effectWorking>Drill</effectWorking>
     <soundWorking>Recipe_Machining</soundWorking>
-    <workAmount>6</workAmount>
+    <workAmount>60</workAmount>
     <ingredients>
       <li>
         <filter>
@@ -79,7 +79,7 @@
     <workSpeedStat>SmithingSpeed</workSpeedStat>
     <effectWorking>Drill</effectWorking>
     <soundWorking>Recipe_Machining</soundWorking>
-    <workAmount>60</workAmount>
+    <workAmount>300</workAmount>
     <ingredients>
       <li>
         <filter>
@@ -116,7 +116,7 @@
     <workSpeedStat>SmithingSpeed</workSpeedStat>
     <effectWorking>Drill</effectWorking>
     <soundWorking>Recipe_Machining</soundWorking>
-    <workAmount>60</workAmount>
+    <workAmount>1200</workAmount>
     <ingredients>
       <li>
         <filter>

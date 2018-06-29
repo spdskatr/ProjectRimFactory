@@ -16,6 +16,7 @@ namespace ProjectRimFactory.Common
         public static FieldInfo LoadedFullThingsField = typeof(Map).GetField("loadedFullThings", BindingFlags.NonPublic | BindingFlags.Static);
         public static IEnumerable<CodeInstruction> Transpiler(IEnumerable<CodeInstruction> instructions, ILGenerator il)
         {
+            // Jumps over the code for displacing buildings and other items.
             bool ldargsSeen = false;
             Label l = il.DefineLabel();
             List<CodeInstruction> instrList = instructions.ToList();

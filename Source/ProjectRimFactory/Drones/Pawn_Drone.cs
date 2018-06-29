@@ -29,6 +29,7 @@ namespace ProjectRimFactory.Drones
                 adulthood = DroneBackstories.adulthood
             };
             drafter = new Pawn_DraftController(this);
+            relations = new Pawn_RelationsTracker(this);
             Name = new NameSingle("PRFDroneName".Translate());
         }
 
@@ -39,10 +40,11 @@ namespace ProjectRimFactory.Drones
             {
                 foreach (SkillRecord sr in skills.skills)
                 {
+                    sr.levelInt = 20;
                     if (sr.xpSinceLastLevel > 1f)
                     {
-                        sr.xpSinceMidnight = 1f;
-                        sr.xpSinceLastLevel = 1f;
+                        sr.xpSinceMidnight = 100f;
+                        sr.xpSinceLastLevel = 100f;
                     }
                 }
             }

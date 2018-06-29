@@ -5,19 +5,14 @@ using Verse;
 using RimWorld;
 using ProjectRimFactory.SAL3.UI;
 using ProjectRimFactory.SAL3.Tools;
+using ProjectRimFactory.Storage;
+using ProjectRimFactory.Storage.UI;
 
 namespace ProjectRimFactory.SAL3.Things
 {
     public class Building_SmartHopper : Building, IStoreSettingsParent
     {
-        public int limit = 80;
-        public int min = 10;
-        public int max = 100;
-        public string minBufferString;
-        public string maxBufferString;
-        public bool useMin = true;
-        public bool useMax = false;
-
+        public OutputSettings outputSettings = new OutputSettings("SmartHopper_Minimum_UseTooltip", "SmartHopper_Maximum_UseTooltip");
 
         public IEnumerable<IntVec3> cachedDetectorCells;
 
@@ -73,19 +68,15 @@ namespace ProjectRimFactory.SAL3.Things
         public override void ExposeData()
         {
             base.ExposeData();
-            Scribe_Values.Look(ref limit, "limit", 75);
-            Scribe_Values.Look(ref min, "min", 10);
-            Scribe_Values.Look(ref max, "max", 100);
-            Scribe_Values.Look(ref useMin, "useMin");
-            Scribe_Values.Look(ref useMax, "useMax", true);
+            Scribe_Deep.Look(ref outputSettings, "outputSettings");
             Scribe_Deep.Look(ref settings, "settings", this);
         }
 
         public override string GetInspectString()
         {
-            if (useMin && useMax) return base.GetInspectString() + "\n" + "SmartHopper_Minimum".Translate(min) + "\n" + "SmartHopper_Maximum".Translate(max);
-            else if (useMin && !useMax) return base.GetInspectString() + "\n" + "SmartHopper_Minimum".Translate(min);
-            else if (!useMin && useMax) return base.GetInspectString() + "\n" + "SmartHopper_Maximum".Translate(max);
+            if (outputSettings.useMin && outputSettings.useMax) return base.GetInspectString() + "\n" + "SmartHopper_Minimum".Translate(outputSettings.min) + "\n" + "SmartHopper_Maximum".Translate(outputSettings.max);
+            else if (outputSettings.useMin && !outputSettings.useMax) return base.GetInspectString() + "\n" + "SmartHopper_Minimum".Translate(outputSettings.min);
+            else if (!outputSettings.useMin && outputSettings.useMax) return base.GetInspectString() + "\n" + "SmartHopper_Maximum".Translate(outputSettings.max);
             else return base.GetInspectString();
         }
 
@@ -97,7 +88,7 @@ namespace ProjectRimFactory.SAL3.Things
                 foreach (var element in ThingsToSelect)
                 {
                     bool withinLimits = true;
-                    if (useMin) withinLimits = (element.stackCount >= min);
+                    if (outputSettings.useMin) withinLimits = (element.stackCount >= outputSettings.min);
                     
                     if (element.def.category == ThingCategory.Item && settings.AllowedToAccept(element) && withinLimits)
                     {
@@ -111,10 +102,12 @@ namespace ProjectRimFactory.SAL3.Things
                     {
                         bool forbidItem = true;
 
-                        if (useMin || useMax)
+                        if (outputSettings.useMin || outputSettings.useMax)
                         {
-                            if (useMin && StoredThing.stackCount < min) forbidItem = false; 
-                            else if(useMax && StoredThing.stackCount > max) forbidItem = false;
+                            if (outputSettings.useMin && StoredThing.stackCount < outputSettings.min)
+                                forbidItem = false; 
+                            else if (outputSettings.useMax && StoredThing.stackCount > outputSettings.max)
+                                forbidItem = false;
                         }                        
                         if (forbidItem)
                         {
@@ -134,7 +127,7 @@ namespace ProjectRimFactory.SAL3.Things
                 if (StoredThing.CanStackWith(element))
                 {
                     var num = Mathf.Min(element.stackCount, (StoredThing.def.stackLimit - StoredThing.stackCount));                    
-                    if (useMax) num = Mathf.Min(element.stackCount, Mathf.Min((StoredThing.def.stackLimit - StoredThing.stackCount),(max - StoredThing.stackCount)));
+                    if (outputSettings.useMax) num = Mathf.Min(element.stackCount, Mathf.Min((StoredThing.def.stackLimit - StoredThing.stackCount),(outputSettings.max - StoredThing.stackCount)));
                     
                     if (num > 0)
                     {
@@ -147,7 +140,7 @@ namespace ProjectRimFactory.SAL3.Things
             {
                 var num = element.stackCount;
 
-                if (useMax) num = Mathf.Min(element.stackCount, max);
+                if (outputSettings.useMax) num = Mathf.Min(element.stackCount, outputSettings.max);
 
                 if (num == element.stackCount)
                 {
@@ -177,7 +170,7 @@ namespace ProjectRimFactory.SAL3.Things
             {
                 icon = ContentFinder<Texture2D>.Get("UI/Commands/SetTargetFuelLevel"),
                 defaultLabel = "SmartHopper_SetTargetAmount".Translate(),
-                action = () => Find.WindowStack.Add(new Dialog_SmartHopperMinMax(this)),
+                action = () => Find.WindowStack.Add(new Dialog_OutputMinMax(outputSettings)),
             };
         }
 

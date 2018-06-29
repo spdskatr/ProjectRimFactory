@@ -25,6 +25,7 @@
         <fuelConsumptionRate>0</fuelConsumptionRate>
         <fuelCapacity>50</fuelCapacity>
         <fuelConsumptionPerTickInRain>0</fuelConsumptionPerTickInRain>
+        <consumeFuelOnlyWhenUsed>true</consumeFuelOnlyWhenUsed>
         <fuelFilter>
           <thingDefs>
             <li>PRFDroneModule</li>

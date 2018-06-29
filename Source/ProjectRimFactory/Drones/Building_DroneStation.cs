@@ -69,6 +69,7 @@ namespace ProjectRimFactory.Drones
                 if (job != null)
                 {
                     job.playerForced = true;
+                    job.expiryInterval = -1;
                     Pawn_Drone drone = MakeDrone();
                     GenSpawn.Spawn(drone, Position, Map);
                     drone.jobs.StartJob(job);
