@@ -40,5 +40,11 @@ namespace ProjectRimFactory.SAL3.Things.Assemblers
                 Messages.Message("SAL3Alert_SomeBillsRemoved".Translate(), this, MessageTypeDefOf.NegativeEvent);
             }
         }
+
+        public override void SpawnSetup(Map map, bool respawningAfterLoad)
+        {
+            base.SpawnSetup(map, respawningAfterLoad);
+            Notify_RecipeHolderRemoved();
+        }
     }
 }
