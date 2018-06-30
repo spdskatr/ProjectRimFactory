@@ -20,7 +20,7 @@ namespace ProjectRimFactory.Storage
         public StorageIOMode mode;
         Building_MassStorageUnit boundStorageUnit;
         protected StorageSettings outputStoreSettings;
-        protected OutputSettings outputSettings;
+        private OutputSettings outputSettings;
 
         CompPowerTrader powerComp;
 
@@ -53,6 +53,22 @@ namespace ProjectRimFactory.Storage
             }
         }
 
+        protected OutputSettings OutputSettings
+        {
+            get
+            {
+                if (outputSettings == null)
+                {
+                    outputSettings = new OutputSettings("IOPort_Minimum_UseTooltip", "IOPort_Maximum_UseTooltip");
+                }
+                return outputSettings;
+            }
+            set
+            {
+                outputSettings = value;
+            }
+        }
+
         public override void ExposeData()
         {
             base.ExposeData();
@@ -73,10 +89,6 @@ namespace ProjectRimFactory.Storage
         {
             base.SpawnSetup(map, respawningAfterLoad);
             powerComp = GetComp<CompPowerTrader>();
-            if (outputSettings == null)
-            {
-                outputSettings = new OutputSettings("IOPort_Minimum_UseTooltip", "IOPort_Maximum_UseTooltip");
-            }
         }
 
         protected override void ReceiveCompSignal(string signal)
@@ -184,11 +196,11 @@ namespace ProjectRimFactory.Storage
             if (currentItem != null)
             {
                 IEnumerable<Thing> stackableCandidates = itemCandidates.Where(t => currentItem.CanStackWith(t));
-                return outputSettings.SatisfiesMin(stackableCandidates.Sum(t => t.stackCount) + currentItem.stackCount) ? stackableCandidates : Enumerable.Empty<Thing>();
+                return OutputSettings.SatisfiesMin(stackableCandidates.Sum(t => t.stackCount) + currentItem.stackCount) ? stackableCandidates : Enumerable.Empty<Thing>();
             }
             return itemCandidates
                 .GroupBy(t => t.def)
-                .FirstOrDefault(g => outputSettings.SatisfiesMin(g.Sum(t => t.stackCount))) ?? Enumerable.Empty<Thing>();
+                .FirstOrDefault(g => OutputSettings.SatisfiesMin(g.Sum(t => t.stackCount))) ?? Enumerable.Empty<Thing>();
         }
 
         protected void RefreshOutput()
@@ -197,7 +209,7 @@ namespace ProjectRimFactory.Storage
             {
                 Thing currentItem = Position.GetFirstItem(Map);
                 bool storageSlotAvailable = currentItem == null || (settings.AllowedToAccept(currentItem) && 
-                                                                    outputSettings.SatisfiesMax(currentItem.stackCount, currentItem.def.stackLimit));
+                                                                    OutputSettings.SatisfiesMax(currentItem.stackCount, currentItem.def.stackLimit));
                 if (boundStorageUnit != null && boundStorageUnit.CanReceiveIO)
                 {
                     if (storageSlotAvailable)
@@ -211,7 +223,7 @@ namespace ProjectRimFactory.Storage
                                 {
                                     if (currentItem.CanStackWith(item))
                                     {
-                                        int count = Math.Min(item.stackCount, outputSettings.CountNeededToReachMax(currentItem.stackCount, currentItem.def.stackLimit));
+                                        int count = Math.Min(item.stackCount, OutputSettings.CountNeededToReachMax(currentItem.stackCount, currentItem.def.stackLimit));
                                         if (count > 0)
                                         {
                                             currentItem.TryAbsorbStack(item.SplitOff(count), true);
@@ -220,26 +232,26 @@ namespace ProjectRimFactory.Storage
                                 }
                                 else
                                 {
-                                    int count = outputSettings.CountNeededToReachMax(0, item.stackCount);
+                                    int count = OutputSettings.CountNeededToReachMax(0, item.stackCount);
                                     if (count > 0)
                                     {
                                         currentItem = GenSpawn.Spawn(item.SplitOff(count), Position, Map);
                                     }
                                 }
-                                if (currentItem != null && !outputSettings.SatisfiesMax(currentItem.stackCount, currentItem.def.stackLimit))
+                                if (currentItem != null && !OutputSettings.SatisfiesMax(currentItem.stackCount, currentItem.def.stackLimit))
                                 {
                                     break;
                                 }
                             }
                         }
                     }
-                    if (currentItem != null && (!settings.AllowedToAccept(currentItem) || !outputSettings.SatisfiesMin(currentItem.stackCount)) && boundStorageUnit.settings.AllowedToAccept(currentItem))
+                    if (currentItem != null && (!settings.AllowedToAccept(currentItem) || !OutputSettings.SatisfiesMin(currentItem.stackCount)) && boundStorageUnit.settings.AllowedToAccept(currentItem))
                     {
                         boundStorageUnit.RegisterNewItem(currentItem);
                     }
-                    if (currentItem != null && (!outputSettings.SatisfiesMax(currentItem.stackCount, currentItem.def.stackLimit) && boundStorageUnit.settings.AllowedToAccept(currentItem)))
+                    if (currentItem != null && (!OutputSettings.SatisfiesMax(currentItem.stackCount, currentItem.def.stackLimit) && boundStorageUnit.settings.AllowedToAccept(currentItem)))
                     {
-                        int splitCount = -outputSettings.CountNeededToReachMax(currentItem.stackCount, currentItem.def.stackLimit);
+                        int splitCount = -OutputSettings.CountNeededToReachMax(currentItem.stackCount, currentItem.def.stackLimit);
                         if (splitCount > 0)
                         {
                             boundStorageUnit.RegisterNewItem(currentItem.SplitOff(splitCount));
@@ -289,7 +301,7 @@ namespace ProjectRimFactory.Storage
                 {
                     icon = ContentFinder<Texture2D>.Get("UI/Commands/SetTargetFuelLevel"),
                     defaultLabel = "PRFIOOutputSettings".Translate(),
-                    action = () => Find.WindowStack.Add(new Dialog_OutputMinMax(outputSettings))
+                    action = () => Find.WindowStack.Add(new Dialog_OutputMinMax(OutputSettings))
                 };
             }
         }
