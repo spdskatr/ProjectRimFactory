@@ -84,7 +84,7 @@ namespace ProjectRimFactory.SAL3.Things
         public override void ExposeData()
         {
             base.ExposeData();
-            Scribe_Deep.Look(ref outputSettings, "outputSettings");
+            Scribe_Deep.Look(ref outputSettings, "outputSettings", "SmartHopper_Minimum_UseTooltip", "SmartHopper_Maximum_UseTooltip");
             Scribe_Deep.Look(ref settings, "settings", this);
         }
 
