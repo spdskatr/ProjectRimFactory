@@ -61,8 +61,16 @@ namespace ProjectRimFactory.Drones
 
         public override void Kill(DamageInfo? dinfo, Hediff exactCulprit = null)
         {
+            IntVec3 posHeld = PositionHeld;
+            Map mapHeld = MapHeld;
             base.Kill(dinfo, exactCulprit);
-            Corpse?.Destroy();
+            foreach (Thing t in Position.GetThingList(Map))
+            {
+                if (t is Corpse c && c.InnerPawn == this)
+                {
+                    c.Destroy();
+                }
+            }
         }
 
         public override void ExposeData()
