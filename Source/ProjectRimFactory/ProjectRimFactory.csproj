@@ -81,6 +81,7 @@
     <Compile Include="CultivatorTools\PlaceWorker_HighlightPlaceableCells.cs" />
     <Compile Include="CultivatorTools\SquareCellIterator.cs" />
     <Compile Include="CultivatorTools\Utilities.cs" />
+    <Compile Include="Drones\AI\JobGiver_DroneFlee.cs" />
     <Compile Include="Drones\Building_DroneStationSpecialGraphics.cs" />
     <Compile Include="Drones\AI\JobDriver_ReturnToStation.cs" />
     <Compile Include="Drones\AI\JobDriver_SelfTerminate.cs" />

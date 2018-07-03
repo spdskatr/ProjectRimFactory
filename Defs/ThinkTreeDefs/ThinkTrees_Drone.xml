@@ -155,7 +155,7 @@
         <li Class="ThinkNode_ConditionalCanDoConstantThinkTreeJobNow">
           <subNodes>
             <!-- Flee enemies, tornados, meteorites, etc. -->
-            <li Class="JobGiver_AnimalFlee" />
+            <li Class="ProjectRimFactory.Drones.AI.JobGiver_DroneFlee" />
 
             <!-- Lord directives -->
             <li Class="ThinkNode_Subtree">

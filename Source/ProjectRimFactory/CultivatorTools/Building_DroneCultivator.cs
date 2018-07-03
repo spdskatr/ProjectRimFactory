@@ -72,15 +72,20 @@ namespace ProjectRimFactory.CultivatorTools
                 {
                     Thing blocker = GenPlant.AdjacentSowBlocker(plantDef, cell, Map);
                     // Get rid of blockers
-                    if (blocker != null && blocker is Plant && blocker.def != plantDef && !Map.reservationManager.IsReservedByAnyoneOf(blocker, Faction))
+                    if (blocker != null)
                     {
-                        return new Job(JobDefOf.CutPlant, blocker);
+                        if (blocker is Plant && blocker.def != plantDef && !Map.reservationManager.IsReservedByAnyoneOf(blocker, Faction))
+                            return new Job(JobDefOf.CutPlant, blocker);
+                        // Wait for blocker to be cut/moved
                     }
-                    // Sow
-                    return new Job(JobDefOf.Sow, cell)
+                    else
                     {
-                        plantDefToSow = plantToGrowSettable.GetPlantDefToGrow()
-                    };
+                        // Sow
+                        return new Job(JobDefOf.Sow, cell)
+                        {
+                            plantDefToSow = plantToGrowSettable.GetPlantDefToGrow()
+                        };
+                    }
                 }
             }
             return null;

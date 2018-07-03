@@ -144,11 +144,7 @@ namespace ProjectRimFactory.Storage
             base.Tick();
             if (this.IsHashIntervalTick(10))
             {
-                RefreshStoreSettings();
-                if (mode == StorageIOMode.Output)
-                {
-                    RefreshOutput();
-                }
+                Notify_NeedRefresh();
             }
         }
 

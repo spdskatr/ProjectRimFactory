@@ -69,6 +69,7 @@ namespace ProjectRimFactory.Drones
                 if (t is Corpse c && c.InnerPawn == this)
                 {
                     c.Destroy();
+                    break;
                 }
             }
         }

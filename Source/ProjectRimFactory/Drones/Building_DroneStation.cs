@@ -12,6 +12,8 @@ namespace ProjectRimFactory.Drones
 {
     public abstract class Building_DroneStation : Building
     {
+        public static readonly Texture2D Cancel = ContentFinder<Texture2D>.Get("UI/Designators/Cancel", true);
+        protected bool lockdown;
         protected DefModExtension_DroneStation extension;
         protected List<Pawn_Drone> spawnedDrones = new List<Pawn_Drone>();
 
@@ -63,7 +65,7 @@ namespace ProjectRimFactory.Drones
         public override void Tick()
         {
             base.Tick();
-            if (DronesLeft > 0 && this.IsHashIntervalTick(60) && GetComp<CompPowerTrader>()?.PowerOn != false)
+            if (DronesLeft > 0 && !lockdown && this.IsHashIntervalTick(60) && GetComp<CompPowerTrader>()?.PowerOn != false)
             {
                 Job job = TryGiveJob();
                 if (job != null)
@@ -110,6 +112,31 @@ namespace ProjectRimFactory.Drones
         {
             base.ExposeData();
             Scribe_Collections.Look(ref spawnedDrones, "spawnedDrones", LookMode.Reference);
+            Scribe_Values.Look(ref lockdown, "lockdown");
+        }
+
+        public override IEnumerable<Gizmo> GetGizmos()
+        {
+            foreach (Gizmo g in base.GetGizmos())
+                yield return g;
+            yield return new Command_Toggle()
+            {
+                defaultLabel = "PRFDroneStationLockdown".Translate(),
+                defaultDesc = "PRFDroneStationLockdownDesc".Translate(),
+                toggleAction = () =>
+                {
+                    lockdown = !lockdown;
+                    if (lockdown)
+                    {
+                        foreach (Pawn_Drone drone in spawnedDrones.ToList())
+                        {
+                            drone.jobs.StartJob(new Job(PRFDefOf.PRFDrone_ReturnToStation, this), JobCondition.InterruptForced);
+                        }
+                    }
+                },
+                isActive = () => lockdown,
+                icon = Cancel
+            };
         }
     }
 }
