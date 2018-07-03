@@ -32,7 +32,7 @@ namespace ProjectRimFactory.Industry
             {
                 if (ThingToGenerate == null)
                     return 0;
-                return Mathf.RoundToInt(StatDefOf.MarketValue.Worker.GetValue(StatRequest.For(ThingToGenerate, null)) * 100);
+                return Mathf.RoundToInt(StatDefOf.MarketValue.Worker.GetValue(StatRequest.For(ThingToGenerate, null)) * 100 * 2); // 2 work per $0.01
             }
         }
 

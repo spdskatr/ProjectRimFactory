@@ -1,8 +1,11 @@
 # PROJECT RIMFACTORY TO-DO LIST
 ---
 - Quantum computer texture
-- Re-design I/O Ports
 - Finish Help system
+- Make research requirement XML-exposable for atomic reconstructor
+- Volatite generator
+- Better control over drones
+- Make drones unforbid stuff after mining
 
 # Other goals moving forward
 ---

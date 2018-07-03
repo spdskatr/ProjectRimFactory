@@ -64,7 +64,7 @@ namespace ProjectRimFactory.Drones
             IntVec3 posHeld = PositionHeld;
             Map mapHeld = MapHeld;
             base.Kill(dinfo, exactCulprit);
-            foreach (Thing t in Position.GetThingList(Map))
+            foreach (Thing t in posHeld.GetThingList(mapHeld))
             {
                 if (t is Corpse c && c.InnerPawn == this)
                 {

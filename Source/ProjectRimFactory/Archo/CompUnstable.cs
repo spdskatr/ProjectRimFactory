@@ -5,6 +5,7 @@ using System.Text;
 using Verse;
 using RimWorld;
 using RimWorld.Planet;
+using UnityEngine;
 
 namespace ProjectRimFactory.Archo
 {
@@ -40,6 +41,13 @@ namespace ProjectRimFactory.Archo
         public override void PostExposeData()
         {
             Scribe_Values.Look(ref ticksLeft, "ticksLeft");
+        }
+        public override string TransformLabel(string label)
+        {
+            float ratio = (float)ticksLeft / Props.ticksToDisintegrate;
+            int green = Mathf.RoundToInt(ratio * 255);
+            int red = Mathf.RoundToInt((1 - ratio) * 255);
+            return $"<color=#{red.ToString("x2")}{green.ToString("x2")}00>{label}</color>";
         }
     }
 }

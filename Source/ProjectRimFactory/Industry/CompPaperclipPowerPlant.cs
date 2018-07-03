@@ -22,7 +22,7 @@ namespace ProjectRimFactory.Industry
         {
             get
             {
-                return currentPowerModifierPct * fuelPerSecond; // 1000W per paperclip per second
+                return (currentPowerModifierPct * fuelPerSecond) / 10; // 100W per paperclip per second
             }
         }
 
@@ -50,11 +50,11 @@ namespace ProjectRimFactory.Industry
             {
                 if (PRFDefOf.PaperclipGeneratorQuantumFoamManipulation.IsFinished)
                 {
-                    maxPowerModifierPct = 10000;
+                    maxPowerModifierPct = 2500;
                 }
                 else if (PRFDefOf.PaperclipGeneratorKugelblitz.IsFinished)
                 {
-                    maxPowerModifierPct = 2500;
+                    maxPowerModifierPct = 1000;
                 }
                 else if (PRFDefOf.PaperclipGeneratorSelfImprovement.IsFinished)
                 {
@@ -65,7 +65,11 @@ namespace ProjectRimFactory.Industry
                     maxPowerModifierPct = 100;
                 }
 
-                if (currentPowerModifierPct < maxPowerModifierPct)
+                if (maxPowerModifierPct < currentPowerModifierPct)
+                {
+                    currentPowerModifierPct = maxPowerModifierPct;
+                }
+                else if (currentPowerModifierPct < maxPowerModifierPct)
                 {
                     currentPowerModifierPct++;
                 }

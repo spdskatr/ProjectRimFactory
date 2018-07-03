@@ -216,7 +216,7 @@
   </ThingDef-->
   <ThingDef ParentName="PRFResourceBase">
     <defName>PRFVolatiteChunk</defName>
-    <label>volatite chunk</label>
+    <label>Volatite chunk</label>
     <description>This item cannot be used as a material. It is used in the production of vanometrics. It is so volatile that it disintegrates in 24 hours.</description>
     <graphicData>
       <texPath>Things/Item/Chunk/ChunkStone</texPath>
@@ -233,7 +233,7 @@
       <Mass>20</Mass>
     </statBases>
     <thingCategories>
-      <li>StoneChunks</li>
+      <li>Chunks</li>
     </thingCategories>
     <stackLimit>1</stackLimit>
 	<drawGUIOverlay>false</drawGUIOverlay>

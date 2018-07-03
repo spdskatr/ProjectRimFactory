@@ -53,7 +53,7 @@
     <label>paperclip power generator: kugelblitz</label>
     <techLevel>Spacer</techLevel>
     <baseCost>5000</baseCost>
-    <description>Paperclip power generator maximum efficiency increased up to 2500%.</description>
+    <description>Paperclip power generator maximum efficiency increased up to 1000%.</description>
     <prerequisites>
       <li>PaperclipGeneratorSelfImprovement</li>
     </prerequisites>
@@ -64,11 +64,11 @@
   </ResearchProjectDef>
   
   <ResearchProjectDef>
-    <defName>PaperclipGeneratorQuantumFoamManipulation</defName>
+    <defName>PaperclipGeneratorQuantumFoamManipulation</defName> <!-- Keep this def name for backwards compatibility -->
     <label>paperclip power generator: quantum foam manipulation</label>
     <techLevel>Spacer</techLevel>
     <baseCost>10000</baseCost>
-    <description>Paperclip power generator maximum efficiency increased up to 10000%.</description>
+    <description>Paperclip power generator maximum efficiency increased up to 2500%.</description>
     <prerequisites>
       <li>PaperclipGeneratorKugelblitz</li>
     </prerequisites>

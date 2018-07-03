@@ -109,6 +109,7 @@ namespace ProjectRimFactory.Drones
         public override void ExposeData()
         {
             base.ExposeData();
+            Scribe_Collections.Look(ref spawnedDrones, "spawnedDrones", LookMode.Reference);
         }
     }
 }
