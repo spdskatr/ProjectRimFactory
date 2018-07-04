@@ -10,6 +10,7 @@ using Verse.AI;
 
 namespace ProjectRimFactory.Drones
 {
+    [StaticConstructorOnStartup]
     public abstract class Building_DroneStation : Building
     {
         public static readonly Texture2D Cancel = ContentFinder<Texture2D>.Get("UI/Designators/Cancel", true);
