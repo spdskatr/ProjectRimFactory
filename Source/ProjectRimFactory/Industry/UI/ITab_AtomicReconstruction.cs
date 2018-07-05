@@ -103,11 +103,12 @@ namespace ProjectRimFactory.Industry.UI
                 {
                     if (!tDef.MadeFromStuff)
                     {
-                        if (!PRFDefOf.PRFNanoMaterials.IsFinished && (tDef == PRFDefOf.PRFXComposite || tDef == PRFDefOf.PRFYComposite))
+                        if (tDef == PRFDefOf.Paperclip)
                         {
                             continue;
                         }
-                        if (!PRFDefOf.PRFVanometrics.IsFinished && tDef == PRFDefOf.PRFZComposite)
+                        DefModExtension_AtomicReconstructorResearchPrerequisite ex = tDef.GetModExtension<DefModExtension_AtomicReconstructorResearchPrerequisite>();
+                        if (ex != null && ex.prerequisite != null && !ex.prerequisite.IsFinished)
                         {
                             continue;
                         }
@@ -120,7 +121,14 @@ namespace ProjectRimFactory.Industry.UI
                 foreach (ThingDef tDef in ThingCategoryDefOf.Foods.DescendantThingDefs)
                 {
                     if (!tDef.MadeFromStuff)
+                    {
+                        DefModExtension_AtomicReconstructorResearchPrerequisite ex = tDef.GetModExtension<DefModExtension_AtomicReconstructorResearchPrerequisite>();
+                        if (ex != null && ex.prerequisite != null && !ex.prerequisite.IsFinished)
+                        {
+                            continue;
+                        }
                         yield return tDef;
+                    }
                 }
             }
             if (PRFDefOf.PRFManufacturablesProduction.IsFinished)
@@ -128,7 +136,14 @@ namespace ProjectRimFactory.Industry.UI
                 foreach (ThingDef tDef in ThingCategoryDefOf.Manufactured.DescendantThingDefs)
                 {
                     if (!tDef.MadeFromStuff)
+                    {
+                        DefModExtension_AtomicReconstructorResearchPrerequisite ex = tDef.GetModExtension<DefModExtension_AtomicReconstructorResearchPrerequisite>();
+                        if (ex != null && ex.prerequisite != null && !ex.prerequisite.IsFinished)
+                        {
+                            continue;
+                        }
                         yield return tDef;
+                    }
                 }
             }
             if (PRFDefOf.PRFVanometrics.IsFinished)

@@ -53,6 +53,11 @@
         <WorkToMake>1.8</WorkToMake>
       </statFactors>
     </stuffProps>
+    <modExtensions>
+      <li Class="ProjectRimFactory.Industry.DefModExtension_AtomicReconstructorResearchPrerequisite">
+        <prerequisite>PRFNanoMaterials</prerequisite>
+      </li>
+    </modExtensions>
   </ThingDef>
   <ThingDef ParentName="PRFResourceBase">
     <defName>PRFYComposite</defName>
@@ -97,6 +102,11 @@
         <MeleeWeapon_CooldownMultiplier>0.4</MeleeWeapon_CooldownMultiplier>
       </statFactors>
     </stuffProps>
+    <modExtensions>
+      <li Class="ProjectRimFactory.Industry.DefModExtension_AtomicReconstructorResearchPrerequisite">
+        <prerequisite>PRFNanoMaterials</prerequisite>
+      </li>
+    </modExtensions>
   </ThingDef>
   <ThingDef ParentName="PRFResourceBase">
     <defName>PRFZComposite</defName>
@@ -156,6 +166,11 @@
         <Beauty>10</Beauty>
       </statFactors>
     </stuffProps>
+    <modExtensions>
+      <li Class="ProjectRimFactory.Industry.DefModExtension_AtomicReconstructorResearchPrerequisite">
+        <prerequisite>PRFVanometrics</prerequisite>
+      </li>
+    </modExtensions>
   </ThingDef>
   <!--ThingDef ParentName="PRFResourceBase">
     <defName>PRFIndestructium</defName>
