@@ -2,7 +2,7 @@
 ---
 - Quantum computer texture
 - Finish Help system
-- Make research requirement XML-exposable for atomic reconstructor
+- Make research requirement XML-exposable for atomic reconstructor (include and exclude)
 - Volatite generator
 - Better control over drones
 - Make drones unforbid stuff after mining

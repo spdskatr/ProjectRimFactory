@@ -8,6 +8,7 @@ namespace ProjectRimFactory.Industry
 {
     public class DefModExtension_AtomicReconstructorResearchPrerequisite : DefModExtension
     {
-        public ResearchProjectDef prerequisite;
+        public bool ignoreMainPrerequisites;
+        public List<ResearchProjectDef> prerequisites;
     }
 }

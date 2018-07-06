@@ -14,7 +14,7 @@
     <costList>
       <Steel>100</Steel>
       <ComponentIndustrial>10</ComponentIndustrial>
-	  <PRFWeakAIChip>1</PRFWeakAIChip>
+	  <PRFWeakAIChip>3</PRFWeakAIChip>
     </costList>
     <graphicData>
       <texPath>Common/ResearchBenchAI</texPath>
@@ -68,7 +68,7 @@
   <ThingDef ParentName="BuildingBase">
     <defName>PRFQuantumComputer</defName>
     <label>quantum computer</label>
-    <description>Required for tier 3 automation research - increases research speed by 75%. Needs to be placed near AI research bench. One research bench can be linked to only one quantum computer.</description>
+    <description>Required for tier 3 automation research - increases research speed by 75%. Needs to be placed near AI research bench. Consumes considerable power. One research bench can be linked to only one quantum computer.</description>
     <graphicData>
       <texPath>Things/Building/Misc/MultiAnalyzer</texPath>
       <graphicClass>Graphic_Single</graphicClass>
@@ -98,12 +98,12 @@
       <Steel>100</Steel>
       <Plasteel>50</Plasteel>
       <Gold>20</Gold>
+      <ComponentSpacer>5</ComponentSpacer>
     </costList>
     <comps>
       <li Class="CompProperties_Power">
         <compClass>CompPowerTrader</compClass>
-        
-        <basePowerConsumption>350</basePowerConsumption>
+        <basePowerConsumption>1000</basePowerConsumption>
       </li>
       <li Class="CompProperties_Flickable"/>
       <li Class="CompProperties_Facility">

@@ -39,7 +39,7 @@
   <ThingDef ParentName="PRFResourceBase">
     <defName>PRFWeakAIChip</defName>
     <label>weak AI chip</label>
-    <description>A microchip with embedded classifier, regressor and generator modules. The most primitive level of AI.</description>
+    <description>A tensor processing unit containing the most rudimentary AI.</description>
     <graphicData>
       <texPath>Common/WeakAICore</texPath>
       <graphicClass>Graphic_Single</graphicClass>
@@ -213,6 +213,7 @@
       <recipeUsers>
         <li>TableRoboticMachining</li>
       </recipeUsers>
+	  <researchPrerequisite>PRFMachineLearning</researchPrerequisite>
     </recipeMaker>
     <thingCategories>
       <li>Items</li>
@@ -240,5 +241,8 @@
       <li>ResourcesRaw</li>
     </thingCategories>
     <stackLimit>100000</stackLimit>
+    <modExtensions>
+      <li Class="ProjectRimFactory.Industry.DefModExtension_AtomicReconstructorDisallow" />
+    </modExtensions>
   </ThingDef>
 </Defs>

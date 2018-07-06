@@ -97,6 +97,7 @@
     <Compile Include="Industry\Building_PaperclipDuplicator.cs" />
     <Compile Include="Industry\Building_RepairingMachine.cs" />
     <Compile Include="Industry\CompPaperclipPowerPlant.cs" />
+    <Compile Include="Industry\DefModExtension_AtomicReconstructorDisallow.cs" />
     <Compile Include="Industry\DefModExtension_AtomicReconstructorResearchPrerequisite.cs" />
     <Compile Include="Industry\PaperclipsUtility.cs" />
     <Compile Include="Industry\PlaceWorker_FuelingMachine.cs" />

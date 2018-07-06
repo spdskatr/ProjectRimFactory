@@ -32,7 +32,7 @@
           </thingDefs>
         </fuelFilter>
         <targetFuelLevelConfigurable>true</targetFuelLevelConfigurable>
-        <initialConfigurableTargetFuelLevel>20</initialConfigurableTargetFuelLevel>
+        <initialConfigurableTargetFuelLevel>50</initialConfigurableTargetFuelLevel>
         <drawOutOfFuelOverlay>false</drawOutOfFuelOverlay>
       </li>
     </comps>
@@ -56,7 +56,8 @@
 	<size>(3, 3)</size>
     <costStuffCount>100</costStuffCount>
     <costList>
-      <ComponentIndustrial>10</ComponentIndustrial>
+      <ComponentSpacer>5</ComponentSpacer>
+      <ComponentIndustrial>5</ComponentIndustrial>
 	  <PRFWeakAIChip>2</PRFWeakAIChip>
     </costList>
     <modExtensions>
@@ -98,8 +99,9 @@
 	<size>(3, 3)</size>
     <costStuffCount>100</costStuffCount>
     <costList>
-      <ComponentIndustrial>10</ComponentIndustrial>
-	  <PRFWeakAIChip>2</PRFWeakAIChip>
+      <ComponentSpacer>5</ComponentSpacer>
+      <ComponentIndustrial>8</ComponentIndustrial>
+	  <PRFWeakAIChip>4</PRFWeakAIChip>
     </costList>
     <modExtensions>
       <li Class="ProjectRimFactory.Drones.DefModExtension_DroneStation">
@@ -138,8 +140,9 @@
 	<size>(3, 3)</size>
     <costStuffCount>100</costStuffCount>
     <costList>
-      <ComponentIndustrial>10</ComponentIndustrial>
-	  <PRFWeakAIChip>2</PRFWeakAIChip>
+      <ComponentSpacer>5</ComponentSpacer>
+      <ComponentIndustrial>8</ComponentIndustrial>
+	  <PRFWeakAIChip>6</PRFWeakAIChip>
     </costList>
     <modExtensions>
       <li Class="ProjectRimFactory.Drones.DefModExtension_DroneStation">

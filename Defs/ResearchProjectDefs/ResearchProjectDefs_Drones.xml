@@ -8,6 +8,7 @@
     <description>Allows your colony to build the caretaker drone station. Caretaker drones can haul, do basic work, clean and fight fires.</description>
     <prerequisites>
       <li>PRFGoldbachConjecture</li>
+      <li>AdvancedFabrication</li>
     </prerequisites>
     <requiredResearchBuilding>AIResearchBench</requiredResearchBuilding>
     <tab>Automation</tab>

@@ -55,7 +55,8 @@
     </stuffProps>
     <modExtensions>
       <li Class="ProjectRimFactory.Industry.DefModExtension_AtomicReconstructorResearchPrerequisite">
-        <prerequisite>PRFNanoMaterials</prerequisite>
+        <ignoreMainPrerequisites>false</ignoreMainPrerequisites>
+        <prerequisites><li>PRFNanoMaterials</li></prerequisites>
       </li>
     </modExtensions>
   </ThingDef>
@@ -104,7 +105,8 @@
     </stuffProps>
     <modExtensions>
       <li Class="ProjectRimFactory.Industry.DefModExtension_AtomicReconstructorResearchPrerequisite">
-        <prerequisite>PRFNanoMaterials</prerequisite>
+        <ignoreMainPrerequisites>false</ignoreMainPrerequisites>
+        <prerequisites><li>PRFNanoMaterials</li></prerequisites>
       </li>
     </modExtensions>
   </ThingDef>
@@ -168,7 +170,8 @@
     </stuffProps>
     <modExtensions>
       <li Class="ProjectRimFactory.Industry.DefModExtension_AtomicReconstructorResearchPrerequisite">
-        <prerequisite>PRFVanometrics</prerequisite>
+        <ignoreMainPrerequisites>false</ignoreMainPrerequisites>
+        <prerequisites><li>PRFVanometrics</li></prerequisites>
       </li>
     </modExtensions>
   </ThingDef>
@@ -259,5 +262,11 @@
 	    <ticksToDisintegrate>60000</ticksToDisintegrate>
 	  </li>
 	</comps>
+    <modExtensions>
+      <li Class="ProjectRimFactory.Industry.DefModExtension_AtomicReconstructorResearchPrerequisite">
+        <ignoreMainPrerequisites>true</ignoreMainPrerequisites>
+        <prerequisites><li>PRFVanometrics</li></prerequisites>
+      </li>
+    </modExtensions>
   </ThingDef>
 </Defs>

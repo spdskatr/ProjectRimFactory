@@ -67,7 +67,7 @@ namespace ProjectRimFactory.Industry.UI
             }
             if (thingDef.DrawMatSingle != null && thingDef.DrawMatSingle.mainTexture != null)
             {
-                if (thingDef.graphicData != null && GenUI.IconDrawScale(thingDef) <= 1f)
+                if (thingDef.graphicData != null && GenUI.IconDrawScale(thingDef) <= 1.5f)
                 {
                     Widgets.ThingIcon(new Rect(4f, y, 28f, 28f), thingDef);
                 }
@@ -97,58 +97,41 @@ namespace ProjectRimFactory.Industry.UI
 
         public static IEnumerable<ThingDef> AllAllowedThingDefsColonyCanProduce()
         {
-            if (PRFDefOf.PRFAtomicReconstruction.IsFinished)
+            foreach (ThingDef tDef in DefDatabase<ThingDef>.AllDefs)
             {
-                foreach (ThingDef tDef in ThingCategoryDefOf.ResourcesRaw.DescendantThingDefs)
+                if (!tDef.MadeFromStuff && tDef.GetModExtension<DefModExtension_AtomicReconstructorDisallow>() == null)
                 {
-                    if (!tDef.MadeFromStuff)
+                    DefModExtension_AtomicReconstructorResearchPrerequisite ex = tDef.GetModExtension<DefModExtension_AtomicReconstructorResearchPrerequisite>();
+                    if (ex != null)
                     {
-                        if (tDef == PRFDefOf.Paperclip)
+                        if (ex.prerequisites?.All(r => r.IsFinished) == false)
                         {
                             continue;
                         }
-                        DefModExtension_AtomicReconstructorResearchPrerequisite ex = tDef.GetModExtension<DefModExtension_AtomicReconstructorResearchPrerequisite>();
-                        if (ex != null && ex.prerequisite != null && !ex.prerequisite.IsFinished)
+                        if (ex.ignoreMainPrerequisites)
                         {
+                            yield return tDef;
                             continue;
                         }
-                        yield return tDef;
+                    }
+                    if (tDef.thingCategories != null)
+                    {
+                        foreach (ThingCategoryDef cat in tDef.thingCategories)
+                        {
+                            switch (cat.defName)
+                            {
+                                case nameof(ThingCategoryDefOf.ResourcesRaw) when PRFDefOf.PRFAtomicReconstruction.IsFinished:
+                                case nameof(ThingCategoryDefOf.Foods) when PRFDefOf.PRFEdiblesSynthesis.IsFinished:
+                                case nameof(ThingCategoryDefOf.Manufactured) when PRFDefOf.PRFManufacturablesProduction.IsFinished:
+                                    yield return tDef;
+                                    break;
+                                default:
+                                    continue;
+                            }
+                            break;
+                        }
                     }
                 }
-            }
-            if (PRFDefOf.PRFEdiblesSynthesis.IsFinished)
-            {
-                foreach (ThingDef tDef in ThingCategoryDefOf.Foods.DescendantThingDefs)
-                {
-                    if (!tDef.MadeFromStuff)
-                    {
-                        DefModExtension_AtomicReconstructorResearchPrerequisite ex = tDef.GetModExtension<DefModExtension_AtomicReconstructorResearchPrerequisite>();
-                        if (ex != null && ex.prerequisite != null && !ex.prerequisite.IsFinished)
-                        {
-                            continue;
-                        }
-                        yield return tDef;
-                    }
-                }
-            }
-            if (PRFDefOf.PRFManufacturablesProduction.IsFinished)
-            {
-                foreach (ThingDef tDef in ThingCategoryDefOf.Manufactured.DescendantThingDefs)
-                {
-                    if (!tDef.MadeFromStuff)
-                    {
-                        DefModExtension_AtomicReconstructorResearchPrerequisite ex = tDef.GetModExtension<DefModExtension_AtomicReconstructorResearchPrerequisite>();
-                        if (ex != null && ex.prerequisite != null && !ex.prerequisite.IsFinished)
-                        {
-                            continue;
-                        }
-                        yield return tDef;
-                    }
-                }
-            }
-            if (PRFDefOf.PRFVanometrics.IsFinished)
-            {
-                yield return PRFDefOf.PRFVolatiteChunk;
             }
         }
         Vector2 scrollPos;

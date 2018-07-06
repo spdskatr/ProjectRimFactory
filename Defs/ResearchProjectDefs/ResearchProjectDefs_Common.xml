@@ -60,6 +60,7 @@
     <prerequisites>
       <li>PRFGoldbachConjecture</li>
       <li>PaperclipProduction</li>
+      <li>AdvancedFabrication</li>
     </prerequisites>
     <requiredResearchBuilding>AIResearchBench</requiredResearchBuilding>
     <tab>Automation</tab>
@@ -76,6 +77,7 @@
     <prerequisites>
       <li>PRFGoldbachConjecture</li>
       <li>PaperclipProduction</li>
+      <li>Fabrication</li>
     </prerequisites>
     <requiredResearchBuilding>AIResearchBench</requiredResearchBuilding>
     <tab>Automation</tab>
@@ -120,7 +122,7 @@
     <baseCost>3000</baseCost>
     <description>Allows colonists to also convert paperclips into items in the "manufactured" category.</description>
     <prerequisites>
-      <li>PRFAtomicReconstruction</li>
+      <li>PRFEdiblesSynthesis</li>
     </prerequisites>
     <requiredResearchBuilding>AIResearchBench</requiredResearchBuilding>
     <tab>Automation</tab>
