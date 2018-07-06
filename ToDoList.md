@@ -6,6 +6,7 @@
 - Volatite generator
 - Better control over drones
 - Make drones unforbid stuff after mining
+- Recipe def mod extensions - COMPATIBILITY
 
 # Other goals moving forward
 ---

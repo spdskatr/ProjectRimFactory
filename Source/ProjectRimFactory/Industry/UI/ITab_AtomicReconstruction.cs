@@ -36,6 +36,19 @@ namespace ProjectRimFactory.Industry.UI
             Rect viewRect = new Rect(0f, 0f, rect2.width - 16f, scrollViewHeight);
             Widgets.BeginScrollView(rect2, ref scrollPos, viewRect);
             float curY = 0;
+            // Draw reset button
+            Rect resetRect = new Rect(0f, curY, viewRect.width, 28f);
+            Widgets.Label(new Rect(36f, resetRect.y, resetRect.width - 36f, resetRect.height), "NoneBrackets".Translate());
+            Widgets.DrawHighlightIfMouseover(resetRect);
+            if (GUI.Button(resetRect, "", Widgets.EmptyStyle))
+            {
+                if (SelBuilding.ThingToGenerate != null)
+                {
+                    SelBuilding.ThingToGenerate = null;
+                }
+                SoundDefOf.Click.PlayOneShot(SoundInfo.OnCamera());
+            }
+            curY += 28f;
             foreach (ThingDef tDef in AllAllowedThingDefsColonyCanProduce().OrderBy(d => d.LabelCap))
             {
                 if (searchQuery == null || tDef.label.ToLower().Contains(searchQuery))

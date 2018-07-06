@@ -64,7 +64,7 @@ namespace ProjectRimFactory.CultivatorTools
                 if (!TryPlantNewSeedsPleaseActive(plantDef))
                     return;
             }
-            if (plantDef.CanEverPlantAt(c, Map) && GenPlant.AdjacentSowBlocker(plantDef, c, Map) == null)
+            if (plantDef.CanEverPlantAt(c, Map) && PlantUtility.AdjacentSowBlocker(plantDef, c, Map) == null)
                 GenPlace.TryPlaceThing(ThingMaker.MakeThing(plantDef), c, Map, ThingPlaceMode.Direct);
         }
 

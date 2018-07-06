@@ -68,9 +68,9 @@ namespace ProjectRimFactory.CultivatorTools
                     plantDef != null && 
                     plantToGrowSettable.CanPlantRightNow() &&
                     plantDef.CanEverPlantAt(cell, Map) &&
-                    GenPlant.GrowthSeasonNow(cell, Map))
+                    PlantUtility.GrowthSeasonNow(cell, Map))
                 {
-                    Thing blocker = GenPlant.AdjacentSowBlocker(plantDef, cell, Map);
+                    Thing blocker = PlantUtility.AdjacentSowBlocker(plantDef, cell, Map);
                     // Get rid of blockers
                     if (blocker != null)
                     {
