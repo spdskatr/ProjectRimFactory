@@ -40,10 +40,13 @@ namespace ProjectRimFactory.Storage
             }
         }
 
-        public override void SpawnSetup(Map map, bool respawningAfterLoad)
+        public override void Tick()
         {
-            base.SpawnSetup(map, respawningAfterLoad);
-            UpdatePowerConsumption();
+            base.Tick();
+            if (this.IsHashIntervalTick(60))
+            {
+                UpdatePowerConsumption();
+            }
         }
     }
 }
