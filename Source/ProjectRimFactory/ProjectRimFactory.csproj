@@ -72,6 +72,7 @@
     <Compile Include="Common\ProjectRimFactory_ModSettings.cs" />
     <Compile Include="Common\SaveCompressiblePatch.cs" />
     <Compile Include="Common\SetPositionPatch.cs" />
+    <Compile Include="Common\ThingCategoryDefUtility.cs" />
     <Compile Include="Common\VolumePerUnitPatch.cs" />
     <Compile Include="CultivatorTools\Building_Cultivator.cs" />
     <Compile Include="CultivatorTools\Building_DroneCultivator.cs" />

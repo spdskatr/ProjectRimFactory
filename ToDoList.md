@@ -7,6 +7,7 @@
 - Better control over drones
 - Make drones unforbid stuff after mining
 - Recipe def mod extensions - COMPATIBILITY
+- Hack into simulation and choose which plane of existence to go to
 
 # Other goals moving forward
 ---

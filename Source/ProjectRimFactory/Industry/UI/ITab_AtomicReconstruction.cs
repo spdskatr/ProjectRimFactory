@@ -129,7 +129,7 @@ namespace ProjectRimFactory.Industry.UI
                     }
                     if (tDef.thingCategories != null)
                     {
-                        foreach (ThingCategoryDef cat in tDef.thingCategories)
+                        foreach (ThingCategoryDef cat in from tcd in tDef.thingCategories from child in tcd.ThisAndParents() select child)
                         {
                             switch (cat.defName)
                             {
