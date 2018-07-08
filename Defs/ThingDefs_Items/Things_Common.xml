@@ -245,4 +245,40 @@
       <li Class="ProjectRimFactory.Industry.DefModExtension_AtomicReconstructorDisallow" />
     </modExtensions>
   </ThingDef>
+  <ThingDef ParentName="PRFResourceBase">
+    <defName>PRFComputronium</defName>
+    <label>Computronium</label>
+    <description>A cluster of electronics capable of over a vigintillion parallel floating point operations per second. Containing no AI in itself, it was likely manufactured to house an artificial superintelligence.</description>
+    <graphicData>
+      <texPath>Archo/Computronium</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <resourceReadoutPriority>Middle</resourceReadoutPriority>
+    <soundInteract>Metal_Drop</soundInteract>
+    <soundDrop>Metal_Drop</soundDrop>
+    <statBases>
+      <MarketValue>8000</MarketValue>
+      <MaxHitPoints>50</MaxHitPoints>
+      <WorkToMake>5000</WorkToMake>
+      <Mass>1</Mass>
+    </statBases>
+    <costList>
+      <ComponentSpacer>20</ComponentSpacer>
+      <PRFWeakAIChip>20</PRFWeakAIChip>
+    </costList>
+    <recipeMaker>
+      <workSpeedStat>SmithingSpeed</workSpeedStat>
+      <workSkill>Crafting</workSkill>
+      <effectWorking>Cook</effectWorking>
+      <soundWorking>Recipe_Machining</soundWorking>
+      <recipeUsers>
+        <li>TableRoboticMachining</li>
+      </recipeUsers>
+	  <researchPrerequisite>PRFSimulationHypothesis</researchPrerequisite>
+    </recipeMaker>
+    <thingCategories>
+      <li>Items</li>
+    </thingCategories>
+    <tradeability>Sellable</tradeability>
+  </ThingDef>
 </Defs>

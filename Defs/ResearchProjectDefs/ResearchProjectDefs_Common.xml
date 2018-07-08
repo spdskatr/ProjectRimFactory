@@ -225,11 +225,11 @@
     <researchViewY>2</researchViewY>
   </ResearchProjectDef>
   <ResearchProjectDef>
-    <defName>PRFPsychics</defName>
-    <label>Psychics</label>
+    <defName>PRFSimulationHypothesis</defName>
+    <label>Archotechnology</label>
     <techLevel>Ultra</techLevel>
-    <baseCost>10000</baseCost>
-    <description>Unlocks the production of psychic items.</description>
+    <baseCost>20000</baseCost>
+    <description>Learn how to produce computronium to enhance the intelligence of an existing AI persona core.</description>
     <prerequisites>
       <li>PRFRiemannHypothesis</li>
 	  <li>PRFFermiParadox</li>
@@ -240,11 +240,11 @@
     <researchViewY>3</researchViewY>
   </ResearchProjectDef>
   <ResearchProjectDef>
-    <defName>PRFSimulationHypothesis</defName>
-    <label>Simulation hypothesis</label>
+    <defName>PRFPsychics</defName>
+    <label>Psychics</label>
     <techLevel>Ultra</techLevel>
     <baseCost>10000</baseCost>
-    <description>Are we all inside a sci-fi colony simulator driven by an intelligent AI storyteller? If so, is there any way of predicting the future?</description>
+    <description>Unlocks the production of psychic items.</description>
     <prerequisites>
 	  <li>PRFPVersusNP</li>
 	  <li>PRFFermiParadox</li>
