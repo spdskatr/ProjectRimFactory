@@ -68,14 +68,14 @@ namespace ProjectRimFactory.Industry.UI
                     {
                         if (deposit)
                         {
-                            List<Thing> selectedThings = new List<Thing>();
+                            List<ThingCount> selected = new List<ThingCount>();
                             int current = 0;
                             foreach (Thing item in SelBuilding.boundStorageUnit.StoredItems.ToList())
                             {
                                 if (item.def == PRFDefOf.Paperclip)
                                 {
                                     int num = Math.Min(result - current, item.stackCount);
-                                    selectedThings.Add(item.SplitOff(num));
+                                    selected.Add(new ThingCount(item, num));
                                     current += num;
                                 }
                                 if (current == result)
@@ -86,14 +86,14 @@ namespace ProjectRimFactory.Industry.UI
                             if (current == result)
                             {
                                 SelBuilding.DepositPaperclips(result);
+                                for (int i = 0; i < selected.Count; i++)
+                                {
+                                    selected[i].Thing.SplitOff(selected[i].Count);
+                                }
                                 Messages.Message("SuccessfullyDepositedPaperclips".Translate(result), MessageTypeDefOf.PositiveEvent);
                             }
                             else
                             {
-                                for (int i = 0; i < selectedThings.Count; i++)
-                                {
-                                    SelBuilding.boundStorageUnit.Notify_ReceivedThing(selectedThings[i]);
-                                }
                                 Messages.Message("PRFNotEnoughPaperclips".Translate(), MessageTypeDefOf.RejectInput);
                             }
                         }
