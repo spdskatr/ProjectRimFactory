@@ -208,7 +208,7 @@ namespace ProjectRimFactory.Storage
                                                                     OutputSettings.SatisfiesMax(currentItem.stackCount, currentItem.def.stackLimit));
                 if (boundStorageUnit != null && boundStorageUnit.CanReceiveIO)
                 {
-                    if (storageSlotAvailable)
+                    if (storageSlotAvailable && outputSettings.min <= outputSettings.max)
                     {
                         List<Thing> itemCandidates = new List<Thing>(from Thing t in boundStorageUnit.StoredItems where settings.AllowedToAccept(t) select t); // ToList very important - evaluates enumerable
                         if (ItemsThatSatisfyMin(itemCandidates, currentItem).Any())
@@ -253,7 +253,6 @@ namespace ProjectRimFactory.Storage
                             boundStorageUnit.RegisterNewItem(currentItem.SplitOff(splitCount));
                         }
                     }
-
                 }
             }
         }

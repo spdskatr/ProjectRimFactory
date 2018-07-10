@@ -4,5 +4,11 @@
 	<author>Spdskatr</author>
 	<targetVersion>1.0.0</targetVersion>
 	<url>https://ludeon.com/forums/index.php?topic=30813.0</url>
-	<description>A compilation of all my old factory mods into one giant mod!\n&lt;b&gt;Credits:&lt;/b&gt;\nData disk and tape player textures by totobrother\nWood crate texture by Chicken Plucker\nRobotic arm texture by Shotgunfrenzy\nDrone texture by Xen\nChinese translation by Dango998</description>
+	<description><![CDATA[A mod giving you the ability to automate parts of your colony.
+<b>Credits:</b>
+Data disk and tape player textures by totobrother
+Wood crate texture by Chicken Plucker
+Robotic arm texture by Shotgunfrenzy
+Drone texture by Xen
+Chinese translation by Dango998]]></description>
 </ModMetaData>

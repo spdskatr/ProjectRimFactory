@@ -25,8 +25,11 @@ namespace ProjectRimFactory.Industry
                         if (refuelableComp != null && refuelableComp.Fuel + 1 < refuelableComp.TargetFuelLevel && refuelableComp.Props.fuelFilter.Allows(item))
                         {
                             int num = Mathf.Min(item.stackCount, Mathf.CeilToInt(refuelableComp.TargetFuelLevel - refuelableComp.Fuel));
-                            refuelableComp.Refuel(num);
-                            item.SplitOff(num).Destroy();
+                            if (num > 0)
+                            {
+                                refuelableComp.Refuel(num);
+                                item.SplitOff(num).Destroy();
+                            }
                         }
                     }
                 }

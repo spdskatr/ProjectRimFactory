@@ -16,7 +16,7 @@
   <PRFIOOutput>Output</PRFIOOutput>
   <PRFBoundStorageBuilding>Item source</PRFBoundStorageBuilding>
   <IOPort_Minimum_UseTooltip>When this is enabled, the I/O port will return the outputted item to the cargo platform if the item has less than X stack size. It will also only take items if there are enough items in storage to exceed the minimum.</IOPort_Minimum_UseTooltip>
-  <IOPort_Maximum_UseTooltip>When this is enabled, the I/O port will stop taking items if either the stack is full, or the stack size is greather than or equal to X.</IOPort_Maximum_UseTooltip>
+  <IOPort_Maximum_UseTooltip>When this is enabled, the I/O port will stop taking items if either the stack is full, or the stack size is greater than or equal to X.</IOPort_Maximum_UseTooltip>
   <PRFNoDesc>No description.</PRFNoDesc>
   <PaperclipFuelConsumption>Fuel consumption: {0} paperclips/second</PaperclipFuelConsumption>
   <PaperclipProductionPerSecond>Paperclip production: {0} paperclips/second</PaperclipProductionPerSecond>
