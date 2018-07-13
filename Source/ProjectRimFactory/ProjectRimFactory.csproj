@@ -54,6 +54,8 @@
     <Compile Include="AnimalStation\Building_Classes.cs" />
     <Compile Include="AnimalStation\PlaceWorker_ShowAdjacent.cs" />
     <Compile Include="Archo\ArchoCipher.cs" />
+    <Compile Include="Archo\PlaceWorker_PortalGenerator.cs" />
+    <Compile Include="Archo\PortalGeneratorUtility.cs" />
     <Compile Include="Archo\Things\Building_HexCapacitor.cs" />
     <Compile Include="Archo\CompProperties_Unstable.cs" />
     <Compile Include="Archo\CompUnstable.cs" />

@@ -177,6 +177,6 @@
 	</skillRequirements>
     <workSkill>Crafting</workSkill>
 	<recipeUsers><li>TableRoboticMachining</li></recipeUsers>
-	<researchPrerequisite>MagneticTape</researchPrerequisite>
+	<researchPrerequisite>PRFAIPersonaProduction</researchPrerequisite>
   </RecipeDef>
 </Defs>
