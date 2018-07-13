@@ -62,6 +62,7 @@
     <Compile Include="Archo\ITab_ArchoCipher.cs" />
     <Compile Include="Archo\ResearchMod_Notify.cs" />
     <Compile Include="Archo\Things\Building_PaperclipSpawner.cs" />
+    <Compile Include="Archo\Things\Building_PortalGenerator.cs" />
     <Compile Include="Archo\WorldComponent_NotificatonManager.cs" />
     <Compile Include="Common\Cache.cs" />
     <Compile Include="Common\CompOutputAdjustable.cs" />

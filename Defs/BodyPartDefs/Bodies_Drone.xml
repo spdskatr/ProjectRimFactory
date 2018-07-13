@@ -5,7 +5,7 @@
     <defName>PRFPropeller</defName>
     <label>propeller</label>
     <hitPoints>30</hitPoints>
-    <permanentInjuryBaseChance>0</permanentInjuryBaseChance>
+    <permanentInjuryChanceFactor>0</permanentInjuryChanceFactor>
     <skinCovered>false</skinCovered>
     <solid>true</solid>
     <alive>false</alive>
@@ -20,7 +20,7 @@
     <label>propeller blade</label>
     <hitPoints>20</hitPoints>
     <frostbiteVulnerability>2</frostbiteVulnerability>
-    <permanentInjuryBaseChance>0</permanentInjuryBaseChance>
+    <permanentInjuryChanceFactor>0</permanentInjuryChanceFactor>
     <skinCovered>false</skinCovered>
     <solid>true</solid>
     <alive>false</alive>

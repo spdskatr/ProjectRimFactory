@@ -11,13 +11,13 @@
 - Hack into simulation and choose which plane of existence to go to
  - Ritual instructions:
   - Quantum computers will be placed north, south, east and west of the portal generator
-  - Portal room has to be at least 7x7
+  - There has to be a 7x7 space around the portal
   - Portal room has to be roofed
   - Floors in interior of room can only be made from X-Composite tiles unless specified
   - No pawns allowed in portal room during teleport unless in cryptosleep caskets
   - Cryptosleep caskets must be placed on X-Composite tiles
   - After teleport, all buildings and floors in the room will be erased.
-  - The portal generator will leave behind exotic items? (Number of items = 0.001 * (wealth of room) + 1 * (number of tiles in room) + 100 * (number of pawns sent))
+  - The portal generator will leave behind exotic items? (Number of items = 0.001 * (wealth of room) + 1 * (number of tiles in room) + 10 * (number of non-human pawns sent) + 100 * (number of human pawns sent))
   - Floor plan around portal generator (C = Floor computer, Z = Z-Composite tile, Y = Y-Composite tile, X = X-Composite tile:
 ```
 XXYYYXX
