@@ -9,6 +9,7 @@
 - Recipe def mod extensions - COMPATIBILITY
 - Post-goldbach and post-ordo storage
 - Scenario - Paperclip entreprenur
+- Atomic reconstructor with BillRepeatModes
 - Hack into simulation and choose which plane of existence to go to
  - Ritual instructions:
   - Quantum computers will be placed north, south, east and west of the portal generator
