@@ -50,7 +50,7 @@
       <manhunterOnDamageChance>0.0125</manhunterOnDamageChance>
       <manhunterOnTameFailChance>0.003</manhunterOnTameFailChance>
       <nameOnNuzzleChance>0.5</nameOnNuzzleChance>
-      <fleshType>Mechanoid</fleshType>
+      <fleshType>PRFDrone</fleshType>
       <needsRest>false</needsRest>
       <hasGenders>false</hasGenders>
       <foodType>None</foodType>
