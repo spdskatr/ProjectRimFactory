@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using Verse;
 
-namespace ProjectRimFactory.Common
+namespace ProjectRimFactory.Common.HarmonyPatches
 {
     [HarmonyPatch(typeof(ThingDef), "get_VolumePerUnit")]
     public class VolumePerUnitPatch

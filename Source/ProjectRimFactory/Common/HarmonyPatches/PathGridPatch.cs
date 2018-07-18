@@ -10,7 +10,7 @@ using ProjectRimFactory.Storage;
 using Verse.AI;
 using System.Reflection.Emit;
 
-namespace ProjectRimFactory.Common
+namespace ProjectRimFactory.Common.HarmonyPatches
 {
     [HarmonyPatch(typeof(PathGrid), "CalculatedCostAt")]
     public static class PathGridPatch

@@ -29,5 +29,6 @@ namespace ProjectRimFactory.Common
         public static ThingDef PRFVolatiteChunk;
         public static ThingDef PRFDrone;
 
+        public static FleshTypeDef PRFDroneFlesh;
     }
 }

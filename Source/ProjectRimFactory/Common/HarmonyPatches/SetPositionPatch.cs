@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using Verse;
 
-namespace ProjectRimFactory.Common
+namespace ProjectRimFactory.Common.HarmonyPatches
 {
     [HarmonyPatch(typeof(Thing), "set_Position")]
     public static class SetPositionPatch

@@ -8,7 +8,7 @@ using System.Reflection.Emit;
 using System.Text;
 using Verse;
 
-namespace ProjectRimFactory.Common
+namespace ProjectRimFactory.Common.HarmonyPatches
 {
     [HarmonyPatch(typeof(GenSpawn), "Spawn", new Type[] { typeof(Thing), typeof(IntVec3), typeof(Map), typeof(Rot4), typeof(WipeMode), typeof(bool) })]
     public static class GenSpawnPatch

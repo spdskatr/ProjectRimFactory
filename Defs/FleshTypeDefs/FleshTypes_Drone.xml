@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Defs>
   <FleshTypeDef>
-    <defName>PRFDrone</defName>
+    <defName>PRFDroneFlesh</defName>
     <requiresBedForSurgery>false</requiresBedForSurgery>
     <corpseCategory>CorpsesMechanoid</corpseCategory>
     <wounds>
