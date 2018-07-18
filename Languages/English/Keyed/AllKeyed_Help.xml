@@ -8,7 +8,7 @@
   <Shearer_HelpText>Animal harvesters automatically harvest animals when they come near the vicinity of the building. Store food at those stations to coerce animals to come to the stations so they can be harvested.</Shearer_HelpText>
   <Milker_HelpText>Animal harvesters automatically harvest animals when they come near the vicinity of the building. Store food at those stations to coerce animals to come to the stations so they can be harvested.</Milker_HelpText>
   <GenericAnimalHarvester_HelpText>Animal harvesters automatically harvest animals when they come near the vicinity of the building. Store food at those stations to coerce animals to come to the stations so they can be harvested.</GenericAnimalHarvester_HelpText>
-  <PaperclipFactory_HelpText>The paperclip factory doesn't just take in steel - it can make paperclips from any item by manipulating its subatomic structure. The number of paperclips produced is equivalent to 1/4 of the combined mass of the ingredients.</PaperclipFactory_HelpText>\
+  <PaperclipFactory_HelpText>The paperclip factory doesn't just take in steel - it can make paperclips from any item by manipulating its subatomic structure. The number of paperclips produced is equivalent to 1/4 of the combined mass of the ingredients.</PaperclipFactory_HelpText>
   <PaperclipFactory_OrdoText><![CDATA[<b>Ordo Historia Standardization Archive - OHS 15616 - A paperclip used as feedstock for a standard atomic 3d printing device(OHS 6011)</b>
 Section 1.1 - Physical properties
 - A single paperclip must weigh 1.0 ± 1*10^-8 grams.
