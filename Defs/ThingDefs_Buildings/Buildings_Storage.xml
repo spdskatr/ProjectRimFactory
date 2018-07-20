@@ -178,6 +178,7 @@
 	  <ComponentIndustrial>10</ComponentIndustrial>
     </costList>
     <constructEffect>ConstructMetal</constructEffect>
+    <tickerType>Normal</tickerType>
     <researchPrerequisites>
       <li>PRFStorage</li>
     </researchPrerequisites>

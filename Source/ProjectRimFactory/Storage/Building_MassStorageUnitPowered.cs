@@ -48,5 +48,27 @@ namespace ProjectRimFactory.Storage
                 UpdatePowerConsumption();
             }
         }
+
+        public override IEnumerable<Gizmo> GetGizmos()
+        {
+            foreach (Gizmo g in base.GetGizmos()) yield return g;
+            if (Prefs.DevMode)
+            {
+                yield return new Command_Action()
+                {
+                    defaultLabel = "DEBUG: Debug actions",
+                    action = () =>
+                    {
+                        Find.WindowStack.Add(new FloatMenu(new List<FloatMenuOption>(DebugActions())));
+                    }
+                };
+            }
+        }
+
+        protected virtual IEnumerable<FloatMenuOption> DebugActions()
+        {
+            yield return new FloatMenuOption("Update power consumption", UpdatePowerConsumption);
+            yield return new FloatMenuOption("Log item count", () => Log.Message(StoredItemsCount.ToString()));
+        }
     }
 }

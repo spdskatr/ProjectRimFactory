@@ -65,7 +65,7 @@
 	</researchPrerequisites>
   </ThingDef>
   
-  <ThingDef ParentName="BuildingBase">
+  <ThingDef ParentName="PRFBuildingBase">
     <defName>PRFQuantumComputer</defName>
     <label>quantum computer</label>
     <description>Required for tier 3 automation research - increases research speed by 75%. Needs to be placed near AI research bench. Consumes considerable power. One research bench can be linked to only one quantum computer.</description>
