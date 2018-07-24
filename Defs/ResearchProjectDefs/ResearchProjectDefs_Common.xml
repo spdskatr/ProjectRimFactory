@@ -21,7 +21,7 @@
     <label>Machine learning</label>
     <techLevel>Industrial</techLevel>
     <baseCost>2000</baseCost>
-    <description>Teach machines how to improve their abilities by themselves. Unlocks the AI research bench.</description>
+    <description>Teach machines how to improve their abilities by themselves. Unlocks the AI research bench. Also lets you craft drone modules at the robotic machining table.</description>
     <prerequisites>
       <li>AutomationBasics</li>
 	  <li>AutomaticFarming</li>
