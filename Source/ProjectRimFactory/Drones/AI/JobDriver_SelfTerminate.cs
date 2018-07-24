@@ -9,7 +9,7 @@ namespace ProjectRimFactory.Drones.AI
 {
     public class JobDriver_SelfTerminate : JobDriver
     {
-        public override bool TryMakePreToilReservations()
+        public override bool TryMakePreToilReservations(bool errorOnFailed)
         {
             return true;
         }
