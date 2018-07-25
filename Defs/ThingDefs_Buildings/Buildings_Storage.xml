@@ -65,7 +65,7 @@
       <WorkToBuild>1000</WorkToBuild>
       <Flammability>1.0</Flammability>
     </statBases>
-    <description>A giant crate that can store 10 items. Items stored in the crate do not deteriorate.</description>
+    <description>A giant crate that can store 25 stacks. Items stored in the crate do not deteriorate.</description>
     <size>(2,2)</size>
     <costList>
 	  <WoodLog>80</WoodLog>
@@ -73,12 +73,12 @@
     </costList>
     <constructEffect>ConstructWood</constructEffect>
     <researchPrerequisites>
-      <li>PRFCrates</li>
+      <li>PRFStorage</li>
     </researchPrerequisites>
     <constructionSkillPrerequisite>4</constructionSkillPrerequisite>
 	<modExtensions>
 	  <li Class="ProjectRimFactory.Storage.Editables.DefModExtension_Crate">
-	    <limit>10</limit>
+	    <limit>25</limit>
 	  </li>
 	</modExtensions>
   </ThingDef>
@@ -95,7 +95,7 @@
       <WorkToBuild>2500</WorkToBuild>
       <Flammability>0.1</Flammability>
     </statBases>
-    <description>A giant crate that can store 25 items. Items stored in the crate do not deteriorate.</description>
+    <description>A giant crate that can store 100 stacks. Items stored in the crate do not deteriorate.</description>
     <canOverlapZones>false</canOverlapZones>
     <size>(2,2)</size>
     <costList>
@@ -104,14 +104,15 @@
     <constructionSkillPrerequisite>6</constructionSkillPrerequisite>
     <constructEffect>ConstructMetal</constructEffect>
     <researchPrerequisites>
-      <li>PRFCrates</li>
+      <li>PRFStorageIO</li>
     </researchPrerequisites>
 	<modExtensions>
 	  <li Class="ProjectRimFactory.Storage.Editables.DefModExtension_Crate">
-	    <limit>25</limit>
+	    <limit>100</limit>
 	  </li>
 	</modExtensions>
   </ThingDef>
+  
   <ThingDef ParentName="PRFMassStorageBase">
     <defName>IndustrialStorageUnit</defName>
     <label>industrial storage unit (deprecated)</label>
@@ -160,7 +161,6 @@
       <texPath>Storage/CargoPlatform</texPath>
       <drawSize>(3,3)</drawSize>
     </graphicData>
-    <altitudeLayer>Building</altitudeLayer>
     <statBases>
       <MaxHitPoints>300</MaxHitPoints>
       <WorkToBuild>2500</WorkToBuild>

@@ -26,7 +26,7 @@
       <li>AutomationBasics</li>
 	  <li>AutomaticFarming</li>
 	  <li>MagneticTape</li>
-	  <li>PRFStorageIO</li>
+	  <li>PRFStorage</li>
     </prerequisites>
     <requiredResearchBuilding>HiTechResearchBench</requiredResearchBuilding>
 	<requiredResearchFacilities><li>MultiAnalyzer</li></requiredResearchFacilities>

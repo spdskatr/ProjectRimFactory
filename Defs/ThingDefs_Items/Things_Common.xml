@@ -213,7 +213,6 @@
       <recipeUsers>
         <li>TableRoboticMachining</li>
       </recipeUsers>
-	  <researchPrerequisite>PRFMachineLearning</researchPrerequisite>
     </recipeMaker>
     <thingCategories>
       <li>Items</li>
