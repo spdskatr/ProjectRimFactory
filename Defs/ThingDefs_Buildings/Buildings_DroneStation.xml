@@ -58,7 +58,7 @@
     <costList>
       <ComponentSpacer>5</ComponentSpacer>
       <ComponentIndustrial>5</ComponentIndustrial>
-	  <PRFWeakAIChip>2</PRFWeakAIChip>
+	  <PRFWeakAIChip>12</PRFWeakAIChip>
     </costList>
     <modExtensions>
       <li Class="ProjectRimFactory.Drones.DefModExtension_DroneStation">
@@ -101,7 +101,7 @@
     <costList>
       <ComponentSpacer>5</ComponentSpacer>
       <ComponentIndustrial>8</ComponentIndustrial>
-	  <PRFWeakAIChip>4</PRFWeakAIChip>
+	  <PRFWeakAIChip>12</PRFWeakAIChip>
     </costList>
     <modExtensions>
       <li Class="ProjectRimFactory.Drones.DefModExtension_DroneStation">
@@ -142,7 +142,7 @@
     <costList>
       <ComponentSpacer>5</ComponentSpacer>
       <ComponentIndustrial>8</ComponentIndustrial>
-	  <PRFWeakAIChip>6</PRFWeakAIChip>
+	  <PRFWeakAIChip>12</PRFWeakAIChip>
     </costList>
     <modExtensions>
       <li Class="ProjectRimFactory.Drones.DefModExtension_DroneStation">
