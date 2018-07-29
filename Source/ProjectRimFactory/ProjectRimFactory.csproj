@@ -51,7 +51,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AnimalStation\Building_Classes.cs" />
+    <Compile Include="AnimalStation\Building_CompHarvester.cs" />
+    <Compile Include="AnimalStation\Building_GenericBodyResourceGatherer.cs" />
+    <Compile Include="AnimalStation\Building_Milker.cs" />
+    <Compile Include="AnimalStation\Building_Shearer.cs" />
     <Compile Include="AnimalStation\PlaceWorker_ShowAdjacent.cs" />
     <Compile Include="Archo\ArchoCipher.cs" />
     <Compile Include="Archo\PlaceWorker_PortalGenerator.cs" />

@@ -27,14 +27,14 @@ namespace ProjectRimFactory.AnimalStation
         {
             base.TickRare();
             if (!GetComp<CompPowerTrader>().PowerOn) return;
-            foreach (Pawn p in from c in ScannerCells
-                               from p in c.GetThingList(Map).OfType<Pawn>()
-                               where p.Faction == Faction.OfPlayer
-                               select p)
+            foreach (Pawn p in (from c in ScannerCells
+                                from p in c.GetThingList(Map).OfType<Pawn>()
+                                where p.Faction == Faction.OfPlayer
+                                select p).ToList())
             {
-                foreach (CompHasGatherableBodyResource comp in from comp in p.AllComps.OfType<CompHasGatherableBodyResource>()
-                                                               where CompValidator(comp)
-                                                               select comp)
+                foreach (CompHasGatherableBodyResource comp in (from comp in p.AllComps.OfType<CompHasGatherableBodyResource>()
+                                                                where CompValidator(comp)
+                                                                select comp).ToList())
                 {
                     int amount = GenMath.RoundRandom((int)ResourceAmount.GetValue(comp, null) * comp.Fullness);
                     if (amount != 0)
@@ -52,27 +52,6 @@ namespace ProjectRimFactory.AnimalStation
                     }
                 }
             }
-        }
-    }
-    public class Building_Shearer : Building_CompHarvester
-    {
-        public override bool CompValidator(CompHasGatherableBodyResource comp)
-        {
-            return comp is CompShearable;
-        }
-    }
-    public class Building_Milker : Building_CompHarvester
-    {
-        public override bool CompValidator(CompHasGatherableBodyResource comp)
-        {
-            return comp is CompMilkable;
-        }
-    }
-    public class Building_GenericBodyResourceGatherer : Building_CompHarvester
-    {
-        public override bool CompValidator(CompHasGatherableBodyResource comp)
-        {
-            return true;
         }
     }
 }
