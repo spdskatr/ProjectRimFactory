@@ -357,7 +357,7 @@
     <defName>PRFFuseXAndYCOmposite</defName>
 	<label>fuse X- and Y-Composite</label>
 	<description>Make 40 Z-Composite by fusing 10 X-Composite and 10 Y-Composite along with volatite.</description>
-    <jobString>Making data disk.</jobString>
+    <jobString>Making Z-Composite.</jobString>
     <workSpeedStat>SmithingSpeed</workSpeedStat>
     <effectWorking>Cook</effectWorking>
     <soundWorking>Recipe_Machining</soundWorking>
