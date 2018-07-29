@@ -73,7 +73,7 @@
     </costList>
     <constructEffect>ConstructWood</constructEffect>
     <researchPrerequisites>
-      <li>PRFStorage</li>
+      <li>PRFCrates</li>
     </researchPrerequisites>
     <constructionSkillPrerequisite>4</constructionSkillPrerequisite>
 	<modExtensions>
