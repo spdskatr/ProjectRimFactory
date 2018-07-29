@@ -21,7 +21,7 @@
   <PaperclipFuelConsumption>Потребление топлива: {0} скрепок/сек</PaperclipFuelConsumption>
   <PaperclipProductionPerSecond>Производство скрепки: {0} скрепок/сек</PaperclipProductionPerSecond>
   <PaperclipGeneratorEfficiency>Текущая эффективность: {0}%/{1}%</PaperclipGeneratorEfficiency>
-  <PaperclipsRunOutIn>Runs out of paperclips in: {0}</PaperclipsRunOutIn>
+  <PaperclipsRunOutIn>Скрепки закончатся через: {0}</PaperclipsRunOutIn>
   <SetPaperclipConsumptionPerSecond>Регулировка потребление скрепки</SetPaperclipConsumptionPerSecond>
   <SetPaperclipProductionPerSecond>Регулировка производство скрепки</SetPaperclipProductionPerSecond>
   <SetPaperclipConsumptionPerSecond_Desc>Измените количество скрепок, потребляемых в секунду.</SetPaperclipConsumptionPerSecond_Desc>
