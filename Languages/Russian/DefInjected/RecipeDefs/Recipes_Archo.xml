@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+
+  <ArchoMakePsychicInsanityLance.label>сделать копьё безумия</ArchoMakePsychicInsanityLance.label>
+  <ArchoMakePsychicInsanityLance.description>Сделать копьё безумия.</ArchoMakePsychicInsanityLance.description>
+  <ArchoMakePsychicInsanityLance.description.jobString>Создание копья безумия</ArchoMakePsychicInsanityLance.description.jobString>
+  
+  <ArchoMakePsychicShockLance.label>сделать копьё потрясения</ArchoMakePsychicShockLance.label>
+  <ArchoMakePsychicShockLance.description>Сделать копьё потрясения.</ArchoMakePsychicShockLance.description>
+  <ArchoMakePsychicShockLance.description.jobString>Создание копья потрясения</ArchoMakePsychicShockLance.description.jobString>
+  
+  <ArchoMakePsychicAnimalPulser.label>сделать генератор пси-импульса (животные)</ArchoMakePsychicAnimalPulser.label>
+  <ArchoMakePsychicAnimalPulser.description>Сделать генератор пси-импульса (животные).</ArchoMakePsychicAnimalPulser.description>
+  <ArchoMakePsychicAnimalPulser.description.jobString>Создание генератора пси-импульса (животные)</ArchoMakePsychicAnimalPulser.description.jobString>
+  
+  <ArchoMakePsychicSoothePulser.label>сделать генератор успокаивающего пси-импульса</ArchoMakePsychicSoothePulser.label>
+  <ArchoMakePsychicSoothePulser.description>Сделать генератор успокаивающего пси-импульса.</ArchoMakePsychicSoothePulser.description>
+  <ArchoMakePsychicSoothePulser.description.jobString>Создание генератора успокаивающего пси-импульса</ArchoMakePsychicSoothePulser.description.jobString>
+  
+  <ArchoMakePsychicEmanator.label>сделать пси-излучатель</ArchoMakePsychicEmanator.label>
+  <ArchoMakePsychicEmanator.description>Сделать пси-излучатель.</ArchoMakePsychicEmanator.description>
+  <ArchoMakePsychicEmanator.description.jobString>Создание пси-излучателя</ArchoMakePsychicEmanator.description.jobString>
+  
+  <ArchoMakeMechSerumHealer.label>сделать сыворотку исцеления</ArchoMakeMechSerumHealer.label>
+  <ArchoMakeMechSerumHealer.description>Сделать сыворотку исцеления.</ArchoMakeMechSerumHealer.description>
+  <ArchoMakeMechSerumHealer.description.jobString>Создание сыворотки исцеления</ArchoMakeMechSerumHealer.description.jobString>
+  
+  <ArchoMakeMechSerumResurrector.label>сделать сыворотку воскрешения</ArchoMakeMechSerumResurrector.label>
+  <ArchoMakeMechSerumResurrector.description>Сделать сыворотку воскрешения.</ArchoMakeMechSerumResurrector.description>
+  <ArchoMakeMechSerumResurrector.description.jobString>Создание сыворотки воскрешения</ArchoMakeMechSerumResurrector.description.jobString>
+  
+  <ArchoMakeVanometricPowerCell.label>сделать ванометрический генератор</ArchoMakeVanometricPowerCell.label>
+  <ArchoMakeVanometricPowerCell.description>Сделать ванометрический генератор.</ArchoMakeVanometricPowerCell.description>
+  <ArchoMakeVanometricPowerCell.description.jobString>Создание ванометрического генератора</ArchoMakeVanometricPowerCell.description.jobString>
+  
+  <ArchoMakeInfiniteChemreactor.label>сделать вечный синтезатор химтоплива</ArchoMakeInfiniteChemreactor.label>
+  <ArchoMakeInfiniteChemreactor.description>Сделать вечный синтезатор химтоплива.</ArchoMakeInfiniteChemreactor.description>
+  <ArchoMakeInfiniteChemreactor.description.jobString>Создание вечного синтезатор химтоплива</ArchoMakeInfiniteChemreactor.description.jobString>
+
+  <PRFFuseXAndYCOmposite.label>сплавить X- и Y-Композит</PRFFuseXAndYCOmposite.label>
+  <PRFFuseXAndYCOmposite.description>Сделать 40 Z-Композит, сплавляя 10 X-Композит и 10 Y-Композит вместе с волатитом.</PRFFuseXAndYCOmposite.description>
+  <PRFFuseXAndYCOmposite.description.jobString>Создание Z-Композита</PRFFuseXAndYCOmposite.description.jobString>
+  
+</LanguageData>
