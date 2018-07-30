@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+
+  <PRFXCompositeTile.label>X-Композитная плитка</PRFXCompositeTile.label>
+  <PRFXCompositeTile.description>X-Композитные плитки выгравированы сложными узорами. Они невероятно красивы. Идеально подходит для того, чтобы показать себя как красно-серебряный блеск.</PRFXCompositeTile.label>
+
+  <PRFYCompositeTile.label>Y-Композитная плитка</PRFYCompositeTile.label>
+  <PRFYCompositeTile.description>Y-Композитная плитка. Гораздо менее красиво, чем X-Композитная, но проще в сборке, и предлагает отличный стимул к чистоте.</PRFYCompositeTile.label>
+
+  <PRFZCompositeTile.label>Z-Композитная плитка</PRFZCompositeTile.label>
+  <PRFZCompositeTile.description>Z-Композитные плитки, выгравированные 3D голограммами. Нелепо красиво и предлагает умеренную чистоту.</PRFZCompositeTile.label>
+
+  <PRFXCompositeTile.label>Напольный компьютер</PRFXCompositeTile.label>
+  <PRFXCompositeTile.description>Страшные мигающие огни встроены в пол. Смешно дорого. Обеспечивает умеренную красоту. Интересно, что они даже используются для...</PRFXCompositeTile.label>
+
+</LanguageData>
