@@ -2,7 +2,6 @@
 <Defs>
   <FleshTypeDef>
     <defName>PRFDroneFlesh</defName>
-    <requiresBedForSurgery>false</requiresBedForSurgery>
     <corpseCategory>CorpsesMechanoid</corpseCategory>
     <wounds>
       <li>
