@@ -78,9 +78,9 @@
   </TerrainDef>
   <TerrainDef ParentName="PRFFloorBase">
     <defName>PRFFloorComputer</defName>
-    <label>floor computer</label>
+    <label>Floor computer</label>
     <renderPrecedence>253</renderPrecedence>
-    <description>Fearsome-looking blinking lighs embedded into the floor. Ridculously expensive. Provides moderate beauty. I wonder what these are even used for...</description>
+    <description>Fearsome-looking blinking lights embedded into the floor. Ridculously expensive. Provides moderate beauty. I wonder what these are even used for...</description>
     <texturePath>Archo/FloorComputer</texturePath>
     <statBases>
       <Beauty>10</Beauty>

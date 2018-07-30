@@ -12,8 +12,11 @@ namespace ProjectRimFactory.Archo
         public static void DrawBlueprintFieldEdges(IntVec3 center)
         {
             List<List<IntVec3>> cells = FieldEdgeCells(center);
+            // Floor Computer
             GenDraw.DrawFieldEdges(cells[0], new Color(144f / 255f, 149f / 255f, 92f / 255f));
+            // Z-Composite
             GenDraw.DrawFieldEdges(cells[1], new Color(112f / 255f, 48f / 255f, 160f / 255f));
+            // Y-Composite
             GenDraw.DrawFieldEdges(cells[2], new Color(46f / 255f, 117f / 255f, 182f / 255f));
         }
         public static List<List<IntVec3>> FieldEdgeCells(IntVec3 center)

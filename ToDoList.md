@@ -15,7 +15,6 @@
   - Quantum computers will be placed north, south, east and west of the portal generator
   - There has to be a 7x7 space around the portal
   - Portal room has to be roofed
-  - Floors in interior of room can only be made from X-Composite tiles unless specified
   - No pawns allowed in portal room during teleport unless in cryptosleep caskets
   - Cryptosleep caskets must be placed on X-Composite tiles
   - After teleport, all buildings and floors in the room will be erased.

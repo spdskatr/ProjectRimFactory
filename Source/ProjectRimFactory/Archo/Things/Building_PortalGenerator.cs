@@ -23,12 +23,41 @@ namespace ProjectRimFactory.Archo.Things
                 };
             }
         }
+        public override void DrawExtraSelectionOverlays()
+        {
+            base.DrawExtraSelectionOverlays();
+            PortalGeneratorUtility.DrawBlueprintFieldEdges(Position);
+        }
         public List<FloatMenuOption> GetDebugActions()
         {
             return new List<FloatMenuOption>()
             {
                 new FloatMenuOption("Liquidate room", LiquidateRoom)
             };
+        }
+        public AcceptanceReport RecalculateEligibilityForTeleport()
+        {
+            Room room = Position.GetRoom(Map);
+            if (room != null && room.OpenRoofCountStopAt(1) == 0)
+            {
+                // Check floors
+                foreach (IntVec3 cell in CellRect.CenteredOn(Position, 7, 7))
+                {
+                    foreach (Thing t in cell.GetThingList(Map))
+                    {
+                        if (t.def.passability == Traversability.Impassable)
+                        {
+                            return "TeleportReport_CellImpassable".Translate(); // Walls and other impassable buildings cannot be placed within a 7x7 square around portal.
+                        }
+
+                    }
+                }
+            }
+            else
+            {
+                return "TeleportReport_RoomOutdoorsOrUnroofed".Translate(); // Room is outdoors or unroofed.
+            }
+            return true;
         }
         public void LiquidateRoom()
         {
