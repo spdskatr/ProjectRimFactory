@@ -34,7 +34,7 @@
   <AtomicReconstructionTab_Progress>Прогресс:</AtomicReconstructionTab_Progress>
   <AtomicReconstructionTab_Speed>Множитель скорости: {0} (модификатор потребления скрепки: {1} x)</AtomicReconstructionTab_Speed>
   
-  <PRF_ArchoCipher_BankOverflow>Чип AI от вашего дубликатора скрепок отправил вам сообщение:\n\Поздравляем! Вы достигли максимального баланса скрепки в вашем дубликаторе. Реальный вопрос: что вы собираетесь делать со всеми этими скрепками?</PRF_ArchoCipher_BankOverflow>
+  <PRF_ArchoCipher_BankOverflow>ИИ-чип от вашего дубликатора скрепок отправил вам сообщение:\n\Поздравляем! Вы достигли максимального баланса скрепки в вашем дубликаторе. Реальный вопрос: что вы собираетесь делать со всеми этими скрепками?</PRF_ArchoCipher_BankOverflow>
   
   <PRF_TimeLeftToDisintegrate>Время, оставшееся до дезинтеграции: {0}</PRF_TimeLeftToDisintegrate>
   <PRF_DisintegrationMessage>{0} распалась.</PRF_DisintegrationMessage>
