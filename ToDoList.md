@@ -10,13 +10,13 @@
 - Post-goldbach and post-ordo storage
 - Scenario - Paperclip entreprenur
 - Atomic reconstructor with BillRepeatModes
+- Make nutrient paste meal recipe
 - Hack into simulation and choose which plane of existence to go to
  - Ritual instructions:
   - Quantum computers will be placed north, south, east and west of the portal generator
   - There has to be a 7x7 space around the portal
   - Portal room has to be roofed
   - No pawns allowed in portal room during teleport unless in cryptosleep caskets
-  - Cryptosleep caskets must be placed on X-Composite tiles
   - After teleport, all buildings and floors in the room will be erased.
   - The portal generator will leave behind exotic items? (Number of items = 0.001 * (wealth of room) + 1 * (number of tiles in room) + 10 * (number of non-human pawns sent) + 100 * (number of human pawns sent))
   - Floor plan around portal generator (C = Floor computer, Z = Z-Composite tile, Y = Y-Composite tile, X = X-Composite tile:
