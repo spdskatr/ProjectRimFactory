@@ -55,7 +55,7 @@
     </researchPrerequisites>
     <constructionSkillPrerequisite>8</constructionSkillPrerequisite>
   </TerrainDef>
-  <TerrainDef>
+  <TerrainDef ParentName="PRFFloorBase">
     <defName>PRFZCompositeTile</defName>
     <label>Z-Composite tile</label>
     <renderPrecedence>252</renderPrecedence>
@@ -76,7 +76,7 @@
     </researchPrerequisites>
     <constructionSkillPrerequisite>12</constructionSkillPrerequisite>
   </TerrainDef>
-  <TerrainDef ParentName="PRFFloorBase">
+  <TerrainDef>
     <layerable>true</layerable>
     <affordances>
       <li>Light</li>
@@ -84,7 +84,6 @@
       <li>Heavy</li>
     </affordances>
     <fertility>0</fertility>
-    <constructEffect>ConstructDirt</constructEffect>
     <acceptTerrainSourceFilth>True</acceptTerrainSourceFilth>
     <terrainAffordanceNeeded>Heavy</terrainAffordanceNeeded>
     <defName>PRFFloorComputer</defName>
