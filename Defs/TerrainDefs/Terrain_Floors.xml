@@ -55,7 +55,7 @@
     </researchPrerequisites>
     <constructionSkillPrerequisite>8</constructionSkillPrerequisite>
   </TerrainDef>
-  <TerrainDef ParentName="PRFFloorBase">
+  <TerrainDef>
     <defName>PRFZCompositeTile</defName>
     <label>Z-Composite tile</label>
     <renderPrecedence>252</renderPrecedence>
@@ -77,6 +77,16 @@
     <constructionSkillPrerequisite>12</constructionSkillPrerequisite>
   </TerrainDef>
   <TerrainDef ParentName="PRFFloorBase">
+    <layerable>true</layerable>
+    <affordances>
+      <li>Light</li>
+      <li>Medium</li>
+      <li>Heavy</li>
+    </affordances>
+    <fertility>0</fertility>
+    <constructEffect>ConstructDirt</constructEffect>
+    <acceptTerrainSourceFilth>True</acceptTerrainSourceFilth>
+    <terrainAffordanceNeeded>Heavy</terrainAffordanceNeeded>
     <defName>PRFFloorComputer</defName>
     <label>AI floor</label>
     <renderPrecedence>253</renderPrecedence>
@@ -86,11 +96,6 @@
       <Beauty>10</Beauty>
       <WorkToBuild>500</WorkToBuild>
     </statBases>
-    <costList>
-      <PRFZComposite>2</PRFZComposite>
-      <PRFComputronium>4</PRFComputronium>
-      <PRFVolatiteChunk>1</PRFVolatiteChunk>
-    </costList>
     <constructEffect>ConstructMetal</constructEffect>
     <researchPrerequisites>
       <li>PRFVanometrics</li>
