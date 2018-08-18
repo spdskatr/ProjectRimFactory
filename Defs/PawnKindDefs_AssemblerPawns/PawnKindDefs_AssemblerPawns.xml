@@ -6,7 +6,9 @@
     <combatPower>30</combatPower>
     <race>Human</race>
     <baseRecruitDifficulty>0.60</baseRecruitDifficulty>
-    <backstoryCategory>Slave</backstoryCategory>
+    <backstoryCategories>
+      <li>Slave</li>
+    </backstoryCategories>
     <defaultFactionType>OutlanderCivil</defaultFactionType>
     <itemQuality>Shoddy</itemQuality>
     <backstoryCryptosleepCommonality>0.2</backstoryCryptosleepCommonality>

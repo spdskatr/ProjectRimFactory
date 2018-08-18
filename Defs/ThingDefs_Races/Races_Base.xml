@@ -91,10 +91,10 @@
       </li>
     </tools>
     <race>
+      <petness>0</petness>
       <intelligence>ToolUser</intelligence>
       <thinkTreeMain>PRFDrone</thinkTreeMain>
       <thinkTreeConstant>DroneConstant</thinkTreeConstant>
-      <deathActionWorkerClass>DeathActionWorker_SmallExplosion</deathActionWorkerClass>
       <body>PRFDrone</body>
       <baseBodySize>0.5</baseBodySize>
       <baseHealthScale>0.8</baseHealthScale>
@@ -116,9 +116,8 @@
       <soundMeleeMiss>Pawn_Melee_MechanoidSlash_Miss</soundMeleeMiss>
     </race>
     <butcherProducts>
-      <Steel>40</Steel>
-      <Plasteel>25</Plasteel>
-      <ComponentIndustrial>1</ComponentIndustrial>
+      <Steel>20</Steel>
+      <Plasteel>5</Plasteel>
     </butcherProducts>
   </ThingDef>
   

@@ -1,4 +1,5 @@
-﻿using RimWorld;
+﻿using ProjectRimFactory.Common;
+using RimWorld;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -32,15 +33,29 @@ namespace ProjectRimFactory.Archo.Things
         {
             return new List<FloatMenuOption>()
             {
-                new FloatMenuOption("Liquidate room", LiquidateRoom)
+                new FloatMenuOption("Liquidate room", LiquidateRoom),
+                new FloatMenuOption("Calculate eligibility for liquidation", () =>
+                {
+                    AcceptanceReport acc = RecalculateEligibilityForTeleport();
+                    if (acc.Accepted)
+                    {
+                        Messages.Message("Eligible for liquidation.", MessageTypeDefOf.PositiveEvent);
+                    }
+                    else
+                    {
+                        Messages.Message(acc.Reason, MessageTypeDefOf.RejectInput);
+                    }
+                })
             };
         }
         public AcceptanceReport RecalculateEligibilityForTeleport()
         {
+            int humanPawnCount = 0;
             Room room = Position.GetRoom(Map);
             if (room != null && room.OpenRoofCountStopAt(1) == 0)
             {
                 // Check floors
+                List<List<IntVec3>> floorPlan = PortalGeneratorUtility.FieldEdgeCells(Position);
                 foreach (IntVec3 cell in CellRect.CenteredOn(Position, 7, 7))
                 {
                     foreach (Thing t in cell.GetThingList(Map))
@@ -49,13 +64,50 @@ namespace ProjectRimFactory.Archo.Things
                         {
                             return "TeleportReport_CellImpassable".Translate(); // Walls and other impassable buildings cannot be placed within a 7x7 square around portal.
                         }
-
+                        if (t is Building_CryptosleepCasket c)
+                        {
+                            foreach (Thing thing in ((IEnumerable<Thing>)InnerContainerField.GetValue(t)))
+                            {
+                                if (thing is Pawn p)
+                                {
+                                    if (p.RaceProps.Humanlike)
+                                    {
+                                        humanPawnCount++;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    if (floorPlan[0].Contains(cell))
+                    {
+                        if (cell.GetTerrain(Map) != PRFDefOf.PRFFloorComputer)
+                        {
+                            return "TeleportReport_FloorLayoutIncorrect".Translate(); // The floor layout around the portal generator is incorrect.
+                        }
+                    }
+                    else if (floorPlan[1].Contains(cell))
+                    {
+                        if (cell.GetTerrain(Map) != PRFDefOf.PRFZCompositeTile)
+                        {
+                            return "TeleportReport_FloorLayoutIncorrect".Translate(); // The floor layout around the portal generator is incorrect.
+                        }
+                    }
+                    else if (floorPlan[2].Contains(cell))
+                    {
+                        if (cell.GetTerrain(Map) != PRFDefOf.PRFYCompositeTile)
+                        {
+                            return "TeleportReport_FloorLayoutIncorrect".Translate(); // The floor layout around the portal generator is incorrect.
+                        }
                     }
                 }
             }
             else
             {
                 return "TeleportReport_RoomOutdoorsOrUnroofed".Translate(); // Room is outdoors or unroofed.
+            }
+            if (humanPawnCount == 0)
+            {
+                return "TeleportReport_NoHumanlikePawnsForTransportation".Translate(); // No humanlike pawns to transport.
             }
             return true;
         }

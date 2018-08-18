@@ -178,11 +178,10 @@
   <!--ThingDef ParentName="PRFResourceBase">
     <defName>PRFIndestructium</defName>
     <label>Indestructium</label>
-    <description>Compressed exotic matter held together by the strong force.</description>
+    <description>Compressed ultralight exotic matter held together by the strong force.</description>
     <graphicData>
-      <texPath>Common/Composite</texPath>
+      <texPath>Archo/Imaginarium</texPath>
       <graphicClass>Graphic_StackCount</graphicClass>
-	  <color>(50, 50, 50)</color>
     </graphicData>
     <resourceReadoutPriority>Middle</resourceReadoutPriority>
     <soundInteract>Metal_Drop</soundInteract>
@@ -190,7 +189,7 @@
     <useHitPoints>false</useHitPoints>
     <statBases>
       <MarketValue>80000</MarketValue>
-      <Mass>100</Mass>
+      <Mass>1</Mass>
       <SharpDamageMultiplier>100.0</SharpDamageMultiplier>
       <BluntDamageMultiplier>100.0</BluntDamageMultiplier>
     </statBases>
@@ -214,14 +213,13 @@
         <ArmorRating_Blunt>0.1</ArmorRating_Blunt>
         <ArmorRating_Sharp>0.1</ArmorRating_Sharp>
         <ArmorRating_Heat>0.1</ArmorRating_Heat>
-		
       </statOffsets>
       <statFactors>
         <MaxHitPoints>10000</MaxHitPoints>
         <Flammability>0</Flammability>
         <WorkToMake>20</WorkToMake>
         <WorkToBuild>20</WorkToBuild>
-        <Mass>10</Mass>
+        <Mass>0.1</Mass>
         <MeleeWeapon_CooldownMultiplier>10</MeleeWeapon_CooldownMultiplier>
         <DoorOpenSpeed>0.2</DoorOpenSpeed>
         <ArmorRating_Blunt>80.0</ArmorRating_Blunt>

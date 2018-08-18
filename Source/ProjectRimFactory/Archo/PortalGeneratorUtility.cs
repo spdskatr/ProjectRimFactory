@@ -7,7 +7,7 @@ using Verse;
 
 namespace ProjectRimFactory.Archo
 {
-    class PortalGeneratorUtility
+    public class PortalGeneratorUtility
     {
         public static void DrawBlueprintFieldEdges(IntVec3 center)
         {

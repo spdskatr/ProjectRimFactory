@@ -76,9 +76,18 @@
     </researchPrerequisites>
     <constructionSkillPrerequisite>12</constructionSkillPrerequisite>
   </TerrainDef>
-  <TerrainDef ParentName="PRFFloorBase">
+  <TerrainDef>
+    <layerable>true</layerable>
+    <affordances>
+      <li>Light</li>
+      <li>Medium</li>
+      <li>Heavy</li>
+    </affordances>
+    <fertility>0</fertility>
+    <acceptTerrainSourceFilth>True</acceptTerrainSourceFilth>
+    <terrainAffordanceNeeded>Heavy</terrainAffordanceNeeded>
     <defName>PRFFloorComputer</defName>
-    <label>Floor computer</label>
+    <label>AI floor</label>
     <renderPrecedence>253</renderPrecedence>
     <description>Fearsome-looking blinking lights embedded into the floor. Ridculously expensive. Provides moderate beauty. I wonder what these are even used for...</description>
     <texturePath>Archo/FloorComputer</texturePath>
@@ -86,11 +95,6 @@
       <Beauty>10</Beauty>
       <WorkToBuild>500</WorkToBuild>
     </statBases>
-    <costList>
-      <PRFZComposite>2</PRFZComposite>
-      <PRFComputronium>4</PRFComputronium>
-      <PRFVolatiteChunk>1</PRFVolatiteChunk>
-    </costList>
     <constructEffect>ConstructMetal</constructEffect>
     <researchPrerequisites>
       <li>PRFVanometrics</li>

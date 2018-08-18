@@ -5,6 +5,8 @@ using System.Text;
 using Verse;
 using RimWorld;
 using Verse.AI;
+using ProjectRimFactory.Common;
+using UnityEngine;
 
 namespace ProjectRimFactory.Drones
 {
@@ -48,6 +50,10 @@ namespace ProjectRimFactory.Drones
                     }
                 }
             }
+            if (Downed)
+            {
+                Kill(null);
+            }
         }
 
         public override void DeSpawn(DestroyMode mode = DestroyMode.Vanish)
@@ -56,21 +62,6 @@ namespace ProjectRimFactory.Drones
             if (station != null)
             {
                 station.Notify_DroneMayBeLost(this);
-            }
-        }
-
-        public override void Kill(DamageInfo? dinfo, Hediff exactCulprit = null)
-        {
-            IntVec3 posHeld = PositionHeld;
-            Map mapHeld = MapHeld;
-            base.Kill(dinfo, exactCulprit);
-            foreach (Thing t in posHeld.GetThingList(mapHeld))
-            {
-                if (t is Corpse c && c.InnerPawn == this)
-                {
-                    c.Destroy();
-                    break;
-                }
             }
         }
 
