@@ -13,4 +13,7 @@
   <PRFVolatiteChunk.label>Кусок волатита</PRFVolatiteChunk.label>
   <PRFVolatiteChunk.description>Этот предмет нельзя использовать в качестве материала. Он используется в производстве ванометриков. Он настолько летучий, что он распадается через 24 часа.</PRFVolatiteChunk.description>
 
+  <PRFIndestructium.label>Индеструктиум</PRFIndestructium.label>
+  <PRFIndestructium.description>Сжатый сверхлегких экзотический материал скрепленный мощной силой.</PRFIndestructium.description>
+
 </LanguageData>
