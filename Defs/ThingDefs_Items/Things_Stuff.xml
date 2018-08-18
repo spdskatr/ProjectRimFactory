@@ -189,7 +189,7 @@
     <useHitPoints>false</useHitPoints>
     <statBases>
       <MarketValue>80000</MarketValue>
-      <Mass>100</Mass>
+      <Mass>1</Mass>
       <SharpDamageMultiplier>100.0</SharpDamageMultiplier>
       <BluntDamageMultiplier>100.0</BluntDamageMultiplier>
     </statBases>
