@@ -61,6 +61,15 @@ namespace ProjectRimFactory.Drones
             }
         }
 
+        public override void DrawGUIOverlay()
+        {
+            base.DrawGUIOverlay();
+            if (lockdown)
+            {
+                Map.overlayDrawer.DrawOverlay(this, OverlayTypes.ForbiddenBig);
+            }
+        }
+
         public abstract Job TryGiveJob();
 
         public override void Tick()

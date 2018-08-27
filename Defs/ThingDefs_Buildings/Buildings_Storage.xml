@@ -13,6 +13,7 @@
     <castEdgeShadows>true</castEdgeShadows>
     <rotatable>false</rotatable>
     <canOverlapZones>false</canOverlapZones>
+    <drawGUIOverlay>true</drawGUIOverlay>
 	<building>
       <preventDeteriorationOnTop>true</preventDeteriorationOnTop>
       <ignoreStoredThingsBeauty>true</ignoreStoredThingsBeauty>

@@ -71,9 +71,14 @@ namespace ProjectRimFactory.Storage
             RefreshStorage();
         }
 
+        public virtual string GetUIThingLabel()
+        {
+            return "PRFMassStorageUIThingLabel".Translate(StoredItemsCount);
+        }
+
         public virtual string GetITabString(int itemsSelected)
         {
-            return "PRFItemsTabLabel".Translate(items.Count, itemsSelected);
+            return "PRFItemsTabLabel".Translate(StoredItemsCount, itemsSelected);
         }
 
         public virtual void RegisterNewItem(Thing newItem)
@@ -147,6 +152,15 @@ namespace ProjectRimFactory.Storage
         {
             base.SpawnSetup(map, respawningAfterLoad);
             RefreshStorage();
+        }
+
+        public override void DrawGUIOverlay()
+        {
+            base.DrawGUIOverlay();
+            if (Current.CameraDriver.CurrentZoom <= CameraZoomRange.Middle)
+            {
+                GenMapUI.DrawThingLabel(this, GetUIThingLabel());
+            }
         }
 
         public virtual void RefreshStorage()

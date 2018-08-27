@@ -15,5 +15,9 @@ namespace ProjectRimFactory.Storage
         {
             return "PRFItemsTabLabel_Crate".Translate(StoredItemsCount, Extension.limit, itemsSelected);
         }
+        public override string GetUIThingLabel()
+        {
+            return "PRFCrateUIThingLabel".Translate(StoredItemsCount, Extension.limit);
+        }
     }
 }
