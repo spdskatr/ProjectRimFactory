@@ -157,7 +157,7 @@ namespace ProjectRimFactory.Storage
         public override void DrawGUIOverlay()
         {
             base.DrawGUIOverlay();
-            if (Current.CameraDriver.CurrentZoom <= CameraZoomRange.Middle)
+            if (Current.CameraDriver.CurrentZoom <= CameraZoomRange.Close)
             {
                 GenMapUI.DrawThingLabel(this, GetUIThingLabel());
             }
