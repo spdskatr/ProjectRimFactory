@@ -1,11 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Defs>
-  <ResearchTabDef>
-    <defName>Automation</defName>
-    <label>automation</label>
-  </ResearchTabDef>
-  
-  
   <ResearchProjectDef>
     <defName>FarmingSprinklers</defName>
     <label>sprinklers</label>
