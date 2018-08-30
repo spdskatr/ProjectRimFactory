@@ -7,6 +7,10 @@
   <PRFItemsTabLabel_Crate>Все предметы ({0}/{1} стаков всего, показано {2} результатов)</PRFItemsTabLabel_Crate>
   <PRFRenameMassStorageUnitLabel>Переименовать</PRFRenameMassStorageUnitLabel>
   <PRFRenameMassStorageUnitDesc>Переименовать это здание.</PRFRenameMassStorageUnitDesc>
+  <PRFMassStorageUIThingLabel>{0} стаков</PRFMassStorageUIThingLabel>
+  <PRFCrateUIThingLabel>{0}/{1} стаков</PRFCrateUIThingLabel>
+  <PRFMassStorageRightClickSelectPawn>Выбрать колониста...</PRFMassStorageRightClickSelectPawn>
+
   <PRFReorganize>Реорганизация</PRFReorganize>
   <PRFIOOutputSettings>Настройки вывода...</PRFIOOutputSettings>
   <PRFReorganize_Desc>Перерегистрировать порты ввода-вывода, реорганизовать и переупаковать предметы.</PRFReorganize_Desc>
@@ -17,7 +21,9 @@
   <PRFBoundStorageBuilding>Источник предметов</PRFBoundStorageBuilding>
   <IOPort_Minimum_UseTooltip>Когда включено, порт ввода-вывода вернет выведенный предмет в грузовую платформу, если предмет имеет размер меньше X. Он также будет принимать предметы только в том случае, если количество предметов на складе превышает минимальное.</IOPort_Minimum_UseTooltip>
   <IOPort_Maximum_UseTooltip>Когда включено, порт ввода-вывода прекратит принимать предметы, если стак заполнен, или размер стака больше или равен X.</IOPort_Maximum_UseTooltip>
+
   <PRFNoDesc>Нет описания.</PRFNoDesc>
+
   <PaperclipFuelConsumption>Потребление топлива: {0} скрепок/сек</PaperclipFuelConsumption>
   <PaperclipProductionPerSecond>Производство скрепки: {0} скрепок/сек</PaperclipProductionPerSecond>
   <PaperclipGeneratorEfficiency>Текущая эффективность: {0}%/{1}%</PaperclipGeneratorEfficiency>
@@ -26,6 +32,7 @@
   <SetPaperclipProductionPerSecond>Регулировка производство скрепки</SetPaperclipProductionPerSecond>
   <SetPaperclipConsumptionPerSecond_Desc>Измените количество скрепок, потребляемых в секунду.</SetPaperclipConsumptionPerSecond_Desc>
   <SetPaperclipProductionPerSecond_Desc>Измените количество скрепок, производимых в секунду.</SetPaperclipProductionPerSecond_Desc>
+  
   <AtomicReconstructorProgress>Прогресс реконструкции: {0}</AtomicReconstructorProgress>
   <PRFAtomicReconstructionTab>Настройки</PRFAtomicReconstructionTab>
   <AtomicReconstructionTab_NowProducing>Производство:</AtomicReconstructionTab_NowProducing>

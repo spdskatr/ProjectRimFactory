@@ -1,8 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LanguageData>
-
-  <Automation.label>Автоматизация</Automation.label>
-
   <FarmingSprinklers.label>Спринклер</FarmingSprinklers.label>
   <FarmingSprinklers.description>Узнайте, как создать спринклеры для небольшого увеличения роста растений.</FarmingSprinklers.description>
 
