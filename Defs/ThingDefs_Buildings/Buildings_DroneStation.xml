@@ -19,6 +19,7 @@
       <MaxHitPoints>100</MaxHitPoints>
       <Flammability>1.0</Flammability>
     </statBases>
+    <drawGUIOverlay>true</drawGUIOverlay>
     <comps>
 	  <li><compClass>ProjectRimFactory.Common.CompPRFHelp</compClass></li>
       <li Class="CompProperties_Refuelable">

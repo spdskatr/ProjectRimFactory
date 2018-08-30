@@ -269,5 +269,10 @@
     <tab>Automation</tab>
     <researchViewX>10</researchViewX>
     <researchViewY>3</researchViewY>
+    <researchMods>
+      <li Class="ProjectRimFactory.Archo.ResearchMod_Notify">
+        <text>A strange feeling washes over your colonists. They speculate that the psychic signals may have originated from your very own AI research bench. Maybe it's trying to tell you something...</text>
+      </li>
+    </researchMods>
   </ResearchProjectDef>
 </Defs>

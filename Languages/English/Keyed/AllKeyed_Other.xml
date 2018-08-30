@@ -7,6 +7,10 @@
   <PRFItemsTabLabel_Crate>All items ({0}/{1} stacks total, showing {2} result(s))</PRFItemsTabLabel_Crate>
   <PRFRenameMassStorageUnitLabel>Rename</PRFRenameMassStorageUnitLabel>
   <PRFRenameMassStorageUnitDesc>Rename this building.</PRFRenameMassStorageUnitDesc>
+  <PRFMassStorageUIThingLabel>{0} stacks</PRFMassStorageUIThingLabel>
+  <PRFCrateUIThingLabel>{0}/{1} stacks</PRFCrateUIThingLabel>
+  <PRFMassStorageRightClickSelectPawn>Select colonist...</PRFMassStorageRightClickSelectPawn>
+  
   <PRFReorganize>Reorganize</PRFReorganize>
   <PRFIOOutputSettings>Output settings...</PRFIOOutputSettings>
   <PRFReorganize_Desc>Re-register I/O ports, reorganize and re-stack items.</PRFReorganize_Desc>
@@ -17,7 +21,9 @@
   <PRFBoundStorageBuilding>Item source</PRFBoundStorageBuilding>
   <IOPort_Minimum_UseTooltip>When this is enabled, the I/O port will return the outputted item to the cargo platform if the item has less than X stack size. It will also only take items if there are enough items in storage to exceed the minimum.</IOPort_Minimum_UseTooltip>
   <IOPort_Maximum_UseTooltip>When this is enabled, the I/O port will stop taking items if either the stack is full, or the stack size is greater than or equal to X.</IOPort_Maximum_UseTooltip>
+  
   <PRFNoDesc>No description.</PRFNoDesc>
+  
   <PaperclipFuelConsumption>Fuel consumption: {0} paperclips/second</PaperclipFuelConsumption>
   <PaperclipProductionPerSecond>Paperclip production: {0} paperclips/second</PaperclipProductionPerSecond>
   <PaperclipGeneratorEfficiency>Current efficiency: {0}%/{1}%</PaperclipGeneratorEfficiency>
@@ -26,6 +32,7 @@
   <SetPaperclipProductionPerSecond>Adjust paperclip production</SetPaperclipProductionPerSecond>
   <SetPaperclipConsumptionPerSecond_Desc>Change the number of paperclips consumed per second.</SetPaperclipConsumptionPerSecond_Desc>
   <SetPaperclipProductionPerSecond_Desc>Change the number of paperclips produced per second.</SetPaperclipProductionPerSecond_Desc>
+  
   <AtomicReconstructorProgress>Reconstruction progress: {0}</AtomicReconstructorProgress>
   <PRFAtomicReconstructionTab>Config</PRFAtomicReconstructionTab>
   <AtomicReconstructionTab_NowProducing>Producing:</AtomicReconstructionTab_NowProducing>
