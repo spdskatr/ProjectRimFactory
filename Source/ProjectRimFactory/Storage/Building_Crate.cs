@@ -11,9 +11,13 @@ namespace ProjectRimFactory.Storage
     {
         public override bool CanStoreMoreItems => Position.GetThingList(Map).Count(t => t.def.category == ThingCategory.Item) < (Extension.limit - def.Size.Area + 1);
         public DefModExtension_Crate Extension => def.GetModExtension<DefModExtension_Crate>();
-        public override string GetITabString()
+        public override string GetITabString(int itemsSelected)
         {
-            return "PRFItemsTabLabel_Crate".Translate(StoredItemsCount, Extension.limit);
+            return "PRFItemsTabLabel_Crate".Translate(StoredItemsCount, Extension.limit, itemsSelected);
+        }
+        public override string GetUIThingLabel()
+        {
+            return "PRFCrateUIThingLabel".Translate(StoredItemsCount, Extension.limit);
         }
     }
 }

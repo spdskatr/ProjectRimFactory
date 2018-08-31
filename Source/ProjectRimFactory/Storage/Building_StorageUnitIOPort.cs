@@ -1,17 +1,28 @@
-﻿using RimWorld;
+﻿using ProjectRimFactory.Common;
+using ProjectRimFactory.SAL3.UI;
+using ProjectRimFactory.Storage.Editables;
+using ProjectRimFactory.Storage.UI;
+using RimWorld;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using UnityEngine;
 using Verse;
 
 namespace ProjectRimFactory.Storage
 {
+    [StaticConstructorOnStartup]
     public class Building_StorageUnitIOPort : Building_Storage
     {
-        StorageIOMode mode = StorageIOMode.Input;
+        public static readonly Texture2D CargoPlatformTex = ContentFinder<Texture2D>.Get("Storage/CargoPlatform");
+        public static readonly Texture2D HopperTex = ContentFinder<Texture2D>.Get("Things/Building/Production/Hopper_south");
+        public StorageIOMode mode;
         Building_MassStorageUnit boundStorageUnit;
-        ThingDef boundThingDef;
+        protected StorageSettings outputStoreSettings;
+        private OutputSettings outputSettings;
+
+        CompPowerTrader powerComp;
 
         public StorageIOMode IOMode
         {
@@ -42,16 +53,19 @@ namespace ProjectRimFactory.Storage
             }
         }
 
-        public ThingDef BoundThingDef
+        protected OutputSettings OutputSettings
         {
             get
             {
-                return boundThingDef;
+                if (outputSettings == null)
+                {
+                    outputSettings = new OutputSettings("IOPort_Minimum_UseTooltip", "IOPort_Maximum_UseTooltip");
+                }
+                return outputSettings;
             }
             set
             {
-                boundThingDef = value;
-                RefreshStoreSettings();
+                outputSettings = value;
             }
         }
 
@@ -60,16 +74,33 @@ namespace ProjectRimFactory.Storage
             base.ExposeData();
             Scribe_Values.Look(ref mode, "mode");
             Scribe_References.Look(ref boundStorageUnit, "boundStorageUnit");
-            Scribe_Defs.Look(ref boundThingDef, "boundThingDef");
+            Scribe_Deep.Look(ref outputStoreSettings, "outputStoreSettings", this);
+            Scribe_Deep.Look(ref outputSettings, "outputSettings", "IOPort_Minimum_UseTooltip", "IOPort_Maximum_UseTooltip");
+        }
+
+        public override void PostMake()
+        {
+            base.PostMake();
+            powerComp = GetComp<CompPowerTrader>();
+            outputStoreSettings = new StorageSettings(this);
         }
 
         public override void SpawnSetup(Map map, bool respawningAfterLoad)
         {
             base.SpawnSetup(map, respawningAfterLoad);
-            Notify_NeedRefresh();
+            powerComp = GetComp<CompPowerTrader>();
         }
 
-        public override void DeSpawn()
+        protected override void ReceiveCompSignal(string signal)
+        {
+            base.ReceiveCompSignal(signal);
+            if (signal == CompPowerTrader.PowerTurnedOnSignal)
+            {
+                Notify_NeedRefresh();
+            }
+        }
+
+        public override void DeSpawn(DestroyMode mode = DestroyMode.Vanish)
         {
             base.DeSpawn();
             boundStorageUnit?.DeregisterPort(this);
@@ -77,6 +108,7 @@ namespace ProjectRimFactory.Storage
 
         public void Notify_NeedRefresh()
         {
+            RefreshStoreSettings();
             switch (IOMode)
             {
                 case StorageIOMode.Input:
@@ -86,18 +118,21 @@ namespace ProjectRimFactory.Storage
                     RefreshOutput();
                     break;
             }
-            RefreshStoreSettings();
         }
 
         public override void Notify_ReceivedThing(Thing newItem)
         {
             base.Notify_ReceivedThing(newItem);
-            RefreshInput();
+            if (mode == StorageIOMode.Input)
+            {
+                RefreshInput();
+            }
         }
+
         public override void Notify_LostThing(Thing newItem)
         {
             base.Notify_LostThing(newItem);
-            if (mode == StorageIOMode.Output && boundThingDef != null)
+            if (mode == StorageIOMode.Output)
             {
                 RefreshOutput();
             }
@@ -109,11 +144,7 @@ namespace ProjectRimFactory.Storage
             base.Tick();
             if (this.IsHashIntervalTick(10))
             {
-                if (mode == StorageIOMode.Output && boundThingDef != null)
-                {
-                    RefreshOutput();
-                }
-                RefreshStoreSettings();
+                Notify_NeedRefresh();
             }
         }
 
@@ -121,14 +152,10 @@ namespace ProjectRimFactory.Storage
         {
             if (mode == StorageIOMode.Output)
             {
-                settings = new StorageSettings(this);
+                settings = outputStoreSettings;
                 if (boundStorageUnit != null)
                 {
                     settings.Priority = boundStorageUnit.settings.Priority;
-                }
-                if (boundThingDef != null)
-                {
-                    settings.filter.SetAllow(boundThingDef, true);
                 }
             }
             else if (boundStorageUnit != null)
@@ -143,49 +170,134 @@ namespace ProjectRimFactory.Storage
 
         public void RefreshInput()
         {
-            Thing item = Position.GetFirstItem(Map);
-            if (mode == StorageIOMode.Input && item != null && boundStorageUnit != null && boundStorageUnit.settings.AllowedToAccept(item) && boundStorageUnit.CanReceiveIO)
+            if (powerComp.PowerOn)
             {
-                foreach (IntVec3 cell in boundStorageUnit.AllSlotCells())
+                Thing item = Position.GetFirstItem(Map);
+                if (mode == StorageIOMode.Input && item != null && boundStorageUnit != null && boundStorageUnit.settings.AllowedToAccept(item) && boundStorageUnit.CanReceiveIO)
                 {
-                    if (cell.GetFirstItem(Map) == null)
+                    foreach (IntVec3 cell in boundStorageUnit.AllSlotCells())
                     {
-                        boundStorageUnit.RegisterNewItem(item);
-                        if (item.def.drawGUIOverlay)
+                        if (cell.GetFirstItem(Map) == null)
                         {
-                            Map.listerThings.ThingsInGroup(ThingRequestGroup.HasGUIOverlay).Remove(item);
+                            boundStorageUnit.RegisterNewItem(item);
+                            break;
                         }
-                        break;
                     }
                 }
             }
         }
 
+        protected IEnumerable<Thing> ItemsThatSatisfyMin(List<Thing> itemCandidates, Thing currentItem)
+        {
+            if (currentItem != null)
+            {
+                IEnumerable<Thing> stackableCandidates = itemCandidates.Where(t => currentItem.CanStackWith(t));
+                return OutputSettings.SatisfiesMin(stackableCandidates.Sum(t => t.stackCount) + currentItem.stackCount) ? stackableCandidates : Enumerable.Empty<Thing>();
+            }
+            return itemCandidates
+                .GroupBy(t => t.def)
+                .FirstOrDefault(g => OutputSettings.SatisfiesMin(g.Sum(t => t.stackCount))) ?? Enumerable.Empty<Thing>();
+        }
+
         protected void RefreshOutput()
         {
-            Thing currentItem = Position.GetFirstItem(Map);
-            bool storageSlotAvailable = (currentItem == null || (currentItem.def == boundThingDef && currentItem.stackCount < currentItem.def.stackLimit));
-            if (boundStorageUnit != null && boundStorageUnit.CanReceiveIO && storageSlotAvailable)
+            if (powerComp.PowerOn)
             {
-                foreach (Thing item in boundStorageUnit.StoredItems.ToList())
+                Thing currentItem = Position.GetFirstItem(Map);
+                bool storageSlotAvailable = currentItem == null || (settings.AllowedToAccept(currentItem) && 
+                                                                    OutputSettings.SatisfiesMax(currentItem.stackCount, currentItem.def.stackLimit));
+                if (boundStorageUnit != null && boundStorageUnit.CanReceiveIO)
                 {
-                    if (item.def == boundThingDef)
+                    if (storageSlotAvailable && OutputSettings.min <= OutputSettings.max)
                     {
-                        if (currentItem != null && currentItem.CanStackWith(item))
+                        List<Thing> itemCandidates = new List<Thing>(from Thing t in boundStorageUnit.StoredItems where settings.AllowedToAccept(t) select t); // ToList very important - evaluates enumerable
+                        if (ItemsThatSatisfyMin(itemCandidates, currentItem).Any())
                         {
-                            currentItem.TryAbsorbStack(item, true);
+                            foreach (Thing item in itemCandidates)
+                            {
+                                if (currentItem != null)
+                                {
+                                    if (currentItem.CanStackWith(item))
+                                    {
+                                        int count = Math.Min(item.stackCount, OutputSettings.CountNeededToReachMax(currentItem.stackCount, currentItem.def.stackLimit));
+                                        if (count > 0)
+                                        {
+                                            currentItem.TryAbsorbStack(item.SplitOff(count), true);
+                                        }
+                                    }
+                                }
+                                else
+                                {
+                                    int count = OutputSettings.CountNeededToReachMax(0, item.stackCount);
+                                    if (count > 0)
+                                    {
+                                        currentItem = GenSpawn.Spawn(item.SplitOff(count), Position, Map);
+                                    }
+                                }
+                                if (currentItem != null && !OutputSettings.SatisfiesMax(currentItem.stackCount, currentItem.def.stackLimit))
+                                {
+                                    break;
+                                }
+                            }
                         }
-                        else
+                    }
+                    if (currentItem != null && (!settings.AllowedToAccept(currentItem) || !OutputSettings.SatisfiesMin(currentItem.stackCount)) && boundStorageUnit.settings.AllowedToAccept(currentItem))
+                    {
+                        boundStorageUnit.RegisterNewItem(currentItem);
+                    }
+                    if (currentItem != null && (!OutputSettings.SatisfiesMax(currentItem.stackCount, currentItem.def.stackLimit) && boundStorageUnit.settings.AllowedToAccept(currentItem)))
+                    {
+                        int splitCount = -OutputSettings.CountNeededToReachMax(currentItem.stackCount, currentItem.def.stackLimit);
+                        if (splitCount > 0)
                         {
-                            item.Position = Position;
-                            currentItem = item;
-                        }
-                        if (currentItem != null && currentItem.stackCount >= currentItem.def.stackLimit)
-                        {
-                            break;
+                            boundStorageUnit.RegisterNewItem(currentItem.SplitOff(splitCount));
                         }
                     }
                 }
+            }
+        }
+        public override IEnumerable<Gizmo> GetGizmos()
+        {
+            foreach (Gizmo g in base.GetGizmos()) yield return g;
+            yield return new Command_Action()
+            {
+                defaultLabel = "PRFIOMode".Translate() + ": " + (IOMode == StorageIOMode.Input ? "PRFIOInput".Translate() : "PRFIOOutput".Translate()),
+                action = () =>
+                {
+                    Find.WindowStack.Add(new FloatMenu(new List<FloatMenuOption>()
+                    {
+                        new FloatMenuOption("PRFIOInput".Translate(), () => IOMode = StorageIOMode.Input),
+                        new FloatMenuOption("PRFIOOutput".Translate(), () => IOMode = StorageIOMode.Output)
+                    }));
+                },
+                icon = HopperTex
+            };
+            yield return new Command_Action()
+            {
+                defaultLabel = "PRFBoundStorageBuilding".Translate() + ": " + (boundStorageUnit?.LabelCap ?? "NoneBrackets".Translate()),
+                action = () =>
+                {
+                    List<FloatMenuOption> list = new List<FloatMenuOption>(
+                        from Building_MassStorageUnit b in Find.CurrentMap.listerBuildings.AllBuildingsColonistOfClass<Building_MassStorageUnit>()
+                        where b.def.GetModExtension<DefModExtension_CanUseStorageIOPorts>() != null
+                        select new FloatMenuOption(b.LabelCap, () => BoundStorageUnit = b)
+                    );
+                    if (list.Count == 0)
+                    {
+                        list.Add(new FloatMenuOption("NoneBrackets".Translate(), null));
+                    }
+                    Find.WindowStack.Add(new FloatMenu(list));
+                },
+                icon = CargoPlatformTex
+            };
+            if (IOMode == StorageIOMode.Output)
+            {
+                yield return new Command_Action()
+                {
+                    icon = ContentFinder<Texture2D>.Get("UI/Commands/SetTargetFuelLevel"),
+                    defaultLabel = "PRFIOOutputSettings".Translate(),
+                    action = () => Find.WindowStack.Add(new Dialog_OutputMinMax(OutputSettings))
+                };
             }
         }
     }

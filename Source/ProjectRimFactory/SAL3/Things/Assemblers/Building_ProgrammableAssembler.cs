@@ -8,6 +8,7 @@ using Verse;
 using ProjectRimFactory.SAL3.Tools;
 using UnityEngine;
 using ProjectRimFactory.Common;
+using ProjectRimFactory.SAL3.Exposables;
 
 namespace ProjectRimFactory.SAL3.Things.Assemblers
 {
@@ -42,13 +43,12 @@ namespace ProjectRimFactory.SAL3.Things.Assemblers
         
         public virtual void DoPawn()
         {
-            Pawn p = PawnGenerator.GeneratePawn(PawnKindDefOf.Slave, Faction.OfPlayer);
-            p.Name = new NameTriple(LabelCap, "SAL_Name".Translate(), def.label);
+            Pawn p = PawnGenerator.GeneratePawn(PRFDefOf.PRFSlavePawn, Faction.OfPlayer);
+            p.Name = new NameTriple("...", "SAL_Name".Translate(), "...");
             //Assign skills
             foreach (var s in p.skills.skills)
             {
-                int level = 10; // Skill level
-                s.levelInt = level;
+                s.levelInt = s.def == SkillDefOf.Artistic ? 0 : 10;
             }
             //Assign Pawn's mapIndexOrState to building's mapIndexOrState
             ReflectionUtility.mapIndexOrState.SetValue(p, ReflectionUtility.mapIndexOrState.GetValue(this));
@@ -184,7 +184,7 @@ namespace ProjectRimFactory.SAL3.Things.Assemblers
 
         protected IEnumerable<Thing> AllAccessibleThings => from c in IngredientStackCells
                                                             from t in Map.thingGrid.ThingsListAt(c)
-                                                            where AllowForbidden || !t.IsForbidden(Faction)
+                                                            where (AllowForbidden || !t.IsForbidden(Faction)) && t.def.category == ThingCategory.Item
                                                             select t;
         protected IEnumerable<Bill> AllBillsShouldDoNow => from b in billStack.Bills
                                                            where b.ShouldDoNow()
@@ -221,7 +221,12 @@ namespace ProjectRimFactory.SAL3.Things.Assemblers
                     }
                 }
                 else if (this.IsHashIntervalTick(60))
-                    currentBillReport = CheckBills();
+                {
+                    if ((currentBillReport = CheckBills()) != null)
+                    {
+                        Notify_BillStarted();
+                    }
+                }
             }
         }
 
@@ -229,16 +234,16 @@ namespace ProjectRimFactory.SAL3.Things.Assemblers
         {
             foreach (Bill b in AllBillsShouldDoNow)
             {
-                List<ThingAmount> chosen = new List<ThingAmount>();
+                List<ThingCount> chosen = new List<ThingCount>();
                 if (TryFindBestBillIngredientsInSet(AllAccessibleThings.ToList(), b, chosen))
                 {
-                    return new BillReport(b, (from ta in chosen select ta.thing.SplitOff(ta.count)).ToList());
+                    return new BillReport(b, (from ta in chosen select ta.Thing.SplitOff(ta.Count)).ToList());
                 }
             }
             return null;
         }
 
-        bool TryFindBestBillIngredientsInSet(List<Thing> accessibleThings, Bill b, List<ThingAmount> chosen)
+        bool TryFindBestBillIngredientsInSet(List<Thing> accessibleThings, Bill b, List<ThingCount> chosen)
         {
             ReflectionUtility.MakeIngredientsListInProcessingOrder.Invoke(null, new object[] { ReflectionUtility.ingredientsOrdered.GetValue(null), b });
             return (bool)ReflectionUtility.TryFindBestBillIngredientsInSet.Invoke(null, new object[] { accessibleThings, b, chosen });
@@ -248,10 +253,10 @@ namespace ProjectRimFactory.SAL3.Things.Assemblers
         {
             if (currentBillReport == null)
             {
-                Log.Error("S.A.L. 3.0 :: Tried to make products when assembler isn't engaged in a bill.");
+                Log.Error("Project RimFactory :: Tried to make products when assembler isn't engaged in a bill.");
                 return;
             }
-            IEnumerable<Thing> products = GenRecipe.MakeRecipeProducts(currentBillReport.bill.recipe, buildingPawn, currentBillReport.selected, ProjectSAL_Utilities.CalculateDominantIngredient(currentBillReport.bill.recipe, currentBillReport.selected));
+            IEnumerable<Thing> products = GenRecipe.MakeRecipeProducts(currentBillReport.bill.recipe, buildingPawn, currentBillReport.selected, ProjectSAL_Utilities.CalculateDominantIngredient(currentBillReport.bill.recipe, currentBillReport.selected), this);
             foreach (Thing thing in products)
             {
                 PostProcessRecipeProduct(thing);
@@ -292,7 +297,7 @@ namespace ProjectRimFactory.SAL3.Things.Assemblers
         // Settings
         public bool allowForbidden;
         public virtual bool AllowForbidden => allowForbidden;
-        protected abstract float ProductionSpeedFactor { get; }
+        protected virtual float ProductionSpeedFactor => def.GetModExtension<AssemblerDefModExtension>()?.workSpeedBaseFactor ?? 1f;
 
         public override void DrawExtraSelectionOverlays()
         {
@@ -314,6 +319,10 @@ namespace ProjectRimFactory.SAL3.Things.Assemblers
         }
 
         protected virtual void PostProcessRecipeProduct(Thing thing)
+        {
+        }
+
+        protected virtual void Notify_BillStarted()
         {
         }
     }

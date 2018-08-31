@@ -1,4 +1,5 @@
-﻿using System;
+﻿using RimWorld;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
@@ -15,7 +16,7 @@ namespace ProjectRimFactory.SAL3
             float basecount = item.stackCount;
             if (ShouldUseNutritionMath(item, ingredient))
             {
-                basecount *= item.def.ingestible.nutrition;
+                basecount *= item.GetStatValue(StatDefOf.Nutrition);
             }
             if (item.def.smallVolume)
             {
@@ -25,14 +26,14 @@ namespace ProjectRimFactory.SAL3
         }
         public static bool ShouldUseNutritionMath(Thing t, IngredientCount ingredient)
         {
-            return (t.def.ingestible?.nutrition ?? 0f) > 0f && !(t is Corpse) && IngredientFilterHasNutrition(ingredient.filter);
+            return t.GetStatValue(StatDefOf.Nutrition) > 0f && !(t is Corpse) && IngredientFilterHasNutrition(ingredient.filter);
         }
 
         public static bool IngredientFilterHasNutrition(ThingFilter filter)
         {
             if (filter != null)
             {
-                Func<string, bool> isNutrition = str => str == "Foods" || str == "PlantMatter";
+                bool isNutrition(string str) => str == "Foods" || str == "PlantMatter";
                 var field = typeof(ThingFilter).GetField("categories", BindingFlags.NonPublic | BindingFlags.Instance);
                 var categories = (List<string>)(field.GetValue(filter) ?? new List<string>());
                 foreach (string s in categories)
@@ -47,7 +48,7 @@ namespace ProjectRimFactory.SAL3
             float basecount = ingredient.GetBaseCount();
             if (ShouldUseNutritionMath(item, ingredient))
             {
-                basecount /= item.def.ingestible.nutrition;
+                basecount /= item.GetStatValue(StatDefOf.Nutrition);
             }
             if (item.def.smallVolume)
             {

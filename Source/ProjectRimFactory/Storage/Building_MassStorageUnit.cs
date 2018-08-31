@@ -7,6 +7,7 @@ using RimWorld;
 using ProjectRimFactory.Storage.Editables;
 using UnityEngine;
 using ProjectRimFactory.Storage.UI;
+using System.Collections;
 
 namespace ProjectRimFactory.Storage
 {
@@ -47,6 +48,17 @@ namespace ProjectRimFactory.Storage
                 defaultLabel = "PRFRenameMassStorageUnitLabel".Translate(),
                 defaultDesc = "PRFRenameMassStorageUnitDesc".Translate()
             };
+            yield return new Command_Action
+            {
+                icon = TexUI.RotRightTex,
+                action = () =>
+                {
+                    RefreshStorage();
+                    Messages.Message("PRFReorganize_Message".Translate(), MessageTypeDefOf.NeutralEvent);
+                },
+                defaultLabel = "PRFReorganize".Translate(),
+                defaultDesc = "PRFReorganize_Desc".Translate()
+            };
         }
 
         public override void Notify_ReceivedThing(Thing newItem)
@@ -56,15 +68,17 @@ namespace ProjectRimFactory.Storage
             {
                 RegisterNewItem(newItem);
             }
-            if (newItem.def.drawGUIOverlay)
-            {
-                Map.listerThings.ThingsInGroup(ThingRequestGroup.HasGUIOverlay).Remove(newItem);
-            }
+            RefreshStorage();
         }
 
-        public virtual string GetITabString()
+        public virtual string GetUIThingLabel()
         {
-            return "PRFItemsTabLabel".Translate(items.Count);
+            return "PRFMassStorageUIThingLabel".Translate(StoredItemsCount);
+        }
+
+        public virtual string GetITabString(int itemsSelected)
+        {
+            return "PRFItemsTabLabel".Translate(StoredItemsCount, itemsSelected);
         }
 
         public virtual void RegisterNewItem(Thing newItem)
@@ -73,6 +87,7 @@ namespace ProjectRimFactory.Storage
             for (int i = 0; i < things.Count; i++)
             {
                 Thing item = things[i];
+                if (item == newItem) continue;
                 if (item.def.category == ThingCategory.Item && item.CanStackWith(newItem))
                 {
                     item.TryAbsorbStack(newItem, true);
@@ -84,7 +99,8 @@ namespace ProjectRimFactory.Storage
             }
             if (!newItem.Destroyed)
             {
-                items.Add(newItem);
+                if (!items.Contains(newItem))
+                    items.Add(newItem);
                 if (CanStoreMoreItems)
                 {
                     newItem.Position = Position;
@@ -111,7 +127,7 @@ namespace ProjectRimFactory.Storage
             return stringBuilder.ToString();
         }
 
-        public override void DeSpawn()
+        public override void DeSpawn(DestroyMode mode = DestroyMode.Vanish)
         {
             List<Thing> thingsToSplurge = new List<Thing>(Position.GetThingList(Map));
             for (int i = 0; i < thingsToSplurge.Count; i++)
@@ -129,14 +145,6 @@ namespace ProjectRimFactory.Storage
         {
             base.Notify_LostThing(newItem);
             items.Remove(newItem);
-            if (newItem.Spawned)
-            {
-                List<Thing> list = Map.listerThings.ThingsInGroup(ThingRequestGroup.HasGUIOverlay);
-                if (!list.Contains(newItem))
-                {
-                    list.Add(newItem);
-                }
-            }
             RefreshStorage();
         }
 
@@ -144,6 +152,15 @@ namespace ProjectRimFactory.Storage
         {
             base.SpawnSetup(map, respawningAfterLoad);
             RefreshStorage();
+        }
+
+        public override void DrawGUIOverlay()
+        {
+            base.DrawGUIOverlay();
+            if (Current.CameraDriver.CurrentZoom <= CameraZoomRange.Close)
+            {
+                GenMapUI.DrawThingLabel(this, GetUIThingLabel());
+            }
         }
 
         public virtual void RefreshStorage()
@@ -163,27 +180,25 @@ namespace ProjectRimFactory.Storage
                         }
                         else
                         {
-                            items.Add(item);
-                        }
-                        if (item.def.drawGUIOverlay)
-                        {
-                            Map.listerThings.ThingsInGroup(ThingRequestGroup.HasGUIOverlay).Remove(item);
+                            if (!items.Contains(item))
+                                items.Add(item);
                         }
                     }
                 }
             }
-            for (int i = 0; i < ports.Count; i++)
-            {
-                if (ports[i] == null)
-                {
-                    ports.RemoveAt(i);
-                    i--;
-                }
-                else
-                {
-                    ports[i].Notify_NeedRefresh();
-                }
-            }
+            // Even though notifying I/O ports that the contents inside the storage unit have changed seems like a good idea, it can cause recursion issues.
+            //for (int i = 0; i < ports.Count; i++)
+            //{
+            //    if (ports[i] == null)
+            //    {
+            //        ports.RemoveAt(i);
+            //        i--;
+            //    }
+            //    else
+            //    {
+            //        ports[i].Notify_NeedRefresh();
+            //    }
+            //}
         }
     }
 }
