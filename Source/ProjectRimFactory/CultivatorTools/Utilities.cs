@@ -49,7 +49,6 @@ namespace ProjectRimFactory.CultivatorTools
         
         public static bool CanPlantRightNow(this IPlantToGrowSettable planter)
         {
-            //Ternary operators
             return (!planter.CanAcceptSowNow()) ? false : 
                 (planter is Zone_Growing z) ? z.allowSow : 
                 (planter is Thing t) ? !t.IsForbidden(Faction.OfPlayer) : 

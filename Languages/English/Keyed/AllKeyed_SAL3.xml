@@ -20,12 +20,14 @@
   <SALCurrentProductionSpeed>Production speed for current recipe ({0}): {1}</SALCurrentProductionSpeed>
   <DeepQuarry_TotalSoFar>Total number of rocks mined so far: {0}</DeepQuarry_TotalSoFar>
   <SmartHopper_SetTargetAmount>Set min/max amounts</SmartHopper_SetTargetAmount>
+  <SmartHopper_Minimum_Label>Use Min?</SmartHopper_Minimum_Label>
+  <SmartHopper_Maximum_Label>Use Max?</SmartHopper_Maximum_Label>
+  <SmartHopper_MaximumKeyword>Maximum</SmartHopper_MaximumKeyword>
+  <SmartHopper_MinimumKeyword>Minimum</SmartHopper_MinimumKeyword>
   <SmartHopper_Minimum>Current item min limit: {0}</SmartHopper_Minimum>
   <SmartHopper_Maximum>Current item max limit: {0}</SmartHopper_Maximum>
-  <SmartHopper_Minimum_UseTooltip>When this is enabled, the smart hopper will unforbid its items if the stored item has less than X stack size.</SmartHopper_Minimum_UseTooltip>
+  <SmartHopper_Minimum_UseTooltip>When this is enabled, the smart hopper will unforbid its items if the stored item has less than X stack size. It will also only take items if there are enough items around to exceed the minimum.</SmartHopper_Minimum_UseTooltip>
   <SmartHopper_Maximum_UseTooltip>When this is enabled, the smart hopper will stop taking items if either the stack is full, or the stack size exceeds or is equal to X.</SmartHopper_Maximum_UseTooltip>
-  <SmartHopper_Minimum_ToolTip>This will impact both the contents and the stacks it tries to take</SmartHopper_Minimum_ToolTip>
-  <SmartHopper_Maximum_ToolTip>This will only affect the contents of the SmartHopper, it will still try to take from a larger stack.</SmartHopper_Maximum_ToolTip>
   
   <!--Mod settings-->
   <ProjectRimFactoryModName>Project RimFactory</ProjectRimFactoryModName>

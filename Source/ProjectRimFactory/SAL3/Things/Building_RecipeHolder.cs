@@ -38,7 +38,7 @@ namespace ProjectRimFactory.SAL3.Things
         }
         protected virtual float GetLearnRecipeWorkAmount(RecipeDef recipe)
         {
-            return recipe.WorkAmountTotal(ThingDefOf.Steel) * 10;
+            return recipe.WorkAmountTotal(ThingDefOf.Steel);
         }
 
         //================================ Overrides
@@ -101,15 +101,11 @@ namespace ProjectRimFactory.SAL3.Things
         {
             foreach (RecipeDef recipe in GetAllProvidedRecipeDefs())
             {
-                yield return new FloatMenuOption()
+                yield return new FloatMenuOption(recipe.LabelCap, () =>
                 {
-                    Label = recipe.LabelCap,
-                    action = () =>
-                    {
-                        workingRecipe = recipe;
-                        workAmount = GetLearnRecipeWorkAmount(recipe);
-                    }
-                };
+                    workingRecipe = recipe;
+                    workAmount = GetLearnRecipeWorkAmount(recipe);
+                });
             }
         }
 
@@ -119,7 +115,7 @@ namespace ProjectRimFactory.SAL3.Things
             workingRecipe = null;
         }
 
-        public override void DeSpawn()
+        public override void DeSpawn(DestroyMode mode = DestroyMode.Vanish)
         {
             ResetProgress();
             Map mapBefore = Map;

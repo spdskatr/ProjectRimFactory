@@ -71,7 +71,7 @@ namespace ProjectRimFactory.SAL3.Things.Assemblers.Special
                 RecipeDef[] keys = manager.factors.Keys.ToArray();
                 WorkSpeedFactorEntry[] values = manager.factors.Values.ToArray();
                 Array.Sort(values, keys);
-                for (int i = 0; i < keys.Length; i++)
+                for (int i = keys.Length - 1; i >= 0; i--)
                 {
                     stringBuilder.AppendLine($"{keys[i].LabelCap}: {values[i].FactorFinal + FactorOffset}");
                 }

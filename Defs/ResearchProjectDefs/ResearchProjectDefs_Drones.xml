@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+  <ResearchProjectDef>
+    <defName>PRFCaretakerDrones</defName>
+    <label>caretaker drones</label>
+    <techLevel>Spacer</techLevel>
+    <baseCost>2000</baseCost>
+    <description>Allows your colony to build the caretaker drone station. Caretaker drones can haul, do basic work, clean and fight fires. Craft drone modules at the robotic machining table.</description>
+    <prerequisites>
+      <li>PRFGoldbachConjecture</li>
+      <li>AdvancedFabrication</li>
+    </prerequisites>
+    <requiredResearchBuilding>AIResearchBench</requiredResearchBuilding>
+    <tab>Automation</tab>
+    <researchViewX>5</researchViewX>
+    <researchViewY>1</researchViewY>
+  </ResearchProjectDef>
+  <ResearchProjectDef>
+    <defName>PRFConstructionDrones</defName>
+    <label>construction drones</label>
+    <techLevel>Spacer</techLevel>
+    <baseCost>2000</baseCost>
+    <description>Allows your colony to build the construction drone station. Construction drones can construct and mine.</description>
+    <prerequisites>
+      <li>PRFCaretakerDrones</li>
+    </prerequisites>
+    <requiredResearchBuilding>AIResearchBench</requiredResearchBuilding>
+    <tab>Automation</tab>
+    <researchViewX>6</researchViewX>
+    <researchViewY>1</researchViewY>
+  </ResearchProjectDef>
+  <ResearchProjectDef>
+    <defName>PRFGrowingDrones</defName>
+    <label>growing drones</label>
+    <techLevel>Spacer</techLevel>
+    <baseCost>2000</baseCost>
+    <description>Allows your colony to build the growing drone station. Growing drones can sow, harvest and cut plants. Unlike the cultivator, growing drones do not have a range.</description>
+    <prerequisites>
+      <li>PRFConstructionDrones</li>
+    </prerequisites>
+    <requiredResearchBuilding>AIResearchBench</requiredResearchBuilding>
+    <tab>Automation</tab>
+    <researchViewX>7</researchViewX>
+    <researchViewY>1</researchViewY>
+  </ResearchProjectDef>
+</Defs>
