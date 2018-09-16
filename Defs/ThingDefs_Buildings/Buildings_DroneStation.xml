@@ -33,7 +33,7 @@
           </thingDefs>
         </fuelFilter>
         <targetFuelLevelConfigurable>true</targetFuelLevelConfigurable>
-        <initialConfigurableTargetFuelLevel>50</initialConfigurableTargetFuelLevel>
+        <initialConfigurableTargetFuelLevel>5</initialConfigurableTargetFuelLevel>
         <drawOutOfFuelOverlay>false</drawOutOfFuelOverlay>
       </li>
     </comps>
