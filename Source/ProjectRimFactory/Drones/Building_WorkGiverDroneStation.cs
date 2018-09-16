@@ -40,6 +40,7 @@ namespace ProjectRimFactory.Drones
             Notify_DroneGained();
             return result;
         }
+
         // Method from RimWorld.JobGiver_Work.TryIssueJobPackage(Pawn pawn, JobIssueParams jobParams)
         // I modified the line if (!workGiver.ShouldSkip(pawn))
 #pragma warning disable

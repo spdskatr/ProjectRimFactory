@@ -34,7 +34,6 @@ namespace ProjectRimFactory.Drones.AI
                         {
                             result = b.TryIssueJobPackageDrone(drone, false).Job;
                         }
-                        pawn.workSettings = null;
                     }
                     else
                     {

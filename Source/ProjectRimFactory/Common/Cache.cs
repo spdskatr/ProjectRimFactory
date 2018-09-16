@@ -23,7 +23,7 @@ namespace ProjectRimFactory.Common
         }
         public T Get()
         {
-            if (lastTick + 10 < Find.TickManager.TicksAbs)
+            if (lastTick + updateInterval < Find.TickManager.TicksAbs)
             {
                 return UpdateCache();
             }

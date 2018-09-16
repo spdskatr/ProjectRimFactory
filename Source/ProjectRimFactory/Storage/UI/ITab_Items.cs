@@ -6,6 +6,8 @@ using Verse;
 using RimWorld;
 using UnityEngine;
 using Verse.AI;
+using RimWorld.Planet;
+using Verse.AI.Group;
 
 namespace ProjectRimFactory.Storage.UI
 {
@@ -106,13 +108,15 @@ namespace ProjectRimFactory.Storage.UI
             }
             y += 28f;
         }
-        public static List<FloatMenuOption> ChoicesForThing(Thing thing, Pawn selPawn)
+
+        // Decompiled code is painful to read... Continue at your own risk
+        public static List<FloatMenuOption> ChoicesForThing(Thing thing, Pawn pawn)
         {
             List<FloatMenuOption> opts = new List<FloatMenuOption>();
             Thing t = thing;
 
             // Copied from FloatMenuMakerMap.AddHumanlikeOrders
-            if (t.def.ingestible != null && selPawn.RaceProps.CanEverEat(t) && t.IngestibleNow)
+            if (t.def.ingestible != null && pawn.RaceProps.CanEverEat(t) && t.IngestibleNow)
             {
                 string text;
                 if (t.def.ingestible.ingestCommandString.NullOrEmpty())
@@ -126,16 +130,16 @@ namespace ProjectRimFactory.Storage.UI
                 {
                     text = string.Format(t.def.ingestible.ingestCommandString, t.LabelShort);
                 }
-                if (!t.IsSociallyProper(selPawn))
+                if (!t.IsSociallyProper(pawn))
                 {
                     text = text + " (" + "ReservedForPrisoners".Translate() + ")";
                 }
                 FloatMenuOption item7;
-                if (t.def.IsNonMedicalDrug && selPawn.IsTeetotaler())
+                if (t.def.IsNonMedicalDrug && pawn.IsTeetotaler())
                 {
                     item7 = new FloatMenuOption(text + " (" + TraitDefOf.DrugDesire.DataAtDegree(-1).label + ")", null, MenuOptionPriority.Default, null, null, 0f, null, null);
                 }
-                else if (!selPawn.CanReach(t, PathEndMode.OnCell, Danger.Deadly, false, TraverseMode.ByPawn))
+                else if (!pawn.CanReach(t, PathEndMode.OnCell, Danger.Deadly, false, TraverseMode.ByPawn))
                 {
                     item7 = new FloatMenuOption(text + " (" + "NoPath".Translate() + ")", null, MenuOptionPriority.Default, null, null, 0f, null, null);
                 }
@@ -146,9 +150,9 @@ namespace ProjectRimFactory.Storage.UI
                     {
                         t.SetForbidden(false, true);
                         Job job = new Job(JobDefOf.Ingest, t);
-                        job.count = FoodUtility.WillIngestStackCountOf(selPawn, t.def, t.GetStatValue(StatDefOf.Nutrition, true));
-                        selPawn.jobs.TryTakeOrderedJob(job, JobTag.Misc);
-                    }, priority2, null, null, 0f, null, null), selPawn, t, "ReservedBy");
+                        job.count = FoodUtility.WillIngestStackCountOf(pawn, t.def, t.GetStatValue(StatDefOf.Nutrition, true));
+                        pawn.jobs.TryTakeOrderedJob(job, JobTag.Misc);
+                    }, priority2, null, null, 0f, null, null), pawn, t, "ReservedBy");
                 }
                 opts.Add(item7);
             }
@@ -159,24 +163,24 @@ namespace ProjectRimFactory.Storage.UI
             {
                 string labelShort = equipment.LabelShort;
                 FloatMenuOption item4;
-                if (equipment.def.IsWeapon && selPawn.story.WorkTagIsDisabled(WorkTags.Violent))
+                if (equipment.def.IsWeapon && pawn.story.WorkTagIsDisabled(WorkTags.Violent))
                 {
                     item4 = new FloatMenuOption("CannotEquip".Translate(new object[]
                     {
                             labelShort
                     }) + " (" + "IsIncapableOfViolenceLower".Translate(new object[]
                     {
-                            selPawn.LabelShort
+                            pawn.LabelShort
                     }) + ")", null, MenuOptionPriority.Default, null, null, 0f, null, null);
                 }
-                else if (!selPawn.CanReach(equipment, PathEndMode.ClosestTouch, Danger.Deadly, false, TraverseMode.ByPawn))
+                else if (!pawn.CanReach(equipment, PathEndMode.ClosestTouch, Danger.Deadly, false, TraverseMode.ByPawn))
                 {
                     item4 = new FloatMenuOption("CannotEquip".Translate(new object[]
                     {
                             labelShort
                     }) + " (" + "NoPath".Translate() + ")", null, MenuOptionPriority.Default, null, null, 0f, null, null);
                 }
-                else if (!selPawn.health.capacities.CapableOf(PawnCapacityDefOf.Manipulation))
+                else if (!pawn.health.capacities.CapableOf(PawnCapacityDefOf.Manipulation))
                 {
                     item4 = new FloatMenuOption("CannotEquip".Translate(new object[]
                     {
@@ -189,19 +193,146 @@ namespace ProjectRimFactory.Storage.UI
                     {
                             labelShort
                     });
-                    if (equipment.def.IsRangedWeapon && selPawn.story != null && selPawn.story.traits.HasTrait(TraitDefOf.Brawler))
+                    if (equipment.def.IsRangedWeapon && pawn.story != null && pawn.story.traits.HasTrait(TraitDefOf.Brawler))
                     {
                         text5 = text5 + " " + "EquipWarningBrawler".Translate();
                     }
                     item4 = FloatMenuUtility.DecoratePrioritizedTask(new FloatMenuOption(text5, delegate ()
                     {
                         equipment.SetForbidden(false, true);
-                        selPawn.jobs.TryTakeOrderedJob(new Job(JobDefOf.Equip, equipment), JobTag.Misc);
+                        pawn.jobs.TryTakeOrderedJob(new Job(JobDefOf.Equip, equipment), JobTag.Misc);
                         MoteMaker.MakeStaticMote(equipment.DrawPos, equipment.Map, ThingDefOf.Mote_FeedbackEquip, 1f);
                         PlayerKnowledgeDatabase.KnowledgeDemonstrated(ConceptDefOf.EquippingWeapons, KnowledgeAmount.Total);
-                    }, MenuOptionPriority.High, null, null, 0f, null, null), selPawn, equipment, "ReservedBy");
+                    }, MenuOptionPriority.High, null, null, 0f, null, null), pawn, equipment, "ReservedBy");
                 }
                 opts.Add(item4);
+            }
+
+            // Add clothing commands
+            Apparel apparel = (Apparel)thing;
+            if (apparel != null)
+            {
+                FloatMenuOption item5;
+                if (!pawn.CanReach(apparel, PathEndMode.ClosestTouch, Danger.Deadly, false, TraverseMode.ByPawn))
+                {
+                    item5 = new FloatMenuOption("CannotWear".Translate(new object[]
+                    {
+                            apparel.Label
+                    }) + " (" + "NoPath".Translate() + ")", null, MenuOptionPriority.Default, null, null, 0f, null, null);
+                }
+                else if (!ApparelUtility.HasPartsToWear(pawn, apparel.def))
+                {
+                    item5 = new FloatMenuOption("CannotWear".Translate(new object[]
+                    {
+                            apparel.Label
+                    }) + " (" + "CannotWearBecauseOfMissingBodyParts".Translate() + ")", null, MenuOptionPriority.Default, null, null, 0f, null, null);
+                }
+                else
+                {
+                    item5 = FloatMenuUtility.DecoratePrioritizedTask(new FloatMenuOption("ForceWear".Translate(new object[]
+                    {
+                            apparel.LabelShort
+                    }), delegate ()
+                    {
+                        apparel.SetForbidden(false, true);
+                        Job job = new Job(JobDefOf.Wear, apparel);
+                        pawn.jobs.TryTakeOrderedJob(job, JobTag.Misc);
+                    }, MenuOptionPriority.High, null, null, 0f, null, null), pawn, apparel, "ReservedBy");
+                }
+                opts.Add(item5);
+            }
+
+            // Add caravan commands
+
+            if (pawn.IsFormingCaravan())
+            {
+                if (thing != null && thing.def.EverHaulable)
+                {
+                    Pawn packTarget = GiveToPackAnimalUtility.UsablePackAnimalWithTheMostFreeSpace(pawn) ?? pawn;
+                    JobDef jobDef = (packTarget != pawn) ? JobDefOf.GiveToPackAnimal : JobDefOf.TakeInventory;
+                    if (!pawn.CanReach(thing, PathEndMode.ClosestTouch, Danger.Deadly, false, TraverseMode.ByPawn))
+                    {
+                        opts.Add(new FloatMenuOption("CannotLoadIntoCaravan".Translate(new object[]
+                        {
+                    thing.Label
+                        }) + " (" + "NoPath".Translate() + ")", null, MenuOptionPriority.Default, null, null, 0f, null, null));
+                    }
+                    else if (MassUtility.WillBeOverEncumberedAfterPickingUp(packTarget, thing, 1))
+                    {
+                        opts.Add(new FloatMenuOption("CannotLoadIntoCaravan".Translate(new object[]
+                        {
+                    thing.Label
+                        }) + " (" + "TooHeavy".Translate() + ")", null, MenuOptionPriority.Default, null, null, 0f, null, null));
+                    }
+                    else
+                    {
+                        LordJob_FormAndSendCaravan lordJob = (LordJob_FormAndSendCaravan)pawn.GetLord().LordJob;
+                        float capacityLeft = CaravanFormingUtility.CapacityLeft(lordJob);
+                        if (thing.stackCount == 1)
+                        {
+                            float capacityLeft4 = capacityLeft - thing.GetStatValue(StatDefOf.Mass, true);
+                            opts.Add(FloatMenuUtility.DecoratePrioritizedTask(new FloatMenuOption(CaravanFormingUtility.AppendOverweightInfo("LoadIntoCaravan".Translate(new object[]
+                            {
+                        thing.Label
+                            }), capacityLeft4), delegate ()
+                            {
+                                thing.SetForbidden(false, false);
+                                Job job = new Job(jobDef, thing);
+                                job.count = 1;
+                                job.checkEncumbrance = (packTarget == pawn);
+                                pawn.jobs.TryTakeOrderedJob(job, JobTag.Misc);
+                            }, MenuOptionPriority.High, null, null, 0f, null, null), pawn, thing, "ReservedBy"));
+                        }
+                        else
+                        {
+                            if (MassUtility.WillBeOverEncumberedAfterPickingUp(packTarget, thing, thing.stackCount))
+                            {
+                                opts.Add(new FloatMenuOption("CannotLoadIntoCaravanAll".Translate(new object[]
+                                {
+                            thing.Label
+                                }) + " (" + "TooHeavy".Translate() + ")", null, MenuOptionPriority.Default, null, null, 0f, null, null));
+                            }
+                            else
+                            {
+                                float capacityLeft2 = capacityLeft - (float)thing.stackCount * thing.GetStatValue(StatDefOf.Mass, true);
+                                opts.Add(FloatMenuUtility.DecoratePrioritizedTask(new FloatMenuOption(CaravanFormingUtility.AppendOverweightInfo("LoadIntoCaravanAll".Translate(new object[]
+                                {
+                            thing.Label
+                                }), capacityLeft2), delegate ()
+                                {
+                                    thing.SetForbidden(false, false);
+                                    Job job = new Job(jobDef, thing);
+                                    job.count = thing.stackCount;
+                                    job.checkEncumbrance = (packTarget == pawn);
+                                    pawn.jobs.TryTakeOrderedJob(job, JobTag.Misc);
+                                }, MenuOptionPriority.High, null, null, 0f, null, null), pawn, thing, "ReservedBy"));
+                            }
+                            opts.Add(FloatMenuUtility.DecoratePrioritizedTask(new FloatMenuOption("LoadIntoCaravanSome".Translate(new object[]
+                            {
+                        thing.LabelNoCount
+                            }), delegate ()
+                            {
+                                int to = Mathf.Min(MassUtility.CountToPickUpUntilOverEncumbered(packTarget, thing), thing.stackCount);
+                                Dialog_Slider window = new Dialog_Slider(delegate (int val)
+                                {
+                                    float capacityLeft3 = capacityLeft - (float)val * thing.GetStatValue(StatDefOf.Mass, true);
+                                    return CaravanFormingUtility.AppendOverweightInfo(string.Format("LoadIntoCaravanCount".Translate(new object[]
+                                    {
+                                thing.LabelNoCount
+                                    }), val), capacityLeft3);
+                                }, 1, to, delegate (int count)
+                                {
+                                    thing.SetForbidden(false, false);
+                                    Job job = new Job(jobDef, thing);
+                                    job.count = count;
+                                    job.checkEncumbrance = (packTarget == pawn);
+                                    pawn.jobs.TryTakeOrderedJob(job, JobTag.Misc);
+                                }, int.MinValue);
+                                Find.WindowStack.Add(window);
+                            }, MenuOptionPriority.High, null, null, 0f, null, null), pawn, thing, "ReservedBy"));
+                        }
+                    }
+                }
             }
 
             if (opts.Count == 0)
