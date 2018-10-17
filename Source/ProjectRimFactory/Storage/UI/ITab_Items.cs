@@ -11,6 +11,7 @@ using Verse.AI.Group;
 
 namespace ProjectRimFactory.Storage.UI
 {
+    // Somebody toucha mah spaghet code
     public class ITab_Items : ITab
     {
         public ITab_Items()
@@ -114,6 +115,7 @@ namespace ProjectRimFactory.Storage.UI
         {
             List<FloatMenuOption> opts = new List<FloatMenuOption>();
             Thing t = thing;
+            
 
             // Copied from FloatMenuMakerMap.AddHumanlikeOrders
             if (t.def.ingestible != null && pawn.RaceProps.CanEverEat(t) && t.IngestibleNow)
@@ -156,6 +158,7 @@ namespace ProjectRimFactory.Storage.UI
                 }
                 opts.Add(item7);
             }
+            
 
             // Add equipment commands
             // Copied from FloatMenuMakerMap.AddHumanlikeOrders
@@ -207,9 +210,9 @@ namespace ProjectRimFactory.Storage.UI
                 }
                 opts.Add(item4);
             }
-
+            
             // Add clothing commands
-            Apparel apparel = (Apparel)thing;
+            Apparel apparel = thing as Apparel;
             if (apparel != null)
             {
                 FloatMenuOption item5;
