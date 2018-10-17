@@ -11,7 +11,7 @@ using Verse.AI.Group;
 
 namespace ProjectRimFactory.Storage.UI
 {
-    // Somebody toucha mah spaghet code
+    // Somebody toucha my spaghet code
     public class ITab_Items : ITab
     {
         public ITab_Items()
