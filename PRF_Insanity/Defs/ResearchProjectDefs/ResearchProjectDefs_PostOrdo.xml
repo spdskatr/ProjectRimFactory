@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+    <!-- Tier 3 -->
+    <ResearchProjectDef>
+      <defName>PRFRiemannHypothesis</defName>
+      <label>Riemann hypothesis</label>
+      <techLevel>Ultra</techLevel>
+      <baseCost>8000</baseCost>
+      <description>ζ(0.5 ± 1/g + π(g) * i) = 0, where g is Graham's number, and where π is the prime counting function.\n\nOrdo Historia, Record {fb640e1a-1021-474b-b4ba-5ffe61bd2649}, Last synced with galactic core 1208YYtp ago</description>
+      <prerequisites>
+        <li>PRFOrdoDataRummaging</li>
+      </prerequisites>
+      <requiredResearchBuilding>AIResearchBench</requiredResearchBuilding>
+      <tab>Automation</tab>
+      <researchViewX>8</researchViewX>
+      <researchViewY>2</researchViewY>
+    </ResearchProjectDef>
+    <ResearchProjectDef>
+      <defName>PRFPVersusNP</defName>
+      <label>P versus NP</label>
+      <techLevel>Ultra</techLevel>
+      <baseCost>8000</baseCost>
+      <description>To break RSA encryption, all you need is a cure for cancer.\n\nOrdo Historia, Record {490c3481-b420-4cf9-aa6d-88bcfe651cb0}, Last synced with galactic core 1208YYtp ago</description>
+      <prerequisites>
+        <li>PRFOrdoDataRummaging</li>
+      </prerequisites>
+      <requiredResearchBuilding>AIResearchBench</requiredResearchBuilding>
+      <tab>Automation</tab>
+      <researchViewX>8</researchViewX>
+      <researchViewY>3</researchViewY>
+    </ResearchProjectDef>
+    <ResearchProjectDef>
+      <defName>PRFFermiParadox</defName>
+      <label>Fermi paradox</label>
+      <techLevel>Ultra</techLevel>
+      <baseCost>8000</baseCost>
+      <description>Aliens? What aliens?\n- A totally innocent mechanoid\n\nOrdo Historia, Record {43039413-a9ad-436d-99e1-63ec2cd944e5}, First published in the &lt;i&gt;Euterpe Musings&lt;/i&gt; (4256CE).\n\nLast synced with galactic core 1208YYtp ago</description>
+      <prerequisites>
+        <li>PRFOrdoDataRummaging</li>
+      </prerequisites>
+      <requiredResearchBuilding>AIResearchBench</requiredResearchBuilding>
+      <tab>Automation</tab>
+      <researchViewX>8</researchViewX>
+      <researchViewY>4</researchViewY>
+    </ResearchProjectDef>
+    <ResearchProjectDef>
+      <defName>PRFVanometrics</defName>
+      <label>Vanometrics</label>
+      <techLevel>Ultra</techLevel>
+      <baseCost>10000</baseCost>
+      <description>Produce vanometric power cells, infinite chemreactors and other archotechnology-grade buildings. Also unlocks the production of Z-Composite at the atomic reconstructor.</description>
+      <prerequisites>
+        <li>PRFRiemannHypothesis</li>
+        <li>PRFPVersusNP</li>
+      </prerequisites>
+      <requiredResearchBuilding>AIResearchBench</requiredResearchBuilding>
+      <tab>Automation</tab>
+      <researchViewX>9</researchViewX>
+      <researchViewY>2</researchViewY>
+    </ResearchProjectDef>
+    <ResearchProjectDef>
+      <defName>PRFSimulationHypothesis</defName>
+      <label>Archotechnology</label>
+      <techLevel>Ultra</techLevel>
+      <baseCost>20000</baseCost>
+      <description>Learn how to produce computronium to enhance the intelligence of an existing AI persona core.</description>
+      <prerequisites>
+        <li>PRFRiemannHypothesis</li>
+        <li>PRFFermiParadox</li>
+      </prerequisites>
+      <requiredResearchBuilding>AIResearchBench</requiredResearchBuilding>
+      <tab>Automation</tab>
+      <researchViewX>9</researchViewX>
+      <researchViewY>3</researchViewY>
+    </ResearchProjectDef>
+    <ResearchProjectDef>
+      <defName>PRFPsychics</defName>
+      <label>Psychics</label>
+      <techLevel>Ultra</techLevel>
+      <baseCost>10000</baseCost>
+      <description>Unlocks the production of psychic items.</description>
+      <prerequisites>
+        <li>PRFPVersusNP</li>
+        <li>PRFFermiParadox</li>
+      </prerequisites>
+      <requiredResearchBuilding>AIResearchBench</requiredResearchBuilding>
+      <tab>Automation</tab>
+      <researchViewX>9</researchViewX>
+      <researchViewY>4</researchViewY>
+    </ResearchProjectDef>
+    <ResearchProjectDef>
+      <defName>PRFTheoryOfEverything</defName>
+      <label>theory of everything</label>
+      <techLevel>Archotech</techLevel>
+      <baseCost>40000</baseCost>
+      <description>Figure out how this simulation really works by hacking into it.</description>
+      <prerequisites>
+        <li>PRFVanometrics</li>
+        <li>PRFPsychics</li>
+        <li>PRFSimulationHypothesis</li>
+      </prerequisites>
+      <requiredResearchBuilding>AIResearchBench</requiredResearchBuilding>
+      <tab>Automation</tab>
+      <researchViewX>10</researchViewX>
+      <researchViewY>3</researchViewY>
+      <researchMods>
+        <li Class="ProjectRimFactory.Archo.ResearchMod_Notify">
+          <text>A strange feeling washes over your colonists. They speculate that the psychic signals may have originated from your very own AI research bench. Maybe it's trying to tell you something...</text>
+        </li>
+      </researchMods>
+    </ResearchProjectDef>
+</Defs>

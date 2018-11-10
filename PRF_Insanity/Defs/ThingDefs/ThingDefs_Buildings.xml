@@ -1,0 +1,358 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+    <ThingDef ParentName="PRFBuildingBase">
+      <defName>PRFQuantumComputer</defName>
+      <label>quantum computer</label>
+      <description>Required for tier 3 automation research - increases research speed by 75%. Needs to be placed near AI research bench. Consumes considerable power. One research bench can be linked to only one quantum computer.</description>
+      <graphicData>
+        <texPath>Things/Building/Misc/MultiAnalyzer</texPath>
+        <graphicClass>Graphic_Single</graphicClass>
+        <drawSize>(1,1)</drawSize>
+        <damageData>
+          <rect>(0.15,0.15,1.7,1.7)</rect>
+        </damageData>
+      </graphicData>
+      <researchPrerequisites><li>PRFQuantumComputing</li></researchPrerequisites>
+      <size>(1,1)</size>
+      <rotatable>false</rotatable>
+      <altitudeLayer>Building</altitudeLayer>
+      <passability>PassThroughOnly</passability>
+      <castEdgeShadows>true</castEdgeShadows>
+      <fillPercent>0.5</fillPercent>
+      <designationCategory>Misc</designationCategory>
+      <minifiedDef>MinifiedThing</minifiedDef>
+      <thingCategories><li>BuildingsMisc</li></thingCategories>
+      <canOverlapZones>false</canOverlapZones>
+      <statBases>
+        <MaxHitPoints>200</MaxHitPoints>
+        <WorkToBuild>5000</WorkToBuild>
+        <Mass>100</Mass>
+        <Flammability>1.0</Flammability>
+      </statBases>
+      <costList>
+        <Steel>100</Steel>
+        <Plasteel>50</Plasteel>
+        <Gold>20</Gold>
+        <ComponentSpacer>5</ComponentSpacer>
+      </costList>
+      <comps>
+        <li Class="CompProperties_Power">
+          <compClass>CompPowerTrader</compClass>
+          <basePowerConsumption>1000</basePowerConsumption>
+        </li>
+        <li Class="CompProperties_Flickable"/>
+        <li Class="CompProperties_Facility">
+          <statOffsets>
+            <ResearchSpeedFactor>0.75</ResearchSpeedFactor>
+          </statOffsets>
+          <maxSimultaneous>1</maxSimultaneous>
+        </li>
+      </comps>
+          <placeWorkers>
+              <li>PlaceWorker_ShowFacilitiesConnections</li>
+          </placeWorkers>
+      <constructionSkillPrerequisite>9</constructionSkillPrerequisite>
+    </ThingDef>
+
+    <ThingDef ParentName="AssemblerBase">
+      <defName>PaperclipFactory</defName>
+      <label>paperclip factory</label>
+      <thingClass>ProjectRimFactory.Industry.Building_PaperclipFactory</thingClass>
+      <graphicData>
+        <texPath>SAL3/PaperclipFactory</texPath>
+        <drawSize>(2, 2)</drawSize>
+      </graphicData>
+      <size>(2, 2)</size>
+      <statBases>
+        <WorkToBuild>2000</WorkToBuild>
+  	  <Mass>30</Mass>
+      </statBases>
+      <description>A machine that makes paperclips from any raw matter inserted into it - metal, plant or corpse.</description>
+  	<stuffCategories />
+      <costList>
+        <PRFMachineFrame>1</PRFMachineFrame>
+        <Steel>20</Steel>
+        <ComponentIndustrial>2</ComponentIndustrial>
+        <PRFWeakAIChip>2</PRFWeakAIChip>
+      </costList>
+  	<comps>
+  	  <li Class="CompProperties_Power">
+  	    <compClass>CompPowerTrader</compClass>
+  		<basePowerConsumption>400</basePowerConsumption>
+  	  </li>
+  	  <li><compClass>ProjectRimFactory.Common.CompPRFHelp</compClass></li>
+  	</comps>
+  	<recipes>
+        <li>MakePaperclips</li>
+        <li>MakePaperclipsTake10Items</li>
+        <li>MakePaperclipsTake75Items</li>
+  	</recipes>
+  	<researchPrerequisites>
+  	  <li>PaperclipProduction</li>
+  	</researchPrerequisites>
+      <rotatable>false</rotatable>
+    </ThingDef>
+    <ThingDef ParentName="PRFBuildingBase">
+      <defName>PRFPaperclipPowerGenerator</defName>
+      <label>paperclip power generator</label>
+      <thingClass>Building</thingClass>
+      <graphicData>
+        <texPath>Industry/PaperclipGenerator</texPath>
+        <graphicClass>Graphic_Single</graphicClass>
+        <drawSize>(2,2)</drawSize>
+      </graphicData>
+      <altitudeLayer>Building</altitudeLayer>
+      <passability>PassThroughOnly</passability>
+      <pathCost>150</pathCost>
+      <blockWind>true</blockWind>
+      <fillPercent>1.0</fillPercent>
+      <castEdgeShadows>false</castEdgeShadows>
+      <rotatable>false</rotatable>
+      <statBases>
+        <MaxHitPoints>300</MaxHitPoints>
+        <WorkToBuild>5000</WorkToBuild>
+        <Flammability>1.0</Flammability>
+        <Mass>105</Mass>
+      </statBases>
+      <tickerType>Normal</tickerType>
+      <description>Produces power by consuming paperclips. Must be fueled by hand.</description>
+      <canOverlapZones>false</canOverlapZones>
+      <size>(2,2)</size>
+      <costList>
+        <Steel>100</Steel>
+        <PRFWeakAIChip>1</PRFWeakAIChip>
+        <Paperclip>100000</Paperclip>
+        <ComponentIndustrial>4</ComponentIndustrial>
+      </costList>
+      <comps>
+        <li Class="CompProperties_Power">
+          <compClass>ProjectRimFactory.Industry.CompPaperclipPowerPlant</compClass>
+          <basePowerConsumption>-1</basePowerConsumption>
+          <transmitsPower>true</transmitsPower>
+        </li>
+        <li Class="CompProperties_Flickable" />
+        <li Class="CompProperties_Refuelable">
+          <fuelConsumptionRate>0</fuelConsumptionRate>
+          <fuelCapacity>1000000</fuelCapacity>
+          <targetFuelLevelConfigurable>true</targetFuelLevelConfigurable>
+          <initialConfigurableTargetFuelLevel>100000</initialConfigurableTargetFuelLevel>
+          <fuelFilter>
+            <thingDefs>
+              <li>Paperclip</li>
+            </thingDefs>
+          </fuelFilter>
+          <consumeFuelOnlyWhenUsed>true</consumeFuelOnlyWhenUsed>
+        </li>
+        <li Class="CompProperties_Glower">
+          <glowRadius>6</glowRadius>
+          <glowColor>(217,112,33,0)</glowColor>
+        </li>
+        <li Class="CompProperties_Breakdownable"/>
+        <li><compClass>ProjectRimFactory.Common.CompPRFHelp</compClass></li>
+      </comps>
+      <terrainAffordanceNeeded>Heavy</terrainAffordanceNeeded>
+      <designationCategory>Power</designationCategory>
+      <staticSunShadowHeight>0.5</staticSunShadowHeight>
+      <designationHotKey>Misc3</designationHotKey>
+      <constructEffect>ConstructMetal</constructEffect>
+      <researchPrerequisites>
+        <li>PaperclipProduction</li>
+      </researchPrerequisites>
+      <constructionSkillPrerequisite>4</constructionSkillPrerequisite>
+    </ThingDef>
+
+    <ThingDef ParentName="AssemblerBase">
+      <defName>AtomicReconstructor</defName>
+      <label>atomic reconstructor</label>
+      <thingClass>ProjectRimFactory.Industry.Building_AtomicReconstructor</thingClass>
+      <graphicData>
+        <texPath>Industry/AtomicReconstructor</texPath>
+        <graphicClass>Graphic_Single</graphicClass>
+      </graphicData>
+      <costList>
+        <PRFWeakAIChip>3</PRFWeakAIChip>
+        <PRFMachineFrameLarge>1</PRFMachineFrameLarge>
+        <Plasteel>40</Plasteel>
+        <Steel>50</Steel>
+        <ComponentIndustrial>2</ComponentIndustrial>
+      </costList>
+      <description>Converts paperclips into something more useful.</description>
+      <statBases>
+        <WorkToBuild>3000</WorkToBuild>
+        <MarketValue>1000</MarketValue>
+        <Mass>100</Mass>
+      </statBases>
+      <comps>
+        <li Class="CompProperties_Power">
+          <compClass>CompPowerTrader</compClass>
+          <basePowerConsumption>700</basePowerConsumption>
+        </li>
+        <li Class="CompProperties_Refuelable">
+          <fuelConsumptionRate>0</fuelConsumptionRate>
+          <fuelCapacity>1000000</fuelCapacity>
+          <targetFuelLevelConfigurable>true</targetFuelLevelConfigurable>
+          <initialConfigurableTargetFuelLevel>100000</initialConfigurableTargetFuelLevel>
+          <fuelFilter>
+            <thingDefs>
+              <li>Paperclip</li>
+            </thingDefs>
+          </fuelFilter>
+          <consumeFuelOnlyWhenUsed>true</consumeFuelOnlyWhenUsed>
+        </li>
+        <li><compClass>ProjectRimFactory.Common.CompPRFHelp</compClass></li>
+      </comps>
+      <researchPrerequisites>
+        <li>PRFAtomicReconstruction</li>
+      </researchPrerequisites>
+      <rotatable>false</rotatable>
+      <inspectorTabs>
+        <li>ProjectRimFactory.Industry.UI.ITab_AtomicReconstruction</li>
+      </inspectorTabs>
+      <stuffCategories />
+    </ThingDef>
+    <ThingDef ParentName="PRFBuildingBase">
+      <defName>PRFMegaCapacitor</defName>
+      <label>Mega-Capacitor</label>
+      <thingClass>ProjectRimFactory.Industry.Building_CustomBattery</thingClass>
+      <graphicData>
+        <texPath>Industry/Battery/MegaCapacitor</texPath>
+        <graphicClass>Graphic_Single</graphicClass>
+        <drawSize>(2,2)</drawSize>
+      </graphicData>
+      <altitudeLayer>Building</altitudeLayer>
+      <passability>PassThroughOnly</passability>
+      <pathCost>70</pathCost>
+      <blockWind>true</blockWind>
+      <castEdgeShadows>true</castEdgeShadows>
+      <rotatable>false</rotatable>
+      <fillPercent>0.40</fillPercent>
+      <tickerType>Normal</tickerType>
+      <minifiedDef>MinifiedThing</minifiedDef>
+      <thingCategories><li>BuildingsPower</li></thingCategories>
+      <statBases>
+        <MaxHitPoints>100</MaxHitPoints>
+        <WorkToBuild>1000</WorkToBuild>
+        <Mass>80</Mass>
+        <Flammability>1.0</Flammability>
+        <Beauty>-40</Beauty>
+      </statBases>
+      <description>A battery that can store 1000000Wd of power. Has 100% efficiency. It is also waterproof.</description>
+      <size>(2,2)</size>
+      <costList>
+        <PRFMachineFrame>1</PRFMachineFrame>
+        <Steel>800</Steel>
+        <Plasteel>200</Plasteel>
+        <ComponentIndustrial>24</ComponentIndustrial>
+      </costList>
+      <comps>
+        <li Class="CompProperties_Battery">
+          <storedEnergyMax>1000000</storedEnergyMax>
+          <efficiency>1</efficiency>
+          <shortCircuitInRain>false</shortCircuitInRain>
+          <transmitsPower>true</transmitsPower>
+        </li>
+      </comps>
+      <terrainAffordanceNeeded>Light</terrainAffordanceNeeded>
+      <designationCategory>Power</designationCategory>
+      <staticSunShadowHeight>0.3</staticSunShadowHeight>
+      <constructEffect>ConstructMetal</constructEffect>
+      <researchPrerequisites>
+        <li>PRFOrdoDataRummaging</li>
+      </researchPrerequisites>
+    </ThingDef>
+
+    <ThingDef ParentName="PRFBuildingBase">
+      <defName>PRFHexCapacitor</defName>
+      <label>Hex-Capacitor</label>
+      <thingClass>ProjectRimFactory.Archo.Things.Building_HexCapacitor</thingClass>
+      <graphicData>
+        <texPath>Archo/HexCapacitor</texPath>
+        <graphicClass>Graphic_Single</graphicClass>
+        <drawSize>(2,2)</drawSize>
+      </graphicData>
+      <altitudeLayer>Building</altitudeLayer>
+      <passability>PassThroughOnly</passability>
+      <pathCost>70</pathCost>
+      <blockWind>true</blockWind>
+      <castEdgeShadows>true</castEdgeShadows>
+      <rotatable>false</rotatable>
+      <fillPercent>0.40</fillPercent>
+      <tickerType>Normal</tickerType>
+      <minifiedDef>MinifiedThing</minifiedDef>
+      <thingCategories><li>BuildingsPower</li></thingCategories>
+      <drawGUIOverlay>true</drawGUIOverlay>
+      <statBases>
+        <MaxHitPoints>100</MaxHitPoints>
+        <WorkToBuild>4000</WorkToBuild>
+        <Mass>100</Mass>
+        <Flammability>1.0</Flammability>
+        <Beauty>-40</Beauty>
+      </statBases>
+      <description>A battery that uses hex-cells to store 16 million watt days of power. Has 100% efficiency. It is also waterproof.</description>
+      <size>(2,2)</size>
+      <costList>
+        <PRFMachineFrame>1</PRFMachineFrame>
+        <Steel>1200</Steel>
+        <Plasteel>300</Plasteel>
+        <PRFZComposite>40</PRFZComposite>
+        <PRFVolatiteChunk>1</PRFVolatiteChunk>
+        <ComponentIndustrial>50</ComponentIndustrial>
+      </costList>
+      <comps>
+        <li Class="CompProperties_Battery">
+          <storedEnergyMax>16000000</storedEnergyMax>
+          <efficiency>1</efficiency>
+          <shortCircuitInRain>false</shortCircuitInRain>
+          <transmitsPower>true</transmitsPower>
+        </li>
+      </comps>
+      <terrainAffordanceNeeded>Light</terrainAffordanceNeeded>
+      <designationCategory>Power</designationCategory>
+      <staticSunShadowHeight>0.3</staticSunShadowHeight>
+      <constructEffect>ConstructMetal</constructEffect>
+      <researchPrerequisites>
+        <li>PRFVanometrics</li>
+      </researchPrerequisites>
+    </ThingDef>
+
+    <ThingDef ParentName="PRFBuildingBase">
+      <defName>PRFPaperclipDuplicator</defName>
+      <label>paperclip duplicator</label>
+      <thingClass>ProjectRimFactory.Industry.Building_PaperclipDuplicator</thingClass>
+      <graphicData>
+        <texPath>Archo/PaperclipverseSimulator</texPath>
+        <graphicClass>Graphic_Single</graphicClass>
+        <drawSize>(2, 2)</drawSize>
+      </graphicData>
+      <size>(2, 2)</size>
+      <altitudeLayer>Building</altitudeLayer>
+      <passability>PassThroughOnly</passability>
+      <fillPercent>0.5</fillPercent>
+      <castEdgeShadows>true</castEdgeShadows>
+      <statBases>
+        <WorkToBuild>3000</WorkToBuild>
+        <MaxHitPoints>100</MaxHitPoints>
+        <Flammability>1.0</Flammability>
+      </statBases>
+      <description>A Banach-Tarski duplicator set to duplicate paperclips. Every day the amount of paperclips stored grows by 5%. Any attempts to tamper with the paperclip duplicator will destroy all stored paperclips.</description>
+      <costList>
+        <PRFMachineFrame>1</PRFMachineFrame>
+        <PRFWeakAIChip>1</PRFWeakAIChip>
+        <Steel>200</Steel>
+        <Plasteel>50</Plasteel>
+        <ComponentIndustrial>3</ComponentIndustrial>
+      </costList>
+      <comps>
+        <li><compClass>ProjectRimFactory.Common.CompPRFHelp</compClass></li>
+      </comps>
+      <rotatable>false</rotatable>
+      <designationCategory>Automation</designationCategory>
+      <staticSunShadowHeight>0.3</staticSunShadowHeight>
+      <researchPrerequisites>
+        <li>PaperclipProduction</li>
+      </researchPrerequisites>
+      <inspectorTabs>
+        <li>ProjectRimFactory.Industry.UI.ITab_PaperclipDuplicator</li>
+      </inspectorTabs>
+    </ThingDef>
+</Defs>

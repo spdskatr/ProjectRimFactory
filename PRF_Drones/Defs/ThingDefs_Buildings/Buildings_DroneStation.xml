@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+  <ThingDef ParentName="PRFBuildingBase" Name="PRFDroneStationBase" Abstract="True">
+    <thingClass>ProjectRimFactory.Drones.Building_DroneStationRefuelable</thingClass>
+    <graphicData>
+      <texPath>Drones/DroneBase_2x2</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <shaderType>CutoutComplex</shaderType>
+	  <drawSize>(2, 2)</drawSize>
+    </graphicData>
+	<size>(2, 2)</size>
+    <altitudeLayer>Building</altitudeLayer>
+    <passability>PassThroughOnly</passability>
+    <fillPercent>0.5</fillPercent>
+    <castEdgeShadows>false</castEdgeShadows>
+    <tickerType>Normal</tickerType>
+    <statBases>
+      <WorkToBuild>3000</WorkToBuild>
+      <MaxHitPoints>100</MaxHitPoints>
+      <Flammability>1.0</Flammability>
+    </statBases>
+    <drawGUIOverlay>true</drawGUIOverlay>
+    <comps>
+	  <li><compClass>ProjectRimFactory.Common.CompPRFHelp</compClass></li>
+      <li Class="CompProperties_Refuelable">
+        <fuelConsumptionRate>0</fuelConsumptionRate>
+        <fuelCapacity>50</fuelCapacity>
+        <fuelConsumptionPerTickInRain>0</fuelConsumptionPerTickInRain>
+        <consumeFuelOnlyWhenUsed>true</consumeFuelOnlyWhenUsed>
+        <fuelFilter>
+          <thingDefs>
+            <li>PRFDroneModule</li>
+          </thingDefs>
+        </fuelFilter>
+        <targetFuelLevelConfigurable>true</targetFuelLevelConfigurable>
+        <initialConfigurableTargetFuelLevel>5</initialConfigurableTargetFuelLevel>
+        <drawOutOfFuelOverlay>false</drawOutOfFuelOverlay>
+      </li>
+    </comps>
+    <rotatable>false</rotatable>
+    <designationCategory>Automation</designationCategory>
+  </ThingDef>
+  <ThingDef ParentName="PRFDroneStationBase">
+    <defName>CaretakerDroneStation</defName>
+    <label>caretaker drone station</label>
+    <description>A station that holds up to 50 drones, capable of hauling and cleaning, flicking and fighting fires. Consumes considerable power. Typically your colony only needs 1 of these.</description>
+    <stuffCategories>
+      <li>Metallic</li>
+    </stuffCategories>
+    <thingClass>ProjectRimFactory.Drones.Building_DroneStationSpecialGraphics</thingClass>
+    <graphicData>
+      <texPath>Drones/DroneStationCaretaker</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <shaderType>CutoutComplex</shaderType>
+	  <drawSize>(3, 3)</drawSize>
+    </graphicData>
+	<size>(3, 3)</size>
+    <costStuffCount>100</costStuffCount>
+    <costList>
+      <ComponentSpacer>5</ComponentSpacer>
+      <ComponentIndustrial>5</ComponentIndustrial>
+	  <PRFWeakAIChip>12</PRFWeakAIChip>
+    </costList>
+    <modExtensions>
+      <li Class="ProjectRimFactory.Drones.DefModExtension_DroneStation">
+        <displayDormantDrones>true</displayDormantDrones>
+        <workTypes>
+          <li>Firefighter</li>
+          <li>BasicWorker</li>
+          <li>Hauling</li>
+          <li>Cleaning</li>
+        </workTypes>
+      </li>
+    </modExtensions>
+    <comps>
+      <li Class="CompProperties_Power">
+        <compClass>CompPowerTrader</compClass>
+        <shortCircuitInRain>false</shortCircuitInRain>
+        <basePowerConsumption>1000</basePowerConsumption>
+      </li>
+    </comps>
+    <researchPrerequisites>
+      <li>PRFCaretakerDrones</li>
+    </researchPrerequisites>
+  </ThingDef>
+  <ThingDef ParentName="PRFDroneStationBase">
+    <defName>ConstructionDroneStation</defName>
+    <label>construction drone station</label>
+    <description>A station that holds up to 50 drones, capable of mining and construction. Consumes considerable power. Typically your colony only needs 1 of these.</description>
+    <stuffCategories>
+      <li>Metallic</li>
+    </stuffCategories>
+    <thingClass>ProjectRimFactory.Drones.Building_DroneStationSpecialGraphics</thingClass>
+    <graphicData>
+      <texPath>Drones/DroneStationConstruction</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <shaderType>CutoutComplex</shaderType>
+	  <drawSize>(3, 3)</drawSize>
+    </graphicData>
+	<size>(3, 3)</size>
+    <costStuffCount>100</costStuffCount>
+    <costList>
+      <ComponentSpacer>5</ComponentSpacer>
+      <ComponentIndustrial>8</ComponentIndustrial>
+	  <PRFWeakAIChip>12</PRFWeakAIChip>
+    </costList>
+    <modExtensions>
+      <li Class="ProjectRimFactory.Drones.DefModExtension_DroneStation">
+        <displayDormantDrones>true</displayDormantDrones>
+        <workTypes>
+          <li>Construction</li>
+          <li>Mining</li>
+        </workTypes>
+      </li>
+    </modExtensions>
+    <comps>
+      <li Class="CompProperties_Power">
+        <compClass>CompPowerTrader</compClass>
+        <shortCircuitInRain>false</shortCircuitInRain>
+        <basePowerConsumption>1500</basePowerConsumption>
+      </li>
+    </comps>
+    <researchPrerequisites>
+      <li>PRFConstructionDrones</li>
+    </researchPrerequisites>
+  </ThingDef>
+  <ThingDef ParentName="PRFDroneStationBase">
+    <defName>GrowingDroneStation</defName>
+    <label>growing drone station</label>
+    <description>A station that holds up to 50 drones, capable of growing and plant cutting. Consumes considerable power. Typically your colony only needs 1 of these.</description>
+    <stuffCategories>
+      <li>Metallic</li>
+    </stuffCategories>
+    <thingClass>ProjectRimFactory.Drones.Building_DroneStationSpecialGraphics</thingClass>
+    <graphicData>
+      <texPath>Drones/DroneStationGrower</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <shaderType>CutoutComplex</shaderType>
+	  <drawSize>(3, 3)</drawSize>
+    </graphicData>
+	<size>(3, 3)</size>
+    <costStuffCount>100</costStuffCount>
+    <costList>
+      <ComponentSpacer>5</ComponentSpacer>
+      <ComponentIndustrial>8</ComponentIndustrial>
+	  <PRFWeakAIChip>12</PRFWeakAIChip>
+    </costList>
+    <modExtensions>
+      <li Class="ProjectRimFactory.Drones.DefModExtension_DroneStation">
+        <displayDormantDrones>true</displayDormantDrones>
+        <workTypes>
+          <li>Growing</li>
+          <li>PlantCutting</li>
+        </workTypes>
+      </li>
+    </modExtensions>
+    <comps>
+      <li Class="CompProperties_Power">
+        <compClass>CompPowerTrader</compClass>
+        <shortCircuitInRain>false</shortCircuitInRain>
+        <basePowerConsumption>1500</basePowerConsumption>
+      </li>
+    </comps>
+    <researchPrerequisites>
+      <li>PRFGrowingDrones</li>
+    </researchPrerequisites>
+  </ThingDef>
+</Defs>

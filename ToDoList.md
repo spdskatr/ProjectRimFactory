@@ -11,6 +11,7 @@
 - Make drones unforbid stuff after mining
 - Post-goldbach and post-ordo storage
 - Scenario - Paperclip entreprenur
+- Bischoff (Steam Workshop) "could you make it so that drones remember their area restrictions after being recalled to the station? I like to recall them during battles but then have to manually set all their areas again which is annoying. Maybe a tab for drones (like the restrict tab for pawns) would help so we can easier keep track of them."
 
 ## WTF
 - Better control over drones

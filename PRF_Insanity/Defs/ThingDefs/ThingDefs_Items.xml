@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+    <ThingDef ParentName="PRFResourceBase">
+      <defName>Paperclip</defName>
+      <label>paperclip</label>
+      <description>A small metal object weighing exactly 1 gram. Paperclips are ideal as an intermediate resource for atomic and molecular resassembly.</description>
+      <graphicData>
+        <texPath>Common/Paperclip</texPath>
+        <graphicClass>Graphic_Single</graphicClass>
+      </graphicData>
+      <resourceReadoutPriority>Middle</resourceReadoutPriority>
+      <soundInteract>Metal_Drop</soundInteract>
+      <soundDrop>Metal_Drop</soundDrop>
+      <statBases>
+        <MarketValue>0.1</MarketValue>
+        <MaxHitPoints>50</MaxHitPoints>
+        <Mass>0.001</Mass>
+      </statBases>
+      <thingCategories>
+        <li>ResourcesRaw</li>
+      </thingCategories>
+      <stackLimit>100000</stackLimit>
+      <modExtensions>
+        <li Class="ProjectRimFactory.Industry.DefModExtension_AtomicReconstructorDisallow" />
+      </modExtensions>
+    </ThingDef>
+    <ThingDef ParentName="PRFResourceBase">
+      <defName>PRFComputronium</defName>
+      <label>Computronium</label>
+      <description>A cluster of electronics capable of over a vigintillion parallel floating point operations per second. Containing no AI in itself, it was likely manufactured to house an artificial superintelligence.</description>
+      <graphicData>
+        <texPath>Archo/Computronium</texPath>
+        <graphicClass>Graphic_Single</graphicClass>
+      </graphicData>
+      <resourceReadoutPriority>Middle</resourceReadoutPriority>
+      <soundInteract>Metal_Drop</soundInteract>
+      <soundDrop>Metal_Drop</soundDrop>
+      <statBases>
+        <MarketValue>8000</MarketValue>
+        <MaxHitPoints>50</MaxHitPoints>
+        <WorkToMake>5000</WorkToMake>
+        <Mass>1</Mass>
+      </statBases>
+      <costList>
+        <ComponentSpacer>20</ComponentSpacer>
+        <PRFWeakAIChip>20</PRFWeakAIChip>
+      </costList>
+      <recipeMaker>
+        <workSpeedStat>SmithingSpeed</workSpeedStat>
+        <workSkill>Crafting</workSkill>
+        <effectWorking>Cook</effectWorking>
+        <soundWorking>Recipe_Machining</soundWorking>
+        <recipeUsers>
+          <li>TableRoboticMachining</li>
+        </recipeUsers>
+        <researchPrerequisite>PRFSimulationHypothesis</researchPrerequisite>
+      </recipeMaker>
+      <thingCategories>
+        <li>Items</li>
+      </thingCategories>
+      <tradeability>Sellable</tradeability>
+    </ThingDef>
+</Defs>

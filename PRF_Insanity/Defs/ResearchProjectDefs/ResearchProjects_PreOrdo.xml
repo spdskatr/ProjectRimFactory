@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+      <ResearchProjectDef>
+        <defName>PRFQuantumComputing</defName>
+        <label>Quantum computing</label>
+        <techLevel>Spacer</techLevel>
+        <baseCost>2000</baseCost>
+        <description>Learn how to create quantum computers to aid in research projects.</description>
+        <prerequisites>
+          <li>PRFGoldbachConjecture</li>
+          <li>PaperclipProduction</li>
+          <li>AdvancedFabrication</li>
+        </prerequisites>
+        <requiredResearchBuilding>AIResearchBench</requiredResearchBuilding>
+        <tab>Automation</tab>
+        <researchViewX>5</researchViewX>
+        <researchViewY>3</researchViewY>
+      </ResearchProjectDef>
+
+      <ResearchProjectDef>
+        <defName>PRFAtomicReconstruction</defName>
+        <label>Atomic reconstruction</label>
+        <techLevel>Spacer</techLevel>
+        <baseCost>2000</baseCost>
+        <description>Allows colonists to turn paperclips into raw materials.</description>
+        <prerequisites>
+          <li>PRFGoldbachConjecture</li>
+          <li>PaperclipProduction</li>
+          <li>Fabrication</li>
+        </prerequisites>
+        <requiredResearchBuilding>AIResearchBench</requiredResearchBuilding>
+        <tab>Automation</tab>
+        <researchViewX>5</researchViewX>
+        <researchViewY>4</researchViewY>
+      </ResearchProjectDef>
+
+      <ResearchProjectDef>
+        <defName>PRFNanoMaterials</defName>
+        <label>Nano-materials</label>
+        <techLevel>Spacer</techLevel>
+        <baseCost>2500</baseCost>
+        <description>Allows the atomic reconstructor to create X-Composite and Y-Composite.</description>
+        <prerequisites>
+          <li>PRFAtomicReconstruction</li>
+        </prerequisites>
+        <requiredResearchBuilding>AIResearchBench</requiredResearchBuilding>
+        <tab>Automation</tab>
+        <researchViewX>6</researchViewX>
+        <researchViewY>5</researchViewY>
+      </ResearchProjectDef>
+
+      <ResearchProjectDef>
+        <defName>PRFEdiblesSynthesis</defName>
+        <label>edibles synthesis</label>
+        <techLevel>Spacer</techLevel>
+        <baseCost>2500</baseCost>
+        <description>Create foods by manipulating the molecular structure of paperclips.</description>
+        <prerequisites>
+          <li>PRFAtomicReconstruction</li>
+        </prerequisites>
+        <requiredResearchBuilding>AIResearchBench</requiredResearchBuilding>
+        <tab>Automation</tab>
+        <researchViewX>6</researchViewX>
+        <researchViewY>4</researchViewY>
+      </ResearchProjectDef>
+
+      <ResearchProjectDef>
+        <defName>PRFManufacturablesProduction</defName>
+        <label>manufacturables production</label>
+        <techLevel>Spacer</techLevel>
+        <baseCost>3000</baseCost>
+        <description>Allows colonists to also convert paperclips into items in the "manufactured" category.</description>
+        <prerequisites>
+          <li>PRFEdiblesSynthesis</li>
+        </prerequisites>
+        <requiredResearchBuilding>AIResearchBench</requiredResearchBuilding>
+        <tab>Automation</tab>
+        <researchViewX>7</researchViewX>
+        <researchViewY>4</researchViewY>
+      </ResearchProjectDef>
+
+      <ResearchProjectDef>
+        <defName>PRFAIPersonaProduction</defName>
+        <label>AI persona production</label>
+        <techLevel>Spacer</techLevel>
+        <baseCost>4250</baseCost>
+        <description>Allows colonists to fuse weak AI cores to make an AI persona core.</description>
+        <prerequisites>
+          <li>PRFQuantumComputing</li>
+          <li>PRFAtomicReconstruction</li>
+        </prerequisites>
+        <requiredResearchBuilding>AIResearchBench</requiredResearchBuilding>
+        <tab>Automation</tab>
+        <researchViewX>6</researchViewX>
+        <researchViewY>3</researchViewY>
+      </ResearchProjectDef>
+
+      <ResearchProjectDef>
+        <defName>PRFOrdoDataRummaging</defName>
+        <label>Ordo data rummaging</label>
+        <techLevel>Spacer</techLevel>
+        <baseCost>10000</baseCost>
+        <description>The AI research bench has detected a scrambled radio signal originating from deep within the planet, broadcasting records of the Ordo Historia. Unscramble the signal and search through the records in the hopes of uncovering more technology.</description>
+        <prerequisites>
+          <li>PRFAIPersonaProduction</li>
+        </prerequisites>
+        <requiredResearchBuilding>AIResearchBench</requiredResearchBuilding>
+        <tab>Automation</tab>
+        <researchViewX>7</researchViewX>
+        <researchViewY>3</researchViewY>
+    	<!--researchMods>
+    	  <li Class="ProjectRimFactory.Archo.ResearchMod_Notify">
+    	    <text>The AI research bench informs you that it can now decipher the secret code of the archotechs. This may come in handy later...</text>
+    	  </li>
+    	</researchMods-->
+      </ResearchProjectDef>
+
+</Defs>
