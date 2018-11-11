@@ -2,7 +2,7 @@
 
 RW_INSTALL_PATH="$HOME/.local/share/Steam/steamapps/common/RimWorld"
 
-for dir in ./*/
+for dir in ./PRF_*/
 do
     echo -n "Copying $dir to $RW_INSTALL_PATH/Mods/$dir... "
     # Make mod directory if it does not exist
