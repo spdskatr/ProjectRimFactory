@@ -4,7 +4,8 @@
 	<author>Spdskatr</author>
 	<targetVersion>1.0.0</targetVersion>
 	<url>https://ludeon.com/forums/index.php?topic=30813.0</url>
-	<description><![CDATA[A mod giving you the ability to automate parts of your colony.
+	<description><![CDATA[A mod giving you the ability to automate parts of your colony.    
+<color=red><b>IMPORTANT! LOAD THIS AFTER THE MOD "Project RimFactory - Core" OR THIS MOD WILL THROW ERRORS!</b></color>
 <b>Credits:</b>
 Data disk and tape player textures by totobrother
 Wood crate texture by Chicken Plucker
