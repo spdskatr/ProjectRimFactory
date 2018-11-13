@@ -10,16 +10,13 @@ using Verse;
 
 namespace ProjectRimFactory.Common.HarmonyPatches
 {
-    /// <summary>
-    /// infrastructure to suppress item splurge during load. Thanks to DoctorVanGogh
-    /// </summary>
     [HarmonyPatch(typeof(GenSpawn), "Spawn", new Type[] { typeof(Thing), typeof(IntVec3), typeof(Map), typeof(Rot4), typeof(WipeMode), typeof(bool) })]
     public static class GenSpawnPatch
     {
         public static FieldInfo LoadedFullThingsField = typeof(Map).GetField("loadedFullThings", BindingFlags.NonPublic | BindingFlags.Static);
-
         public static IEnumerable<CodeInstruction> Transpiler(IEnumerable<CodeInstruction> instructions, ILGenerator il)
         {
+            // Jumps over the code for displacing buildings and other items.
             bool ldargsSeen = false;
             Label l = il.DefineLabel();
             List<CodeInstruction> instrList = instructions.ToList();
@@ -36,23 +33,24 @@ namespace ProjectRimFactory.Common.HarmonyPatches
                     yield return ins;
                     yield return new CodeInstruction(OpCodes.Ldarg_2);
                     yield return new CodeInstruction(OpCodes.Ldarg_S, (byte)5);
-                    yield return new CodeInstruction(OpCodes.Call, typeof(GenSpawnPatch).GetMethod("ShouldDisplaceOtherItems"));
+                    yield return new CodeInstruction(OpCodes.Call, typeof(GenSpawnPatch).GetMethod("ValidateShouldDisplaceOtherItems"));
                     yield return new CodeInstruction(OpCodes.Brfalse, l);
                     ldargsSeen = true;
                 }
-
                 if (i + 2 < instrList.Count && instrList[i + 2].opcode == OpCodes.Callvirt && instrList[i + 2].operand == typeof(Thing).GetProperty("Rotation").GetSetMethod())
                 {
                     instrList[i].labels.Add(l);
                 }
-
                 yield return instrList[i];
             }
         }
-
-        public static bool ShouldDisplaceOtherItems(IntVec3 cell, Map map, bool respawningAfterLoad)
+        public static bool ValidateShouldDisplaceOtherItems(IntVec3 cell, Map map, bool respawningAfterLoad)
         {
-            return !respawningAfterLoad || map?.thingGrid.ThingsListAtFast(cell).OfType<Building_MassStorageUnit>().Any() != true;
+            // TODO: Actually reference it to mass buildings that exist. This works but may alter core functionality.
+            // Notes: 
+            // - Buildings are loaded after other things are loaded
+            // - There is a collection of exposed things in Map, and it is loaded, but it may take significant time to iterate through
+            return !respawningAfterLoad;
         }
     }
 }
