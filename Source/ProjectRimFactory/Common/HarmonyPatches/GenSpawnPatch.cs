@@ -22,7 +22,8 @@ namespace ProjectRimFactory.Common.HarmonyPatches
             List<CodeInstruction> instrList = instructions.ToList();
             for (int i = 0; i < instrList.Count; i++)
             {
-                if (!ldargsSeen && instrList[i].opcode == OpCodes.Ldarg_S && instrList[i].operand.Equals((byte)4))
+                if (!ldargsSeen && instrList[i].opcode == OpCodes.Ldarg_S && instrList[i].operand.Equals((byte)4) && 
+                    instrList[i].labels.Count > 0 /* Mod compat between other mods that do same patch */)
                 {
                     Label jmpLabel = instrList[i].labels[0];
                     instrList[i].labels.Clear();
