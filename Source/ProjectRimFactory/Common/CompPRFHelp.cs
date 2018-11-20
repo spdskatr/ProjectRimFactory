@@ -54,7 +54,7 @@ namespace ProjectRimFactory.Common
                     }
                 };
             }
-            if (PRFDefOf.PRFOrdoDataRummaging.IsFinished)
+            if (PRFDefOf.PRFOrdoDataRummaging?.IsFinished == true) // == comparison between bool? and bool
             {
                 string ordoText = OrdoText;
                 if (!string.IsNullOrEmpty(ordoText))
