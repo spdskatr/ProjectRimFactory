@@ -6,3 +6,7 @@ This is an extensive mod for RimWorld that adds many buildings that automate cra
 
 Development Discord:
 [![Project RimFactory development Discord](https://discordapp.com/api/guilds/391377136256024577/embed.png?style=banner1)](https://discord.gg/6MHVepE)
+
+## Installation
+
+Download from the [releases section](https://github.com/spdskatr/ProjectRimFactory/releases).
