@@ -1,4 +1,4 @@
-#!/usr/bin/bash
+#!/bin/bash
 
 RW_INSTALL_PATH="$HOME/.local/share/Steam/steamapps/common/RimWorld"
 

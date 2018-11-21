@@ -6,12 +6,6 @@
 Output/
 *.Designer.cs
 
-# Build scripts, in case anyone else edits them for their own machine
-sync.sh
-package.sh
-clean.sh
-clean_and_sync.sh
-
 # User-specific files
 *.suo
 *.user
