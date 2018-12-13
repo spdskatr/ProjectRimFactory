@@ -78,7 +78,7 @@ namespace ProjectRimFactory.Industry
             {
                 builder.AppendLine(str);
             }
-            builder.AppendLine("PaperclipsInDuplicator".Translate(PaperclipsActual));
+            builder.AppendLine("PaperclipsInDuplicator".Translate(PaperclipsActual.ToString()));
             if (boundStorageUnit != null)
             {
                 builder.AppendLine("PaperclipsInStorageUnit".Translate(boundStorageUnit.StoredItems.Where(t => t.def == PRFDefOf.Paperclip).Sum(t => t.stackCount)));
@@ -100,7 +100,24 @@ namespace ProjectRimFactory.Industry
                 yield return new Command_Action()
                 {
                     defaultLabel = "DEBUG: Double paperclip amount",
-                    action = () => PaperclipsActual *= 2
+                    action = () =>  
+                    {
+                        try
+                        {
+                            checked
+                            {
+                                if (PaperclipsActual != long.MaxValue)
+                                {
+                                    PaperclipsActual = PaperclipsActual * 2;
+                                }
+                            }
+                        }
+                        catch (OverflowException)
+                        {
+                            Find.WindowStack.Add(new Dialog_MessageBox("PRF_ArchoCipher_BankOverflow".Translate()));
+                            PaperclipsActual = long.MaxValue;
+                        }
+                    }
                 };
             }
         }
