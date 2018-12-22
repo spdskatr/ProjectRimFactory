@@ -51,6 +51,10 @@
     <Reference Include="0Harmony">
       <HintPath>..\..\PRF_Core\Assemblies\0Harmony.dll</HintPath>
     </Reference>
+    <Reference Include="0NoMessySpawns">
+      <HintPath>..\..\PRF_Core\Assemblies\0NoMessySpawns.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AnimalStation\Building_CompHarvester.cs" />
@@ -72,7 +76,6 @@
     <Compile Include="Common\Cache.cs" />
     <Compile Include="Common\CompOutputAdjustable.cs" />
     <Compile Include="Common\CompPRFHelp.cs" />
-    <Compile Include="Common\HarmonyPatches\GenSpawnPatch.cs" />
     <Compile Include="Common\HarmonyPatches\RacePropertiesPatch.cs" />
     <Compile Include="Common\PatchOperationRTFuseInsertionHook.cs" />
     <Compile Include="Common\HarmonyPatches\PathGridPatch.cs" />

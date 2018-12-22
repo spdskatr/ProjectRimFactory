@@ -6,6 +6,8 @@ using System.Reflection;
 using System.Text;
 using UnityEngine;
 using Verse;
+using SimpleFixes;
+using ProjectRimFactory.Storage;
 
 namespace ProjectRimFactory.Common
 {
@@ -16,6 +18,7 @@ namespace ProjectRimFactory.Common
             settings = GetSettings<ProjectRimFactory_ModSettings>();
             harmony = HarmonyInstance.Create("com.spdskatr.projectrimfactory");
             harmony.PatchAll(Assembly.GetExecutingAssembly());
+            NoMessySpawns.Instance.Add(ShouldSuppressDisplace, (Building_MassStorageUnit b, Map map) => true);
         }
 
         public HarmonyInstance harmony;
@@ -35,6 +38,11 @@ namespace ProjectRimFactory.Common
         public override void WriteSettings()
         {
             settings.Write();
+        }
+
+        public static bool ShouldSuppressDisplace(IntVec3 cell, Map map, bool respawningAfterLoad)
+        {
+            return !respawningAfterLoad || map?.thingGrid.ThingsListAtFast(cell).OfType<Building_MassStorageUnit>().Any() != true;
         }
     }
 }
