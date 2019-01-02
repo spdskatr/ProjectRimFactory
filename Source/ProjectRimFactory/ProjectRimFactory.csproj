@@ -53,7 +53,6 @@
     </Reference>
     <Reference Include="0NoMessySpawns">
       <HintPath>..\..\PRF_Core\Assemblies\0NoMessySpawns.dll</HintPath>
-      <Private>False</Private>
     </Reference>
   </ItemGroup>
   <ItemGroup>
